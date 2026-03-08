@@ -1,0 +1,5 @@
+h3, .HyperMD-header-3 {
+    color: red !important; 
+    font-size: 15px !important; /* Tamaño */
+    text-align: left; /* Opcional: Centrar el texto */
+}

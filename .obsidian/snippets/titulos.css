@@ -1,0 +1,11 @@
+/* Cambia el color y tamaño del Título 1 (#) */
+h1, .HyperMD-header-1 {
+    color: #9b59b6 !important; /* Color Morado */
+    font-size: 20px !important; /* Tamaño */
+    text-align: left; /* Opcional: Centrar el texto */
+}
+
+/* Cambia el color del Título 2 (##) */
+h2, .HyperMD-header-2 {
+    color: gold !important; /* Color Azul */
+}
