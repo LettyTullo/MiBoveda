@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+                "file": "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modelos de referencia"
+              "title": "Introduccion Redes"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+                "file": "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes de Modelos de referencia"
+              "title": "Enlaces entrantes de Introduccion Redes"
             }
           },
           {
@@ -187,8 +187,8 @@
   },
   "active": "4ed49dbf3ec08b67",
   "lastOpenFiles": [
-    "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
     "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+    "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
     "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
     "2026-03-08.md",
     "Sin título.canvas",
