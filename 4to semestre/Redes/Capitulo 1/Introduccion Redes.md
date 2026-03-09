@@ -62,7 +62,7 @@ El dispositivo que establece conexion entre dos o mas redes se le denomina "gate
 # 1-  Internet:
 Es una  vasta coleccion de redes que utilizan ciertos protocolos comunes y prestan ciertos servicios
 # - ARPANET: 
-Fue la precursora de la Internet, demostro que la conmutacion de paquetes era viable y robusta, sentando las bases tecnicas (como TCP/IP y el concepto de red distribuida) que permiten el funcioanmiento de la red global actual.
+Fue la precursora de la Internet, demostro que la conmutacion de paquetes era viable y robusta, sentando las bases tecnicas (como TCP/IP y el concepto de red distribuida) que permiten el funcionamiento de la red global actual.
 # - NSTNET:
 Fue la red que sucedio a la ARPANET y funciono como la red troncal (backbone) de la primera internet entre (1985-1995) fue el puente fundamental que transformó una red de investigacion academica en la infraestructura global,comercial y competitiva que hoy conocemos como internet
 # La arquitectura del internet
