@@ -32,3 +32,6 @@ $$
 M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
 $$
 
+Modulacion digital 
+Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  modulacion digital
+Los esquemas que convierten directamente bits a señales es la transmision de banda base y los esquemas que regulan la frecuencia, la señal 
