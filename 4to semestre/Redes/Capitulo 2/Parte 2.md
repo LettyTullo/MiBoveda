@@ -37,3 +37,9 @@ Los canales alambricos y no alambricos transportan señales analogicas como la i
 Los esquemas que convierten directamente bits a señales es la transmision de banda base y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de banda pasante. 
 El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina multiplezacion. 
 Las tecnicas de modulacion y multiplexado se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
+
+Transmision en banda base
+La forma mas sencilla de mosulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0"
+NRZ
+La presencia de luz representa el "1" y la ausencia de luz puede representar un "0". El NRZ se propaga por cable y una vez enviada el receptor convierte en bits la señal muestreando la señal en intervalos regulares de tiempo. Esta señal no se recibe exactamente como se envio debido a que estara atenuada y  distorcionada por el canal y el ruido del receptor.
+Los codigos de linea son los esquemas mas complejos que pueden convertir bits en señales que correspondan mejor a consideraciones tecnicas.
