@@ -24,4 +24,11 @@ C= Max. tasa de datos
 B= Ancho de banda del canal
 M= Numeros de niveles discretos de la señal
 Formula de Shannon
-Llevo el nivel a un canal con considerando el ruido aleatorio
+Llevo el nivel a un canal con considerando el ruido aleatorio. La cantidad de ruido termico se mide en relacion de la potencia de la señal y la potencia del ruido denominado SNR. El SNR depende mucho de la distancia
+$$
+\text{SNR}_{\text{db}} = 10 \log_{10} (\text{SNR})
+$$
+$$
+M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
+$$
+
