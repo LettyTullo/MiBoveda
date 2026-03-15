@@ -9,3 +9,7 @@ C: es una constante que determina el valor medio de una funcion
 an y bn: son la amplitud de sen y cos
 T: es el periodo 
 f: 1/T (frecuencia)
+Señales con ancho de banda limitado 
+
+El ancho de banda es la anchura de la banda de frecuencias que se transmite y las informaciones que se pueden transportar dependen solo del ancho y no de las frecuencias iniciales ni finales. Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
+El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra
