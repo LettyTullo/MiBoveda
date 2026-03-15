@@ -18,5 +18,9 @@ Velocidad maxima de transmision de un canal
 Formula de Nyquist 
 Obtuvo una ecuacion que representaba la velocidad maxima transmision en un canal sin ruido con un ancho de banda finito.
 $$
-C == 2B \log_2 M \text{ bits/sec}
+C = 2B \log_2 M \text{ bits/sec}
 $$
+C= Max. tasa de datos
+B= Ancho de banda del canal
+M= Numeros de niveles discretos de la señal
+Formula de Shannon
