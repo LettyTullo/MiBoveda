@@ -24,3 +24,4 @@ C= Max. tasa de datos
 B= Ancho de banda del canal
 M= Numeros de niveles discretos de la señal
 Formula de Shannon
+Llevo el nivel a un canal con considerando el ruido aleatorio
