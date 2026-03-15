@@ -106,8 +106,3 @@ WiFi utiliza frecuencias en **bandas sin licencia** (ISM), como 2,4 GHz y 5 GHz,
 - **802.11ad (2012):** Funciona en la banda de **60 GHz** (ondas milimétricas) alcanzando **7 Gbps**. Su alcance es muy corto y no atraviesa paredes, por lo que es ideal para uso dentro de una sola habitación.
 - **802.11ax / WiFi 6 (2019):** Conocida como "inalámbrica de alta eficiencia", utiliza **OFDMA** y 1024-QAM para alcanzar velocidades teóricas de hasta **11 Gbps**. Está diseñada para mejorar la eficiencia en entornos densos y reducir el consumo de energía.
 - **802.11ay:** Es una mejora de la versión "ad" que multiplica por cuatro el ancho de banda en la frecuencia de 60 GHz
-
-> [NOTA!]
->***interconectados***: se dice que dos ordenadores estan interconectados si pueden intercambiar informacion 
->***Datacenter***:
->Es un edificio o una sala dedicada exclusivamente a alojar una gran cantidad de computadoras (servidores) y equipos de almacenamiento conectados a la red las 24 horas del día.
