@@ -57,7 +57,10 @@ Es la perdida de la forma de la señal. No se solucionan con amplificadores, sin
 - **Distorcion por retardo:** La velocidad de propagacion varia con la frecuencia y es critico para señales digitales.
 # -Ruido:
 Señales adicionales insertadas entre el transmisor y receptor
-- Ruido termico: ocurre por la agitacion de electrones 
+- Ruido termico: ocurre por la agitacion de electrones uniformemente distruibuida en las frecuencias
+- Ruido de intermodulacion: Se producen cuando señales de distintas frecuencias comparten un mismo medio de transmision.
+- Crockstall o diafonia: Fenomeno de interferencia entre lineas de comunicacion proximas
+- Ruidos impulsivos: Pulsos irregulares o picos. ej: truenos. Un pico de ruido podria corromper muchos bits (mayor fuente de errores en datos digitales)
 
 ## Velocidad maxima de transmision de un canal
 # Formula de Nyquist 
