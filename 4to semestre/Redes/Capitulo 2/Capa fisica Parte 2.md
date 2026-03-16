@@ -4,25 +4,31 @@ Entidades que contienen significado o informacion que pueden ser digitales(bits)
 # Señales:
 Representacion electrica o electromagnetica de los datos, se propagan fisicamente por un medio
 # Transmision de datos:
-
-Señal
+Proceso de enviar informacion entre un transmisor y un receptor a traves de un medio de tranmision mediante la variacion de una señal a lo largo del tiempo.
+# Señal analogica: 
+Varia suavemente en el tiempo
+# Señal digital: 
+Se mantiene en un nivel constante y luego cambia a otro nivel constante
+# Señal periodica: 
+Patron repetido en el tiempo y la aperiodica es que no se repite en el tiempo
 # Tipos de canales segun el sentido de transmision
 - Simplex: Una direccion. Ej: television 
 - Duplex o semi-duplex: Cualquier direccion pero solo una vez. Ej: radio de policia
 - Full duplex: Ambas direcciones al mismo tiempo. Ej: Telefono
 
-2.4 De forma de ondas a bits
-En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion, modulacion.
-Analisis de Fourtier
-un matematico del sigo xix que decia que culaquier funcion periodica  con periodo T, se pueden representar como sumatorias (posiblemente infinitas) de senos y cosenos. La formula es:
+## 2.4 De forma de ondas a bits
+En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion o modulacion.
+# Analisis de Fourtier
+Un matematico del sigo xix que decia que cualquier funcion periodica  con periodo T, se pueden representar como sumatorias (posiblemente infinitas) de senos y cosenos. La formula es:
 $$
 g(t) = \frac{1}{2}c + \sum_{n=1}^{\infty} a_n \sin(2\pi nft) + \sum_{n=1}^{\infty} b_n \cos(2\pi nft)
 $$
-C: es una constante que determina el valor medio de una funcion
+C: es una constante que determina el valor medio de una funcion (valor de DC)
 an y bn: son la amplitud de sen y cos
 T: es el periodo 
 f: 1/T (frecuencia)
-Señales con ancho de banda limitado 
+
+# Señales con ancho de banda limitado 
 
 El ancho de banda es la anchura de la banda de frecuencias que se transmite y las informaciones que se pueden transportar dependen solo del ancho y no de las frecuencias iniciales ni finales. Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
 El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra
