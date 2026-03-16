@@ -18,7 +18,7 @@ Patron repetido en el tiempo y la aperiodica es que no se repite en el tiempo
 
 ## 2.4 De forma de ondas a bits
 En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion o modulacion.
-# Analisis de Fourtier
+# Analisis de Fourier
 Un matematico del sigo xix que decia que cualquier funcion periodica  con periodo T, se pueden representar como sumatorias (posiblemente infinitas) de senos y cosenos. La formula es:
 $$
 g(t) = \frac{1}{2}c + \sum_{n=1}^{\infty} a_n \sin(2\pi nft) + \sum_{n=1}^{\infty} b_n \cos(2\pi nft)
@@ -83,7 +83,7 @@ $$
 ## Modulacion digital 
 Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  modulacion digital
 Los esquemas que convierten directamente bits a señales es la transmision de banda base y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de banda pasante. 
-El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina multiplezacion. 
+El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina multiplexacion. 
 Las tecnicas de modulacion y multiplexado se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 
 ## Transmision en banda base
