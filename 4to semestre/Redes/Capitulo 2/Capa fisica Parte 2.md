@@ -120,7 +120,8 @@ La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tas
 - NRZ y NRZ-I son faciles de implementar, sin embargo no eliminan el componente DC
 - Usos: Grabaciones magneticas, USB, transmision serial
 # Señales balanceadas
-
+- Tienen la misma cantidad de señales positivas y negativas (eliminan el componente DC)
+- 
 ## Manchester (Bifase)
 - Transicion sirve como un reloj y datos
 - "Bajo" a "alto" representa un 1
