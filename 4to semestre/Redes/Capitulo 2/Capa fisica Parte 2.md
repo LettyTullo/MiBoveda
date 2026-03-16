@@ -45,7 +45,19 @@ La señal recibida puede diferir en la señal transmitida, por ejemplo en la se�
 Perdida de potencia de la señal debido a la distancia y depende del medio. La señal recibida debe ser: suficientemente fuerte para ser detectada y suficientemente mas alta que el ruido.
 Se implementa la potencia con amplificadores/repetidores
 Mayor frecuencia = Mayor atenuacion 
+$$
+\text{dB} = 10 \log_{10} \frac{P_2}{P_1}
+$$
+- $P_2$: Es la potencia de salida (o potencia medida).
+- $P_1$: Es la potencia de entrada (o potencia de referencia).
+- Si el resultado es positivo, hubo una ganancia de señal. Si es negativo, hubo una atenuación.
 # - Distorcion:
+Es la perdida de la forma de la señal. No se solucionan con amplificadores, sino con regeneradores de señal o repetidores.
+- **Distorcion por atenuacion:** Debido a que la atenuacion es diferente a distintas frecuencias, mayormente en señales analogicas
+- **Distorcion por retardo:** La velocidad de propagacion varia con la frecuencia y es critico para señales digitales.
+# -Ruido:
+Señales adicionales insertadas entre el transmisor y receptor
+- Ruido termico: ocurre por la agitacion de electrones 
 
 ## Velocidad maxima de transmision de un canal
 # Formula de Nyquist 
