@@ -91,11 +91,24 @@ El metodo que consiste en utilizar un solo cable para tranportar varias señales
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 
 ## Transmision en banda base
-La forma mas sencilla de mosulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0"
-NRZ
+- La forma mas sencilla de modulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0".
+- Conversion de bits a señales digitales: Pulsos de voltaje o amplitud discretos
+- Cada pulso es un "elemento de la señal".
+# Aspectos de codificacion
+- Ancho de banda
+- Existencia o no del Componente DC
+- Utilizacion del clocking simple o compleja
+- Facilidad para deteccion de errores 
+- Interferencia de la señal e inmune al ruido
+- Costo y complejidad
+## NRZ
 La presencia de luz representa el "1" y la ausencia de luz puede representar un "0". El NRZ se propaga por cable y una vez enviada el receptor convierte en bits la señal muestreando la señal en intervalos regulares de tiempo. Esta señal no se recibe exactamente como se envio debido a que estara atenuada y  distorcionada por el canal y el ruido del receptor.
 Los codigos de linea son los esquemas mas complejos que pueden convertir bits en señales que correspondan mejor a consideraciones tecnicas.
+- Necesidad del clocking entre el emisor y receptor
+- Una cadena de 15 ceros puede confundirse con una de 16 ceros
+- NRZ-I soluciona el problema de largas cadenas de "unos" pero no de "ceros"
+- NRZ y NRZ
 
-## Eficiencia del ancho de banda
+# Eficiencia del ancho de banda
 Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
 La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tasa de bits es la tasa de simbolos multiplicada por el numero de bits por simbolo.
