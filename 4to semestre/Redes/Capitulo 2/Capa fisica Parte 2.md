@@ -153,9 +153,8 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 	solo se hace cuando hay una cadena de 8 "ceros"
 ## Transmision de paso-banda o banda pasante
 Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_)
-Tecnicas de modulacion
-modulacion de desplazamiento por fase: se usa angulos 
-
+Tecnicas de modulacion --- completar
+ 
 
 fsk multinivel
 Cada elemento de la señal representa mas de un bit
@@ -165,6 +164,7 @@ se utiliza:
 $$ \log_{2} \ {n}
 $$
 donde n es la cantidad de frecuencias distintas
+
 Psk en cuadratura(QPSK)
 usa 4 fases distintas, siendo el desplazamiento (90°)
 
@@ -172,3 +172,11 @@ QAM
 Se usan 2 tecnicas para modular, se varia la fase y se varia la amplitud
 diagramas de constelacion
 cada elemento de señal es un puntito y la amplitud es la distancia
+
+codificacion de gray
+se busca que la diferencia de la codificacion entre los vecinos sea el minimo
+
+Tecnicas de multiplexado
+comun en redes de altas distancias. Son 4
+a) FDM 
+Tenes 4 señales y cada una se transmite a una frecuencia distinta y se junta todo a partir de un dispositivo multiplexador
