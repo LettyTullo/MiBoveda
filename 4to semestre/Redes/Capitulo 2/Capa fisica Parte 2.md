@@ -119,11 +119,17 @@ La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tas
 - NRZ-I soluciona el problema de largas cadenas de "unos" pero no de "ceros"
 - NRZ y NRZ-I son faciles de implementar, sin embargo no eliminan el componente DC
 - Usos: Grabaciones magneticas, USB, transmision serial
-# Señales balanceadas
-- Tienen la misma cantidad de señales positivas y negativas (eliminan el componente DC)
-- 
+# Bipolar o AMI
+El nombre **AMI** significa "Inversión de Marca Alternada" y es un tipo de **señal balanceada**.
+- **Funcionamiento:** Utiliza **tres niveles de voltaje** (+V, 0V, -V) para representar los datos.
+    - El bit **"0"** se representa con **voltaje cero** (0V).
+    - El bit **"1"** (llamado "marca") se representa alternando voltajes positivos y negativos (por ejemplo, +1V y luego -1V)
+    
 ## Manchester (Bifase)
+- Este esquema se caracteriza por tener una **transmisión en el medio de cada periodo de bit**
 - Transicion sirve como un reloj y datos
 - "Bajo" a "alto" representa un 1
 - "Alto" a "bajo" representa un 0
-- Usado en IEEE 802.3
+- Usado en IEEE 802.3 (Ethernet clasica)
+- - **Ventaja:** Resuelve el problema de la recuperación del reloj (sincronización), ya que siempre hay una transición en cada bit, incluso con cadenas largas de ceros o unos.
+- **Desventaja:** Requiere el **doble de ancho de banda** que otros esquemas (como NRZ) porque la señal cambia al doble de la tasa de bits
