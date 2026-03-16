@@ -91,7 +91,7 @@ El metodo que consiste en utilizar un solo cable para tranportar varias señales
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 
 ## Transmision en banda base
-Transmitir bits a una señal digital
+Transmitir bits a una señal digital. Va desde cero hasta un valor maximo
 - La forma mas sencilla de modulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0".
 - Conversion de bits a señales digitales: Pulsos de voltaje o amplitud discretos
 - Cada pulso es un "elemento de la señal".
@@ -152,4 +152,13 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 	la V quiere decir cambio de nivel
 	solo se hace cuando hay una cadena de 8 "ceros"
 ## Transmision de paso-banda o banda pasante
-Para pasar de bits a una señal analogica (no se )
+Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_)
+Tecnicas de modulacion
+modulacion de desplazamiento por fase: se usa angulos 
+
+
+fsk multinivel
+Cada elemento de la señal representa mas de un bit
+uso eficiente de ancho de banda
+mas resistente al error
+se utiliza:
