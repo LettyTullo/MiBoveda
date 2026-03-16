@@ -183,4 +183,8 @@ Tenes 4 señales y cada una se transmite a una frecuencia distinta y se junta to
  OFDM
 utilizada en 802.11
 Son ortogonales entre si y estan diseñadas para estar estrechamentes solapadas
-b) TDM
+b) TDM //// el profe esta haciendo enfasis aca y pregunta si entendimos bien
+c) CDM
+APRENDER LAS SIGLAS DICE EL PROFE TODOS
+CDMA tambien 
+Cada usuario tiene "k" chips, cuando transmite un bit "1" transmite su codigo de chips, se codifica como que el "1" es una señal alta o "(+1)" y el "0" como una señal baja o "(-1)"
