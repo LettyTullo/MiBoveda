@@ -162,3 +162,13 @@ Cada elemento de la señal representa mas de un bit
 uso eficiente de ancho de banda
 mas resistente al error
 se utiliza:
+$$ \log_{2} \ {n}
+$$
+donde n es la cantidad de frecuencias distintas
+Psk en cuadratura(QPSK)
+usa 4 fases distintas, siendo el desplazamiento (90°)
+
+QAM 
+Se usan 2 tecnicas para modular, se varia la fase y se varia la amplitud
+diagramas de constelacion
+cada elemento de señal es un puntito y la amplitud es la distancia
