@@ -63,6 +63,10 @@ Señales adicionales insertadas entre el transmisor y receptor
 - Ruidos impulsivos: Pulsos irregulares o picos. ej: truenos. Un pico de ruido podria corromper muchos bits (mayor fuente de errores en datos digitales)
 
 ## Velocidad maxima de transmision de un canal
+La tasa de bits maxima posible (esta medida en bits sobre segundo) es en funcion de:
+Ancho de banda - en ciclo sobre segundo o Hz
+Ruido - en enlaces comunes
+Tasa de errores - de bits corruptos
 # Formula de Nyquist 
 Obtuvo una ecuacion que representaba la velocidad maxima transmision en un canal sin ruido con un ancho de banda finito.
 $$
@@ -81,10 +85,10 @@ M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
 $$
 
 ## Modulacion digital 
-Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  modulacion digital
-Los esquemas que convierten directamente bits a señales es la transmision de banda base y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de banda pasante. 
-El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina multiplexacion. 
-Las tecnicas de modulacion y multiplexado se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
+Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  **modulacion digital**.
+Los esquemas que convierten directamente bits a señales es la transmision de **banda base** y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de **banda pasante.** 
+El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina **multiplexacion**. 
+**Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 
 ## Transmision en banda base
 La forma mas sencilla de mosulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0"
