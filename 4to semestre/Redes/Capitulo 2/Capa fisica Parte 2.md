@@ -124,8 +124,11 @@ El nombre **AMI** significa "Inversión de Marca Alternada" y es un tipo de **se
 - **Funcionamiento:** Utiliza **tres niveles de voltaje** (+V, 0V, -V) para representar los datos.
     - El bit **"0"** se representa con **voltaje cero** (0V).
     - El bit **"1"** (llamado "marca") se representa alternando voltajes positivos y negativos (por ejemplo, +1V y luego -1V)
-    
-## Manchester (Bifase)
+- Ventajas: Elimina el componente DC, Deteccion de errores
+- Desventajas: Sigue siendo un problema las largas cadenas de "0"
+# Pseudoternario
+**Funcionamiento:** Es una variante del esquema AMI donde la lógica se invierte. El bit **"1"** se representa con **voltaje cero**, mientras que es el bit **"0"** el que **alterna** entre niveles positivos y negativos
+# Manchester (Bifase)
 - Este esquema se caracteriza por tener una **transmisión en el medio de cada periodo de bit**
 - Transicion sirve como un reloj y datos
 - "Bajo" a "alto" representa un 1
@@ -133,3 +136,8 @@ El nombre **AMI** significa "Inversión de Marca Alternada" y es un tipo de **se
 - Usado en IEEE 802.3 (Ethernet clasica)
 - - **Ventaja:** Resuelve el problema de la recuperación del reloj (sincronización), ya que siempre hay una transición en cada bit, incluso con cadenas largas de ceros o unos.
 - **Desventaja:** Requiere el **doble de ancho de banda** que otros esquemas (como NRZ) porque la señal cambia al doble de la tasa de bits
+# Manchester(diferencial)
+Los datos se representan de la siguiente manera: si existe una transición al **inicio del periodo de bit**, el valor es un **"0"** lógico; si no hay una transición al inicio, el valor es un **"1"** lógico. Este esquema se utiliza específicamente en el estándar de red **IEEE 802.5**
+
+# Tasa de baudios
+se define como la velocidad a la que se generan y cambian los **elementos de señal** o símbolos en un canal de comunicación. Es fundamental distinguir la tasa de baudios de la **tasa de bits**, ya que la tasa de bits representa el número de bits transmitidos por segundo y es igual a la tasa de símbolos multiplicada por el número de bits que transporta cada símbolo
