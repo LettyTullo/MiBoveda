@@ -180,3 +180,7 @@ Tecnicas de multiplexado
 comun en redes de altas distancias. Son 4
 a) FDM 
 Tenes 4 señales y cada una se transmite a una frecuencia distinta y se junta todo a partir de un dispositivo multiplexador
+ OFDM
+utilizada en 802.11
+Son ortogonales entre si y estan diseñadas para estar estrechamentes solapadas
+b) TDM
