@@ -1,5 +1,15 @@
-Conceptos basicos:
-Datos: Entidades que contienen significado o informacion que pueden se
+## Conceptos basicos:
+# Datos: 
+Entidades que contienen significado o informacion que pueden ser digitales(bits) o analogicos.
+# Señales:
+Representacion electrica o electromagnetica de los datos, se propagan fisicamente por un medio
+# Transmision de datos:
+
+Señal
+# Tipos de canales segun el sentido de transmision
+- Simplex: Una direccion. Ej: television 
+- Duplex o semi-duplex: Cualquier direccion pero solo una vez. Ej: radio de policia
+- Full duplex: Ambas direcciones al mismo tiempo. Ej: Telefono
 
 2.4 De forma de ondas a bits
 En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion, modulacion.
