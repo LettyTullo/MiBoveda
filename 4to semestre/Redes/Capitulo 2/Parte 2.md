@@ -1,3 +1,6 @@
+Conceptos basicos:
+Datos: Entidades que contienen significado o informacion que pueden se
+
 2.4 De forma de ondas a bits
 En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion, modulacion.
 Analisis de Fourtier
@@ -43,3 +46,7 @@ La forma mas sencilla de mosulacion digital consiste en utilizar la tension posi
 NRZ
 La presencia de luz representa el "1" y la ausencia de luz puede representar un "0". El NRZ se propaga por cable y una vez enviada el receptor convierte en bits la señal muestreando la señal en intervalos regulares de tiempo. Esta señal no se recibe exactamente como se envio debido a que estara atenuada y  distorcionada por el canal y el ruido del receptor.
 Los codigos de linea son los esquemas mas complejos que pueden convertir bits en señales que correspondan mejor a consideraciones tecnicas.
+
+Eficiencia del ancho de banda
+Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
+La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tasa de bits es la tasa de simbolos multiplicada por el numero de bits por simbolo.
