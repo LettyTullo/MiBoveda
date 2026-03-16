@@ -28,13 +28,19 @@ an y bn: son la amplitud de sen y cos
 T: es el periodo 
 f: 1/T (frecuencia)
 
-# Señales con ancho de banda limitado 
+# Ancho de banda de la señal
 
-El ancho de banda es la anchura de la banda de frecuencias que se transmite y las informaciones que se pueden transportar dependen solo del ancho y no de las frecuencias iniciales ni finales. Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
-El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra
+El ancho de banda es el rango de frecuencias de una señal en donde se concentra la mayor parte de la energia de la señal. 
+Cualquier canal de transmision tiene un rango o un ancho de banda de frecuencias que puede transmitir sin mucha atenuacion o distorcion. 
+Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
+El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra. 
+# Señales de audio
+El rango de frecuencias audibles es de 20hz a 20Khz (voz humana de 100hz a 7Khz), es facil convertir a señales electromagneticas como las que utilizan los telefonos y se limita a 3000-4000 hz a traves de filtros de frecuencia.
 
-Velocidad maxima de transmision de un canal
-Formula de Nyquist 
+# Impedimentos en la transmision de datos
+La señal recibida puede diferir en la señal transmitida, por ejemplo en la señal analogica puede ocurrir una degradacion de la calidad de la señal y en la señal digital puede haber errores de bits.
+# Velocidad maxima de transmision de un canal
+# Formula de Nyquist 
 Obtuvo una ecuacion que representaba la velocidad maxima transmision en un canal sin ruido con un ancho de banda finito.
 $$
 C = 2B \log_2 M \text{ bits/sec}
