@@ -91,6 +91,7 @@ El metodo que consiste en utilizar un solo cable para tranportar varias señales
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 
 ## Transmision en banda base
+Transmitir bits a una señal digital
 - La forma mas sencilla de modulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0".
 - Conversion de bits a señales digitales: Pulsos de voltaje o amplitud discretos
 - Cada pulso es un "elemento de la señal".
@@ -142,5 +143,13 @@ Los datos se representan de la siguiente manera: si existe una transición al **
 se define como la velocidad a la que se generan y cambian los **elementos de señal** o símbolos en un canal de comunicación. Es fundamental distinguir la tasa de baudios de la **tasa de bits**, ya que la tasa de bits representa el número de bits transmitidos por segundo y es igual a la tasa de símbolos multiplicada por el número de bits que transporta cada símbolo
 # Mejoramiento del clocking
 Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede haber problemas del sincronismo. Algunos mejoramientos
-Alterar la codificacion:
-Codigo 4B/5B: antes de codificar una señal se toman 4 bits en vez de uno a uno y se transmite como 5 bits, despues con esos 5 bits se codifica en n
+- **Mezclar el clock con la señal (Manchester)**
+- **Alterar la codificacion:**
+	- **Codigo 4B/5B:** antes de codificar una señal se toman 4 bits en vez de uno a uno y se transmite como 5 bits, despues con esos 5 bits se codifica en un codigo distinto utilizando por ej NRZ-I.
+		aumentamos la transmision de bits en un 20%
+- **Scrambling**
+	Transformar una cadena de 8 bits para pasar de una codificacion Bipolar a una B8ZS
+	la V quiere decir cambio de nivel
+	solo se hace cuando hay una cadena de 8 "ceros"
+## Transmision de paso-banda o banda pasante
+Para pasar de bits a una señal analogica (no se )
