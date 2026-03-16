@@ -104,11 +104,24 @@ El metodo que consiste en utilizar un solo cable para tranportar varias señales
 ## NRZ
 La presencia de luz representa el "1" y la ausencia de luz puede representar un "0". El NRZ se propaga por cable y una vez enviada el receptor convierte en bits la señal muestreando la señal en intervalos regulares de tiempo. Esta señal no se recibe exactamente como se envio debido a que estara atenuada y  distorcionada por el canal y el ruido del receptor.
 Los codigos de linea son los esquemas mas complejos que pueden convertir bits en señales que correspondan mejor a consideraciones tecnicas.
-- Necesidad del clocking entre el emisor y receptor
-- Una cadena de 15 ceros puede confundirse con una de 16 ceros
-- NRZ-I soluciona el problema de largas cadenas de "unos" pero no de "ceros"
-- NRZ y NRZ
+**NRZ-L:** eficiente pero no se utiliza mucho es alta si tenemos "cero" y baja si tenemos "uno"
+**NRZ-I:** Si hay "uno" cambia y si hay "cero" se mantiene
+**Algunas diferencias:** 
+- El ancho de banda
+- Componente DC
+- Sincronismo - el mejor es el de NRZ-I porque considera las largas cadenas de "unos"
 
 # Eficiencia del ancho de banda
 Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
 La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tasa de bits es la tasa de simbolos multiplicada por el numero de bits por simbolo.
+- Necesidad del clocking entre el emisor y receptor
+- Una cadena de 15 ceros puede confundirse con una de 16 ceros
+- NRZ-I soluciona el problema de largas cadenas de "unos" pero no de "ceros"
+- NRZ y NRZ-I son faciles de implementar, sin embargo no eliminan el componente DC
+- Usos: Grabaciones magneticas, USB, transmision serial
+
+## Manchester (Bifase)
+- Transicion sirve como un reloj y datos
+- "Bajo" a "alto" representa un 1
+- "Alto" a "bajo" representa un 0
+- Usado en IEEE 802.3
