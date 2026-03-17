@@ -15,7 +15,6 @@ Patron repetido en el tiempo y la aperiodica es que no se repite en el tiempo
 - Simplex: Una direccion. Ej: television 
 - Duplex o semi-duplex: Cualquier direccion pero solo una vez. Ej: radio de policia
 - Full duplex: Ambas direcciones al mismo tiempo. Ej: Telefono
-
 ## 2.4 De forma de ondas a bits
 En esta seccion se demuestra como se transmiten las señales por los medios de transmision que pueden ser de multiplexacion o modulacion.
 # Analisis de Fourier
@@ -28,16 +27,13 @@ El **componente DC** (o componente de corriente continua) se refiere al **valor 
 an y bn: son la amplitud de sen y cos
 T: es el periodo 
 f: 1/T (frecuencia)
-
 # Ancho de banda de la señal
-
 El ancho de banda es el rango de frecuencias de una señal en donde se concentra la mayor parte de la energia de la señal. 
 Cualquier canal de transmision tiene un rango o un ancho de banda de frecuencias que puede transmitir sin mucha atenuacion o distorcion. 
 Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
 El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra. 
 # Señales de audio
 El rango de frecuencias audibles es de 20hz a 20Khz (voz humana de 100hz a 7Khz), es facil convertir a señales electromagneticas como las que utilizan los telefonos y se limita a 3000-4000 hz a traves de filtros de frecuencia.
-
 ## Impedimentos en la transmision de datos
 La señal recibida puede diferir en la señal transmitida, por ejemplo en la señal analogica puede ocurrir una degradacion de la calidad de la señal y en la señal digital puede haber errores de bits.
 # Algunos de estos impedimentos:
@@ -61,7 +57,6 @@ Señales adicionales insertadas entre el transmisor y receptor
 - Ruido de intermodulacion: Se producen cuando señales de distintas frecuencias comparten un mismo medio de transmision.
 - Crockstall o diafonia: Fenomeno de interferencia entre lineas de comunicacion proximas
 - Ruidos impulsivos: Pulsos irregulares o picos. ej: truenos. Un pico de ruido podria corromper muchos bits (mayor fuente de errores en datos digitales)
-
 ## Velocidad maxima de transmision de un canal
 La tasa de bits maxima posible (esta medida en bits sobre segundo) es en funcion de:
 Ancho de banda - en ciclo sobre segundo o Hz
@@ -83,13 +78,11 @@ $$
 $$
 M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
 $$
-
 ## Modulacion digital 
 Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  **modulacion digital**.
 Los esquemas que convierten directamente bits a señales es la transmision de **banda base** y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de **banda pasante.** 
 El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina **multiplexacion**. 
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
-
 ## Transmision en banda base
 Transmitir bits a una señal digital. Va desde cero hasta un valor maximo
 - La forma mas sencilla de modulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0".
@@ -111,7 +104,6 @@ Los codigos de linea son los esquemas mas complejos que pueden convertir bits en
 - El ancho de banda
 - Componente DC
 - Sincronismo - el mejor es el de NRZ-I porque considera las largas cadenas de "unos"
-
 # Eficiencia del ancho de banda
 Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
 La velocidad en la que cambia la señal se denomina velocidad de simbolo. La tasa de bits es la tasa de simbolos multiplicada por el numero de bits por simbolo.
@@ -154,20 +146,24 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 ## Transmision de paso-banda o banda pasante
 Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_). Se utilizan modems (modulador-demodulador)
 # Tecnicas de modulacion 
- Modulacion por desplazamiento de amplitud
-
-fsk multinivel
-Cada elemento de la señal representa mas de un bit
-uso eficiente de ancho de banda
-mas resistente al error
+**Modulacion por desplazamiento de amplitud** 
+ ASK (Amplitude Shift Keying)
+- **Funcionamiento:** Utiliza dos o más niveles de amplitud diferentes para representar los bits "0" y "1".
+- **Uso:** Se puede emplear con más de dos niveles para codificar varios bits por cada símbolo transmitido
+**Modulacion por desplazamiento de frecuencia**
+FSK (Frequency Shift Keying)
+- **Funcionamiento:** Utiliza dos o más **tonos (frecuencias) diferentes** para representar los datos.
+- **Ventajas:** Es más resistente al error y permite un uso más eficiente del ancho de banda cuando se usan múltiples niveles. Por ejemplo, un FSK de 4 niveles permite que cada elemento de señal represente **2 bits** simultáneamente
 se utiliza:
 $$ \log_{2} \ {n}
 $$
 donde n es la cantidad de frecuencias distintas
-
-Psk en cuadratura(QPSK)
-usa 4 fases distintas, siendo el desplazamiento (90°)
-
+**Modulacion por desplazamiendo de fase**
+PSK (Phase Shift Keying)
+- **Funcionamiento:** Desplaza sistemáticamente la fase de la onda portadora en ángulos específicos.
+- **Versiones comunes:**
+    - **BPSK (Binaria):** Desplaza la fase 0 o 180 grados para representar dos símbolos.
+    - **QPSK (Cuadratura):** Utiliza cuatro desplazamientos de fase (45°, 135°, 225° y 315°) para transmitir **2 bits por símbolo**, duplicando la eficiencia de la tasa de bits respecto a la de baudios
 QAM 
 Se usan 2 tecnicas para modular, se varia la fase y se varia la amplitud
 diagramas de constelacion
