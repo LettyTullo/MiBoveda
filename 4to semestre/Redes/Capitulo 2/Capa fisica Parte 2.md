@@ -152,9 +152,9 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 	la V quiere decir cambio de nivel
 	solo se hace cuando hay una cadena de 8 "ceros"
 ## Transmision de paso-banda o banda pasante
-Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_)
-Tecnicas de modulacion --- completar
- 
+Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_). Se utilizan modems (modulador-demodulador)
+# Tecnicas de modulacion 
+ Modulacion por desplazamiento de amplitud
 
 fsk multinivel
 Cada elemento de la señal representa mas de un bit
