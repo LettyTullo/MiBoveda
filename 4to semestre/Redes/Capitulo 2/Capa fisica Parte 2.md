@@ -174,11 +174,14 @@ Su propósito principal en las comunicaciones de red es **minimizar la cantidad 
 ## Tecnicas de multiplexado
 Comun en redes de altas distancias. Son 4
 # a) FDM (Multiplexacion por division de frecuencia)
-Tenes 4 señales y cada una se transmite a una frecuencia distinta y se junta todo a partir de un dispositivo multiplexador
- OFDM
-utilizada en 802.11
-Son ortogonales entre si y estan diseñadas para estar estrechamentes solapadas
-b) TDM //// el profe esta haciendo enfasis aca y pregunta si entendimos bien
+Divide las frecuencias disponibles en diversas bandas. Cada uno tiene una frecuencia distinta utilizan lo que se denomina bandas de guarda para espacios vacíos entre los canales para evitar interferencias entre ellos.
+# a.1) OFDM (Ortogonal FDM)
+Es una variante mas eficiente utilizada en 802.11.En lugar de bandas de guarda, utiliza sub-transportadoras ortogonales que se solapan estrechamente sin interferirse, lo que maximiza el uso del espectro.
+# b) TDM (Multiplexacion por division de tiempo)
+En este esquema, los usuarios comparten el canal turnándose en el tiempo.
+- **Funcionamiento:** Cada usuario obtiene periódicamente todo el ancho de banda durante un **intervalo de tiempo fijo** (slot). Requiere que el emisor y el receptor estén perfectamente sincronizados
+# b.1) STDM (Multiplexacion estadistica):
+A diferencia de la TDM convencional con horarios fijos, la STDM asigna ranuras de tiempo dinámicamente basándose en las **estadísticas de demanda** de los usuarios, lo cual es similar a la conmutación de paquetes
 c) CDM
 APRENDER LAS SIGLAS DICE EL PROFE TODOS
 CDMA tambien 
