@@ -1,9 +1,8 @@
 ## Conceptos basicos:
-# Datos: 
-Entidades que contienen significado o informacion que pueden ser digitales(bits) o analogicos.
-# Señales:
-Representacion electrica o electromagnetica de los datos, se propagan fisicamente por un medio
-# Transmision de datos:
+
+==**Datos:**==  Entidades que contienen significado o informacion que pueden ser digitales(bits) o analogicos.
+==**Señales:** ==Representacion electrica o electromagnetica de los datos, se propagan fisicamente por un medio
+==**Transmision de datos:**== 
 Proceso de enviar informacion entre un transmisor y un receptor a traves de un medio de tranmision mediante la variacion de una señal a lo largo del tiempo.
 # Señal analogica: 
 Varia suavemente en el tiempo
@@ -187,6 +186,5 @@ Tecnica de multiplexacion denominado CDMA (Acceso multiple por division de codig
 Es una forma de comunicación de **espectro ensanchado** donde todos los usuarios transmiten en todo el espectro de frecuencias al mismo tiempo. A cada estación se le asigna una secuencia de bits única y exclusiva llamada **secuencia de chips**.Las secuencias se eligen para ser **ortogonales** entre sí. // HACER EJERCICIOS 
 Cada usuario tiene "k" chips, cuando transmite un bit "1" transmite su codigo de chips, se codifica como que el "1" es una señal alta o "(+1)" y el "0" como una señal baja o "(-1)"
 # d) WDM (Multiplexacion por division de longitud de onda)
-Es esencialmente la multiplexación FDM aplicada al espectro de la luz en **enlaces de fibra óptica** Se combinan múltiples señales (cada una en un "color" o longitud de onda diferente) en una sola fibra compartida utilizando un **combinador óptico** (como un prisma)
-Los multiplexores y demultiplexores son ópticos (no
-electrónicos)
+Es esencialmente la multiplexación FDM aplicada al espectro de la luz en **enlaces de fibra óptica** Se combinan múltiples señales (cada una en un "color" o longitud de onda diferente) 
+Los multiplexores y demultiplexores son ópticos (no electrónicos)
