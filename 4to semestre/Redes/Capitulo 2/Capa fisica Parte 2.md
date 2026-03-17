@@ -146,35 +146,34 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 ## Transmision de paso-banda o banda pasante
 Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_). Se utilizan modems (modulador-demodulador)
 # Tecnicas de modulacion 
-**Modulacion por desplazamiento de amplitud** 
- ASK (Amplitude Shift Keying)
+# Modulacion por desplazamiento de amplitud 
+ **ASK (Amplitude Shift Keying)**
 - **Funcionamiento:** Utiliza dos o más niveles de amplitud diferentes para representar los bits "0" y "1".
 - **Uso:** Se puede emplear con más de dos niveles para codificar varios bits por cada símbolo transmitido
-**Modulacion por desplazamiento de frecuencia**
-FSK (Frequency Shift Keying)
+# Modulacion por desplazamiento de frecuencia
+**FSK (Frequency Shift Keying)**
 - **Funcionamiento:** Utiliza dos o más **tonos (frecuencias) diferentes** para representar los datos.
 - **Ventajas:** Es más resistente al error y permite un uso más eficiente del ancho de banda cuando se usan múltiples niveles. Por ejemplo, un FSK de 4 niveles permite que cada elemento de señal represente **2 bits** simultáneamente
 se utiliza:
 $$ \log_{2} \ {n}
 $$
 donde n es la cantidad de frecuencias distintas
-**Modulacion por desplazamiendo de fase**
-PSK (Phase Shift Keying)
+# Modulacion por desplazamiendo de fase
+**PSK (Phase Shift Keying)**
 - **Funcionamiento:** Desplaza sistemáticamente la fase de la onda portadora en ángulos específicos.
 - **Versiones comunes:**
     - **BPSK (Binaria):** Desplaza la fase 0 o 180 grados para representar dos símbolos.
     - **QPSK (Cuadratura):** Utiliza cuatro desplazamientos de fase (45°, 135°, 225° y 315°) para transmitir **2 bits por símbolo**, duplicando la eficiencia de la tasa de bits respecto a la de baudios
-QAM 
-Se usan 2 tecnicas para modular, se varia la fase y se varia la amplitud
-diagramas de constelacion
-cada elemento de señal es un puntito y la amplitud es la distancia
+# QAM (Quadrature Amplitude Modulation)
+Es la modulación de **amplitud en cuadratura**, una extensión lógica de las técnicas anteriores.
+- **Funcionamiento:** Es una **combinación de ASK y PSK**. Modula simultáneamente la amplitud y la fase de la señal portadora para maximizar la cantidad de información transmitida.
+- **Representación:** Se utiliza un **diagrama de constelación** donde cada punto representa una combinación legal de amplitud y fase que corresponde a un patrón de bits específico
 
-codificacion de gray
-se busca que la diferencia de la codificacion entre los vecinos sea el minimo
-
-Tecnicas de multiplexado
-comun en redes de altas distancias. Son 4
-a) FDM 
+La **codificación de Gray**: es un sistema de asignación de bits a símbolos en el que los símbolos adyacentes en un diagrama de constelación difieren únicamente en **una posición de bit**.
+Su propósito principal en las comunicaciones de red es **minimizar la cantidad de errores de bits** que ocurren debido al ruido en el canal (Para evitar la diafonia)
+## Tecnicas de multiplexado
+Comun en redes de altas distancias. Son 4
+# a) FDM (Multiplexacion por division de frecuencia)
 Tenes 4 señales y cada una se transmite a una frecuencia distinta y se junta todo a partir de un dispositivo multiplexador
  OFDM
 utilizada en 802.11
