@@ -125,7 +125,7 @@ El nombre **AMI** significa "Inversión de Marca Alternada" y es un tipo de **se
 - - **Ventaja:** Resuelve el problema de la recuperación del reloj (sincronización), ya que siempre hay una transición en cada bit, incluso con cadenas largas de ceros o unos.
 - **Desventaja:** Requiere el **doble de ancho de banda** que otros esquemas (como NRZ) porque la señal cambia al doble de la tasa de bits
 # Manchester(diferencial)
-Los datos se representan de la siguiente manera: si existe una transición al **inicio del periodo de bit**, el valor es un **"0"** lógico; si no hay una transición al inicio, el valor es un **"1"** lógico. Este esquema se utiliza específicamente en el estándar de red **IEEE 802.5**
+Los datos se representan de la siguiente manera: si existe una transición al **inicio del periodo de bit**, el valor es un **"0"** lógico; si no hay una transición al inicio, el valor es un **"1"** lógico. Este esquema se utiliza específicamente en el estándar de red **IEEE 802.5** (Token Ring)
 # Tasa de baudios
 se define como la velocidad a la que se generan y cambian los **elementos de señal** o símbolos en un canal de comunicación. Es fundamental distinguir la tasa de baudios de la **tasa de bits**, ya que la tasa de bits representa el número de bits transmitidos por segundo y es igual a la tasa de símbolos multiplicada por el número de bits que transporta cada símbolo
 # Mejoramiento del clocking
@@ -142,7 +142,7 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_). Se utilizan modems (modulador-demodulador)
 # Tecnicas de modulacion 
 # Modulacion por desplazamiento de amplitud 
- **ASK (Amplitude Shift Keying)**
+ **ASK (Amplitude Shift Keying)** 
 - **Funcionamiento:** Utiliza dos o más niveles de amplitud diferentes para representar los bits "0" y "1".
 - **Uso:** Se puede emplear con más de dos niveles para codificar varios bits por cada símbolo transmitido
 # Modulacion por desplazamiento de frecuencia
