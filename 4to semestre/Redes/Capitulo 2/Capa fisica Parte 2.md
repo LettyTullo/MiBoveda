@@ -28,7 +28,7 @@ Cualquier canal de transmision tiene un rango o un ancho de banda de frecuencias
 Una señal que va desde 0 hasta una frecuencia maxima se denominan señales de banda base. Las señales que cumplen un rango mayor de frecuencias se denominan señales de banda pasante. 
 El ancho de banda es una propiedad fisica del medio de transmision que depende mucho de su longitud, grosor o material de un cable o fibra. 
 # Señales de audio
-El rango de frecuencias audibles es de 20hz a 20Khz (voz humana de 100hz a 7Khz), es facil convertir a señales electromagneticas como las que utilizan los telefonos y se limita a 3000-4000 hz a traves de filtros de frecuencia.
+El rango de frecuencias audibles es de 20hz a 20Khz (voz humana de 100hz a 7Khz), es facil convertir a señales electromagneticas como las que utilizan los telefonos y se limita a 300-4000 hz a traves de filtros de frecuencia.
 ## Impedimentos en la transmision de datos
 La señal recibida puede diferir en la señal transmitida, por ejemplo en la señal analogica puede ocurrir una degradacion de la calidad de la señal y en la señal digital puede haber errores de bits.
 # Algunos de estos impedimentos:
@@ -163,7 +163,8 @@ donde n es la cantidad de frecuencias distintas
 Es la modulación de **amplitud en cuadratura**, una extensión lógica de las técnicas anteriores.
 - **Funcionamiento:** Es una **combinación de ASK y PSK**. Modula simultáneamente la amplitud y la fase de la señal portadora para maximizar la cantidad de información transmitida.
 - **Representación:** Se utiliza un **diagrama de constelación** donde cada punto representa una combinación legal de amplitud y fase que corresponde a un patrón de bits específico
-
+Su formula es: $$ \log_{2} \ {n} \ * baudios  (bits/seg)
+$$
 La **codificación de Gray**: es un sistema de asignación de bits a símbolos en el que los símbolos adyacentes en un diagrama de constelación difieren únicamente en **una posición de bit**.
 Su propósito principal en las comunicaciones de red es **minimizar la cantidad de errores de bits** que ocurren debido al ruido en el canal (Para evitar la diafonia)
 ## Tecnicas de multiplexado
