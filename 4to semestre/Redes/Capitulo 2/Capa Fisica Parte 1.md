@@ -88,3 +88,6 @@ Se utiliza para comunicaciones de corto alcance, como mandos a distancia e inter
 # 4)  **Ondas de Luz Visible:**
 - Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
 - También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
+## Espectro expandido
+Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
+Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias
