@@ -96,8 +96,26 @@ En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una f
 - **Funcionamiento:** El receptor debe estar en perfecto sincronismo con el transmisor para saltar entre las mismas frecuencias y reconstruir la señal.
 - **Tipos:** Se clasifica en **Slow FHSS** (donde el tiempo del salto es mayor o igual a la duración del símbolo) y **Fast FHSS** (donde el tiempo del salto es menor que la duración del símbolo), siendo este último el que ofrece mejor rendimiento.
 - **Uso:** Fue inventado por Hedy Lamarr en 1942 para fines militares y hoy se utiliza comercialmente en tecnologías como **Bluetooth**
-Espectro Expandido de Secuencia Directa (DSSS)
+# Espectro Expandido de Secuencia Directa (DSSS)
 El DSSS (_Direct Sequence Spread Spectrum_) utiliza una secuencia de códigos para distribuir la señal de datos por una banda de frecuencias más amplia.
-
 - **Funcionamiento:** Cada bit de datos se representa mediante múltiples bits denominados **chips** usando un código de expansión. Por ejemplo, el estándar 802.11b utiliza una secuencia específica llamada **secuencia de Barker**.
 - **Relación con CDMA:** Esta técnica permite que varias señales compartan la misma banda asignando códigos diferentes a cada una, lo que constituye la base del **Acceso Múltiple por División de Código (CDMA)** utilizado en redes 3G y GPS.
+# Comunicación de Banda Ultra Ancha (UWB)
+Aunque a veces se clasifica por separado, las fuentes la incluyen como una técnica que utiliza bandas de frecuencia muy anchas.
+- **Funcionamiento:** Envía una serie de **impulsos rápidos de baja energía** que varían sus frecuencias. Se define por tener un ancho de banda de al menos 500 MHz o el 20% de su frecuencia central.
+- **Ventajas:** Tolera interferencias fuertes de otras señales de banda estrecha y, debido a su baja energía por frecuencia, no causa interferencias significativas a otros sistemas.
+- **Uso:** Es ideal para aplicaciones de corto alcance en interiores, radares de precisión y sistemas de localización.
+
+Estas técnicas son vitales para operar en las **bandas ISM** (Industrial, Científica y Médica), que son bandas de uso libre sin licencia (como la de 2.4 GHz) donde muchos dispositivos deben convivir y manejar la interferencia mutua.
+
+# Bandas ISM (Industrial, Scientific, and Medical)
+Su nombre corresponde a las siglas en inglés para **Industrial, Científica y Médica**.
+- **Propósito y Regulación:** Fueron definidas originalmente por la UIT-R para aplicaciones no relacionadas con las comunicaciones, pero hoy son la base de las redes LAN e inalámbricas domésticas. 
+- **Frecuencias Principales:**
+    - **900 MHz (902-928 MHz):** Utilizada por versiones antiguas de WiFi; actualmente está muy saturada.
+    - **2.4 GHz (2.4-2.4835 GHz):** Es la banda más común, utilizada ampliamente por **WiFi (802.11b/g/n)**, **Bluetooth** y Zigbee.
+    - **5.8 GHz (5.725-5.825 GHz):** Proporciona más ancho de banda y es utilizada por estándares WiFi más modernos
+# Bandas U-NII (Unlicensed National Information Infrastructure)
+Las siglas corresponden a **Infraestructura Nacional de Información sin Licencia**.
+- **Ubicación y Uso:** Se encuentran en la porción de **5 GHz** del espectro. Aunque inicialmente estaban poco desarrolladas, se han vuelto masivas gracias a estándares de alta velocidad como **802.11ac y 802.11ax (WiFi 6)**
+- **Ventajas:** Ofrecen un **mayor ancho de banda** que las bandas de 2.4 GHz. Sin embargo, al operar en frecuencias más altas, sus señales tienen una menor capacidad para atravesar paredes y obstáculos sólidos
