@@ -71,7 +71,11 @@ Se asocia específicamente con la banda **HF (alta frecuencia)**.
 - Las ondas terrestres en estas bandas tienden a ser absorbidas por la Tierra, pero las señales que se dirigen hacia arriba llegan a la **ionosfera** (una capa de partículas cargadas entre 100 y 500 km de altura)
 -  La ionosfera **refracta estas ondas** y las envía de vuelta a la Tierra, permitiendo comunicaciones a larga distancia.
 -  Dependiendo de las condiciones atmosféricas, la señal puede rebotar varias veces entre la atmósfera y el suelo
-	
+# Propagación por línea de vista (Line-of-sight)
+Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (frecuencia ultra alta)**, así como para las **microondas**.
+- A frecuencias superiores a 100 MHz, las ondas viajan prácticamente en **línea recta** y pueden enfocarse de forma estrecha.
+- Requiere que el emisor y el receptor estén alineados físicamente sin obstáculos importantes.
+- Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
 # 2) **Microondas de (2GHZ a 300GHZ):** 
 Viajan en línea recta y son altamente direccionales, permitiendo enfocar la energía en haces estrechos mediante antenas parabólicas.
 	- Requieren **línea de vista** despejada entre el emisor y el receptor.
