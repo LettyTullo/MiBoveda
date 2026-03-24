@@ -56,16 +56,31 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 - **Relación matemática:** En el vacío, todas las ondas viajan a la velocidad de la luz (c≈3×108 m/seg), cumpliendo la fórmula c=λ⋅f.
 - **Capacidad de datos:** La cantidad de información que puede transportar una señal es proporcional a su **ancho de banda**
 # **Tipos de medios y usos del espectro** 
-1) **Radio frecuencias de (3KHZ a 2GHZ):** Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
+# 1) **Radio frecuencias de (3KHZ a 2GHZ):** 
+Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
 	- Son **omnidireccionales**, lo que significa que viajan en todas las direcciones y no requieren alineación precisa entre antenas.
 	- Su propagación varía según la banda: las de baja frecuencia siguen la curvatura de la Tierra (**ondas superficiales**), mientras que las de alta frecuencia rebotan en la ionosfera (**ondas aéreas**)
-2) **Microondas de (2GHZ a 300GHZ):** Viajan en línea recta y son altamente direccionales, permitiendo enfocar la energía en haces estrechos mediante antenas parabólicas.
+# TIPOS DE PROPAGACION
+# Propagación superficial (Ground-wave)
+Este tipo de propagación es característico de las bandas de baja frecuencia: **VLF (muy baja frecuencia), LF (baja frecuencia) y MF (frecuencia media)**.
+	- En este modo, las ondas de radio **siguen la curvatura de la Tierra**.
+	- Pueden detectarse a distancias de unos **1,000 km** en las frecuencias más bajas, aunque este alcance disminuye a medida que aumenta la frecuencia.
+	- Un ejemplo común de su uso es la **radiodifusión AM**
+# Propagación aérea (Sky-wave)
+Se asocia específicamente con la banda **HF (alta frecuencia)**.
+- Las ondas terrestres en estas bandas tienden a ser absorbidas por la Tierra, pero las señales que se dirigen hacia arriba llegan a la **ionosfera** (una capa de partículas cargadas entre 100 y 500 km de altura)
+-  La ionosfera **refracta estas ondas** y las envía de vuelta a la Tierra, permitiendo comunicaciones a larga distancia.
+-  Dependiendo de las condiciones atmosféricas, la señal puede rebotar varias veces entre la atmósfera y el suelo
+	
+# 2) **Microondas de (2GHZ a 300GHZ):** 
+Viajan en línea recta y son altamente direccionales, permitiendo enfocar la energía en haces estrechos mediante antenas parabólicas.
 	- Requieren **línea de vista** despejada entre el emisor y el receptor.
 	- Se utilizan para telecomunicaciones de larga distancia, satélites, telefonía celular, Bluetooth y WiFi.
 	- Su principal desventaja es que son absorbidas por el agua, lo que causa atenuación durante la lluvia
-3) **Luz Infrarroja (300 GHz a 400 THz):** Se utiliza para comunicaciones de corto alcance, como mandos a distancia e interconexión de laptops (estándar IrDA).
+# 3) **Luz Infrarroja (300 GHz a 400 THz):** 
+Se utiliza para comunicaciones de corto alcance, como mandos a distancia e interconexión de laptops (estándar IrDA).
 	- **No atraviesa objetos sólidos**, lo que proporciona seguridad contra interferencias entre habitaciones adyacentes y no requiere licencia gubernamental para su uso
 	- Es usada en controles de TV, aire y ampliamente usadas en fibra optica 
-4)  **Ondas de Luz Visible:**
-    - Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
-    - También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
+# 4)  **Ondas de Luz Visible:**
+- Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
+- También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
