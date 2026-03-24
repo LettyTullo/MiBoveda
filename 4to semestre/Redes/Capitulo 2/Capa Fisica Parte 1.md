@@ -38,7 +38,7 @@ Es el medio con mayor capacidad tecnológica actual, capaz de transportar ciento
 	- **Clasificación por perfil de refracción:**
 		Existen dos tipos fundamentales basados en cómo viaja la luz a través del núcleo:
 	   - **Índice escalonado (Step index):** En este tipo, los rayos de luz rebotan en las paredes del núcleo en diferentes ángulos.
-	  - **Índice gradual (Graded index):** En lugar de rebotes bruscos, los rayos siguen trayectorias curvas debido a una variación gradual en el índice de refracción del núcleo
+	  - **Índice gradual (Graded index):** En lugar de rebotes bruscos, los rayos siguen trayectorias curvas debido a una variación gradual en el índice de refracción del núcleo.
 - **Beneficios:** Ofrece un ancho de banda enorme (Terahertz), tasas de datos de cientos de Gbps, baja atenuación, peso ligero e inmunidad a interferencias electromagnéticas.
 - **Desventajas:** Requiere conocimientos específicos para su instalación, los cables son frágiles, el costo es mayor que el cobre y la comunicación suele ser unidireccional por hilo.
 - **Usos comunes:** Redes de "backbone" de larga distancia, acceso a Internet de alta velocidad (FTTH) y redes LAN.
