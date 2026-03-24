@@ -47,3 +47,4 @@ Es el medio con mayor capacidad tecnológica actual, capaz de transportar ciento
 - **Patch Panels:** Elementos pasivos donde termina el cableado físico de la instalación.
 - **Patch Cords:** Cables cortos armados de fábrica para conectar equipos dentro del rack.
 ## b) No Guiados
+# - El espectro electromagnetico:
