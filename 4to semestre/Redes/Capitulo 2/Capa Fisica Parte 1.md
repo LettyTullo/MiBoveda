@@ -90,4 +90,14 @@ Se utiliza para comunicaciones de corto alcance, como mandos a distancia e inter
 - También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
 ## Espectro expandido
 Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
-Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias
+Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias.
+# Espectro Expandido por Salto de Frecuencia (FHSS)
+En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una frecuencia a otra** cientos de veces por segundo siguiendo una serie seudoaleatoria.
+- **Funcionamiento:** El receptor debe estar en perfecto sincronismo con el transmisor para saltar entre las mismas frecuencias y reconstruir la señal.
+- **Tipos:** Se clasifica en **Slow FHSS** (donde el tiempo del salto es mayor o igual a la duración del símbolo) y **Fast FHSS** (donde el tiempo del salto es menor que la duración del símbolo), siendo este último el que ofrece mejor rendimiento.
+- **Uso:** Fue inventado por Hedy Lamarr en 1942 para fines militares y hoy se utiliza comercialmente en tecnologías como **Bluetooth**
+Espectro Expandido de Secuencia Directa (DSSS)
+El DSSS (_Direct Sequence Spread Spectrum_) utiliza una secuencia de códigos para distribuir la señal de datos por una banda de frecuencias más amplia.
+
+- **Funcionamiento:** Cada bit de datos se representa mediante múltiples bits denominados **chips** usando un código de expansión. Por ejemplo, el estándar 802.11b utiliza una secuencia específica llamada **secuencia de Barker**.
+- **Relación con CDMA:** Esta técnica permite que varias señales compartan la misma banda asignando códigos diferentes a cada una, lo que constituye la base del **Acceso Múltiple por División de Código (CDMA)** utilizado en redes 3G y GPS.
