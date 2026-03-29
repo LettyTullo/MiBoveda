@@ -7,7 +7,6 @@ La capa de enlace de datos es la responsable del envío de **tramas** * de infor
 >Acepta los paquetes de la [[3. Capa de Red|Capa de Red]], los encapsula en tramas y los envía usando la [[1. Capa física |Capa Física]]. La recepción es el proceso opuesto. Su principal función es proporcionar servicios a la capa de red.
 
 **Corresponde** a la capa de enlace de datos **detectar y**, si es posible, **corregir los errores** obtenidos de la capa física, ya que esta trata de enviar los bits a la capa de enlace de datos sin procesarlos y entregarlos a destino. La capa física envía los bits con bits de redundancia, para reducir la tasa de errores, pero no garantiza que lleguen sin error a destino.
-Ver: [[Mensaje - Información a transmitirse]]
 
 ## Problemas de diseño de la capa de enlace de datos
 
@@ -21,7 +20,7 @@ Ver: [[Mensaje - Información a transmitirse]]
 >5. Direccionamiento a nivel del enlace de datos (**direccionamiento físico**) - inicio y fin del enlace.
 
 ## Servicios prestados a la [[3. Capa de Red|Capa de Red]]
-El principal servicio de la paca de enlace es transferir datos desde la capa de red en la máquina emisora u origen hasta la máquina receptora o destino. En la máquina origen hay un proceso en la que la capa de red pasa paquetes a la capa de enlace de datos para su transmisión a destino.
+El principal servicio de la capa de enlace es transferir datos desde la capa de red en la máquina emisora u origen hasta la máquina receptora o destino. En la máquina origen hay un proceso en la que la capa de red pasa paquetes a la capa de enlace de datos para su transmisión a destino.
 ### Servicio sin conexión
 #### Sin confirmación de recepción
 - La maquina de origen envía tramas independientes sin que la maquina destino lo reconozca. -
@@ -77,7 +76,40 @@ Al tenerse señales reservadas
 - Es fácil encontrar el inicio y fin de cada trama.
 - Sin necesidad de rellenar mucho los datos (no hay problemas de longitud).
 - [I] **Preámbulo:** es un patrón bien definido que se encuentra al inicio de cada trama, muy utilizado en Wi-Fi (802.11) y Ethernet (802.3). Puede ser bastante largo (72 bits para 802.11). Va seguido de un campo de conteo en la cabecera que se utiliza para localizar el final de la trama. (se mezclan los métodos)
+## Codigo de Hamming
+
+- [I] **Distancia de hamming:** es la cantidad mínima de bits cambiados para pasar de una palabra codificada válida a otra cualquiera. La **distancia de un código completo** es la menor de todas las distancias entre una palabra y otra.
+	Un código con distancia mínima de Hamming **d** puede detectar palabras codificadas (codewords) con hasta **s** bits con error, donde $d_{min}\gt{s}$
+
+>[!info] Funcionamiento de control de errores
+>- Toma un mensaje de longitud **m**
+>- Le agrega **r** bits de redundancia
+>- Se obtiene una **palabra codificada** de longitud **n** $$n=m+r$$
+
+| **Detección de errores**                                                                                                       | **Corrección de errores**                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| $d_{\text{min}}$ : distancia de Hamming<br>$s$ : cantidad de bits con error **máximos a detectar**<br>$$d_\text{{min}}\gt{s}$$ | $d_{\text{min}}$ : distancia de Hamming<br>$t$ : cantidad de bits con error **máximos a corregir**<br>$$d_{min}\gt{2t}$$ |
+| ![[Pasted image 20260329172902.png\|250]]                                                                                      | ![[Pasted image 20260329172830.png\|300]]                                                                                |
+
 ---
+## Corrección de errores de un solo bit
+Se presenta en el código de Hamming
+==ESTUDIAR PORQUE EL PROFE DIJO QUE PUEDE PREGUNTAR ALGO ASI==
+>[!info] Se tiene **m** bits de mensaje y **r** bits de verificación y se quiere corregir todos los errores de **un bit**.
+>- Mensajes posibles: $2^m$
+>- Cant de codewords: $(m+r+1)$
+>	Para indicar la ausencia de error (una codeword válida)
+>	Para indicar la ubicación del error ($m+r$posibilidades)
+>- Cant de codewords: $2^n=2^{m+r}$ palabras codificadas
+>$$2^m*(m+r+1)\leq{2^{m+r}=2^m*2^r}$$
+>$$(m+r+1)\leq{2^r}$$
+
+
+
+---
+# Enlaces relacionados
+- Siguiente nota: 
+- [[2. Capa de Enlace de Datos]]
 # Enlaces relacionados
 - Siguiente nota: [[Corrección de errores]]
 - [[Corrección de errores de un solo bit]]
