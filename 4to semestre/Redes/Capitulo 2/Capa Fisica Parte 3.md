@@ -1,10 +1,12 @@
+## Digitalizacion de las seañales de voz
+La **digitalización de las señales de voz** es el proceso de convertir datos analógicos en datos digitales para su transporte a través de redes modernas
 # Codecs  
 El término **códec** es la abreviatura de **"codificador-decodificador"**. Se trata de un dispositivo o proceso que realiza la conversión entre señales analógicas y bits digitales.
-- **Técnica PCM:** Los códecs utilizan una técnica denominada **PCM** (Modulación por Impulsos Codificados), que es el corazón del sistema telefónico digital.
-- **Proceso de Digitalización:**
-    - **Muestreo:** Según el teorema de Nyquist, para capturar toda la información de un canal telefónico de 4 kHz, el códec toma **8,000 muestras por segundo** (El doble del ancho de banda).
-    - **Cuantización:** Cada muestra se convierte en un número de **8 bits**.
-    - **Tasa Estándar:** Esto resulta en una velocidad de datos estándar de **64 kbps** por cada llamada de voz (8 bits × 8,000 muestras).
+# La técnica PCM
+La técnica estándar utilizada en el corazón del sistema telefónico y en los **codecs** (codificadores-decodificadores) es la denominada **PCM**. Este proceso consta de los siguientes pasos técnicos:
+- **Muestreo:** Basándose en el **Teorema de Nyquist**, una señal se puede reconstruir totalmente si se muestrea a una frecuencia mayor al doble de su componente más alta. Para un canal de voz de 4,000 Hz, se toman **8,000 muestras por segundo** (una cada 125 μseg).
+- **Cuantización:** Cada muestra de la amplitud de la señal (muestra PAM) se asigna a un valor digital, normalmente un número de **8 bits**.
+- **Tasa de bits:** Al multiplicar las 8,000 muestras por los 8 bits de cada una, se obtiene la velocidad estándar de **64 kbps** para una llamada de voz sin comprimir.
 # La Transportadora T1
 La **portadora T1** (también denominada DS1) es una especificación técnica utilizada para transmitir múltiples canales multiplexados a través de un único circuito físico.
 - **Capacidad y Uso:** Es el estándar utilizado principalmente en **Norteamérica y Japón**, con una tasa de bits total de **1.544 Mbps**.
