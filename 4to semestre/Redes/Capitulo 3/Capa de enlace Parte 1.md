@@ -76,7 +76,15 @@ Al tenerse señales reservadas
 - Es fácil encontrar el inicio y fin de cada trama.
 - Sin necesidad de rellenar mucho los datos (no hay problemas de longitud).
 - [I] **Preámbulo:** es un patrón bien definido que se encuentra al inicio de cada trama, muy utilizado en Wi-Fi (802.11) y Ethernet (802.3). Puede ser bastante largo (72 bits para 802.11). Va seguido de un campo de conteo en la cabecera que se utiliza para localizar el final de la trama. (se mezclan los métodos)
-# Control de errores
+## Control de Flujo
+El control de caudal es un **[[2. Capa de Enlace de Datos#Problemas de diseño de la capa de enlace de datos|problema de diseño]]** importante que presenta la capa de enlace de datos y en capas superiores. ==Un emisor que quiere transmitir tramas más rápido de lo que un receptor puede aceptarlas== (cuando el emisor funciona en una máquina rápida y el receptor en una máquina lenta y de gama baja).
+## Tipos de control de flujo
+
+1. **Basado en retroalimentación:** El receptor devuelve el mensaje o información al emisor dándole la posibilidad de enviar más datos o el receptor le dice al emisor en qué fase está.
+2. **Basado en la velocidad (tasas de bits):** Se usa un mecanismo definido que limita la velocidad a la que los remitentes pueden transmitir datos, sin usar la retroalimentación del receptor. (Capa de enlace o superiores).
+
+- [I] **NIC (Tarjetas de interfaz de red):** funcionan a velocidad de cable, pueden gestionar tramas tan rápido como llegan al enlace.
+## Control de errores
 Los errores inalámbricos y los bucles locales envejecidos tienen tasas de error que son órdenes de magnitud mayores.
 Las estrategias tomadas para el manejo de errores utilizan información adicional añadidas a los datos enviados.
 - [i] Los errores se deben a:
@@ -115,12 +123,7 @@ Como ningún modelo es 100% efectivo, hay que considerar el tipo de error produc
 
 ## Códigos de detección
 
----
-# Enlaces relacionados
-- Siguiente nota: [[Código de Hamming]]
--
-## Codigo de Hamming
-
+# Codigo de Hamming 
 - [I] **Distancia de hamming:** es la cantidad mínima de bits cambiados para pasar de una palabra codificada válida a otra cualquiera. La **distancia de un código completo** es la menor de todas las distancias entre una palabra y otra.
 	Un código con distancia mínima de Hamming **d** puede detectar palabras codificadas (codewords) con hasta **s** bits con error, donde $d_{min}\gt{s}$
 
@@ -148,18 +151,3 @@ Se presenta en el código de Hamming
 >$$(m+r+1)\leq{2^r}$$
 
 
-
----
-# Enlaces relacionados
-- Siguiente nota: 
-- [[2. Capa de Enlace de Datos]]
-# Enlaces relacionados
-- Siguiente nota: [[Corrección de errores]]
-- [[Corrección de errores de un solo bit]]
-- [[Código de Hamming]]
-
-trabajo del receptor es identificar donde empieza y termina la trama 
-bytes de bandera
-se agrega al inicio un byte que trabaja como bandera e identifica donde empieza y donde termina (lee caracteres individuales) si hay un caracter que tiene el mismo valor de la bandera, eso indica que la trama es hasta ahi 
-bytes de bandera con bits
-el receptor lee la cantidad de 1s hasta encontrar 5 y despues le agrega un 0, se hace un relleno de bits 
