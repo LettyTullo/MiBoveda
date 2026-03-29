@@ -25,3 +25,20 @@ La progresión funciona de la siguiente manera,:
 - **Nivel T2:** Combina **4 flujos T1** para alcanzar **6.312 Mbps**. Se utiliza principalmente de forma interna dentro de los sistemas de las compañías telefónicas,.
 - **Nivel T3:** Combina **7 flujos T2** para alcanzar **44.736 Mbps**. Este nivel es muy común y es ampliamente alquilado por clientes corporativos que requieren gran ancho de banda.
 - **Nivel T4:** Combina **6 flujos T3** para alcanzar **274.176 Mbps**. Se utiliza casi exclusivamente en el núcleo o _backbone_ del sistema telefónico y no es tan conocido por el público general.
+# SONET/SDH
+El multiplexado de las redes ópticas **SONET** (_Synchronous Optical Network_, estándar ANSI utilizado en EE. UU.) y **SDH** (_Synchronous Digital Hierarchy_, estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
+### 1. Naturaleza Síncrona y Multiplexado TDM
+A diferencia de otros sistemas, SONET/SDH utiliza un esquema de **Multiplexación por División en el Tiempo (TDM)** de naturaleza estrictamente **síncrona**.
+- **Reloj Maestro:** Todos los emisores y receptores están vinculados a un reloj común con una precisión extrema (una parte en $10^9$).
+- **Emisión Constante:** Los bits se envían a intervalos precisos y las tramas se emiten cada **125 $\mu$seg**, coincidiendo con la frecuencia de muestreo de los canales de voz PCM, incluso si no hay datos útiles que enviar (en cuyo caso se envían datos ficticios).
+### 2. La Jerarquía de Tasas de Datos
+SONET define una jerarquía basada en niveles de señal de transporte síncrono (STS) y portadoras ópticas (OC):
+- **Unidad Básica (STS-1 / OC-1):** Tiene una velocidad de **51.84 Mbps**.
+- **Señales STS-N:** Varias señales STS-1 se combinan para formar flujos de mayor velocidad. Por ejemplo, un multiplexor 3:1 puede combinar tres tributarios STS-1 de entrada en un único flujo **STS-3** de salida realizando el multiplexado **byte a byte**.
+- **Escalabilidad:** Las velocidades comunes incluyen OC-3 (155.52 Mbps), OC-12 (622.08 Mbps), OC-48 (2.488 Gbps) y OC-192 (9.95 Gbps), llegando hasta OC-768 (casi 40 Gbps).
+### 3. Estructura de la Trama SONET
+La trama básica (STS-1) se organiza como un bloque de **810 bytes** dispuestos en un rectángulo de **90 columnas por 9 filas**.
+- **Sobrecarga (Overhead):** Las primeras 3 columnas de cada fila se reservan para información de control (Sección y Línea).
+- **SPE (Synchronous Payload Envelope):** Es el contenedor donde viajan los datos del usuario. Una característica inusual es que el SPE **no tiene una posición fija**; puede comenzar en cualquier lugar de la trama e incluso abarcar dos tramas consecutivas.
+- **Punteros:** Se utilizan punteros en la sección de sobrecarga para indicar exactamente dónde comienza el primer byte del SPE, lo que otorga una gran flexibilidad al sistema para insertar datos en tiempo real sin esperar al inicio de una nueva trama física.
+
