@@ -102,7 +102,7 @@ El DSSS (_Direct Sequence Spread Spectrum_) utiliza una secuencia de códigos pa
 - **Relación con CDMA:** Esta técnica permite que varias señales compartan la misma banda asignando códigos diferentes a cada una, lo que constituye la base del **Acceso Múltiple por División de Código (CDMA)** utilizado en redes 3G y GPS.
 # Comunicación de Banda Ultra Ancha (UWB)
 Aunque a veces se clasifica por separado, las fuentes la incluyen como una técnica que utiliza bandas de frecuencia muy anchas.
-- **Funcionamiento:** Envía una serie de **impulsos rápidos de baja energía** que varían sus frecuencias. Se define por tener un ancho de banda de al menos 500 MHz o el 20% de su frecuencia central.
+- **Funcionamiento:** Envía una serie de **impulsos rápidos de baja energía** que varían sus frecuencias. Se define por tener un ancho de banda de al menos 500 MHz o el 20% de su frecuencia central. (la norma IEE 802.15.4a)
 - **Ventajas:** Tolera interferencias fuertes de otras señales de banda estrecha y, debido a su baja energía por frecuencia, no causa interferencias significativas a otros sistemas.
 - **Uso:** Es ideal para aplicaciones de corto alcance en interiores, radares de precisión y sistemas de localización.
 
