@@ -13,7 +13,7 @@ La **portadora T1** (también denominada DS1) es una especificación técnica ut
 - **Estructura de la Trama:** Una trama T1 se emite cada 125 μseg y consta de **193 bits** distribuidos así:
     - **24 canales de voz:** Cada canal aporta una muestra de 8 bits (24×8=192 bits).
     - **1 bit de encuadre:** Se añade un bit extra para sincronización, alcanzando los 193 bits totales por trama.
-- **Señalización:** Las versiones antiguas utilizaban "señalización de bits robados", donde se usaba el bit menos significativo de cada muestra para control. Las versiones modernas ofrecen **canales claros** donde los 8 bits completos de cada canal están disponibles para datos, moviendo la señalización a un canal común separado.
+
 Varias líneas T1 pueden combinarse mediante multiplexación por división en el tiempo (TDM). Esta jerarquía, conocida como el sistema de **Portadoras T** (T-Carrier), es un método para escalar la capacidad de transmisión combinando flujos de datos de menor velocidad en canales más potentes mediante la **multiplexación por división en el tiempo (TDM)**,.
 ### 1. El proceso de Multiplexación Bit a Bit
 A diferencia de la trama T1 original, que combina 24 canales de voz organizándolos **byte por byte** (muestras de 8 bits), la multiplexación hacia niveles superiores (T2, T3 y T4) se realiza **bit a bit**,. Esto significa que el multiplexor toma un bit de cada flujo entrante de forma rotatoria para construir el nuevo flujo de alta velocidad.
@@ -21,7 +21,7 @@ A diferencia de la trama T1 original, que combina 24 canales de voz organizándo
 Si multiplicamos la velocidad de una T1 por cuatro ($1.544 \text{ Mbps} \times 4$), obtendríamos **6.176 Mbps**. Sin embargo, la velocidad de una **T2 es de 6.312 Mbps**.
 Esta diferencia de velocidad (los bits "extra") se utiliza para **sobrecarga (overhead)**, específicamente para:
 - **Encuadre (Framing):** Bits necesarios para que el receptor sepa dónde empieza y termina cada bloque de datos.
-- **Sincronización y Recuperación:** Bits que permiten al sistema recuperarse rápidamente si la señal de la portadora se interrumpe o se pierde la sincronía entre el emisor y el receptor,.
+- **Sincronización y Recuperación:** Bits que permiten al sistema recuperarse rápidamente si la señal de la portadora se interrumpe o se pierde la sincronía entre el emisor y el receptor
 ### 3. La Escalera Jerárquica (Estándar de EE. UU. y Japón)
 La progresión funciona de la siguiente manera,:
 - **Nivel T2:** Combina **4 flujos T1** para alcanzar **6.312 Mbps**. Se utiliza principalmente de forma interna dentro de los sistemas de las compañías telefónicas,.
