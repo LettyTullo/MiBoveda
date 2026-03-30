@@ -153,4 +153,7 @@ Se presenta en el código de Hamming
 
 
 # pasos a seguir para el codigo de hamming
-1- dividir el 
+1- dividir el mensaje en bloques
+2- Hallar los bits de paridad de cada bloque 
+3- Aplicar el codigo de hamming a cada bloque 
+4- Transmitir los datos columna por columna  
