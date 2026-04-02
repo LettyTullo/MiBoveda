@@ -42,3 +42,24 @@ Son códigos de bloques lineales que, a diferencia de los anteriores, no trabaja
 Estos códigos de comprobación de paridad de baja densidad se basan en una representación matricial donde cada bit de salida depende de solo una pequeña fracción de los bits de entrada.
 - **Ventajas:** Son muy prácticos para tamaños de bloque grandes y ofrecen una capacidad de corrección que **supera a casi todos los demás códigos** en la práctica.
 - **Aplicaciones modernas:** Se han vuelto fundamentales en estándares de alta velocidad como el **Ethernet de 10 Gbps**, redes eléctricas inteligentes y las versiones más recientes de **Wi-Fi (802.11)**
+## Bits de paridad (Deteccion de errores)
+La **detección de errores mediante bits de paridad** es uno de los métodos más sencillos y antiguos para asegurar la integridad de los datos transmitidos. Consiste en añadir un **solo bit de redundancia** al final de un mensaje para que la suma total de los bits con valor "1" sea par o impar.
+A continuación se detalla su funcionamiento según las fuentes:
+1. Tipos de Paridad
+- **Paridad Par:** El bit de paridad se elige de tal manera que el número total de unos en el bloque (datos + paridad) sea un número par. Matemáticamente, esto equivale a realizar una operación **XOR** entre todos los bits de datos.
+- **Paridad Impar:** El bit se selecciona para que el conteo total de unos sea un número impar
+1. Ejemplo práctico
+Si el mensaje original es `1110000` (tiene tres unos):
+- En **paridad par**, se añade un `1` para que el total sea cuatro: `11100001`.
+- En **paridad impar**, se añadiría un `0` para mantener el total en tres.
+1. Capacidades y Limitaciones
+- **Distancia de Hamming:** Este esquema tiene una distancia de Hamming de **2**, lo que permite detectar errores simples de un solo bit.
+- **Detección selectiva:** Solo es capaz de detectar errores que afecten a un **número impar de bits** (1, 3, 5, etc.).
+- **Fallo ante errores pares:** Si se producen dos errores (dos bits se invierten simultáneamente), la paridad seguirá pareciendo correcta y el receptor **no detectará el error**.
+- **Ubicación del error:** No permite saber qué bit falló, solo indica que la trama está dañada.
+1. Mejoras: Paridad en dos dimensiones (Intercalación)
+Para combatir las **ráfagas de errores** (donde fallan muchos bits consecutivos), se utiliza la **intercalación**. En este método:
+- Los datos se organizan en una matriz rectangular de N columnas.
+- Se calcula un bit de paridad para cada fila y para cada columna.
+- Esta técnica permite detectar ráfagas de error de longitud hasta N, ya que los bits erróneos se distribuyen entre diferentes columnas, afectando a múltiples sumas de paridad.
+Checksums o sumas de comprobacion 
