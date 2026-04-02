@@ -62,4 +62,18 @@ Para combatir las **ráfagas de errores** (donde fallan muchos bits consecutivos
 - Los datos se organizan en una matriz rectangular de N columnas.
 - Se calcula un bit de paridad para cada fila y para cada columna.
 - Esta técnica permite detectar ráfagas de error de longitud hasta N, ya que los bits erróneos se distribuyen entre diferentes columnas, afectando a múltiples sumas de paridad.
-Checksums o sumas de comprobacion 
+## Checksums o sumas de comprobacion 
+
+Un **checksum** (o suma de comprobación) es un valor corto de redundancia que se añade a una unidad de datos para permitir que el receptor detecte errores ocurridos durante la transmisión.
+### 1. ¿Cómo funciona?
+El algoritmo trata los datos como una secuencia de palabras de una longitud fija $N$ (por ejemplo, 8 bits).
+- **En el emisor:** Se realiza una suma de todas estas palabras de datos. En el caso del **checksum de Internet** (usado en IP, UDP y TCP), se utiliza aritmética de **complemento a uno**, donde los acarreos del final se vuelven a sumar al resultado. El valor resultante se suele colocar al final del mensaje.
+- **En el receptor:** Se vuelve a calcular la suma de los datos recibidos. Si el resultado no coincide con el checksum enviado (o si la suma total incluyendo el checksum no da un valor específico, como cero), se determina que la trama contiene un error y se descarta.
+### 2. Propiedades y capacidades
+- **Detección de errores:** Es más eficaz que un simple bit de paridad, ya que puede detectar errores que no alteran la paridad total, como cuando bits en diferentes palabras cambian de forma que se cancelan en un conteo de paridad pero no en una suma.
+- **Ráfagas de error:** Tiene la capacidad de detectar ráfagas de error de hasta $N$ bits.
+- **Simplicidad:** Su principal ventaja es que es **fácil y eficiente de implementar en software**
+### 3. Limitaciones
+A pesar de su utilidad, el checksum tiene debilidades frente a ciertos fallos:
+- **Errores sistemáticos:** Es vulnerable a la eliminación o adición de ceros y al intercambio de posición de las partes del mensaje, ya que la suma total no cambiaría.
+- **Protección débil:** No protege bien contra el "empalme" de mensajes donde se combinan partes de dos paquetes diferentes.
