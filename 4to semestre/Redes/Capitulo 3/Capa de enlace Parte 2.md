@@ -28,3 +28,8 @@ El **algoritmo de Viterbi** es el método estándar utilizado para la **decodifi
 4. **Selección del Mensaje:** Al finalizar el recorrido de toda la secuencia, el camino que presenta el menor número total de errores es seleccionado como el **mensaje más probable**.
 ### Decodificación de Decisión Suave (Soft Decision)
 Una de las grandes ventajas de este algoritmo es su capacidad para implementar la **decodificación de decisión suave**. En lugar de decidir inmediatamente si un bit es "0" o "1" basándose en un umbral fijo, el algoritmo puede trabajar con la **incertidumbre** o probabilidad de la señal (por ejemplo, interpretando un voltaje intermedio como "muy probablemente un 1"). Esto permite una corrección de errores mucho más robusta que la decisión "dura" tradicional.
+### Otras Aplicaciones
+Aunque su uso principal es en redes (como en el estándar **IEEE 802.11**), el algoritmo de Viterbi tiene aplicaciones importantes en otros campos tecnológicos, tales como:
+- **Reconocimiento y sintetización de voz**.
+- **Bioinformática**.
+- Comunicaciones satelitales y telefonía móvil GSM.
