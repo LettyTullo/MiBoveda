@@ -33,3 +33,12 @@ Aunque su uso principal es en redes (como en el estándar **IEEE 802.11**), el a
 - **Reconocimiento y sintetización de voz**.
 - **Bioinformática**.
 - Comunicaciones satelitales y telefonía móvil GSM.
+# Otros codigos de correccion
+**Códigos Reed-Solomon**
+Son códigos de bloques lineales que, a diferencia de los anteriores, no trabajan con bits individuales sino con **símbolos de múltiples bits** (como bytes).
+- **Fortaleza:** Son excelentes para corregir **errores de ráfaga** (donde se dañan muchos bits consecutivos), ya que un error en una ráfaga de bits se trata simplemente como un error en un símbolo.
+- **Aplicaciones:** Se utilizan masivamente en tecnologías como **DSL**, redes de cable, comunicaciones por satélite y en el almacenamiento físico como **CD, DVD y discos Blu-ray**.
+**Códigos LDPC (Low-Density Parity Check)**
+Estos códigos de comprobación de paridad de baja densidad se basan en una representación matricial donde cada bit de salida depende de solo una pequeña fracción de los bits de entrada.
+- **Ventajas:** Son muy prácticos para tamaños de bloque grandes y ofrecen una capacidad de corrección que **supera a casi todos los demás códigos** en la práctica.
+- **Aplicaciones modernas:** Se han vuelto fundamentales en estándares de alta velocidad como el **Ethernet de 10 Gbps**, redes eléctricas inteligentes y las versiones más recientes de **Wi-Fi (802.11)**
