@@ -19,3 +19,12 @@ A continuación se explica su funcionamiento paso a paso:
 6. **Decodificación (Algoritmo de Viterbi):** Para recuperar el mensaje original en canales con ruido, se utiliza el **Algoritmo de Viterbi**. Este algoritmo busca la secuencia de estados con la **mayor probabilidad** de haber generado la secuencia de salida observada, manteniendo en cada paso el camino con el menor número de errores acumulados.
 
 Se utilizan ampliamente en estándares como **GSM (telefonía móvil)**, comunicaciones por satélite y **IEEE 802.11 (Wi-Fi)**.
+## Algoritmo de Viterbi
+El **algoritmo de Viterbi** es el método estándar utilizado para la **decodificación de códigos convolucionales**, específicamente diseñado para procesar señales en canales de comunicación que presentan ruido. Su función principal es determinar la secuencia de bits original con la mayor precisión posible a partir de una señal recibida que puede contener errores.
+### Proceso de Funcionamiento
+1. **Entrada:** Recibe el mensaje que ha sido codificado y posteriormente afectado por el ruido del canal.
+2. **Análisis de Trayectorias:** El algoritmo recorre la secuencia observada paso a paso. Para cada paso y para cada posible **estado interno** del sistema, calcula qué secuencia de entrada habría producido la observación actual con el **menor número de errores acumulados**.
+3. **Uso del Trellis:** Este proceso se visualiza mediante un **diagrama de Trellis**, donde se mantienen los caminos que tienen la **mayor probabilidad** de ser los correctos según la lógica del código convolucional utilizado.
+4. **Selección del Mensaje:** Al finalizar el recorrido de toda la secuencia, el camino que presenta el menor número total de errores es seleccionado como el **mensaje más probable**.
+### Decodificación de Decisión Suave (Soft Decision)
+Una de las grandes ventajas de este algoritmo es su capacidad para implementar la **decodificación de decisión suave**. En lugar de decidir inmediatamente si un bit es "0" o "1" basándose en un umbral fijo, el algoritmo puede trabajar con la **incertidumbre** o probabilidad de la señal (por ejemplo, interpretando un voltaje intermedio como "muy probablemente un 1"). Esto permite una corrección de errores mucho más robusta que la decisión "dura" tradicional.
