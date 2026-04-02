@@ -1,3 +1,37 @@
+- [I] **RTPC (Red Telefónica Pública Conmutada):** sistema tradicional de telefonía fija que usa la conmutación de circuitos para establecer una conexión física dedicada entre dos usuarios durante una llamada (tiene el objetivo de transmitir la voz humana). Es el **estándar para teléfonos fijos**.
+- [I] **DSL (Digital Subscriber Line):** tecnología que proporciona acceso a internet de banda ancha a alta velocidad usando los pares de cobre de red telefónica conmutada convencional. (Velocidades de hasta 1Gbps)
+
+1) Red conectada totalmente (full mesh)
+	Significa conectar cada teléfono a todos los demás teléfonos de las personas con las que se quiere hablar
+	![[full mesh.png]]
+2) Red centralizada (topología de Estrella)
+	La empresa de telecomunicaciones tenía un cable a cada casa de los clientes. Para hacer una llamada, el cliente tenía que llamad a la oficina de la empresa, luego un operador conectaba al cliente con otro mediante un cable corto manualmente.
+	![[centralizada.png]]
+3) Red conmutada con dos niveles
+	Corregía las llamadas de larga distancia, conectaba cada oficina de la empresa de telecomunicaciones y se repetía el proceso indicado arriba.
+	![[conmutada dos niveles.png]]
+
+>[!important] Los bucles locales en los hogares tienen cables de par trenzado de cobre de categoría 3, aunque algunos también son de fibra óptica.
+
+## Estructura de la red telefónica
+1. **Bucles locales o [[3. La red telefónica conmutada#Estructura del local loop o última milla|Local loops]]:** pares trenzados analógicos entre oficinas, casas y empresas locales. *cables UTP*
+2. **Troncales o Trunks:** enlaces digitales de fibra óptica de gran ancho de banda que conectan oficinas de conmutación.
+3. **Oficinas de conmutación o Switching offices:** donde las llamadas se trasladan de un troncal a otro por medios eléctricos u ópticos.
+
+## Estructura del local loop o última milla
+1. **Módems telefónicos:** modulación a líneas analógicas
+2. **DSL:** modulación a líneas digitales y acceso a Internet
+3. **Fibra óptica:** FTTx (Fiber to the X)
+### Módems telefónicos
+- [I] **Módem (modulador demodulador):** dispositivo que convierte un glujo de bits digitales a una señal analógica que los representa.
+- [I] Módem Telefónico: modulación a líneas analógicas.
+
+>[!important] Módems V32 ($9600\text{ kbps}$), V90 y V92 ($56\text{ kbps}$)
+### Módem DSL
+- [I] DSL: modulación a líneas digitales y acceso a Internet.
+### FTTx
+
+
 ## Digitalizacion de las seañales de voz
 La **digitalización de las señales de voz** es el proceso de convertir datos analógicos en datos digitales para su transporte a través de redes modernas
 # Codecs  
