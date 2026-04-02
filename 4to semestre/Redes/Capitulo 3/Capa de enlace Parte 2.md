@@ -10,7 +10,12 @@ A continuación se explica su funcionamiento paso a paso:
 4. **Representación lógica:** El funcionamiento se puede visualizar de tres formas:
     - **Tabla de transiciones:** Indica el estado siguiente y la salida según la entrada.
     - **Diagrama de estados:** Muestra gráficamente las transiciones entre los estados internos.
-    - **Diagrama de Trellis:** Es una representación temporal que permite observar la evolución de los estados a medida que se procesa la cadena de bits.
-5. **Decodificación (Algoritmo de Viterbi):** Para recuperar el mensaje original en canales con ruido, se utiliza el **Algoritmo de Viterbi**. Este algoritmo busca la secuencia de estados con la **mayor probabilidad** de haber generado la secuencia de salida observada, manteniendo en cada paso el camino con el menor número de errores acumulados.
+    - **Diagrama de Trellis:** Es una representación temporal que permite observar la evolución de los estados a medida que se procesa la cadena de bits
+5. **Codificacion:** 
+	- **Ingreso:** Un bit de información entra al codificador.
+	- **Cálculo:** El sistema toma este nuevo bit y lo suma (usando compuertas lógicas XOR) junto con los bits anteriores que están almacenados temporalmente en su memoria (registros de desplazamiento).
+	- **Salida:** Se generan múltiples bits de salida basados en las conexiones predefinidas del circuito.
+	- **Desplazamiento:** El sistema hace un "tic" de reloj: descarta el bit más antiguo de su memoria, mueve los demás una posición y guarda el bit que acaba de entrar para usarlo en el siguiente cálculo.
+6. **Decodificación (Algoritmo de Viterbi):** Para recuperar el mensaje original en canales con ruido, se utiliza el **Algoritmo de Viterbi**. Este algoritmo busca la secuencia de estados con la **mayor probabilidad** de haber generado la secuencia de salida observada, manteniendo en cada paso el camino con el menor número de errores acumulados.
 
 Se utilizan ampliamente en estándares como **GSM (telefonía móvil)**, comunicaciones por satélite y **IEEE 802.11 (Wi-Fi)**.
