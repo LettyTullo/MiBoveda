@@ -185,3 +185,5 @@ Cada usuario tiene "k" chips, cuando transmite un bit "1" transmite su codigo de
 # d) WDM (Multiplexacion por division de longitud de onda)
 Es esencialmente la multiplexación FDM aplicada al espectro de la luz en **enlaces de fibra óptica** Se combinan múltiples señales (cada una en un "color" o longitud de onda diferente) 
 Los multiplexores y demultiplexores son ópticos (no electrónicos)
+
+[[Capa Fisica Parte 3]]

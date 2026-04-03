@@ -1,4 +1,4 @@
-## Codigos convulvionales 
+## Codigos convulcionales 
 Los **códigos convolucionales** son un método de corrección de errores que, a diferencia de los códigos de bloques, opera sobre una **cadena continua de bits** procesando una secuencia de entrada para generar una de salida.
 A continuación se explica su funcionamiento paso a paso:
 1. **Mantenimiento del estado (Memoria):** El codificador utiliza **registros de desplazamiento** para mantener un estado interno. Esto implica que la salida es una **función de los bits de entrada actuales y anteriores**, dotando al sistema de "memoria".

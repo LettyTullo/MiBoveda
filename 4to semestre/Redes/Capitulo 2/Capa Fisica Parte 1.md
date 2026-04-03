@@ -119,3 +119,5 @@ Su nombre corresponde a las siglas en inglés para **Industrial, Científica y M
 Las siglas corresponden a **Infraestructura Nacional de Información sin Licencia**.
 - **Ubicación y Uso:** Se encuentran en la porción de **5 GHz** del espectro. Aunque inicialmente estaban poco desarrolladas, se han vuelto masivas gracias a estándares de alta velocidad como **802.11ac y 802.11ax (WiFi 6)**
 - **Ventajas:** Ofrecen un **mayor ancho de banda** que las bandas de 2.4 GHz. Sin embargo, al operar en frecuencias más altas, sus señales tienen una menor capacidad para atravesar paredes y obstáculos sólidos
+
+[[Capa fisica Parte 2]]

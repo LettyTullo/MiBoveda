@@ -157,3 +157,4 @@ Se presenta en el código de Hamming
 3- Aplicar el codigo de hamming a cada bloque 
 4- Transmitir los datos columna por columna  
 
+[[Capa de enlace Parte 2]]

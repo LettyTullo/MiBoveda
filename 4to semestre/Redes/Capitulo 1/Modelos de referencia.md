@@ -100,3 +100,5 @@ Existen dos formas principales en las que surgen los estándares:
 - 802.15 - Redes de área personal (Bluetooth, Zigbee)
 
 ![[Pasted image 20260308172107.png]]
+
+[[Capa Fisica Parte 1]]

@@ -65,3 +65,4 @@ También llamado de "mejor esfuerzo", donde no se confirman los mensajes y se de
 ## Servicio VS Protocolo
 Un servicio es un conjunto de primitivas (operaciones) que una capa proporciona a la capa superior. El servicio define que operaciones puede realizar la capa en nombre de sus usuarios, pero no dice nada en lo absoluto de como se implementan estas operaciones. Esta relacionado con la interfaz entre dos capas.
 Un protocolo es un conjunto de reglas que rigen el formato y el significado de los paquetes o mensajes que intercambian las entidades pares dentro de una capa. Las entidades utilizan protocolos para aplicar sus definiciones de servicio.
+[[Modelos de referencia]]
