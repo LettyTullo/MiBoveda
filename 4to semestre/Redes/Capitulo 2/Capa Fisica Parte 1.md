@@ -39,13 +39,11 @@ Es el medio con mayor capacidad tecnológica actual, capaz de transportar ciento
 # Componentes de Infraestructura Relacionados
 - **Racks o Gabinetes:** Estructuras para alojar equipos de red, con anchos estándar de 19 pulgadas y alturas medidas en Unidades "**U**" (1U = 4,445 cm).
 - **Patch Panels:** Elementos pasivos donde termina el cableado físico de la instalación.
-- **Patch Cords:** Cables cortos armados de fábrica para conectar equipos dentro del rack.
+- **Patch Cords:** Cables cortos armados de fábrica para conectar equipos deentro del rack.
 ## b) No Guiados
 Son aquellos que transportan datos sin un medio fisico, sino que se propagan por las ondas a traves del aire, el vacio o el agua. 
 # - El espectro electromagnetico:
-Se propaga mediante las ondas para transportar informacion, dependiendo de la potencia y el ancho de banda.
-**El Espectro Electromagnético: Bases Teóricas**
-- **Naturaleza de la señal:** El movimiento de los electrones genera ondas electromagnéticas que pueden propagarse por el espacio.
+Se propaga mediante las ondas para transportar informacion, dependiendo de la potencia y el ancho de banda. El movimiento de los electrones genera ondas electromagnéticas que pueden propagarse por el espacio.
 - **Propiedades fundamentales:** Las ondas se definen por su **frecuencia** (f), medida en Hertz (Hz); su **longitud de onda** (λ), que es la distancia entre dos máximos; y su **fase** (ϕ).
 - **Relación matemática:** En el vacío, todas las ondas viajan a la velocidad de la luz (c≈3×108 m/seg), cumpliendo la fórmula c=λ⋅f.
 - **Capacidad de datos:** La cantidad de información que puede transportar una señal es proporcional a su **ancho de banda**
