@@ -37,6 +37,9 @@ La **digitalización de las señales de voz** es el proceso de convertir datos a
 # Codecs  
 El término **códec** es la abreviatura de **"codificador-decodificador"**. Se trata de un dispositivo o proceso que realiza la conversión entre señales analógicas y bits digitales.
 # La técnica PCM (Modulación por Codificación de Pulsos)
+**PCM (Pulse Code Modulation):** Modulación por Impulsos Codificados. Es la técnica estándar utilizada por los códecs para digitalizar señales de voz analógicas en el sistema telefónico
+
+
 La técnica estándar utilizada en el corazón del sistema telefónico y en los **codecs** es la denominada **PCM**. Este proceso consta de los siguientes pasos técnicos:
 - **Muestreo:** Basándose en el **Teorema de Nyquist**, una señal se puede reconstruir totalmente si se muestrea a una frecuencia mayor al doble de su componente más alta. Para un canal de voz de 4,000 Hz, se toman **8,000 muestras por segundo** (una cada 125 μseg).
 - **Cuantización:** Cada muestra de la amplitud de la señal (muestra PAM) se asigna a un valor digital, normalmente un número de **8 bits**.45
