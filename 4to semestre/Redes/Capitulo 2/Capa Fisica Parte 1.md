@@ -52,6 +52,18 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
 	- Son **omnidireccionales**, lo que significa que viajan en todas las direcciones y no requieren alineación precisa entre antenas.
 	- Su propagación varía según la banda: las de baja frecuencia siguen la curvatura de la Tierra (**ondas superficiales**), mientras que las de alta frecuencia rebotan en la ionosfera (**ondas aéreas**)
+# 2) **Microondas de (2GHZ a 300GHZ):** 
+Viajan en línea recta y son altamente direccionales, permitiendo enfocar la energía en haces estrechos mediante antenas parabólicas.
+	- Requieren **línea de vista** despejada entre el emisor y el receptor.
+	- Se utilizan para telecomunicaciones de larga distancia, satélites, telefonía celular, Bluetooth y WiFi.
+	- Su principal desventaja es que son absorbidas por el agua, lo que causa atenuación durante la lluvia
+# 3) **Luz Infrarroja (300 GHz a 400 THz):** 
+Se utiliza para comunicaciones de corto alcance, como mandos a distancia e interconexión de laptops (estándar IrDA).
+	- **No atraviesa objetos sólidos**, lo que proporciona seguridad contra interferencias entre habitaciones adyacentes y no requiere licencia gubernamental para su uso
+	- Es usada en controles de TV, aire y ampliamente usadas en fibra optica 
+# 4)  **Ondas de Luz Visible:**
+- Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
+- También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
 # TIPOS DE PROPAGACION
 # Propagación superficial (Ground-wave)
 Este tipo de propagación es característico de las bandas de baja frecuencia: **VLF (muy baja frecuencia), LF (baja frecuencia) y MF (frecuencia media)**.
@@ -68,18 +80,6 @@ Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (fr
 - A frecuencias superiores a 100 MHz, las ondas viajan prácticamente en **línea recta** y pueden enfocarse de forma estrecha.
 - Requiere que el emisor y el receptor estén alineados físicamente sin obstáculos importantes.
 - Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
-# 2) **Microondas de (2GHZ a 300GHZ):** 
-Viajan en línea recta y son altamente direccionales, permitiendo enfocar la energía en haces estrechos mediante antenas parabólicas.
-	- Requieren **línea de vista** despejada entre el emisor y el receptor.
-	- Se utilizan para telecomunicaciones de larga distancia, satélites, telefonía celular, Bluetooth y WiFi.
-	- Su principal desventaja es que son absorbidas por el agua, lo que causa atenuación durante la lluvia
-# 3) **Luz Infrarroja (300 GHz a 400 THz):** 
-Se utiliza para comunicaciones de corto alcance, como mandos a distancia e interconexión de laptops (estándar IrDA).
-	- **No atraviesa objetos sólidos**, lo que proporciona seguridad contra interferencias entre habitaciones adyacentes y no requiere licencia gubernamental para su uso
-	- Es usada en controles de TV, aire y ampliamente usadas en fibra optica 
-# 4)  **Ondas de Luz Visible:**
-- Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
-- También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
 ## Espectro expandido
 Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
 Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias.
