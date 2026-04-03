@@ -36,7 +36,7 @@
 La **digitalización de las señales de voz** es el proceso de convertir datos analógicos en datos digitales para su transporte a través de redes modernas
 # Codecs  
 El término **códec** es la abreviatura de **"codificador-decodificador"**. Se trata de un dispositivo o proceso que realiza la conversión entre señales analógicas y bits digitales.
-# La técnica PCM
+# La técnica PCM (Modulación por Codificación de Pulsos)
 La técnica estándar utilizada en el corazón del sistema telefónico y en los **codecs** es la denominada **PCM**. Este proceso consta de los siguientes pasos técnicos:
 - **Muestreo:** Basándose en el **Teorema de Nyquist**, una señal se puede reconstruir totalmente si se muestrea a una frecuencia mayor al doble de su componente más alta. Para un canal de voz de 4,000 Hz, se toman **8,000 muestras por segundo** (una cada 125 μseg).
 - **Cuantización:** Cada muestra de la amplitud de la señal (muestra PAM) se asigna a un valor digital, normalmente un número de **8 bits**.45
@@ -62,7 +62,10 @@ La progresión funciona de la siguiente manera,:
 - **Nivel T3:** Combina **7 flujos T2** para alcanzar **44.736 Mbps**. Este nivel es muy común y es ampliamente alquilado por clientes corporativos que requieren gran ancho de banda.
 - **Nivel T4:** Combina **6 flujos T3** para alcanzar **274.176 Mbps**. Se utiliza casi exclusivamente en el núcleo o _backbone_ del sistema telefónico y no es tan conocido por el público general.
 # SONET/SDH
-El multiplexado de las redes ópticas **SONET** (_Synchronous Optical Network_, estándar ANSI utilizado en EE. UU.) y **SDH** (_Synchronous Digital Hierarchy_, estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
+El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
+
+
+
 Es un sistema de transporte óptico basado en un **Reloj Maestro** que obliga a enviar tramas síncronas cada $125 \mu s$ exactos, garantizando una puntualidad atómica. Su estructura básica es la **Trama STS-1**, una cuadrícula de 9 filas por 90 columnas (810 bytes) donde las primeras 3 columnas son el **Overhead** (control) y el resto es el **SPE** (carga útil). La magia del sistema es que el **SPE es Flotante**, lo que significa que los datos del usuario no tienen que empezar al inicio de la trama, sino que pueden saltar de un "vagón" a otro para no perder tiempo. Para que el receptor no se pierda, se usan los **Punteros**, que son indicadores en el área de control que señalan la coordenada exacta donde empiezan los datos reales, permitiendo una **Jerarquía de Tasas** escalable (desde OC-1 a OC-768) mediante la combinación simple de estos flujos de bits.
 
 [[Capa de enlace Parte 1]]
