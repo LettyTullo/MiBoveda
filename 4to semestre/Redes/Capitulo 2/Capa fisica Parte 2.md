@@ -75,7 +75,6 @@ M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
 $$
 ## Modulacion digital 
 Los canales alambricos y no alambricos transportan señales analogicas como la intensidad de la luz o del sonido. Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  **modulacion digital**.
-Los esquemas que convierten directamente bits a señales es la transmision de **banda base** y los esquemas que regulan la amplitud, fase, frecuencia de la señal portadora para transmitir bits dan lugar a los esquemas de **banda pasante.** 
 El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina **multiplexacion**. 
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
 ## Transmision en banda base
