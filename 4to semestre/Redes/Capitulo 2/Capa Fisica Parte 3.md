@@ -23,7 +23,7 @@
 2. **DSL:** modulación a líneas digitales y acceso a Internet
 3. **Fibra óptica:** FTTx (Fiber to the X)
 ### Módems telefónicos
-- [I] **Módem (modulador demodulador):** dispositivo que convierte un glujo de bits digitales a una señal analógica que los representa.
+- [I] **Módem (modulador demodulador):** dispositivo que convierte un flujo de bits digitales a una señal analógica que los representa.
 - [I] Módem Telefónico: modulación a líneas analógicas.
 
 >[!important] Módems V32 ($9600\text{ kbps}$), V90 y V92 ($56\text{ kbps}$)
