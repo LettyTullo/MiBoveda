@@ -1,4 +1,4 @@
-- [I] **RTPC (Red Telefónica Pública Conmutada):** sistema tradicional de telefonía fija que usa la conmutación de circuitos para establecer una conexión física dedicada entre dos usuarios durante una llamada (tiene el objetivo de transmitir la voz humana). Es el **estándar para teléfonos fijos**.
+	- [I] **RTPC (Red Telefónica Pública Conmutada):** sistema tradicional de telefonía fija que usa la conmutación de circuitos para establecer una conexión física dedicada entre dos usuarios durante una llamada (tiene el objetivo de transmitir la voz humana). Es el **estándar para teléfonos fijos**.
 - [I] **DSL (Digital Subscriber Line):** tecnología que proporciona acceso a internet de banda ancha a alta velocidad usando los pares de cobre de red telefónica conmutada convencional. (Velocidades de hasta 1Gbps)
 
 1) Red conectada totalmente (full mesh)
