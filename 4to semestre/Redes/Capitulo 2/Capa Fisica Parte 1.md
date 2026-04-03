@@ -102,6 +102,7 @@ Estas técnicas son vitales para operar en las **bandas ISM** (Industrial, Cient
 
 # Bandas ISM (Industrial, Scientific, and Medical)
 Su nombre corresponde a las siglas en inglés para **Industrial, Científica y Médica**.
+Bandas de frecuencias ultra altas que son utilizadas sin licencia
 - **Propósito y Regulación:** Fueron definidas originalmente por la UIT-R para aplicaciones no relacionadas con las comunicaciones, pero hoy son la base de las redes LAN e inalámbricas domésticas. 
 - **Frecuencias Principales:**
     - **900 MHz (902-928 MHz):** Utilizada por versiones antiguas de WiFi; actualmente está muy saturada.
