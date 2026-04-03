@@ -90,7 +90,7 @@ En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una f
 - **Uso:** Fue inventado por Hedy Lamarr en 1942 para fines militares y hoy se utiliza comercialmente en tecnologías como **Bluetooth**
 # Espectro Expandido de Secuencia Directa (DSSS)
 El DSSS (_Direct Sequence Spread Spectrum_) utiliza una secuencia de códigos para distribuir la señal de datos por una banda de frecuencias más amplia.
-- **Funcionamiento:** Cada bit de datos se representa mediante múltiples bits denominados **chips** usando un código de expansión. Por ejemplo, el estándar 802.11b utiliza una secuencia específica llamada **secuencia de Barker**.
+- **Funcionamiento:** Cada bit de datos se representa mediante múltiples bits denominados **chips** usando un código de expansión. 
 - **Relación con CDMA:** Esta técnica permite que varias señales compartan la misma banda asignando códigos diferentes a cada una, lo que constituye la base del **Acceso Múltiple por División de Código (CDMA)** utilizado en redes 3G y GPS.
 # Comunicación de Banda Ultra Ancha (UWB)
 Aunque a veces se clasifica por separado, las fuentes la incluyen como una técnica que utiliza bandas de frecuencia muy anchas.
