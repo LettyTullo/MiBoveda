@@ -83,6 +83,7 @@ Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (fr
 - Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
 ## Espectro expandido
 Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
+# Beneficios:
 Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias.
 # Espectro Expandido por Salto de Frecuencia (FHSS)
 En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una frecuencia a otra** cientos de veces por segundo siguiendo una serie seudoaleatoria.
