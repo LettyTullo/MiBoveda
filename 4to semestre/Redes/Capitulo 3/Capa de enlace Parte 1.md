@@ -126,7 +126,6 @@ Como ningún modelo es 100% efectivo, hay que considerar el tipo de error produc
 # Codigo de Hamming 
 - [I] **Distancia de hamming:** es la cantidad mínima de bits cambiados para pasar de una palabra codificada válida a otra cualquiera. La **distancia de un código completo** es la menor de todas las distancias entre una palabra y otra.
 	Un código con distancia mínima de Hamming **d** puede detectar palabras codificadas (codewords) con hasta **s** bits con error, donde $d_{min}\gt{s}$
-	**Nota rápida:** Si la pregunta te pidiera solo **detectar** 1 error (saber que algo está mal pero no poder arreglarlo), la fórmula es simplemente d + 1.  Como pide **corregir**, necesitas ese espacio "extra" se representa como dmin>=2d+1 para saber cuál era la palabra original correcta.
 
 >[!info] Funcionamiento de control de errores
 >- Toma un mensaje de longitud **m**
