@@ -167,7 +167,7 @@ $$
 La **codificación de Gray**: es un sistema de asignación de bits a símbolos en el que los símbolos adyacentes en un diagrama de constelación difieren únicamente en **una posición de bit**.
 Su propósito principal en las comunicaciones de red es **minimizar la cantidad de errores de bits** que ocurren debido al ruido en el canal (Para evitar la diafonia)
 
-
+![[Pasted image 20260404164221.png]]
 ## Tecnicas de multiplexado
 Comun en redes de altas distancias. Son 4
 # a) FDM (Multiplexacion por division de frecuencia)
