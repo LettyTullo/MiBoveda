@@ -1,6 +1,6 @@
 [[Protocolo de Red]]
 ## Modelo OSI
-- Tiene origen teorico. Una propuesta elaborada por ISO(Organizacion Internacional de Standars) en 1983. Fue revisado en 1995 y se denomina OSI (Interconexion de Sistemas Abiertos)
+No es una arquitectura de red, debido a que no especifica los protocolos. Es un modelo de referencia teórico. Una propuesta elaborada por ISO(Organizacion Internacional de Standars) en 1983. Fue revisado en 1995 y se denomina OSI (Interconexion de Sistemas Abiertos)
 ## Capas
 # 1- Capa Fisica: 
 Es la capa más baja y se encarga de la **transmisión de bits puros** a través de un canal de comunicación. Define las especificaciones mecánicas y eléctricas, como los niveles de voltaje, la duración de las señales, los tipos de conectores, cables y las bandas inalámbricas. Su unidad de información es el **bit**. 
@@ -85,7 +85,7 @@ Existen dos formas principales en las que surgen los estándares:
 - **De Facto (de hecho):** Son normas que surgen sin un plan formal pero que se vuelven universales por su éxito. Ejemplos son el protocolo **HTTP** y la tecnología **Bluetooth**.
 - **De Jure (por ley):** Son normas adoptadas mediante las reglas de organismos oficiales de normalización
 # - **Telecomunicaciones:**
-- **ITU (Unión Internacional de Telecomunicaciones):** Agencia de la ONU que emite "recomendaciones" técnicas. Su sector **ITU-T** se ocupa de la telefonía y los sistemas de datos (como la norma H.264 para video).
+- **ITU (Unión Internacional de Telecomunicaciones):** Agencia de la ONU que emite "recomendaciones" técnicas. Su sector **ITU-T** se ocupa de la telefonía y los sistemas de datos .
 - **Normas Internacionales:**
     - **ISO (Organización Internacional de Normalización):** Organización voluntaria que publica estándares sobre miles de temas, incluyendo el modelo OSI y las tecnologías de la información a través del comité **JTC1**.
 - **Ingeniería y LAN:**
