@@ -27,7 +27,7 @@ Consiste en diseñar una red que funcione correctamente aunque este formada por 
 - Los mecanismos que proporcionan confidencialidad defienden contra esa amenaza , y se utilizan en multiples capas.
 - Los mecanismos de autenticacion impiden que alguien se haga pasar por otra persona.
 - Otros mecanismos de integridad evitan cambios subrepticios en los mensajes.
-## Estratificacion de protocolos
+## Caracteristicas de protocolos
 - El proposito de cada capa es ofrecer ciertos servicios a las capas superiores.
 - Las entidades que comprenden las capas correspondientes en diferentes maquinas se denominan pares.
 - Cada instancia del protocolo se comunica virtualmente con su par.
