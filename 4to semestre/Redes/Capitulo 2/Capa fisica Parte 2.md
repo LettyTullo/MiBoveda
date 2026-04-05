@@ -124,7 +124,7 @@ El nombre **AMI** significa "Inversión de Marca Alternada" y es un tipo de **se
 - - **Ventaja:** Resuelve el problema de la recuperación del reloj (sincronización), ya que siempre hay una transición en cada bit, incluso con cadenas largas de ceros o unos.
 - **Desventaja:** Requiere el **doble de ancho de banda** que otros esquemas (como NRZ) porque la señal cambia al doble de la tasa de bits
 # Manchester(diferencial)
-Los datos se representan de la siguiente manera: si existe una transición al **inicio del periodo de bit**, el valor es un **"0"** lógico; si no hay una transición al inicio, el valor es un **"1"** lógico. Este esquema se utiliza específicamente en el estándar de red **IEEE 802.5** (Token Ring)
+Los datos se representan de la siguiente manera: si existe una transición al **inicio del periodo de bit**, el valor es un **"0"** lógico; si no hay una transición al inicio, el valor es un **"1"** lógico. Este esquema se utiliza específicamente en el estándar de red **IEEE 802.5** (Token Ring). Siempre cambia en el medio  y al inicio del 0 
 # Tasa de baudios
 se define como la velocidad a la que se generan y cambian los **elementos de señal** o símbolos en un canal de comunicación. Es fundamental distinguir la tasa de baudios de la **tasa de bits**, ya que la tasa de bits representa el número de bits transmitidos por segundo y es igual a la tasa de símbolos multiplicada por el número de bits que transporta cada símbolo
 # Mejoramiento del clocking
