@@ -48,6 +48,15 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 - **Relación matemática:** En el vacío, todas las ondas viajan a la velocidad de la luz (c≈3×108 m/seg), cumpliendo la fórmula c=λ⋅f.
 - **Capacidad de datos:** La cantidad de información que puede transportar una señal es proporcional a su **ancho de banda**
 ![[Pasted image 20260404234205.png]]
+**VLF** - Radionavegación de largo alcance
+**LF** - Radiofaros y localizadores de navegación
+**MF** - Radio AM
+**HF** - Banda ciudadana (CB), comunicación de barcos/aviones
+**VHF** - TV VHF, radio FM
+**UHF** - TV UHF, teléfonos celulares, buscapersonas (_paging_), satélite
+**SHF** - Comunicación por satélite
+**EHF** - Radar, satélite
+
 # **Tipos de medios y usos del espectro** 
 # 1) **Radio frecuencias de (3KHZ a 2GHZ):** 
 Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
