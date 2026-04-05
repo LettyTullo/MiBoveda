@@ -47,7 +47,7 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 - **Propiedades fundamentales:** Las ondas se definen por su **frecuencia** (f), medida en Hertz (Hz); su **longitud de onda** (λ), que es la distancia entre dos máximos; y su **fase** (ϕ).
 - **Relación matemática:** En el vacío, todas las ondas viajan a la velocidad de la luz (c≈3×108 m/seg), cumpliendo la fórmula c=λ⋅f.
 - **Capacidad de datos:** La cantidad de información que puede transportar una señal es proporcional a su **ancho de banda**
-![[Pasted image 20260403232420.png]]
+![[Pasted image 20260404234205.png]]
 # **Tipos de medios y usos del espectro** 
 # 1) **Radio frecuencias de (3KHZ a 2GHZ):** 
 Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
@@ -65,6 +65,7 @@ Se utiliza para comunicaciones de corto alcance, como mandos a distancia e inter
 # 4)  **Ondas de Luz Visible:**
 - Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
 - También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
+
 # TIPOS DE PROPAGACION
 # Propagación superficial (Ground-wave)
 Este tipo de propagación es característico de las bandas de baja frecuencia: **VLF (muy baja frecuencia), LF (baja frecuencia) y MF (frecuencia media)**.
@@ -83,7 +84,7 @@ Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (fr
 - Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
 ## Espectro expandido
 Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
-# Beneficios:
+# Beneficios
 Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (multipath) , esconder y encriptar señales, varios usuarios pueden compartir el mismo ancho de banda sin muchas interferencias.
 # Espectro Expandido por Salto de Frecuencia (FHSS)
 En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una frecuencia a otra** cientos de veces por segundo siguiendo una serie seudoaleatoria.
