@@ -1,6 +1,6 @@
 MODELO OSI, ITU-T
 # SONET/SDH, PCM, T1
-El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
+**SONET** (_Synchronous Optical Network_) y **SDH** (_Synchronous Digital Hierarchy_) son los protocolos de **capa física** más utilizados en los enlaces de fibra óptica de área extensa (WAN) que constituyen la espina dorsal o _backbone_ de las redes de comunicaciones modernas
 
 - **Distorcion por atenuacion:** Debido a que la atenuacion es diferente a distintas frecuencias, mayormente en señales analogicas
 - **Distorcion por retardo:** La velocidad de propagacion varia con la frecuencia y es critico para señales digitales.
