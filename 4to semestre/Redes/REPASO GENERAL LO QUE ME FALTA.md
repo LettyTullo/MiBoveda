@@ -31,6 +31,6 @@ En las fuentes se le denomina comúnmente como **láser semiconductor**. A difer
 # **B8ZS** son las siglas de **Bipolar with 8-Zero Substitution** (Bipolar con Sustitución de 8 Ceros).
 A continuación se explica su concepto y funcionamiento según las fuentes:
 Concepto
-Es una técnica de **scrambling** (mezclado) utilizada en la capa física para el **mejoramiento del clocking** o sincronización entre el emisor y el receptor. Su objetivo principal es resolver el problema de las **cadenas largas de ceros**, las cuales pueden causar que el receptor pierda el sincronismo al no haber transiciones en la señal
+Es una técnica de **scrambling** (mezclado) utilizada en la capa física para el **mejoramiento del clocking** o sincronización entre el emisor y el receptor. Su objetivo principal es resolver el problema de las **cadenas largas de ceros**. 
 # **Bipolar-AMI** (_Alternate Mark Inversion_ o Inversión de Marca Alterna)
 # NO RETURN TO ZERO LEVEL - INVERTED
