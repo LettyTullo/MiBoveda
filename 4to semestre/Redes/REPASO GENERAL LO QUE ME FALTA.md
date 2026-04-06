@@ -1,5 +1,5 @@
 MODELO OSI, ITU-T
-# SONET/SDH
+# SONET/SDH, PCM, T1
 El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
 
 - **Distorcion por atenuacion:** Debido a que la atenuacion es diferente a distintas frecuencias, mayormente en señales analogicas
@@ -32,3 +32,5 @@ En las fuentes se le denomina comúnmente como **láser semiconductor**. A difer
 A continuación se explica su concepto y funcionamiento según las fuentes:
 Concepto
 Es una técnica de **scrambling** (mezclado) utilizada en la capa física para el **mejoramiento del clocking** o sincronización entre el emisor y el receptor. Su objetivo principal es resolver el problema de las **cadenas largas de ceros**, las cuales pueden causar que el receptor pierda el sincronismo al no haber transiciones en la señal
+# **Bipolar-AMI** (_Alternate Mark Inversion_ o Inversión de Marca Alterna)
+# NO RETURN TO ZERO LEVEL - INVERTED
