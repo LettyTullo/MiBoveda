@@ -1,5 +1,5 @@
 
-##  Tipos principales de protocolos
+## Tipos principales de protocolos
 
 # 1. Parada y Espera (Stop-and-Wait)
 
@@ -41,10 +41,9 @@
 > - **Ventana de recepción:** $> 1$
 > - **Condición de ventana:** Para evitar ambigüedad entre tramas nuevas y viejas:
 >   $$W \le \frac{MAX\_SEQ + 1}{2}$$ o tambien 
->  $$W_{max} = 2^k - 1$$
+>  $$W_{max} = 2^{k - 1}$$
 > 
 
- 2 a la k menos 1 hina es
  
 > [!todo] ¿Por qué se usa?
 > Se utiliza en enlaces con un gran **producto ancho de banda-retardo** (como enlaces satelitales o fibra transcontinental) y donde la tasa de error justifica la complejidad adicional de memoria en el receptor. La restricción del tamaño de ventana a la mitad del espacio de secuencia es indispensable para evitar el traslape de ventanas y la ambigüedad entre tramas nuevas y retransmisiones
