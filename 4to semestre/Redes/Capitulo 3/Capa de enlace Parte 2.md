@@ -76,3 +76,4 @@ El algoritmo trata los datos como una secuencia de palabras de una longitud fija
 A pesar de su utilidad, el checksum tiene debilidades frente a ciertos fallos:
 - **Errores sistemáticos:** Es vulnerable a la eliminación o adición de ceros y al intercambio de posición de las partes del mensaje, ya que la suma total no cambiaría.
 - **Protección débil:** No protege bien contra el "empalme" de mensajes donde se combinan partes de dos paquetes diferentes.
+[[CRC (Redundancia Ciclica)]]

@@ -1,4 +1,3 @@
-## CRC (Redundancia Ciclica)
 La **Redundancia Cíclica (CRC)**, también conocida como **código polinómico**, es una técnica de detección de errores sumamente potente y ampliamente utilizada en la capa de enlace de datos. Su funcionamiento se basa en tratar las cadenas de bits como polinomios con coeficientes de únicamente "0" y "1".
 1. Fundamento Teórico
 - **Representación Polinómica:** Una trama de k bits se considera un polinomio de grado k−1. Por ejemplo, la cadena `110001` representa el polinomio x5+x4+1.
@@ -32,3 +31,6 @@ La capacidad del CRC para detectar fallos depende de las propiedades de G(x):
     - Si la longitud de la ráfaga es exactamente r+1, la probabilidad de que el error no se detecte es de 1/2r−1.
     - Para ráfagas más largas de r+1 bits, la probabilidad de que el error pase desapercibido es de 1/2r
 ![[Pasted image 20260421131114.png]]
+
+
+[[Ventanas corredizas]]
