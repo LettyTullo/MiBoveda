@@ -55,26 +55,18 @@
 | **Stop-and-Wait**    |       1        |        1         | Solo la actual      | Mínima      |
 | **Go-Back-N**        |      $N$       |        1         | Todo desde el error | Media       |
 | **Selective Repeat** |      $N$       |       $N$        | Solo la perdida     | Alta        |
-# Protocolo PPP (Point-to-Point Protocol)
-
-> [!abstract] Introducción
+## Protocolo PPP (Point-to-Point Protocol)
+Introducción
 > El **PPP (Point-to-Point Protocol)**, definido en el **RFC 1661**, es el protocolo estándar de Internet utilizado para transportar paquetes a través de **enlaces punto a punto**. Se utiliza habitualmente en conexiones de routers, módems de cable y enlaces de banda ancha como **ADSL**.
 
----
-
-##  1. Componentes principales de PPP
+# 1. Componentes principales de PPP
 PPP ofrece tres características fundamentales para garantizar la comunicación:
+ 1. **Método de entramado:** Un mecanismo para **delimitar inequívocamente** el inicio y el fin de cada trama, que además incluye **detección de errores**.
+ 
+2. **LCP (Link Control Protocol):** Un protocolo de control de enlace diseñado para **activar las líneas, probarlas, negociar opciones y desactivarlas** cuando ya no se necesitan.
 
-> [!info] 1. Método de entramado
-> Un mecanismo para **delimitar inequívocamente** el inicio y el fin de cada trama, que además incluye **detección de errores**.
-
-> [!question] 2. LCP (Link Control Protocol)
-> Un protocolo de control de enlace diseñado para **activar las líneas, probarlas, negociar opciones y desactivarlas** cuando ya no se necesitan.
-
-> [!todo] 3. NCP (Network Control Protocol)
-> Una familia de protocolos para negociar las opciones de la capa de red de forma independiente al protocolo utilizado (como **IPv4 o IPv6**). Existe un NCP diferente para cada capa de red soportada.
-
-## 2. Formato de la trama PPP
+3. **NCP (Network Control Protocol):** Una familia de protocolos para negociar las opciones de la capa de red de forma independiente al protocolo utilizado (como **IPv4 o IPv6**). Existe un NCP diferente para cada capa de red soportada.
+# 2. Formato de la trama PPP
 La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 
 > [!success] Estructura de Campos
@@ -84,10 +76,7 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 > - **Protocol (Protocolo):** Indica qué tipo de paquete viaja en la carga útil (p. ej., IP, IPv6, LCP o un NCP específico). Por defecto ocupa 2 bytes.
 > - **Payload (Carga útil):** Datos de longitud variable.
 > - **Checksum (Suma de comprobación):** Normalmente un **CRC de 2 o 4 bytes** para detectar errores de transmisión.
-
----
-
-##  3. Mecanismo de Relleno de Bytes (Byte Stuffing)
+# 3. Mecanismo de Relleno de Bytes (Byte Stuffing)
 
 > [!danger] ¡Importante: Evitar Confusión de Banderas!
 > Para evitar que el byte de bandera (**0x7E**) aparezca accidentalmente dentro de los datos, PPP utiliza un **byte de escape (0x7D)**:
@@ -95,9 +84,7 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 > 1. Si el byte **0x7E** aparece en los datos, se inserta **0x7D** antes y se aplica una función **XOR con 0x20** al byte original (convirtiéndolo en **0x5E**).
 > 2. Al recibir la trama, el receptor busca el byte de escape, lo elimina y aplica nuevamente XOR al siguiente byte para recuperar el dato original.
 
----
-
-## 4. Diagrama de estados (Ciclo de vida del enlace)
+# 4. Diagrama de estados (Ciclo de vida del enlace)
 
 > [!warning] Fases del Enlace
 > 1. **DEAD:** El enlace físico no tiene conexión activa.
@@ -107,7 +94,7 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 > 5. **OPEN:** Estado donde ocurre el **transporte de datos real** (paquetes IP encapsulados).
 > 6. **TERMINATE:** Se cierra el enlace de forma lógica y vuelve al estado DEAD.
 
-##  5. Aplicaciones prácticas
+# 5. Aplicaciones prácticas
 
 > [!example] Implementaciones Reales
 > - **Packet over SONET:** PPP se utiliza sobre enlaces de fibra óptica SONET en redes troncales de ISPs para delimitar paquetes.
