@@ -43,6 +43,8 @@ Tanto el emisor como el receptor mantienen una "ventana" que representa el conju
 2. **Entrega a la capa superior:** Si la trama es la que se esperaba (el borde inferior de la ventana), se entrega a la capa de red y la ventana del receptor **gira** o avanza una posición.
 3. **Envío del ACK:** El receptor envía un acuse de recibo (**ACK**) al emisor. Este puede enviarse como una trama de control separada o mediante **piggybacking** (superposición), insertando la confirmación dentro de una trama de datos que viaje en sentido contrario.
 4. **Avance del extremo inferior (Emisor):** Cuando el emisor recibe el ACK, el **extremo inferior** de su ventana avanza, lo que libera espacio en su buffer y le permite enviar nuevas tramas.
+
+En el emisor el tamaño es variable, pero en el receptor se tiene un tamaño fijo y avanza con las tramas numeradas y estas ventanas no necesariamente son del mismo tamaño. 
 ## Fórmulas de Eficiencia de Utilización del Canal ($Ef$)
 
 Las fórmulas para calcular la eficiencia de utilización del canal ($Ef$) varían dependiendo del protocolo de acceso al medio y del tipo de mecanismo de confirmación (ACK) utilizado.

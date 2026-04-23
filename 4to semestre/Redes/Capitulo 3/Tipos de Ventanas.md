@@ -1,5 +1,5 @@
 
-### 5. Tipos principales de protocolos
+## 5. Tipos principales de protocolos
 Existen tres variantes comunes según cómo manejan los errores y el tamaño de las ventanas:
 
 - **Stop-and-Wait (Parada y Espera):** El tamaño de la ventana es **1**. El emisor envía una trama y no puede enviar la siguiente hasta recibir el ACK.
