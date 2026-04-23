@@ -14,59 +14,59 @@ En lugar de enviar una trama de control dedicada exclusivamente para confirmar l
 ## ARQ (Automatic Repeat reQuest)
 Es un mecanismo de control de errores utilizado para garantizar la entrega fiable de datos a través de canales de comunicación, especialmente en canales ruidosos donde las tramas pueden dañarse o perderse.
 Consiste fundamentalmente en que el receptor confirma la llegada de los datos y el emisor retransmite la información si no recibe dicha confirmación en un tiempo determinado.
-
-Elementos fundamentales del ARQ
-
+**Elementos fundamentales del ARQ**
 Para que este sistema funcione correctamente, se basa en tres componentes clave:
-
 1. **Acuses de recibo (ACK):** El receptor debe enviar una trama de control especial al emisor confirmando que ha recibido una trama correctamente.
 2. **Temporizadores (Timers):** El emisor inicia un temporizador tras enviar cada trama. Si el temporizador expira antes de recibir el ACK, el emisor asume que la trama (o su confirmación) se perdió y procede a retransmitirla.
 3. **Numeración de secuencias:** Tanto las tramas como los ACKs deben estar numerados. Esto permite al receptor distinguir si una trama entrante es una información nueva o una retransmisión de una trama que ya había aceptado previamente (lo cual ocurre si el ACK original se perdió en el camino)
-
-### Página 5: Canales Ruidosos y Temporizadores (ARQ)
-
+# EJEMPLO
 - **Concepto desde cero:** Los cables no son perfectos; hay interferencias y los paquetes a veces se pierden en el camino (se "caen").
-    
 - Para solucionar esto, existe el **ARQ (Reenvío Automático)**.
-    
 - _Ejemplo:_ Yo te envío el paquete número 1. Empiezo a contar en mi reloj (uso un "Timer"). Si el tiempo se agota y tú no me has enviado el "ACK" confirmando que llegó, yo asumo que se perdió y **te lo vuelvo a enviar**.
-    
 - Por esto es obligatorio **numerar los paquetes**, porque de lo contrario, si me retraso respondiendo, podrías enviarme el mismo paquete dos veces y yo pensaría que es un paquete nuevo.
-    
+## Ventanas Corredizas 
+Las **ventanas corredizas** (o deslizantes) son un mecanismo de **control de flujo** basado en retroalimentación que permite que un emisor rápido no sature a un receptor lento, optimizando al mismo tiempo el uso del canal de comunicación.
+Su funcionamiento se basa en:
+### 1. Numeración de tramas
+Para que el sistema funcione, cada trama transmitida debe incluir un **número de secuencia** en su encabezado. El rango de estos números suele ir de $0$ hasta un máximo de $2^n - 1$ (donde $n$ es el número de bits del campo de secuencia).
+### 2. Definición de las ventanas
+Tanto el emisor como el receptor mantienen una "ventana" que representa el conjunto de números de secuencia que tienen permitido procesar en un momento dado.
+- **Ventana de emisión:** Es el grupo de números de secuencia que el emisor tiene permitido enviar sin esperar una confirmación.
+- **Ventana de recepción:** Es el conjunto de números de trama que el receptor está preparado para aceptar.
+### 3. El proceso de envío (Paso a paso)
+1. **Carga de paquetes:** El emisor toma un paquete de la capa de red y lo encapsula en una trama, asignándole el número de secuencia disponible inmediatamente superior.
+2. **Avance del extremo superior:** Al asignar un nuevo número, el **extremo superior** de la ventana del emisor avanza una posición.
+3. **Almacenamiento en buffer:** El emisor debe guardar una copia de todas las tramas enviadas pero no confirmadas en un **buffer** por si fuera necesario retransmitirlas.
+4. **Transmisión continua (Pipelining):** A diferencia de protocolos más simples, el emisor puede seguir enviando tramas mientras su ventana no esté llena, permitiendo que haya varias tramas "en vuelo" simultáneamente.
+### 4. Recepción y Confirmación (ACK)
+1. **Validación en el receptor:** Cuando llega una trama, el receptor verifica si su número de secuencia cae dentro de su ventana de recepción.
+2. **Entrega a la capa superior:** Si la trama es la que se esperaba (el borde inferior de la ventana), se entrega a la capa de red y la ventana del receptor **gira** o avanza una posición.
+3. **Envío del ACK:** El receptor envía un acuse de recibo (**ACK**) al emisor. Este puede enviarse como una trama de control separada o mediante **piggybacking** (superposición), insertando la confirmación dentro de una trama de datos que viaje en sentido contrario.
+4. **Avance del extremo inferior (Emisor):** Cuando el emisor recibe el ACK, el **extremo inferior** de su ventana avanza, lo que libera espacio en su buffer y le permite enviar nuevas tramas.
+### 5. Tipos principales de protocolos
+Existen tres variantes comunes según cómo manejan los errores y el tamaño de las ventanas:
 
----
+- **Stop-and-Wait (Parada y Espera):** El tamaño de la ventana es **1**. El emisor envía una trama y no puede enviar la siguiente hasta recibir el ACK.
+- **Go-Back-N (Retroceso-N):** El receptor solo acepta tramas en orden estricto (su ventana de recepción es 1). Si una trama se pierde, el receptor descarta todas las posteriores y el emisor debe **retransmitir todo el grupo** de tramas no confirmadas a partir de la fallida.
+- **Selective Repeat (Repetición Selectiva):** El receptor tiene una ventana mayor a 1 y puede aceptar tramas desordenadas, almacenándolas en un buffer hasta completar la secuencia. Si hay un error, solo se retransmite la trama perdida tras una confirmación negativa (**NAK**).
 
-### Página 6 y 7: Ventanas Corredizas (Explicación de las imágenes)
-
-- **Imagen de la puerta de vidrio:** Es una metáfora literal de una "ventana corrediza".
-    
+// PONER CONDICIONES Y TODO LO QUE ANOTE EN MI CUADERNO
+# EJEMPLO (EXPLICACION DE IMAGENES)
+![[Pasted image 20260422223545.png]]
 - **Imagen de los cuadritos numéricos:** Aquí está la magia de la clase. Verás una fila de números del 1 al 10 y un recuadro azul que envuelve algunos números.
-    
 - **El Emisor:** Imagina que tienes 100 paquetes por enviar. En lugar de enviar el #1 y sentarte a esperar su ACK para enviar el #2 (lo cual sería lentísimo), usas una **ventana de emisión**.
     
     - Si tu ventana es de tamaño 8 (el recuadro envuelve del paquete 1 al 8), tú envías los paquetes del 1 al 8 de un solo golpe, sin esperar.
         
     - **El deslizamiento:** Cuando tu computadora recibe el "ACK" diciendo que el paquete #1 llegó bien, el recuadro _se desliza_ hacia la derecha. Ahora envuelve del paquete 2 al 9. Como el 9 acaba de entrar a la ventana, tu computadora lo envía inmediatamente. ¡Así la tubería nunca se queda vacía!
-        
+    
 
----
+//////////
 
 ### Página 8: La Ventana del Receptor
 
 - **El Receptor:** Quien recibe los archivos también tiene una "ventana" (una memoria o buffer). Solo va a aceptar y guardar paquetes que caigan dentro de esa ventana numérica. Si llega el paquete #20 pero el receptor estaba esperando el #2, simplemente lo tira a la basura porque llegó en desorden.
     
-
----
-
-### Páginas 9 y 10: Eficiencia y Fórmulas
-
-- **Concepto de "Canalización" (Pipelining):** Gracias a las ventanas, tu cable de internet actúa como una manguera de agua que siempre está llena a presión, usando eficientemente el 100% de la capacidad del cable.
-    
-- Aquí la diapositiva da una fórmula matemática que dice que el tamaño de la ventana ($W$) debe ser grande si tu cable es muy rápido pero muy largo geográficamente (como un cable submarino), para que los datos no se detengan nunca mientras esperas que la respuesta atraviese el océano.
-    
-
----
-
 ### Resto del documento: Los 3 tipos de Ventanas y Protocolos reales
 
 A partir de la página 11, la diapositiva explica tres estrategias de ventanas y luego cómo usamos esto hoy en día:
