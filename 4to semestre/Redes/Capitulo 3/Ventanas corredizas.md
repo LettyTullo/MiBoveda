@@ -78,8 +78,6 @@ Las fórmulas para calcular la eficiencia de utilización del canal ($Ef$) varí
 > Para que el emisor nunca se detenga, la ventana debe ser:
 > $$W \ge 2BT_p + 1$$
 
-[[Tipos de Ventanas]]
-
 ---- 
 # EJEMPLO (EXPLICACION DE IMAGENES)
 ![[Pasted image 20260422223545.png]]
@@ -93,7 +91,6 @@ Las fórmulas para calcular la eficiencia de utilización del canal ($Ef$) varí
 
 --- 
 
-    
-
+[[Tipos de Ventanas]]
 
 

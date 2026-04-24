@@ -25,6 +25,8 @@ Ideado en la Universidad de Hawái en los años 70, es el protocolo MAC más bá
 > La regla es extremadamente simple: dejar que los usuarios transmitan siempre que tengan datos que enviar.
 > Tras enviar una trama, el emisor escucha si hubo colisión (en el sistema original, esperaba una retransmisión del ordenador central).
 > Si la trama se destruye por una colisión, el emisor espera un tiempo aleatorio antes de volver a intentarlo. Este tiempo debe ser aleatorio para evitar que las mismas tramas choquen una y otra vez indefinidamente.
+# _Ejemplo:_
+Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo, simplemente gritas. Si escuchas que alguien más gritó al mismo tiempo que tú y no se entendió nada, te callas, esperas unos segundos y vuelves a gritar.
 
 > [!danger] Periodo Vulnerable
 > Es el intervalo de tiempo durante el cual una trama puede sufrir una colisión. Si $t$ es el tiempo necesario para transmitir una trama, el periodo vulnerable en ALOHA puro es de $2t$. Esto se debe a que cualquier trama que comience justo antes o durante la transmisión actual provocará un solapamiento y destruirá ambos mensajes.
@@ -33,5 +35,4 @@ Ideado en la Universidad de Hawái en los años 70, es el protocolo MAC más bá
 > Debido a la falta de coordinación y a que las tramas se envían en tiempos arbitrarios, su rendimiento es bajo:
 > La fórmula de rendimiento es $S = G \cdot e^{-2G}$ (donde $G$ es la carga del canal).
 > La utilización máxima del canal es de tan solo el 18.4% ($1/2e$). Esto significa que, en el mejor de los casos, el 82% del ancho de banda se pierde en colisiones o tiempo ocioso.
-
-> **ALOHA ranurado:** Es **dos veces más eficiente**, alcanzando un rendimiento máximo de aproximadamente el **36.8%** (1/e). Su fórmula de rendimiento es: S=G⋅e−G
+> **EL ALOHA ranurado:** Es **dos veces más eficiente**, alcanzando un rendimiento máximo de aproximadamente el **36.8%** (1/e). Su fórmula de rendimiento es: $S = G \cdot e^{-G}$ 

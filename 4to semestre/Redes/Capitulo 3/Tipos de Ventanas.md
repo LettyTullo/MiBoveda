@@ -1,4 +1,3 @@
-
 ## Tipos principales de protocolos
 
 # 1. Parada y Espera (Stop-and-Wait)
@@ -31,7 +30,7 @@
 > [!tip] ¿Por qué se usa?
 >Es más eficiente que Parada y Espera en enlaces rápidos. Se prefiere cuando los errores son poco frecuentes, ya que evita la complejidad de almacenar tramas desordenadas en el receptor. El tamaño máximo de 2k−1 es crítico para evitar que el emisor confunda un ACK de una ventana vieja con uno de la ventana nueva si se pierden las confirmaciones
 
-## 3. Repetición Selectiva (Selective Repeat)
+# 3. Repetición Selectiva (Selective Repeat)
 
 > [!star] Característica Principal
 > Es el más eficiente, pero mas complejo. El receptor tiene memoria (búfer) y **acepta tramas desordenadas**. Solo se retransmite exactamente lo que se perdió. Utiliza ACKs acumulativos y a menudo **NAKs** (acuse negativo) para acelerar la recuperación de errores
@@ -56,7 +55,7 @@
 | **Go-Back-N**        |      $N$       |        1         | Todo desde el error | Media       |
 | **Selective Repeat** |      $N$       |       $N$        | Solo la perdida     | Alta        |
 ## Protocolo PPP (Point-to-Point Protocol)
-Introducción
+
 > El **PPP (Point-to-Point Protocol)**, definido en el **RFC 1661**, es el protocolo estándar de Internet utilizado para transportar paquetes a través de **enlaces punto a punto**. Se utiliza habitualmente en conexiones de routers, módems de cable y enlaces de banda ancha como **ADSL**.
 
 # 1. Componentes principales de PPP
@@ -103,4 +102,4 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 ,
 
 
-
+[[La Sub-capa MAC]]
