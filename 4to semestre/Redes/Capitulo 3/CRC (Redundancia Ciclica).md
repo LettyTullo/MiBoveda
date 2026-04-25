@@ -18,16 +18,16 @@ Todos los errores de E(x) que sean divisibles entre G(x) no seran detectados.
 # Análisis según el tipo de error
 La capacidad del CRC para detectar fallos depende de las propiedades de G(x):
 
-- **Errores de un solo bit:** Si G(x) tiene más de un término (lo cual incluye siempre el término xn y el término x0), nunca podrá dividir a un error de tipo E(x)=xi, por lo que **detectará todos los errores de un solo bit**.
+- **Errores de un solo bit:** Si G(x) tiene más de un término distinto de 0 (lo cual incluye siempre el término xn y el término x0), nunca podrá dividir a un error de tipo E(x)=x^i, por lo que **detectará todos los errores de un solo bit**.
 ![[Pasted image 20260421130530.png]]
 
 
-- **Errores de dos bits:** Para detectar todos los errores dobles aislados, G(x) no debe dividir a xt+1 para ningún valor de t hasta la longitud máxima de la trama.
+- **Errores de dos bits:** Para detectar todos los errores dobles aislados, G(x) no debe dividir a x^t+1 para ningún valor de t hasta la longitud máxima de la trama.
 ![[Pasted image 20260421130836.png|697]]
 
 - **Número impar de bits con error:** Si se incluye (x+1) **como factor de** G(x), el código podrá detectar todos los errores que afecten a un número impar de bits. Si al dividir G(x) entre x+1 el resto es cero, significa que todos los errores con numero impar de bits seran detectados.
 - **Errores de ráfaga (Burst errors):**
-    - Una ráfaga de error de **longitud** L≤r (donde r es el grado del polinomio generador) será **detectada siempre**, siempre que G(x) incluya un término independiente x0.
+    - Una ráfaga de error de **longitud** L≤r (donde r es el grado del polinomio generador) será **detectada, siempre que G(x) incluya un término independiente x^0.
     - Si la longitud de la ráfaga es exactamente r+1, la probabilidad de que el error no se detecte es de 1/2r−1.
     - Para ráfagas más largas de r+1 bits, la probabilidad de que el error pase desapercibido es de 1/2r
 ![[Pasted image 20260421131114.png]]
