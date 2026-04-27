@@ -36,3 +36,5 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 > La fórmula de rendimiento es $S = G \cdot e^{-2G}$ (donde $G$ es la carga del canal).
 > La utilización máxima del canal es de tan solo el 18.4% ($1/2e$). Esto significa que, en el mejor de los casos, el 82% del ancho de banda se pierde en colisiones o tiempo ocioso.
 > **EL ALOHA ranurado:** Es **dos veces más eficiente**, alcanzando un rendimiento máximo de aproximadamente el **36.8%** (1/e). Su fórmula de rendimiento es: $S = G \cdot e^{-G}$ 
+
+![[Pasted image 20260426214844.png]]
