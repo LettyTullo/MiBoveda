@@ -4,7 +4,7 @@ En lugar de enviar una trama de control dedicada exclusivamente para confirmar l
 - **Funcionamiento:** El receptor demora temporalmente el envío del ACK con la esperanza de poder "engancharlo" a una trama de datos que viaje hacia el emisor original. Si no hay datos para enviar tras un periodo determinado, se termina enviando una trama de control ACK independiente para evitar que el emisor original agote su tiempo de espera y retransmita innecesariamente.
 - **Ventajas:**
     - Mejor uso del ancho de banda
-    - Menor carga de procesamiento
+    - Menor carga de procesamiento en el receptor
 - **Desventajas y desafíos:**
     - **Gestión del tiempo:** Es difícil determinar exactamente cuánto tiempo debe esperar la capa de enlace por un paquete antes de enviar un ACK por separado. Si la espera es superior al temporizador del emisor, este retransmitirá la trama, invalidando el propósito de la técnica.
     - **Complejidad:** Requiere un esquema _ad hoc_ (como esperar un número fijo de milisegundos) para equilibrar la eficiencia y la prontitud de las confirmaciones.
@@ -18,7 +18,7 @@ Consiste fundamentalmente en que el receptor confirma la llegada de los datos y 
 Para que este sistema funcione correctamente, se basa en tres componentes clave:
 1. **Acuses de recibo (ACK):** El receptor debe enviar una trama de control especial al emisor confirmando que ha recibido una trama correctamente.
 2. **Temporizadores (Timers):** El emisor inicia un temporizador tras enviar cada trama. Si el temporizador expira antes de recibir el ACK, el emisor asume que la trama (o su confirmación) se perdió y procede a retransmitirla.
-3. **Numeración de secuencias:** Tanto las tramas como los ACKs deben estar numerados. Esto permite al receptor distinguir si una trama entrante es una información nueva o una retransmisión de una trama que ya había aceptado previamente (lo cual ocurre si el ACK original se perdió en el camino)
+3. **Numeración de secuencias:** Tanto las tramas como los ACKs deben estar numerados. Esto permite al receptor distinguir si una trama entrante es una información nueva o una retransmisión de una trama que ya había aceptado previamente (lo cual ocurre si el ACK original se perdió en el camino) 
 # EJEMPLO
 - **Concepto desde cero:** Los cables no son perfectos; hay interferencias y los paquetes a veces se pierden en el camino (se "caen").
 - Para solucionar esto, existe el **ARQ (Reenvío Automático)**.
