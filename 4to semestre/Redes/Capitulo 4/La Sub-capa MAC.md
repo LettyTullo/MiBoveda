@@ -18,7 +18,8 @@ El diseño de la subcapa MAC se basa en cinco supuestos fundamentales para la as
 > - **Colisiones Observables:** Las estaciones pueden detectar si su transmisión chocó con otra.
 > - **Tiempo Continuo o Ranurado:** La transmisión puede empezar en cualquier momento (tiempo continuo) o solo al inicio de intervalos discretos (tiempo ranurado).
 
-# 3. Protocolo ALOHA Puro
+## Protocolos de acceso multiple 
+# 1. Protocolo ALOHA Puro
 Ideado en la Universidad de Hawái en los años 70, es el protocolo MAC más básico para sistemas de contención.
 
 > [!info] Funcionamiento
@@ -38,3 +39,5 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 > **EL ALOHA ranurado:** Es **dos veces más eficiente**, alcanzando un rendimiento máximo de aproximadamente el **36.8%** (1/e). Su fórmula de rendimiento es: $S = G \cdot e^{-G}$ 
 
 ![[Pasted image 20260426214844.png]]
+
+# 2. 
