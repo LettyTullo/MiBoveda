@@ -40,4 +40,4 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 
 ![[Pasted image 20260426214844.png]]
 
-# 2. 
+# 2. Protocolos CSMA (Carrier Sence Multiple Access)
