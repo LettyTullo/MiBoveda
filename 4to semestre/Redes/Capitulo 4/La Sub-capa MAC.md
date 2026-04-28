@@ -41,3 +41,18 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 ![[Pasted image 20260426214844.png]]
 
 # 2. Protocolos CSMA (Carrier Sence Multiple Access)
+Los protocolos **CSMA (Carrier Sense Multiple Access)** o de acceso múltiple con detección de portadora son una evolución del protocolo ALOHA, diseñados para que las estaciones escuchen el canal antes de intentar transmitir. Su regla fundamental es: **"si el canal está ocupado, la estación no debe transmitir"**.
+Existen varias estrategias y variaciones detalladas a continuación:
+# 1. Variaciones según la persistencia
+Estas variaciones definen qué hace una estación cuando detecta que el canal está ocupado:
+- **CSMA 1-persistente:** La estación escucha el canal; si está libre, transmite con una **probabilidad de 1**. Si está ocupado, sigue escuchando continuamente hasta que detecta el canal libre y transmite de inmediato. Su debilidad es que si dos estaciones esperan a que termine una transmisión, ambas chocarán al intentar transmitir al mismo tiempo apenas se libere el medio.
+- **CSMA No-persistente:** Si el canal está ocupado, la estación no lo escucha continuamente; en su lugar, **espera un tiempo aleatorio** y vuelve a intentar el algoritmo. Esto reduce las colisiones pero aumenta el retardo promedio.
+- **CSMA p-persistente:** Se utiliza en canales ranurados. Si el canal está libre, la estación transmite con una **probabilidad $p$**. Con una probabilidad $q = 1-p$, posterga la transmisión hasta la siguiente ranura, repitiendo el proceso hasta que la trama sea enviada o alguien más empiece a transmitir.
+
+### 2. CSMA/CD (Collision Detect)
+
+Este protocolo añade la capacidad de **detectar colisiones mientras se está transmitiendo**, siendo la base de las redes Ethernet clásicas no conmutadas.
+
+- **Funcionamiento:** La estación escucha mientras transmite. Si detecta que la señal que recibe es distinta a la que envía, sabe que hay una colisión e interrumpe la transmisión inmediatamente para ahorrar tiempo y ancho de banda.
+- **Tiempo de detección:** En el peor de los casos, una estación puede tardar hasta **$2\tau$** (dos veces el tiempo máximo de propagación) en detectar una colisión. Debido a esto, se define un **tamaño de trama mínima** para asegurar que el emisor no termine de enviar antes de que la ráfaga de colisión regrese.
+- **Algoritmo de Backoff Exponencial Binario:** Después de una colisión, la estación espera un tiempo aleatorio. El intervalo de espera se duplica tras cada colisión consecutiva ($2^i - 1$) para adaptarse dinámicamente a la carga de la red, tirando la toalla tras 16 intentos fallidos.
