@@ -109,6 +109,4 @@ Estos protocolos eliminan la competencia por el canal, evitando colisiones inclu
 > - **Resultado:** Al finalizar el proceso, la estación con la **dirección más alta** es la que gana el acceso al canal.
 >     
 
----
-
-¿Necesitas algún otro resumen o prefieres que organicemos estos protocolos en una tabla comparativa para tu nota de Obsidian?
+# 4. Protocolos de contencion limitada
