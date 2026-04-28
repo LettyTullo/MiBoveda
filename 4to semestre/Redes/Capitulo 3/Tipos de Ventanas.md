@@ -102,4 +102,4 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 ,
 
 
-[[La Sub-capa MAC]]
+[[La Sub-capa MAC parte 1]]

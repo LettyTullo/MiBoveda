@@ -44,30 +44,19 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 Los protocolos CSMA son una evolución de ALOHA basados en la premisa: **"Si el canal está ocupado, la estación no debe transmitir"**.
 #  Variaciones según la Persistencia
 
-> [!abstract] **CSMA 1-persistente**
-> 
-> - **Funcionamiento:** La estación escucha el canal. Si está libre, transmite con probabilidad 1. Si está ocupado, espera escuchando continuamente hasta que el canal quede libre para transmitir de inmediato.
->     
-> - **Debilidad:** Si varias estaciones están esperando, todas intentarán transmitir apenas se libere el canal, garantizando una colisión.
->     
+**CSMA 1-persistente**
+ - **Funcionamiento:** La estación escucha el canal. Si está libre, transmite con probabilidad 1. Si está ocupado, espera escuchando continuamente hasta que el canal quede libre para transmitir de inmediato.     
+ - **Debilidad:** Si varias estaciones están esperando, todas intentarán transmitir apenas se libere el canal, garantizando una colisión.
+**CSMA No-persistente** 
+- **Funcionamiento:** Si el canal está ocupado, la estación **no** espera continuamente. En su lugar, espera un tiempo aleatorio y vuelve a iniciar el algoritmo.
+ - **Ventaja/Desventaja:** Reduce significativamente la probabilidad de colisiones, pero aumenta el retardo promedio de transmisión.
 
-> [!info] **CSMA No-persistente**
-> 
-> - **Funcionamiento:** Si el canal está ocupado, la estación **no** espera continuamente. En su lugar, espera un tiempo aleatorio y vuelve a iniciar el algoritmo.
->     
-> - **Ventaja/Desventaja:** Reduce significativamente la probabilidad de colisiones, pero aumenta el retardo promedio de transmisión.
->     
+**CSMA p-persistente** 
+- **Contexto:** Utilizado en canales ranurados.     
+- **Funcionamiento:** Si el canal está libre, transmite con una probabilidad $p$. Con probabilidad $q = 1-p$, posterga la transmisión hasta la siguiente ranura.    
+- **Proceso:** Se repite hasta que la trama es enviada o el medio es ocupado por otra estación.
 
-> [!warning] **CSMA p-persistente**
-> 
-> - **Contexto:** Utilizado en canales ranurados.
->     
-> - **Funcionamiento:** Si el canal está libre, transmite con una probabilidad $p$. Con probabilidad $q = 1-p$, posterga la transmisión hasta la siguiente ranura.
->     
-> - **Proceso:** Se repite hasta que la trama es enviada o el medio es ocupado por otra estación.
->     
-
-# 2. CSMA/CD (Collision Detect)
+#  CSMA/CD (Collision Detect)
 Es la base de las redes Ethernet no conmutadas y establece condiciones específicas para garantizar que las colisiones sean detectadas correctamente por todas las estaciones involucradas
 
 > [!danger] **Funcionamiento y Características**
@@ -85,5 +74,41 @@ Es la base de las redes Ethernet no conmutadas y establece condiciones específi
 > 
 > 	_Donde $i$ es el número de colisiones consecutivas experimentadas por la trama._ 
 
+# 3. Protocolos Libres de Colisiones
 
+Estos protocolos eliminan la competencia por el canal, evitando colisiones incluso bajo cargas de tráfico muy elevadas. Se basan en un sistema de **N estaciones con direcciones únicas (0 a N-1)**.
 
+> [!abstract] **1. Protocolo de Mapa de Bits (Bitmap)**
+> 
+> - **Funcionamiento:** El periodo de contención se divide en **N ranuras**. Si una estación tiene datos, marca su ranura correspondiente con un "1".
+>     
+> - **Proceso:** Tras las N ranuras, todas las estaciones conocen quién debe transmitir y lo hacen en orden numérico ascendente.
+>     
+> - **Comportamiento:** Es muy eficiente cuando hay muchos datos para enviar, ya que el costo de la contención se diluye.
+>     
+
+> [!info] **2. Paso de Testigo (Token Ring)**
+> 
+> - **Funcionamiento:** Se utiliza un mensaje especial llamado **testigo (token)** que actúa como un permiso exclusivo.
+>     
+> - **Acción:**
+>     
+>     - Si la estación tiene datos, retiene el testigo, transmite su trama y luego libera el testigo hacia la siguiente estación.
+>         
+>     - Si no tiene datos, simplemente pasa el testigo inmediatamente.
+>         
+> - **Versatilidad:** Puede implementarse tanto en configuraciones de anillo físico como en buses lógicos.
+>     
+
+> [!warning] **3. Cuenta Regresiva Binaria (Binary Countdown)**
+> 
+> - **Funcionamiento:** Las estaciones que desean transmitir envían su dirección en binario bit a bit (comenzando por el más significativo).
+>     
+> - **Arbitraje:** El medio actúa como una **función OR booleana**. Si una estación envía un "0" pero detecta un "1" en el canal, significa que otra estación con una dirección mayor está compitiendo; por lo tanto, la primera se retira.
+>     
+> - **Resultado:** Al finalizar el proceso, la estación con la **dirección más alta** es la que gana el acceso al canal.
+>     
+
+---
+
+¿Necesitas algún otro resumen o prefieres que organicemos estos protocolos en una tabla comparativa para tu nota de Obsidian?
