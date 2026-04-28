@@ -68,11 +68,9 @@ Los protocolos CSMA son una evolución de ALOHA basados en la premisa: **"Si el 
 >     
 
 # 2. CSMA/CD (Collision Detect)
+Es la base de las redes Ethernet no conmutadas y establece condiciones específicas para garantizar que las colisiones sean detectadas correctamente por todas las estaciones involucradas
 
 > [!danger] **Funcionamiento y Características**
-> 
-> Es la base de las redes Ethernet clásicas no conmutadas.
-> 
 > - **Detección:** La estación escucha el medio mientras transmite. Si la señal recibida difiere de la enviada, detecta una colisión e interrumpe la transmisión inmediatamente para ahorrar ancho de banda.
 >     
 > - **Tiempo de detección ($2\tau$):** En el peor escenario, el emisor tarda dos veces el tiempo máximo de propagación en detectar una colisión.
@@ -80,58 +78,12 @@ Los protocolos CSMA son una evolución de ALOHA basados en la premisa: **"Si el 
 > - **Trama mínima:** Se requiere una longitud mínima de trama para garantizar que el emisor siga transmitiendo mientras la ráfaga de colisión regresa.
 >  $$L_{trama\_mínima} = V_t \cdot 2\tau$$
 > 
->     Donde $V_t$ es la velocidad de transmisión y $2\tau$ el retardo de ida y vuelta.
+>     _Donde $V_t$ es la velocidad de transmisión y $2\tau$ el retardo de ida y vuelta._
 >     
 > - **Backoff Exponencial Binario:** Tras una colisión, se espera un tiempo aleatorio definido por el intervalo $2^i - 1$, donde $i$ es el número de colisiones consecutivas. Tras 16 intentos fallidos, el sistema "dice que ocurrio un error".
 >  $$\text{Espera} = \text{Número aleatorio en el rango } [0, 2^i - 1]$$
 > 
-> _Donde $i$ es el número de colisiones consecutivas experimentadas por la trama.
+> 	_Donde $i$ es el número de colisiones consecutivas experimentadas por la trama._ 
 
 
-## 3. Longitud de Trama Mínima
-
-> [!important] **Condición de Transmisión**
-> 
-> Para que CSMA/CD funcione, el emisor **no debe finalizar** su transmisión antes de que la señal de una colisión (procedente del punto más alejado del cable) pueda regresar a él. Si la trama fuera más corta, la estación asumiría erróneamente que el envío fue exitoso.
-
-> [!quote] **Fórmula de Longitud de Trama**
-> 
-> $$L_{trama\_mínima} = V_t \cdot 2\tau$$
-> 
-> _Donde $V_t$ es la velocidad de transmisión y $2\tau$ el retardo de ida y vuelta._
-
-- **Ejemplo en Ethernet Clásico (10 Mbps):**
-    
-    - El tiempo de ida y vuelta máximo es de **51.2 $\mu s$**.
-        
-    - Esto equivale a **512 bits (64 bytes)** de longitud mínima.
-        
-    - Si los datos reales son menores a 46 bytes, se utiliza un campo llamado **Padding (relleno)** para alcanzar obligatoriamente los 64 bytes.
-        
-
----
-
-## 4. Recuperación: Backoff Exponencial Binario
-
-> [!tip] **Algoritmo de Retransmisión**
-> 
-> Para evitar colisiones consecutivas, las estaciones esperan un tiempo aleatorio basado en el número de intentos fallidos ($i$).
-
-> [!quote] **Fórmula del Intervalo de Espera**
-> 
-> $$\text{Espera} = \text{Número aleatorio en el rango } [0, 2^i - 1]$$
-> 
-> _Donde $i$ es el número de colisiones consecutivas experimentadas por la trama._
-
-- **Reglas del proceso:**
-    
-    - **Límite de espera:** El número máximo de ranuras de tiempo es **1023** (alcanzado tras la 10ª colisión).
-        
-    - **Abandono:** Si tras **16 intentos** el envío sigue fallando, el controlador desiste y reporta un error de capa de red.
-        
-
----
-
-¿Te gustaría que añadiera un ejemplo práctico sobre cómo calcular el tiempo de espera en una colisión específica para practicar el cálculo?
->     
 
