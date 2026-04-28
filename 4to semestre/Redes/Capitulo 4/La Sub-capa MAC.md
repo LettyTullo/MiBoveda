@@ -1,4 +1,4 @@
-La subcapa MAC (Medium Access Control) es la parte inferior de la capa de enlace de datos y desempeña un papel fundamental, especialmente en las redes de área local (LAN), al gestionar cómo varios dispositivos comparten un mismo canal de comunicación.
+ La subcapa MAC (Medium Access Control) es la parte inferior de la capa de enlace de datos y desempeña un papel fundamental, especialmente en las redes de área local (LAN), al gestionar cómo varios dispositivos comparten un mismo canal de comunicación.
 A continuación, se explica detalladamente su funcionamiento, características y el protocolo ALOHA puro:
 # 1. ¿Qué es y cómo funciona la subcapa MAC?
 En una red con un canal de difusión (como WiFi o el Ethernet clásico), el problema central es decidir quién es el siguiente en transmitir cuando hay competencia por el medio. Si dos o más dispositivos transmiten al mismo tiempo, las señales interfieren y los datos se destruyen, lo que se conoce como colisión.
