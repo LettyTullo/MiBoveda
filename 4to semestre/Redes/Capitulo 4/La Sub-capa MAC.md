@@ -41,18 +41,44 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 ![[Pasted image 20260426214844.png]]
 
 # 2. Protocolos CSMA (Carrier Sence Multiple Access)
-Los protocolos **CSMA (Carrier Sense Multiple Access)** o de acceso múltiple con detección de portadora son una evolución del protocolo ALOHA, diseñados para que las estaciones escuchen el canal antes de intentar transmitir. Su regla fundamental es: **"si el canal está ocupado, la estación no debe transmitir"**.
-Existen varias estrategias y variaciones detalladas a continuación:
-# 1. Variaciones según la persistencia
-Estas variaciones definen qué hace una estación cuando detecta que el canal está ocupado:
-- **CSMA 1-persistente:** La estación escucha el canal; si está libre, transmite con una **probabilidad de 1**. Si está ocupado, sigue escuchando continuamente hasta que detecta el canal libre y transmite de inmediato. Su debilidad es que si dos estaciones esperan a que termine una transmisión, ambas chocarán al intentar transmitir al mismo tiempo apenas se libere el medio.
-- **CSMA No-persistente:** Si el canal está ocupado, la estación no lo escucha continuamente; en su lugar, **espera un tiempo aleatorio** y vuelve a intentar el algoritmo. Esto reduce las colisiones pero aumenta el retardo promedio.
-- **CSMA p-persistente:** Se utiliza en canales ranurados. Si el canal está libre, la estación transmite con una **probabilidad $p$**. Con una probabilidad $q = 1-p$, posterga la transmisión hasta la siguiente ranura, repitiendo el proceso hasta que la trama sea enviada o alguien más empiece a transmitir.
+Los protocolos CSMA son una evolución de ALOHA basados en la premisa: **"Si el canal está ocupado, la estación no debe transmitir"**.
+#  Variaciones según la Persistencia
 
-### 2. CSMA/CD (Collision Detect)
+> [!abstract] **CSMA 1-persistente**
+> 
+> - **Funcionamiento:** La estación escucha el canal. Si está libre, transmite con probabilidad 1. Si está ocupado, espera escuchando continuamente hasta que el canal quede libre para transmitir de inmediato.
+>     
+> - **Debilidad:** Si varias estaciones están esperando, todas intentarán transmitir apenas se libere el canal, garantizando una colisión.
+>     
 
-Este protocolo añade la capacidad de **detectar colisiones mientras se está transmitiendo**, siendo la base de las redes Ethernet clásicas no conmutadas.
+> [!info] **CSMA No-persistente**
+> 
+> - **Funcionamiento:** Si el canal está ocupado, la estación **no** espera continuamente. En su lugar, espera un tiempo aleatorio y vuelve a iniciar el algoritmo.
+>     
+> - **Ventaja/Desventaja:** Reduce significativamente la probabilidad de colisiones, pero aumenta el retardo promedio de transmisión.
+>     
 
-- **Funcionamiento:** La estación escucha mientras transmite. Si detecta que la señal que recibe es distinta a la que envía, sabe que hay una colisión e interrumpe la transmisión inmediatamente para ahorrar tiempo y ancho de banda.
-- **Tiempo de detección:** En el peor de los casos, una estación puede tardar hasta **$2\tau$** (dos veces el tiempo máximo de propagación) en detectar una colisión. Debido a esto, se define un **tamaño de trama mínima** para asegurar que el emisor no termine de enviar antes de que la ráfaga de colisión regrese.
-- **Algoritmo de Backoff Exponencial Binario:** Después de una colisión, la estación espera un tiempo aleatorio. El intervalo de espera se duplica tras cada colisión consecutiva ($2^i - 1$) para adaptarse dinámicamente a la carga de la red, tirando la toalla tras 16 intentos fallidos.
+> [!warning] **CSMA p-persistente**
+> 
+> - **Contexto:** Utilizado en canales ranurados.
+>     
+> - **Funcionamiento:** Si el canal está libre, transmite con una probabilidad $p$. Con probabilidad $q = 1-p$, posterga la transmisión hasta la siguiente ranura.
+>     
+> - **Proceso:** Se repite hasta que la trama es enviada o el medio es ocupado por otra estación.
+>     
+
+# 2. CSMA/CD (Collision Detect)
+
+> [!danger] **Funcionamiento y Características**
+> 
+> Es la base de las redes Ethernet clásicas no conmutadas.
+> 
+> - **Detección:** La estación escucha el medio mientras transmite. Si la señal recibida difiere de la enviada, detecta una colisión e interrumpe la transmisión inmediatamente para ahorrar ancho de banda.
+>     
+> - **Tiempo de detección ($2\tau$):** En el peor escenario, el emisor tarda dos veces el tiempo máximo de propagación en detectar una colisión.
+>     
+> - **Trama mínima:** Se requiere una longitud mínima de trama para garantizar que el emisor siga transmitiendo mientras la ráfaga de colisión regresa.
+>     
+> - **Backoff Exponencial Binario:** Tras una colisión, se espera un tiempo aleatorio definido por el intervalo $2^i - 1$, donde $i$ es el número de colisiones consecutivas. Tras 16 intentos fallidos, el sistema "tira la toalla".
+>     
+
