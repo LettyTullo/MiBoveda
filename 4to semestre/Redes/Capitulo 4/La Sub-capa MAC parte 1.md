@@ -110,3 +110,37 @@ Estos protocolos eliminan la competencia por el canal, evitando colisiones inclu
 >     
 
 # 4. Protocolos de contencion limitada
+Su objetivo principal es proporcionar un **bajo retardo** cuando la carga de la red es baja (característica de la contención) y una **alta eficiencia** del canal cuando la carga es elevada (característica de los protocolos libres de colisiones).
+# Protocolo de Árbol Adaptativo (Adaptive Tree-Walk)
+
+Este es el modelo principal dentro de los protocolos de **contención limitada**. Su objetivo es identificar qué estaciones quieren transmitir mediante una búsqueda jerárquica, evitando que todo el conjunto de estaciones colisione simultáneamente.
+
+> [!example] **Estructura Jerárquica**
+> 
+> - Las estaciones se organizan como las **hojas de un árbol binario**.
+>     
+> - El acceso se gestiona mediante una búsqueda en profundidad (_depth-first search_) o por niveles.
+>     
+
+> [!abstract] **Funcionamiento paso a paso**
+> 
+> - **Inicio:** Se parte de la raíz (nodo 1). Si solo una estación transmite, tiene éxito. Si hay silencio, la ranura se marca como ociosa.
+>     
+> - **Gestión de Colisiones:** Si ocurre una colisión, el protocolo desciende al sub-árbol izquierdo (nodo 2).
+>     
+> - **Búsqueda en profundidad:** Si hay otra colisión, se desciende un nivel más (nodo 4).
+>     
+>     - Si un nodo tiene éxito o queda inactivo, el algoritmo **asciende y pasa al hijo derecho** (nodo 3) para continuar la búsqueda.
+>         
+
+> [!tip] **Adaptabilidad a la Carga**
+> 
+> El protocolo ajusta su punto de partida según el tráfico para maximizar la eficiencia:
+> 
+> - **Baja carga:** Se comienza siempre desde la **raíz (nodo 1)**, permitiendo que una estación transmita con el menor retardo posible.
+>     
+> - **Alta carga:** Para evitar colisiones masivas, el protocolo inicia la búsqueda directamente en **niveles inferiores** del árbol, aislando grupos más pequeños de estaciones desde el inicio y reduciendo la contención.
+>     
+
+
+
