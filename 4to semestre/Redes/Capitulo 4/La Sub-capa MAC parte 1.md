@@ -143,4 +143,4 @@ Este es el modelo principal dentro de los protocolos de **contención limitada**
 >     
 
 
-
+[[La Sub - capa MAC parte 2]]
