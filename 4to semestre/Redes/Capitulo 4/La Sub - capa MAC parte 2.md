@@ -28,11 +28,9 @@ Para gestionar el acceso al medio compartido, la Ethernet clásica utiliza el pr
 > - **Delimitador de inicio de trama (SFD) (1 byte):** Contiene el patrón `10101011`, donde los dos últimos bits en "1" indican al receptor que el resto de la trama está por comenzar.
 >- **Direcciones MAC de Destino y Origen (6 bytes cada una):** Identifican a las estaciones involucradas en el intercambio. Los **3 primeros bytes** de la dirección MAC corresponden al **OUI** (identificador único del fabricante) asignado por el IEEE, y los **3 últimos bytes** son el número de serie asignado por el fabricante. La dirección de difusión (**broadcast**) se representa con todos los bits en 1 (**FF:FF:FF:FF:FF:FF**).
 >- **Tipo o Longitud (2 bytes):** Este campo tiene un significado dual dependiendo del valor:
-    - Si el valor es **menor o igual a 1536 (0x600)**, indica la **longitud** de los datos presentes en la carga útil (estándar 802.3).
-    - Si el valor es **mayor a 1536**, indica el **Tipo de protocolo** de capa de red al que pertenecen los datos (Ethertype).- **Datos (Carga útil):** Contiene el paquete proveniente de la capa de red. Tiene un límite **máximo de 1500 bytes**.
-- **Relleno (Padding):** Ethernet exige que las tramas válidas tengan una **longitud mínima de 64 bytes** (desde la dirección de destino hasta el CRC). Si los datos son menores a **46 bytes**, se utiliza este campo para completar el tamaño mínimo y asegurar que las colisiones sean detectadas correctamente.
-- **Suma de comprobación (CRC) (4 bytes):** Es un código de detección de errores de **32 bits** que permite al receptor determinar si los bits de la trama se recibieron correctamente; de lo contrario, la trama es descartada.
+>     - Si el valor es **menor o igual a 1536 (0x600)**, indica la **longitud** de los datos presentes en la carga útil (estándar 802.3).
+>     - Si el valor es **mayor a 1536**, indica el **Tipo de protocolo** de capa de red al que pertenecen los datos (Ethertype), como IPv4 (0x0800).
+>- **Datos (Carga útil):** Contiene el paquete proveniente de la capa de red. Tiene un límite **máximo de 1500 bytes**.
+> - **Relleno (Padding):** Ethernet exige que las tramas válidas tengan una **longitud mínima de 64 bytes** (desde la dirección de destino hasta el CRC). Si los datos son menores a **46 bytes**, se utiliza este campo para completar el tamaño mínimo y asegurar que las colisiones sean detectadas correctamente.
+>- **Suma de comprobación (CRC) (4 bytes):** Es un código de detección de errores de **32 bits** que permite al receptor determinar si los bits de la trama se recibieron correctamente; de lo contrario, la trama es descartada.
 
-### Variación para VLANs (IEEE 802.1Q)
-
-Cuando se utilizan redes virtuales (**VLAN**), la estructura de la trama cambia ligeramente al insertar una **etiqueta (Tag)** de 4 bytes entre la dirección de origen y el campo de longitud/tipo. Esta etiqueta incluye un identificador de protocolo VLAN (**0x8100**), un campo de **prioridad** de 3 bits y el **Identificador de VLAN** de 12 bits, que permite identificar hasta 4096 VLANs distintas.
