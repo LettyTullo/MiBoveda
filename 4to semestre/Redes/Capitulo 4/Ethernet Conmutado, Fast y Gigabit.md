@@ -69,4 +69,39 @@ Fast Ethernet abandonó el uso de cables coaxiales multipunto (como la Ethernet 
 
 # Modos de Operación y Autonegociación
 - **Modo de Transmisión:** Puede funcionar en **half-duplex** (usando hubs y CSMA/CD) o en **full-duplex** (usando conmutadores, donde las estaciones pueden enviar y recibir datos simultáneamente sin colisiones).
-- **Autonegociación:** 
+- **Autonegociación:** Es un mecanismo que permite a dos estaciones conectadas negociar automáticamente la mejor velocidad (10 o 100 Mbps) y el modo de duplicidad (half o full duplex) que ambos soporten. Esto permite que los conmutadores modernos gestionen una mezcla de estaciones antiguas y nuevas de forma transparente.
+## Gigabit Ethernet (IEEE 802.3z / 802.3ab)
+
+Gigabit Ethernet es la evolución que incrementa la velocidad a **1000 Mbps (1 Gbps)**. Su gran ventaja es que mantiene la compatibilidad con Ethernet (10 Mbps) y Fast Ethernet (100 Mbps).
+# Implementaciones Físicas y Medios
+Existen diferentes variantes según el cableado y la distancia necesaria:
+
+|**Estándar**|**Medio de Transmisión**|**Distancia Máxima**|**Características Clave**|
+|---|---|---|---|
+|**1000Base-T**|Cobre (4 pares UTP Cat 5e/6)|100 m|La más común. Usa los 4 pares en modo dual full-duplex.|
+|**1000Base-SX**|Fibra Multimodo (Onda corta)|550 m|Usa LEDs o láseres económicos; ideal para interiores.|
+|**1000Base-LX**|Fibra Monomodo/Multimodo|5 km|Usa láseres; para largas distancias (troncales).|
+|**1000Base-CX**|Cobre (2 pares STP)|25 m|Cables apantallados muy cortos.|
+|**1000Base-TX**|Cobre (2 pares UTP Cat 6)|100 m|Estándar TIA/EIA 854; requiere mayor categoría de cable.|
+
+# Modos de Operación
+Dependiendo del dispositivo de interconexión (Hub o Switch), el protocolo se comporta de dos formas:
+- **Full-Duplex (Dúplex completo):** * _Uso:_ Conectado a **Switches**.
+    - _Ventaja:_ No hay colisiones, no usa CSMA/CD. La distancia solo depende de la señal.
+- **Half-Duplex (Semidúplex):** * _Uso:_ Conectado a **Hubs** (obsoleto pero soportado).
+    - _Desventaja:_ Hay colisiones y requiere el uso de **CSMA/CD**.
+# Desafios en Redes no Conmutadas (CSMA/CD)
+Al transmitir 100 veces más rápido que el Ethernet original, el tiempo de emisión es tan corto que el sistema de detección de colisiones podría fallar. Para evitarlo, se usan dos técnicas:
+
+> [!IMPORTANT] El problema de la Trama Mínima
+> 
+> Para mantener el alcance de la red, la trama mínima debería ser de 512 bytes, pero por compatibilidad debe seguir siendo de 64 bytes.
+
+**Soluciones de Hardware:**
+1. **Extensión de Portadora (Carrier Extension):** Se añade un "relleno" (_padding_) a la trama para que llegue artificialmente a los 512 bytes.
+2. **Ráfaga de Tramas (Frame Bursting):** El emisor envía varias tramas pequeñas juntas hasta sumar 512 bytes, evitando desperdiciar espacio con rellenos.
+# Características Especiales
+- **Autonegociación:** Permite ajustar el protocolo a utilizarse de forma automática (puertos 10/100/1000). Al conectarse los equipos negocian la comunicación siguiendo una prioridad. Sólo se utiliza en puertos con cable UTP. En la fibra lo único negociable es el modo dúplex. La Autonegociación puede no ser posible entre equipos de marcas diferentes. La autonegociación es opcional, puede estar o nó.
+- **Tramas Jumbo (Jumbo Frames):** Soporta tramas de hasta **9000 bytes**. Reduce la carga del CPU al mover archivos grandes.
+- **Control de Flujo:** Usa tramas **PAUSE** (Ethertype 0x8808) para detener temporalmente al emisor y evitar que se saturen los búferes del receptor.
+
