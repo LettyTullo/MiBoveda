@@ -3,14 +3,14 @@ El **Ethernet conmutado** es la arquitectura moderna de las redes de área local
 | **Característica**             | **Hub (Concentrador)**                                                                                   | **Switch (Conmutador)**                                                                                 |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Capa Modelo OSI**            | **Capa 1 (Física)**: Actúa como un simple repetidor de señales analógicas.                               | **Capa 2 (Enlace de Datos)**: Entiende tramas Ethernet y direcciones MAC.                               |
-| **Gestión de Tráfico**         | Al recibir bits por un puerto, los repite por todos los demás sin distinción.                            | **Envío selectivo**: Solo envía la trama al puerto donde se encuentra el destinatario específico.       |
+| **Gestión de Tráfico**         | Al recibir bits por un puerto, los repite por todos los demás sin distinción.                            | Solo envía la trama al puerto donde se encuentra el destinatario específico.                            |
 | **Dominios de Colisión**       | **Único dominio**: Todos sus puertos comparten el mismo dominio; si dos transmiten a la vez, hay choque. | **Segmentación**: Aísla cada puerto en su propio dominio de colisión separado.                          |
 | **Inteligencia y Aprendizaje** | **Nula**: No sabe quién está conectado; no posee registros de direcciones.                               | **Aprendizaje hacia atrás**: Construye una **Tabla CAM** asociando direcciones MAC con puertos físicos. |
 | **Manejo de Desconocidos**     | No discrimina, siempre envía a todos.                                                                    | Si no conoce el destino, inunda todos los puertos; una vez aprendido, la transmisión es directa.        |
 | **Modo de Transmisión**        | **Half-duplex (semidúplex)**: Debe gestionar colisiones, por lo que no puede enviar y recibir a la vez.  | **Full-duplex (dúplex completo)**: Envía y recibe simultáneamente sin riesgo de colisiones.             |
 | **Eficiencia y Protocolos**    | Obliga al uso de **CSMA/CD** para gestionar los choques de señales.                                      | Elimina la necesidad de CSMA/CD y permite comunicaciones en paralelo a alta velocidad.                  |
 
-### Modos de trabajo del Switch
+# Modos de trabajo del Switch
 
 Los switches modernos pueden operar bajo tres estrategias para procesar las tramas:
 
