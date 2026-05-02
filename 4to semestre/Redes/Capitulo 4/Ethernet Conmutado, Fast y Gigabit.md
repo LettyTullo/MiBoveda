@@ -52,5 +52,21 @@ Una vez que la tabla CAM tiene registradas las direcciones, el switch optimiza l
 > Si: Descarta la trama (filtrado), pues el destino ya está en ese segmento.
 > No: Envía la trama directamente al puerto de destino correspondiente (Unicast).
 
-## Ethernet Fast 
+## Fast Ethernet 
+La idea básica de Fast Ethernet fue mantener la compatibilidad con la Ethernet original para facilitar la actualización de las redes existentes.
 
+- **Reglas y Formatos:** Conserva los mismos formatos de trama, interfaces y reglas de procedimiento.
+- **Tiempo de Bit:** Se redujo el tiempo de bit de 100 nanosegundos a **10 nanosegundos**.
+- **Longitud de Trama Mínima:** Se mantiene en **64 bytes**. Para que el algoritmo CSMA/CD (detección de colisiones) siga funcionando a esta mayor velocidad con el mismo tamaño de trama, fue necesario reducir la distancia máxima del cable por un factor de 10 en comparación con la Ethernet clásica (cuando se usan hubs).
+# Implementaciones Físicas
+Fast Ethernet abandonó el uso de cables coaxiales multipunto (como la Ethernet gruesa o delgada) y se basa enteramente en diseños de **concentradores (hubs)** y **conmutadores (switches)** con enlaces punto a punto. Las variantes principales son
+
+|Nombre|Cable|Distancia Máxima|Características clave|
+|:--|:--|:--|:--|
+|**100Base-TX**|Par trenzado (UTP Cat 5)|100 m|Es la más utilizada. Usa 2 pares de hilos y codificación **4B/5B** a 125 MHz. Soporta **full-duplex**.|
+|**100Base-T4**|Par trenzado (UTP Cat 3)|100 m|Diseñada para funcionar sobre cableado antiguo de categoría 3. Requiere **4 pares** y usa una codificación compleja de señales ternarias (8B/6T).|
+|**100Base-FX**|Fibra óptica multimodo|2000 m (full duplex)|Ideal para tramos largos. En modo half-duplex la distancia se limita a 400 m debido a las restricciones de colisión. Usa codificación 4B/5B y NRZI.|
+
+# Modos de Operación y Autonegociación
+- **Modo de Transmisión:** Puede funcionar en **half-duplex** (usando hubs y CSMA/CD) o en **full-duplex** (usando conmutadores, donde las estaciones pueden enviar y recibir datos simultáneamente sin colisiones).
+- **Autonegociación:** 
