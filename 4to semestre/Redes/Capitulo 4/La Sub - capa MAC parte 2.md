@@ -59,7 +59,8 @@ representados por 12 dígitos hexadecimales.
 # 2. Tipos de Direcciones MAC
 
 >[!important] Existen tres categorías:
->- **Unicast:** Identifica a una sola interfaz de red. Se distingue porque el bit menos significativo del primer byte es **0**.
+>- **Unicast:** Identifica a una sola interfaz de red, mensaje para una sola red. Se distingue porque el bit menos significativo del primer byte es **0**.
 >- **Multicast (Multidifusión):** Permite que un grupo de estaciones escuchen una misma dirección. Se identifica porque el bit menos significativo del primer byte es **1**.
->- **Broadcast (Difusión):** Es una dirección especial compuesta por todos los bits en 1 (**FF:FF:FF:FF:FF:FF**), lo que obliga a que todas las estaciones de la red acepten y procesen la trama
+>- **Broadcast (Difusión):** Es una dirección especial compuesta por todos los bits en 1 (**FF:FF:FF:FF:FF:FF**), lo que obliga a que todas las estaciones de la red acepten y procesen la trama, mensajes para todos en la red.
 
+[[Ethernet Conmutado]]
