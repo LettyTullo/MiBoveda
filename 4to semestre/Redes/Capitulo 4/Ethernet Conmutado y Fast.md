@@ -52,3 +52,5 @@ Una vez que la tabla CAM tiene registradas las direcciones, el switch optimiza l
 > Si: Descarta la trama (filtrado), pues el destino ya está en ese segmento.
 > No: Envía la trama directamente al puerto de destino correspondiente (Unicast).
 
+## Ethernet Fast 
+
