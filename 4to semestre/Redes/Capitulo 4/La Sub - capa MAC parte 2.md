@@ -34,4 +34,16 @@ Para gestionar el acceso al medio compartido, la Ethernet clásica utiliza el pr
 > - **Relleno (Padding):** Ethernet exige que las tramas válidas tengan una **longitud mínima de 64 bytes** (desde la dirección de destino hasta el CRC). Si los datos son menores a **46 bytes**, se utiliza este campo para completar el tamaño mínimo y asegurar que las colisiones sean detectadas correctamente.
 >- **Suma de comprobación (CRC) (4 bytes):** Es un código de detección de errores de **32 bits** que permite al receptor determinar si los bits de la trama se recibieron correctamente; de lo contrario, la trama es descartada.
 
-# Ethernet DIX 
+## Ethernet DIX 
+**Ethernet DIX** es la norma de **10 Mbps** desarrollada conjuntamente por **Digital Equipment Corporation, Intel y Xerox** en 1978. Fue la base de lo que hoy conocemos como Ethernet comercial, evolucionando a partir de los diseños experimentales. El estándar DIX surgió de la necesidad de comercializar la tecnología Ethernet que Xerox había inventado pero no estaba interesada en explotar masivamente. En 1983, este estándar fue la base para la creación del **IEEE 802.3**, aunque inicialmente presentaban una diferencia clave en el formato de la trama que causó controversia en la industria durante años.
+# Formato de la trama:
+![[Screenshot 2026-05-02 161543.png]]
+
+- **Preámbulo (8 bytes):** Un patrón de bits que genera una onda cuadrada para que el reloj del receptor se sincronice con el del emisor. El último byte termina en `11` para indicar el inicio de la trama
+- **Dirección de Destino (6 bytes):** La dirección MAC del equipo que debe recibir la trama. Puede ser **Unicast** (un solo equipo), **Multicast** (un grupo) o **Broadcast** (todos los equipos de la red, representada por todos los bits en 1: `FF:FF:FF:FF:FF:FF`).
+- **Dirección de Origen (6 bytes):** La dirección MAC única global del fabricante asignada por el IEEE. Los 3 primeros bytes corresponden al identificador del fabricante (**OUI**) y los 3 últimos al número de serie.
+- **Tipo (Ethertype) (2 bytes):** Este es el campo distintivo de DIX. Indica al receptor a qué protocolo de la capa de red debe entregarse el paquete.
+- **Datos (Carga útil):** El paquete proveniente de la capa superior. Su tamaño oscila entre **46 y 1500 bytes**.
+- **Relleno (Pad):** Si los datos son menores a 46 bytes, se añade relleno para asegurar que la trama alcance el tamaño mínimo de **64 bytes** (necesario para que el mecanismo CSMA/CD detecte colisiones correctamente).
+- **Suma de comprobación (Checksum / CRC) (4 bytes):** Un código de detección de errores (CRC de 32 bits) que permite al receptor descartar la trama si los bits se dañaron durante la transmisión.
+
