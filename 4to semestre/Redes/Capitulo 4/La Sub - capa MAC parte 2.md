@@ -34,3 +34,4 @@ Para gestionar el acceso al medio compartido, la Ethernet clásica utiliza el pr
 > - **Relleno (Padding):** Ethernet exige que las tramas válidas tengan una **longitud mínima de 64 bytes** (desde la dirección de destino hasta el CRC). Si los datos son menores a **46 bytes**, se utiliza este campo para completar el tamaño mínimo y asegurar que las colisiones sean detectadas correctamente.
 >- **Suma de comprobación (CRC) (4 bytes):** Es un código de detección de errores de **32 bits** que permite al receptor determinar si los bits de la trama se recibieron correctamente; de lo contrario, la trama es descartada.
 
+# Ethernet DIX 
