@@ -15,7 +15,7 @@ El **Ethernet conmutado** es la arquitectura moderna de las redes de área local
 
 >[!danger] Estan bajo 3 estrategias para procesar las tramas.
 >1. **Store and forward:** Recibe la trama completa, verifica el CRC (errores) y luego la reenvía; es el más seguro pero tiene más retardo.
->2. **Cut-through:** Comienza a retransmitir en cuanto lee la dirección de destino, incluso antes de recibir toda la trama, minimizando el retardo.
+>2. **Cut-through:** Se retrasmite la trama directamente (no se verifica el CRC), incluso antes de recibir toda la trama, minimizando el retardo.
 >3. **Free of segments:** Espera a recibir los primeros 64 bytes para asegurarse de que no es un fragmento de una colisión antes de reenviar.
 
 ## Tabla CAM
