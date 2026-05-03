@@ -101,7 +101,23 @@ Al transmitir 100 veces más rápido que el Ethernet original, el tiempo de emis
 1. **Extensión de Portadora (Carrier Extension):** Se añade un "relleno" (_padding_) a la trama para que llegue artificialmente a los 512 bytes.
 2. **Ráfaga de Tramas (Frame Bursting):** El emisor envía varias tramas pequeñas juntas hasta sumar 512 bytes, evitando desperdiciar espacio con rellenos.
 # Características Especiales
+- **Codificación:** Utiliza esquemas como **8B/10B** para fibra y cables STP, o **4D-PAM5** para 1000Base-T (donde 5 niveles de tensión transportan 2 bits por símbolo)
 - **Autonegociación:** Permite ajustar el protocolo a utilizarse de forma automática (puertos 10/100/1000). Al conectarse los equipos negocian la comunicación siguiendo una prioridad. Sólo se utiliza en puertos con cable UTP. En la fibra lo único negociable es el modo dúplex. La Autonegociación puede no ser posible entre equipos de marcas diferentes. La autonegociación es opcional, puede estar o nó.
 - **Tramas Jumbo (Jumbo Frames):** Soporta tramas de hasta **9000 bytes**. Reduce la carga del CPU al mover archivos grandes.
 - **Control de Flujo:** Usa tramas **PAUSE** (Ethertype 0x8808) para detener temporalmente al emisor y evitar que se saturen los búferes del receptor.
+# 10GBase-T (La variante de cobre)
+- **Cableado:** Requiere **Categoría 6a** para llegar a 100 metros (en Cat 6 solo llega a 55m).
+- **Operación:** Exclusivamente **Full Duplex** (envía y recibe a la vez). Ya **no existe CSMA/CD**.
+- **Codificación:** Usa **PAM-16** (16 niveles de tensión) para meter más datos en el mismo cable.
+- **Ventaja:** Es la opción más barata para conectar servidores y equipos a corta/media distancia.
+El switch de 10Gb utiliza la **Tabla CAM** para ser ultra eficiente
+# Tabla Comparativa de Estándares 10 GbE
+Esta tabla resume todas las variantes de 10 Gigabit según el medio físico:
 
+| **Nombre**      | **Cable / Medio**     | **Distancia Máxima** | **Ventaja Principal**                     |
+| --------------- | --------------------- | -------------------- | ----------------------------------------- |
+| **10GBase-SR**  | Fibra Multimodo       | 300 m                | Fibra de corto alcance (0,85 $\mu$m).     |
+| **10GBase-LR**  | Fibra Monomodo        | 10 km                | Para conexiones de campus (1,3 $\mu$m).   |
+| **10GBase-ER**  | Fibra Monomodo        | 40 km                | Larga distancia / Troncales (1,5 $\mu$m). |
+| **10GBase-CX4** | Cobre (Twinax)        | 15 m                 | Muy baja latencia en distancias mínimas.  |
+| **10GBase-T**   | Par Trenzado (Cat 6a) | 100 m                | Compatibilidad y bajo costo en cobre.     |
