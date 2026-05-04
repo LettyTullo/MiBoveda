@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Proceso",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "Marcadores"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -188,11 +187,13 @@
   },
   "active": "6845d21164a0ab63",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
+    "2026-05-03.md",
+    "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
+    "Sin título 1.canvas",
     "Screenshot 2026-05-03 095704.png",
     "Screenshot 2026-05-03 095717.png",
-    "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
-    "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
     "4to semestre/Redes/Capitulo 2/Capa fisica Parte 2.md",
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 1.md",
@@ -216,7 +217,6 @@
     "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
     "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
     "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
-    "Pasted image 20260405212242.png",
     "4to semestre/Redes/Sin título.md",
     "3. Capa de Red.md",
     "Control de errores (Detección y corrección).md",
@@ -228,7 +228,6 @@
     "Sin título.canvas",
     "Sin título 2.canvas",
     "Sin título.base",
-    "Sin título 1.canvas",
     "Sin título 1.md",
     "4to semestre/Redes/Capitulo 1.zip",
     "cree un enlace.md",
