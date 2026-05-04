@@ -26,17 +26,12 @@ La tabla CAM es una base de datos interna que asocia una dirección MAC con un p
 - El switch no conoce qué equipo está conectado a qué puerto hasta que se genera tráfico.
 - El aprendizaje se realiza observando la dirección MAC de origen de las tramas entrantes.
 # 2. El Proceso de Aprendizaje hacia atrás
-Cuando un equipo envía una trama, el switch realiza los siguientes pasos:
-1. Inspecciona el campo de dirección MAC de origen de la trama.
-2. Identifica por qué puerto físico ingresó dicha trama.
-3. Crea una entrada en la tabla: MAC [Dirección] -> Puerto [Número].
-4. Añade un temporizador (aging timer) a la entrada. Si el equipo no envía datos durante un tiempo determinado, la entrada se borra para mantener la tabla limpia y permitir cambios físicos en la red.
-- Cuando el Host A envía un mensaje desde el puerto 1, el switch mira la trama y dice: _"Acabo de recibir algo del Host A por el puerto 1; por lo tanto, el Host A está conectado al puerto 1"_.
-- En ese momento, crea una entrada en su tabla: **MAC A** → **Puerto 1**.
-# 3. El Dilema del Destino Desconocido: Inundación (Flooding)
-Cuando llega una trama, el switch consulta la dirección MAC de destino en su tabla CAM. Si el destino no figura en la tabla, el switch no sabe por dónde enviarlo.
-- **Algoritmo de Inundación:** El switch copia la trama y la envía por todos los puertos activos, excepto por aquel puerto por el que recibió la trama originalmente.
-- **Resultado:** El destinatario real recibe el mensaje y responde. En cuanto esa respuesta llega al switch, este aprende la ubicación del destinatario siguiendo el proceso de aprendizaje de origen.
+
+![[Screenshot 2026-05-03 095717.png]]
+# 3. Proceso de retransmicion
+
+![[Screenshot 2026-05-03 095704.png]]
+
 # 4. Transmisiones Directas y Aislamiento de Tráfico
 Una vez que la tabla CAM tiene registradas las direcciones, el switch optimiza la red:
 - **Conmutación inmediata:** Si el Host A quiere hablar con el Host D y ambos están en la tabla, el switch conecta sus puertos de forma privada a través de su electrónica interna.
