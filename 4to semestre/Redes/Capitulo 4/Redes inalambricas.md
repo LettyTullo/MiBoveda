@@ -9,5 +9,6 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
     - **Modo Ad Hoc:** Las estaciones se comunican directamente entre sí sin necesidad de un AP
 >[!info] Conceptos importantes 
 >**El Access Point (AP):** Es un dispositivo que actúa como una **estación base** para la red inalámbrica. En una red en modo infraestructura, el AP es el centro de la comunicación; todos los clientes (como portátiles o teléfonos) se asocian a él, y cualquier mensaje entre clientes o hacia Internet debe pasar obligatoriamente por el AP
->SSID (Service Set Identifier): Es el identificador de texto (nombre) que distingue a una red inalámbrica de otras.
->Ad Hoc: 
+>**SSID (Service Set Identifier):** Es el identificador de texto (nombre) que distingue a una red inalámbrica de otras.
+
+
