@@ -58,9 +58,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 > - **Técnica:** Introdujo la multiplexación por división de frecuencias ortogonales (**OFDM**).
 >     
-> - _Nota:_ Su alcance es menor porque los 5 GHz no penetran tan bien las paredes. Señales de multiples carriers a diferentes frecuencias. Hasta 48 subcarriers modulados usando BPSK, QPSK,
-16-QAM, o 64-QAM
->     
+> - _Nota:_ Su alcance es menor porque los 5 GHz no penetran tan bien las paredes. Señales de multiples carriers a diferentes frecuencias. Hasta 48 subcarriers modulados usando BPSK, QPSK, 16-QAM, o 64-QAM
 
 > [!success] 3. 802.11g (Lanzada en 2003)
 > 
@@ -70,10 +68,9 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 > - **Velocidad máxima:** Hasta 54 Mbps.
 >     
-> - **Técnica:** Utiliza **OFDM** (como la "a") pero en la banda de la "b".
+> - **Técnica:** Utiliza **OFDM** (como la "a") pero en la banda de la "b". 
 >     
 > - **Compatibilidad:** Totalmente compatible con dispositivos 802.11b.
->     
 
 > [!warning] 4. 802.11n (Wi-Fi 4 - Lanzada en 2009)
 > 
@@ -118,7 +115,3 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 |**802.11g**|2003|2.4 GHz|54 Mbps|OFDM|
 |**802.11n**|2009|2.4 / 5 GHz|600 Mbps|MIMO OFDM|
 |**802.11ac**|2013|5 GHz|6.93 Gbps|MU-MIMO|
-
-> [!note] Compatibilidad
-> 
-> Es común que las tarjetas de red modernas sean compatibles con múltiples implementaciones (ej. 802.11a/b/g/n) para garantizar la conectividad con cualquier tipo de equipo.
