@@ -28,7 +28,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 **Capa Física (PHY):** Esta capa varía según el estándar utilizado (como 802.11a, b, g, n, etc.).
 - **Determinación de la tasa de bits:** La velocidad de transmisión (bitrate) se define mediante la combinación de la **técnica de modulación** y la **tasa de codificación** (que provee corrección de errores).
 - **Rate Adaptation - Adaptación de tasas:** Las velocidades se adaptan al medio (evita errores de transmisión)
-# Tipos de WIFI
+## Tipos de WIFI
 
 # Evolución del Estándar IEEE 802.11 (Wi-Fi)
 
@@ -122,9 +122,9 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 > 
 > El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
 
-## 1. Modos de Operación
+## Modos de Operación
 
-# 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
+## 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
 
 Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado.
 
@@ -166,3 +166,18 @@ Soluciona el problema de la **"estación escondida"**:
 - **CTS (Clear to Send):** El receptor confirma que el canal está libre.
 - **Resultado:** Todas las estaciones que oyen el RTS o CTS actualizan su NAV y guardan silencio.
 - _Nota:_ Solo se usa para **tramas muy largas** por el overhead que genera.
+## 2.Función de Coordinación de Punto (PCF - Point Coordination Function)
+Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
+
+- **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
+- **Uso en la práctica:** Aunque está definido en el estándar, **no se utiliza habitualmente** en entornos reales porque no hay forma de impedir que estaciones de redes cercanas (ajenas al AP) transmitan tráfico competidor, y además no forma parte del estándar de interoperabilidad de la _Wi-Fi Alliance_.
+
+>[!important] En resumen
+Mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
+
+
+## Técnicas para mejorar la confiabilidad
+
+Especialmente en redes como **802.11 (Wi-Fi)**, se utilizan dos estrategias clave para aumentar el éxito de las entregas:
+- **Adaptación de tasa (Rate adaptation):** Consiste en **disminuir la tasa de bits** cuando se pierden demasiadas tramas. Al reducir la velocidad, se utilizan **modulaciones más robustas** que tienen mayores probabilidades de ser recibidas correctamente para una relación señal/ruido determinada.
+- **Fragmentación de la trama:** Consiste en enviar **tramas más cortas**. Matemáticamente, si la probabilidad de error de un bit es $p$, la probabilidad de recibir correctamente una trama de $n$ bits es $(1-p)^n$; por lo tanto, al reducir el tamaño de la trama, aumenta significativamente la probabilidad de que llegue intacta, requiriendo menos retransmisiones totales.
