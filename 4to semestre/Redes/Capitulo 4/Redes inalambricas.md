@@ -45,8 +45,8 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 > - **Velocidad máxima:** Hasta 11 Mbps.
 >     
-> - **Técnica:** Utiliza espectro ensanchado (**DSSS**) con secuencias de Barker y modulación **CCK** (Complementary code Keying).
->    
+> - **Técnica:** Utiliza espectro ensanchado (**DSSS**) con secuencias de Barker y modulación **CCK** (Complementary code Keying). Con modulacion mas altas con el mismo ancho de banda. 
+
 
 > [!todo] 2. 802.11a (Lanzada en 1999)
 > 
@@ -62,7 +62,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 
 > [!success] 3. 802.11g (Lanzada en 2003)
 > 
-> Buscó combinar lo mejor de las dos anteriores.
+> Buscó combinar las tecnicas de codificacion de capa fisica utilizados en 'a', y 'b' para proveer servicio a una variedad de tasas de bits
 > 
 > - **Frecuencia:** Vuelve a la banda de 2.4 GHz.
 >     
@@ -71,6 +71,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 > - **Técnica:** Utiliza **OFDM** (como la "a") pero en la banda de la "b". 
 >     
 > - **Compatibilidad:** Totalmente compatible con dispositivos 802.11b.
+> - Utiliza 
 
 > [!warning] 4. 802.11n (Wi-Fi 4 - Lanzada en 2009)
 > 
