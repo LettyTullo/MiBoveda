@@ -146,15 +146,6 @@ Establecen prioridades según el tiempo de espera:
 |**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
 |**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
 
-### 2. Función de Coordinación de Punto (PCF - Point Coordination Function)
-
-Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
-
-- **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
-- **Uso en la práctica:** Aunque está definido en el estándar, **no se utiliza habitualmente** en entornos reales porque no hay forma de impedir que estaciones de redes cercanas (ajenas al AP) transmitan tráfico competidor, y además no forma parte del estándar de interoperabilidad de la _Wi-Fi Alliance_.
-
-En resumen, mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
-
 # Algoritmo de Backoff (Retroceso)
 
 Si el canal está ocupado, la estación espera un **DIFS** y luego:
@@ -163,18 +154,15 @@ Si el canal está ocupado, la estación espera un **DIFS** y luego:
 3. El contador descuenta slots si el canal está libre; si hay tráfico, se pausa y reanuda tras otro DIFS.
 4. Al llegar a **cero**, se transmite.
 5. **Si falla (no hay ACK):** El valor de CW se duplica ($31, 63, ...$ hasta $CW_{max} = 1023$).
-
-## 6. Mecanismo Opcional RTS/CTS
-
+# Algoritmo de IFS + Backoff
+Inicialmente se espera un DIFS
+- Si el canal esta libre, se transmite
+- Si no:  -  Se espera hasta que el medio este libre
+		- Se espera un IFS + algoritmo de backoff
+![[Pasted image 20260507183508.png]]
+# Mecanismo Opcional RTS/CTS
 Soluciona el problema de la **"estación escondida"**:
-
 - **RTS (Request to Send):** El emisor solicita permiso e indica la duración.
-    
 - **CTS (Clear to Send):** El receptor confirma que el canal está libre.
-    
 - **Resultado:** Todas las estaciones que oyen el RTS o CTS actualizan su NAV y guardan silencio.
-    
 - _Nota:_ Solo se usa para **tramas muy largas** por el overhead que genera.
-    
-
----
