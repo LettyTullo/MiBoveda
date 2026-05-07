@@ -124,31 +124,27 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 
 ## 1. Modos de Operación
 
-> [!multi-column]
-> 
-> > [!info] DCF (Distributed Coordination Function)
-> > 
-> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS**. 
-> 
-> > [!quote] PCF (Point Coordination Function)
-> > 
-> > Modo centralizado opcional donde el Punto de Acceso (AP) realiza **sondeos (polling)** para dar prioridad.
+# 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
 
-El protocolo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance), utilizado en las redes inalámbricas IEEE 802.11, define **dos modos de operación** principales para gestionar el acceso al medio y evitar colisiones.
+Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado.
 
-A continuación se detallan ambos modos según las fuentes:
+> [!info]- Sus caracteristicas principales:
+>- **Acceso basado en contención:** Las estaciones compiten por el canal utilizando un algoritmo de **backoff exponencial binario** similar al de Ethernet, pero con un inicio anticipado para evitar colisiones.
+>- **Detección de canal dual:**
+>**Física:** La estación escucha el medio para detectar señales de radio.
+>**Virtual (NAV):** Utiliza el **Vector de Asignación de Red (NAV)**, un temporizador interno basado en el campo "duración" de las tramas de otras estaciones, para saber cuánto tiempo estará ocupado el canal sin necesidad de escucharlo físicamente.
+>- **Intervalos entre tramas (IFS):** Utiliza huecos de tiempo como **DIFS** (para tramas normales) y **SIFS** (el más corto, para dar prioridad a respuestas inmediatas como el ACK).
+>- **Confirmación explícita (ACK):** Dado que las colisiones no pueden detectarse físicamente mientras se transmite, el receptor debe enviar siempre una trama **ACK** para confirmar la recepción correcta; de lo contrario, el emisor asume una colisión.
+>- **Mecanismo opcional RTS/CTS:** Permite reservar el canal mediante el intercambio de tramas de "petición para enviar" y "listo para enviar", lo cual ayuda a mitigar el **problema de la estación escondida** en tramas largas.
+# Intervalos entre Tramas (IFS)
+Establecen prioridades según el tiempo de espera:
 
-### 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
-
-Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado. Sus características clave incluyen:
-
-- **Acceso basado en contención:** Las estaciones compiten por el canal utilizando un algoritmo de **backoff exponencial binario** similar al de Ethernet, pero con un inicio anticipado para evitar colisiones.
-- **Detección de canal dual:**
-    - **Física:** La estación escucha el medio para detectar señales de radio.
-    - **Virtual (NAV):** Utiliza el **Vector de Asignación de Red (NAV)**, un temporizador interno basado en el campo "duración" de las tramas de otras estaciones, para saber cuánto tiempo estará ocupado el canal sin necesidad de escucharlo físicamente.
-- **Intervalos entre tramas (IFS):** Utiliza huecos de tiempo como **DIFS** (para tramas normales) y **SIFS** (el más corto, para dar prioridad a respuestas inmediatas como el ACK).
-- **Confirmación explícita (ACK):** Dado que las colisiones no pueden detectarse físicamente mientras se transmite, el receptor debe enviar siempre una trama **ACK** para confirmar la recepción correcta; de lo contrario, el emisor asume una colisión.
-- **Mecanismo opcional RTS/CTS:** Permite reservar el canal mediante el intercambio de tramas de "petición para enviar" y "listo para enviar", lo cual ayuda a mitigar el **problema de la estación escondida** en tramas largas.
+|**Sigla**|**Nombre**|**Tiempo Típico**|**Uso Principal**|
+|---|---|---|---|
+|**SIFS**|Short IFS|10 μseg|Prioridad alta: **ACK** o respuesta **CTS**.|
+|**PIFS**|PCF IFS|30 μseg|Utilizado en modo centralizado (PCF).|
+|**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
+|**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
 
 ### 2. Función de Coordinación de Punto (PCF - Point Coordination Function)
 
@@ -159,63 +155,14 @@ Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso 
 
 En resumen, mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
 
-## 2. Detección del Canal (Sensing)
-
-Antes de transmitir, se utilizan dos métodos en conjunto:
-
-- **Detección Física:** La estación escucha el espectro para detectar señales válidas.
-    
-- **Detección Virtual (NAV):** - Cada estación mantiene un NAV (Network Allocation Vector).
-    
-    - Es un temporizador interno actualizado con el campo **"Duration"** de las tramas de otras estaciones.
-        
-    - Indica cuánto tiempo estará ocupado el canal; la estación no transmite hasta que el NAV llega a cero.
-        
-
----
-
-## 3. Intervalos entre Tramas (IFS)
-
-Establecen prioridades según el tiempo de espera:
-
-|**Sigla**|**Nombre**|**Tiempo Típico**|**Uso Principal**|
-|---|---|---|---|
-|**SIFS**|Short IFS|10 μseg|Prioridad alta: **ACK** o respuesta **CTS**.|
-|**PIFS**|PCF IFS|30 μseg|Utilizado en modo centralizado (PCF).|
-|**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
-|**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
-
----
-
-## 4. Algoritmo de Backoff (Retroceso)
+# Algoritmo de Backoff (Retroceso)
 
 Si el canal está ocupado, la estación espera un **DIFS** y luego:
-
 1. Elige un número de ranuras inactivas (**slots**) al azar en el rango `[1, CW]`.
-    
 2. **CW (Contention Window):** Inicia en CWmin = 15.
-    
 3. El contador descuenta slots si el canal está libre; si hay tráfico, se pausa y reanuda tras otro DIFS.
-    
 4. Al llegar a **cero**, se transmite.
-    
 5. **Si falla (no hay ACK):** El valor de CW se duplica ($31, 63, ...$ hasta $CW_{max} = 1023$).
-    
-
----
-
-## 5. Confirmación Explícita (ACK)
-
-> [!important] Mecanismo de Garantía
-> 
-> Como no se detectan colisiones físicamente, el receptor **DEBE** enviar un ACK explícito.
-> 
-> - El emisor espera un tiempo **SIFS**.
->     
-> - Si el ACK no llega, se asume colisión y se reintenta duplicando la ventana de contención.
->     
-
----
 
 ## 6. Mecanismo Opcional RTS/CTS
 
