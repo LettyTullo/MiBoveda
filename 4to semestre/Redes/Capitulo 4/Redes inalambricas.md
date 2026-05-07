@@ -115,3 +115,98 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 |**802.11g**|2003|2.4 GHz|54 Mbps|OFDM|
 |**802.11n**|2009|2.4 / 5 GHz|600 Mbps|MIMO OFDM|
 |**802.11ac**|2013|5 GHz|6.93 Gbps|MU-MIMO|
+
+# Protocolo CSMA/CA (IEEE 802.11)
+
+> [!abstract] Concepto Clave
+> 
+> El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
+
+---
+
+## 1. Modos de Operación
+
+> [!multi-column]
+> 
+> > [!info] DCF (Distributed Coordination Function)
+> > 
+> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS**.
+> 
+> > [!quote] PCF (Point Coordination Function)
+> > 
+> > Modo centralizado opcional donde el Punto de Acceso (AP) realiza **sondeos (polling)** para dar prioridad.
+
+---
+
+## 2. Detección del Canal (Sensing)
+
+Antes de transmitir, se utilizan dos métodos en conjunto:
+
+- **Detección Física:** La estación escucha el espectro para detectar señales válidas.
+    
+- **Detección Virtual (NAV):** - Cada estación mantiene un NAV (Network Allocation Vector).
+    
+    - Es un temporizador interno actualizado con el campo **"Duration"** de las tramas de otras estaciones.
+        
+    - Indica cuánto tiempo estará ocupado el canal; la estación no transmite hasta que el NAV llega a cero.
+        
+
+---
+
+## 3. Intervalos entre Tramas (IFS)
+
+Establecen prioridades según el tiempo de espera:
+
+|**Sigla**|**Nombre**|**Tiempo Típico**|**Uso Principal**|
+|---|---|---|---|
+|**SIFS**|Short IFS|10 μseg|Prioridad alta: **ACK** o respuesta **CTS**.|
+|**PIFS**|PCF IFS|30 μseg|Utilizado en modo centralizado (PCF).|
+|**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
+|**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
+
+---
+
+## 4. Algoritmo de Backoff (Retroceso)
+
+Si el canal está ocupado, la estación espera un **DIFS** y luego:
+
+1. Elige un número de ranuras inactivas (**slots**) al azar en el rango `[1, CW]`.
+    
+2. **CW (Contention Window):** Inicia en CWmin = 15.
+    
+3. El contador descuenta slots si el canal está libre; si hay tráfico, se pausa y reanuda tras otro DIFS.
+    
+4. Al llegar a **cero**, se transmite.
+    
+5. **Si falla (no hay ACK):** El valor de CW se duplica ($31, 63, ...$ hasta $CW_{max} = 1023$).
+    
+
+---
+
+## 5. Confirmación Explícita (ACK)
+
+> [!important] Mecanismo de Garantía
+> 
+> Como no se detectan colisiones físicamente, el receptor **DEBE** enviar un ACK explícito.
+> 
+> - El emisor espera un tiempo **SIFS**.
+>     
+> - Si el ACK no llega, se asume colisión y se reintenta duplicando la ventana de contención.
+>     
+
+---
+
+## 6. Mecanismo Opcional RTS/CTS
+
+Soluciona el problema de la **"estación escondida"**:
+
+- **RTS (Request to Send):** El emisor solicita permiso e indica la duración.
+    
+- **CTS (Clear to Send):** El receptor confirma que el canal está libre.
+    
+- **Resultado:** Todas las estaciones que oyen el RTS o CTS actualizan su NAV y guardan silencio.
+    
+- _Nota:_ Solo se usa para **tramas muy largas** por el overhead que genera.
+    
+
+---
