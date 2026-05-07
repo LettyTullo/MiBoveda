@@ -128,13 +128,36 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 > 
 > > [!info] DCF (Distributed Coordination Function)
 > > 
-> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS** (Espaciado entre tramas). 
+> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS**. 
 > 
 > > [!quote] PCF (Point Coordination Function)
 > > 
 > > Modo centralizado opcional donde el Punto de Acceso (AP) realiza **sondeos (polling)** para dar prioridad.
 
----
+El protocolo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance), utilizado en las redes inalámbricas IEEE 802.11, define **dos modos de operación** principales para gestionar el acceso al medio y evitar colisiones.
+
+A continuación se detallan ambos modos según las fuentes:
+
+### 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
+
+Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado. Sus características clave incluyen:
+
+- **Acceso basado en contención:** Las estaciones compiten por el canal utilizando un algoritmo de **backoff exponencial binario** similar al de Ethernet, pero con un inicio anticipado para evitar colisiones.
+- **Detección de canal dual:**
+    - **Física:** La estación escucha el medio para detectar señales de radio.
+    - **Virtual (NAV):** Utiliza el **Vector de Asignación de Red (NAV)**, un temporizador interno basado en el campo "duración" de las tramas de otras estaciones, para saber cuánto tiempo estará ocupado el canal sin necesidad de escucharlo físicamente.
+- **Intervalos entre tramas (IFS):** Utiliza huecos de tiempo como **DIFS** (para tramas normales) y **SIFS** (el más corto, para dar prioridad a respuestas inmediatas como el ACK).
+- **Confirmación explícita (ACK):** Dado que las colisiones no pueden detectarse físicamente mientras se transmite, el receptor debe enviar siempre una trama **ACK** para confirmar la recepción correcta; de lo contrario, el emisor asume una colisión.
+- **Mecanismo opcional RTS/CTS:** Permite reservar el canal mediante el intercambio de tramas de "petición para enviar" y "listo para enviar", lo cual ayuda a mitigar el **problema de la estación escondida** en tramas largas.
+
+### 2. Función de Coordinación de Punto (PCF - Point Coordination Function)
+
+Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
+
+- **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
+- **Uso en la práctica:** Aunque está definido en el estándar, **no se utiliza habitualmente** en entornos reales porque no hay forma de impedir que estaciones de redes cercanas (ajenas al AP) transmitan tráfico competidor, y además no forma parte del estándar de interoperabilidad de la _Wi-Fi Alliance_.
+
+En resumen, mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
 
 ## 2. Detección del Canal (Sensing)
 
@@ -178,6 +201,9 @@ Si el canal está ocupado, la estación espera un **DIFS** y luego:
     
 5. **Si falla (no hay ACK):** El valor de CW se duplica ($31, 63, ...$ hasta $CW_{max} = 1023$).
     
+
+---
+
 ## 5. Confirmación Explícita (ACK)
 
 > [!important] Mecanismo de Garantía
