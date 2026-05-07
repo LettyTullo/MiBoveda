@@ -71,7 +71,8 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 > - **Técnica:** Utiliza **OFDM** (como la "a") pero en la banda de la "b". 
 >     
 > - **Compatibilidad:** Totalmente compatible con dispositivos 802.11b.
-> - Utiliza 
+> - Utiliza ERP-OFDM (6 a 54 Mbps). Dividiendo el canal en múltiples subportadoras que envían datos en paralelo, lo que permite aprovechar mejor el espectro y resistir interferencias. 
+> - Tambien ERP-PBCC (22 y 33 Mbps). (Código Convolucional Binario de Paquetes). Es un esquema de codificación y modulación opcional dentro del estándar. Se diseñó para ofrecer velocidades intermedias (**22 y 33 Mbps**) que fueran superiores a las de 802.11b pero utilizando métodos de procesamiento de señal distintos al OFDM.
 
 > [!warning] 4. 802.11n (Wi-Fi 4 - Lanzada en 2009)
 > 
@@ -85,7 +86,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 >     - **MIMO (Multiple Input Multiple Output):** Usa múltiples antenas (hasta 4 flujos).
 >         
->     - **Channel Bonding:** Une dos canales de 20 MHz para formar uno de **40 MHz**.
+>     - **Channel Bonding:** Une dos canales separados no solapados de 20 MHz para formar uno de **40 MHz**.
 >         
 
 > [!tip] 5. 802.11ac (Wi-Fi 5 - Lanzada en 2013)
@@ -98,14 +99,12 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 > - **Innovaciones clave:**
 >     
->     - **Canales más anchos:** Soporta **80 MHz y 160 MHz**.
+>     - **Canales más anchos:** Soporta **80 MHz y 160 MHz**. Hasta ocho flujos usando la banda de 5Ghz
 >         
->     - **MU-MIMO:** El punto de acceso habla con hasta cuatro clientes al mismo tiempo.
+>     - **MU-MIMO (Multi User):** El punto de acceso habla con hasta cuatro clientes al mismo tiempo.
 >         
 >     - **Modulación 256-QAM:** Transporta más bits por símbolo.
 >         
-
----
 
 ## Resumen Comparativo
 
@@ -123,15 +122,13 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 > 
 > El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
 
----
-
 ## 1. Modos de Operación
 
 > [!multi-column]
 > 
 > > [!info] DCF (Distributed Coordination Function)
 > > 
-> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS**.
+> > El modo estándar y distribuido. Usa el algoritmo de **backoff exponencial binario** e intervalos **IFS** (Espaciado entre tramas). 
 > 
 > > [!quote] PCF (Point Coordination Function)
 > > 
@@ -181,9 +178,6 @@ Si el canal está ocupado, la estación espera un **DIFS** y luego:
     
 5. **Si falla (no hay ACK):** El valor de CW se duplica ($31, 63, ...$ hasta $CW_{max} = 1023$).
     
-
----
-
 ## 5. Confirmación Explícita (ACK)
 
 > [!important] Mecanismo de Garantía
