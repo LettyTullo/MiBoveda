@@ -67,3 +67,11 @@ Transportan la carga útil real de la red (como paquetes IP). Se caracterizan po
 >**Duracion:** En microsegundos, tiempo de transmision de la trama +ACK
 >**Secuencia**: 12 bits de secuencia de la trama + 4 bits de numero de fragmento
 >**Check sequence:** CRC de 32 bits.
+
+>[!danger] Campos TO DS y FROM DS
+>Los campos **To DS** (Para el DS) y **From DS** (Desde el DS) son subcampos de un solo bit. Su función principal es indicar el origen y destino de la trama en relación con el **Sistema de Distribución (DS)**, que es la red (normalmente cableada) que interconecta los Puntos de Acceso (AP).
+La combinación de estos dos bits es fundamental, ya que determina el significado de las hasta **cuatro direcciones MAC** que puede contener la trama de datos:
+>- **To DS = 0, From DS = 0**: Indica una comunicación directa entre estaciones en modo **ad hoc**, sin la intervención de un Punto de Acceso. En este escenario, la Dirección 1 es el destino final y la Dirección 2 es el origen.
+>- **To DS = 0, From DS = 1**: Significa que la trama proviene del Sistema de Distribución; es decir, el **AP la está enviando a una estación** cliente. Aquí, la Dirección 1 es el destino (la estación) y la Dirección 2 es el AP emisor.
+>- **To DS = 1, From DS = 0**: Indica que la trama va hacia el Sistema de Distribución, enviada por una **estación cliente hacia un AP**. La Dirección 1 es el AP receptor y la Dirección 2 es el origen (la estación).
+>- **To DS = 1, From DS = 1**: Se utiliza únicamente en configuraciones de **puente inalámbrico** (WDS), donde un AP envía tramas directamente a otro AP. Este es el único caso donde se utilizan las **cuatro direcciones MAC** para identificar al AP receptor, al AP emisor, al destino final y al origen real de los datos.
