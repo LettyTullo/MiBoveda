@@ -43,3 +43,7 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 >[!fire] **Beneficios:** 
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
 
+## Servicios IEEE 802.11
+![[Pasted image 20260508154505.png]]
+
+## Tipos de tramas 802.11
