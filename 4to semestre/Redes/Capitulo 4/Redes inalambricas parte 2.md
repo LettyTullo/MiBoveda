@@ -47,3 +47,23 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 ![[Pasted image 20260508154505.png]]
 
 ## Tipos de tramas 802.11
+
+El estándar 802.11 define **tres clases principales** de tramas para gestionar la comunicación en el aire:
+# 1. Tramas de Administración (Management):
+Se utilizan para establecer y mantener la comunicación entre las estaciones y los **Puntos de Acceso (AP)**. Incluyen:
+    - **Beacons (Balizas):** Emitidas periódicamente por el AP para anunciar la presencia de la red (SSID), sincronizar relojes y avisar sobre datos pendientes en modo de ahorro de energía.
+    - **Tramas de Asociación y Autenticación:** Permiten que un dispositivo se registre en un AP y demuestre sus credenciales antes de transmitir datos.
+# Tramas de Control:
+Son tramas cortas que ayudan en la entrega de las tramas de datos y gestionan el acceso al medio ruidoso. Subtipos clave son:
+    - **RTS (Request to Send) y CTS (Clear to Send):** Utilizadas opcionalmente para reservar el canal y evitar colisiones por "estaciones escondidas".
+    - **ACK (Acuse de recibo):** Enviadas inmediatamente después de recibir una trama de datos para confirmar su llegada.
+    - **PS-Poll (Power Save-Poll):** Usadas por estaciones en modo ahorro de energía para solicitar al AP la entrega de datos almacenados. 
+    - **Contention-Free (CF) - end:** Anuncia fin del periodo de contencion libre en (PCF)
+# Tramas de Datos:
+Transportan la carga útil real de la red (como paquetes IP). Se caracterizan por poder contener hasta **4 direcciones MAC** para gestionar el tráfico que pasa a través del sistema de distribución inalámbrico.
+![[Pasted image 20260508155530.png]]
+
+>[!amarillo]  Alugunos campos:
+>**Duracion:** En microsegundos, tiempo de transmision de la trama +ACK
+>**Secuencia**: 12 bits de secuencia de la trama + 4 bits de numero de fragmento
+>**Check sequence:** CRC de 32 bits.
