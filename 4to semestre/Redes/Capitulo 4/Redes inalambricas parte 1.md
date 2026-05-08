@@ -160,6 +160,16 @@ Inicialmente se espera un DIFS
 - Si no:  -  Se espera hasta que el medio este libre
 		- Se espera un IFS + algoritmo de backoff
 ![[Pasted image 20260507183508.png]]
+# El Problema de la Estación (o Terminal) Escondida
+Este problema ocurre cuando una estación no puede detectar a un competidor potencial porque este se encuentra fuera de su rango de alcance, lo que lleva a colisiones no detectadas en el receptor.
+- **Escenario:** Supongamos que la estación **A** está transmitiendo datos a la estación **B**. Si la estación **C** también quiere transmitir a **B**, escuchará el medio antes de empezar. Como **C** está fuera del alcance de **A**, concluirá erróneamente que el canal está libre.
+- **Consecuencia:** **C** comienza su transmisión, la cual interfiere en la ubicación de **B**, destruyendo la trama que venía de **A**.
+- **Causa raíz:** El protocolo **CSMA** falla en este caso porque la detección de portadora solo indica si hay actividad cerca del _emisor_, pero lo que realmente importa es si hay interferencia cerca del _receptor_.
+# El Problema de la Estación (o Terminal) Expuesta
+Este es el caso inverso, donde una estación decide no transmitir innecesariamente porque oye una comunicación cercana que en realidad no interferiría con su destino.
+- **Escenario:** La estación **B** está enviando datos a la estación **A**. Al mismo tiempo, la estación **C** desea enviar datos a la estación **D**. Al detectar el medio, **C** oye la transmisión de **B** y concluye falsamente que no puede enviar nada.
+- **Consecuencia:** **C** permanece en silencio y posterga su envío, a pesar de que su transmisión a **D** no causaría interferencia en la recepción de **A**.
+- **Impacto:** Se desperdicia ancho de banda y capacidad del sistema, ya que en las redes inalámbricas podrían ocurrir múltiples transmisiones simultáneas si los destinos están lo suficientemente alejados
 # Mecanismo Opcional RTS/CTS
 Soluciona el problema de la **"estación escondida"**:
 - **RTS (Request to Send):** El emisor solicita permiso e indica la duración.
@@ -204,3 +214,4 @@ Introducido con el estándar **802.11e** en 2005, es un mecanismo más eficiente
 - Es mas eficiente que el anterior
 - Funciona bien para VoIP
 
+[[]]
