@@ -181,3 +181,26 @@ Mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispo
 Especialmente en redes como **802.11 (Wi-Fi)**, se utilizan dos estrategias clave para aumentar el éxito de las entregas:
 - **Adaptación de tasa (Rate adaptation):** Consiste en **disminuir la tasa de bits** cuando se pierden demasiadas tramas. Al reducir la velocidad, se utilizan **modulaciones más robustas** que tienen mayores probabilidades de ser recibidas correctamente para una relación señal/ruido determinada.
 - **Fragmentación de la trama:** Consiste en enviar **tramas más cortas**. Matemáticamente, si la probabilidad de error de un bit es $p$, la probabilidad de recibir correctamente una trama de $n$ bits es $(1-p)^n$; por lo tanto, al reducir el tamaño de la trama, aumenta significativamente la probabilidad de que llegue intacta, requiriendo menos retransmisiones totales.
+## Tecnicas de ahorro de energia 
+Las técnicas de ahorro de energía son fundamentales para prolongar la duración de la batería en dispositivos inalámbricos móviles. Según las fuentes, los estándares **IEEE 802.11 (Wi-Fi)** y **Bluetooth** implementan los siguientes mecanismos:
+# 1. Power Save Mode (PSM) - Wi-Fi
+
+Es el mecanismo básico de ahorro de energía en redes inalámbricas. 
+
+> [!warning] Funcionamiento
+> - **Aviso del Host:** El cliente (host) envía una trama al **Punto de Acceso (AP)** notificando que entrará en modo PSM.
+> - **Almacenamiento en Búfer:** Una vez notificado, el AP deja de enviar tramas directamente al host y las almacena temporalmente.
+>- **Tramas de Baliza (Beacons):** El AP emite periódicamente (típicamente cada 100 ms) tramas denominadas **balizas**, las cuales incluyen un mapa de tráfico que indica qué hosts tienen datos pendientes.
+>- **Ciclo de Sueño:** El dispositivo "duerme" para conservar energía y se despierta solo para leer la baliza.
+>- **Recuperación de Datos:** Si el host detecta un aviso en la baliza, se mantiene despierto y envía un mensaje de sondeo (**Power Save-Poll**) al AP para solicitar la entrega de los datos almacenados.
+
+# 2. Automatic Power Save Delivery (APSD)
+Introducido con el estándar **802.11e** en 2005, es un mecanismo más eficiente que el PSM original, especialmente para aplicaciones de **VoIP**. 
+> [!warning] Tiene dos variantes:
+>- **Scheduled APSD (Programado):** El AP envía las tramas al cliente durante periodos de servicio definidos previamente.
+>- **Unscheduled APSD (No programado):** El AP almacena las tramas y las transmite al cliente inmediatamente después de haber recibido una trama proveniente de este. Esto permite que el dispositivo duerma hasta que tenga tráfico que enviar y recibir simultáneamente.
+
+**Ventajas:**
+- Es mas eficiente que el anterior
+- Funciona bien para VoIP
+
