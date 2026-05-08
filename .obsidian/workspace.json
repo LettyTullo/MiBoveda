@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a8447034352a9e85",
@@ -165,13 +164,23 @@
               "icon": "lucide-list",
               "title": "Esquema de Redes"
             }
+          },
+          {
+            "id": "ac39e3c130cb122f",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,10 +197,11 @@
   },
   "active": "6845d21164a0ab63",
   "lastOpenFiles": [
-    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
-    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
-    "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
+    "Sin título.base",
     "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
+    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
+    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
+    "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
     "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "4to semestre/Redes/Capitulo 4/holaz.md",
     "Pasted image 20260507183508.png",
@@ -229,10 +239,8 @@
     "4to semestre/Redes/Capitulo 3",
     "4to semestre/Redes/Capitulo 2/Sin nombre",
     "4to semestre/Redes/Capitulo 2",
-    "2026-03-08.md",
     "Sin título.canvas",
     "Sin título 2.canvas",
-    "Sin título.base",
     "4to semestre/Redes/Capitulo 1.zip",
     "4to semestre/Redes/Capitulo 1",
     "4to semestre/Redes",

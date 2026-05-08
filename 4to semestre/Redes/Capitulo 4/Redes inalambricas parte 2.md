@@ -29,15 +29,12 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 > - Una estación lenta (por ejemplo, a 6 Mbps) tarda mucho más tiempo en transmitir su trama que una estación rápida (por ejemplo, a 54 Mbps).
 > - Como resultado, la estación lenta ocupa el canal durante un periodo desproporcionadamente largo.
 
->[!]2. Consecuencia: Degradación del rendimiento
-
-Debido a que la estación rápida debe esperar a que la lenta termine sus largas transmisiones, el emisor rápido se ve penalizado y su velocidad efectiva se reduce drásticamente, acercándose a la velocidad del emisor más lento.
-
-- **Ejemplo matemático de las fuentes:** Si una estación A transmite a **5 Mbps** y una estación B a **60 Mbps** de forma alternada (una trama cada una), ambas acabarán consiguiendo el mismo **throughput** o tasa de salida.
-- En este escenario, ambas estaciones transmitirán a una velocidad efectiva de solo **4,62 Mbps**, lo que perjudica claramente a la estación más rápida
+>[!amarillo] 2. Consecuencia: Degradación del rendimiento
+>Debido a que la estación rápida debe esperar a que la lenta termine sus largas transmisiones, el emisor rápido se ve penalizado y su velocidad efectiva se reduce drásticamente, acercándose a la velocidad del emisor más lento.
+> - **Ejemplo matemático de las fuentes:** Si una estación A transmite a **5 Mbps** y una estación B a **60 Mbps** de forma alternada (una trama cada una), ambas acabarán consiguiendo el mismo **throughput** o tasa de salida.
+> - En este escenario, ambas estaciones transmitirán a una velocidad efectiva de solo **4,62 Mbps**, lo que perjudica claramente a la estación más rápida
 # 2. Oportunidad de Transmisión (TXOP)
 
-El concepto de **TXOP** fue introducido con el estándar **802.11e** en 2005 como una técnica avanzada de Calidad de Servicio.
 - **Propósito:** Resolver el problema conocido como **anomalía de velocidad (rate anomaly)**. En las redes originales, cada estación enviaba una sola trama por turno; si una estación era muy lenta (6 Mbps) y otra rápida (54 Mbps), la estación lenta ocupaba el canal mucho más tiempo, penalizando drásticamente el rendimiento de la estación rápida.
 
 >[!important] Funcionamiento

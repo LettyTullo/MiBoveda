@@ -1,0 +1,11 @@
+/* Callout Rosado Personalizado */
+.callout[data-callout="rosado"] {
+    --callout-color: 255, 192, 203; /* Color RGB */
+    --callout-icon: heart;          /* Icono opcional */
+}
+
+/* Callout Amarillo Personalizado */
+.callout[data-callout="amarillo"] {
+    --callout-color: 255, 235, 59;
+    --callout-icon: star;
+}
