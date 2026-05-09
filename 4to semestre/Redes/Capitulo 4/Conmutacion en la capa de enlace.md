@@ -57,3 +57,22 @@ Aunque este comportamiento permite que protocolos como **ARP** (Protocolo de res
 - **Consumo de CPU:** A diferencia del tráfico unicast (que las tarjetas de red filtran), las tramas broadcast siempre llegan a la **CPU** de cada host para ser procesadas, lo que puede degradar el rendimiento de todo el sistema si hay demasiado tráfico de este tipo.
 - **Tormentas de broadcast:** Un fallo en una interfaz o un bucle en la red puede generar un flujo infinito de difusiones que paralice todas las máquinas del dominio.
 - **Aislamiento:** Mientras que los puentes extienden el dominio de broadcast, los **routers** son los dispositivos encargados de aislarlo, ya que no reenvían tráfico broadcast de una red a otra. Por esta razón, se utilizan técnicas como las **VLAN** para "partir" lógicamente el dominio de broadcast dentro de los mismos conmutadores y mejorar así el rendimiento y la seguridad
+# Envio de broadcasts a una LAN
+
+>[!rosado] Caracteristicas 
+>- Muchos protocolos envían regularmente mensajes broadcast (ARP, DHCP, ICMP y otros).
+>-  La cantidad de tráfico broadcast es proporcional al número de equipos.
+>- Cuando la LAN crece, el tráfico broadcast aumenta y degrada apreciablemente el rendimiento de hosts
+>- El crecimiento de tráfico broadcast puede deberse a: 
+>  - Hay un número excesivo de hosts,
+>  - Se está utilizando algún protocolo inadecuado, o
+>  - Hay algún problema en la red (por ejemplo, virus)
+
+# Division de una LAN en varias LAN fisicas
+Para implementar esta división de forma física, se requiere:
+
+- **Múltiples switches:** Es necesario instalar varios conmutadores por cada edificio, gabinete o bastidor ("rack").
+- **Cableado extensivo:** Se genera una gran cantidad de cableado para cada LAN individual, así como enlaces troncales entre edificios y racks.
+- **Puentes transparentes:** Se utilizan estos dispositivos (normalmente switches modernos) para unir los segmentos físicos y que funcionen como una única red lógica
+
+## Redes de area local virtuales VLANs
