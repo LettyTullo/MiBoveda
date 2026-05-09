@@ -24,7 +24,8 @@ La mayoría de los puentes son **transparentes**, lo que significa que son dispo
 # Protocolo de Árbol de Expansión (Spanning Tree Protocol - STP)
 
 Cuando se instalan enlaces redundantes para aumentar la fiabilidad, se pueden generar **bucles infinitos** de tramas que colapsarían la red. Para evitarlo, los puentes utilizan el estándar **IEEE 802.1d (STP)**:
->[!info]
+
+>[!info] Funcionamiento:
 >- **Elección del Puente Raíz (Root Bridge):** Los puentes eligen al dispositivo con el identificador más bajo (basado en la dirección MAC) como la raíz del árbol.
 >- **Cálculo de caminos cortos:** Se construye un árbol de rutas óptimas desde la raíz a cada puente.
 >- **Bloqueo de puertos:** Cualquier enlace que no forme parte del camino más corto se coloca en estado de bloqueo, eliminando lógicamente el bucle pero manteniendo la redundancia física en caso de fallo
