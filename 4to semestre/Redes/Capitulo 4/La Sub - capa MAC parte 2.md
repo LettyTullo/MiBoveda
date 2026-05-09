@@ -21,7 +21,7 @@ Para gestionar el acceso al medio compartido, la Ethernet clásica utiliza el pr
 3. **Señal de bloqueo (Jam Signal):** Al detectar la colisión, la estación interrumpe la transmisión y genera una ráfaga de ruido para avisar a los demás.
 4. **Backoff Exponencial Binario:** Tras la colisión, la estación espera un tiempo aleatorio antes de reintentar. El intervalo de espera se duplica tras cada colisión consecutiva (hasta un máximo de 1023 ranuras), tirando la toalla tras 16 intentos fallidos. El algoritmo es injusto (no es "first in, first out")
 ## Formato de la trama Ethernet 
-![[Pasted image 20260429114642.png]]
+![[Pasted image 20260429114642.png|499]]
 
 >[!danger] Campos que componen la trama: 
 >- **Preámbulo (7 bytes):** Consiste en un patrón de bits que permite al reloj del receptor sincronizarse con el del emisor.

@@ -44,7 +44,7 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
 
 ## Servicios IEEE 802.11
-![[Pasted image 20260508154505.png]]
+![[Pasted image 20260508154505.png|506]]
 
 ## Tipos de tramas 802.11
 
@@ -61,7 +61,7 @@ Son tramas cortas que ayudan en la entrega de las tramas de datos y gestionan el
     - **Contention-Free (CF) - end:** Anuncia fin del periodo de contencion libre en (PCF)
 # Tramas de Datos:
 Transportan la carga útil real de la red (como paquetes IP). Se caracterizan por poder contener hasta **4 direcciones MAC** para gestionar el tráfico que pasa a través del sistema de distribución inalámbrico.
-![[Pasted image 20260508155530.png]]
+![[Pasted image 20260508155530.png|529]]
 
 >[!amarillo]  Alugunos campos:
 >**Duracion:** En microsegundos, tiempo de transmision de la trama +ACK

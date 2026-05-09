@@ -29,3 +29,10 @@ Cuando se instalan enlaces redundantes para aumentar la fiabilidad, se pueden ge
 >- **Elección del Puente Raíz (Root Bridge):** Los puentes eligen al dispositivo con el identificador más bajo (basado en la dirección MAC) como la raíz del árbol.
 >- **Cálculo de caminos cortos:** Se construye un árbol de rutas óptimas desde la raíz a cada puente.
 >- **Bloqueo de puertos:** Cualquier enlace que no forme parte del camino más corto se coloca en estado de bloqueo, eliminando lógicamente el bucle pero manteniendo la redundancia física en caso de fallo
+
+# Dispositivos de networking en cada capa
+
+ ![[Pasted image 20260509173525.png|358]]
+
+# Simbolos de dispositivos de red 
+ ![[Pasted image 20260509173817.png|429]]

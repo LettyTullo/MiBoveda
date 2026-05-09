@@ -159,7 +159,7 @@ Inicialmente se espera un DIFS
 - Si el canal esta libre, se transmite
 - Si no:  -  Se espera hasta que el medio este libre
 		- Se espera un IFS + algoritmo de backoff
-![[Pasted image 20260507183508.png]]
+![[Pasted image 20260507183508.png|430]]
 # El Problema de la Estación (o Terminal) Escondida
 Este problema ocurre cuando una estación no puede detectar a un competidor potencial porque este se encuentra fuera de su rango de alcance, lo que lleva a colisiones no detectadas en el receptor.
 - **Escenario:** Supongamos que la estación **A** está transmitiendo datos a la estación **B**. Si la estación **C** también quiere transmitir a **B**, escuchará el medio antes de empezar. Como **C** está fuera del alcance de **A**, concluirá erróneamente que el canal está libre.

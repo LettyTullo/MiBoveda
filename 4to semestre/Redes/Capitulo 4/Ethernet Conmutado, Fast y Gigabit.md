@@ -27,10 +27,10 @@ La tabla CAM es una base de datos interna que asocia una dirección MAC con un p
 - El aprendizaje se realiza observando la dirección MAC de origen de las tramas entrantes.
 # 2. El Proceso de Aprendizaje hacia atrás
 
-![[Screenshot 2026-05-03 095717.png]]
+![[Screenshot 2026-05-03 095717.png|445]]
 # 3. Proceso de retransmicion
 
-![[Screenshot 2026-05-03 095704.png]]
+![[Screenshot 2026-05-03 095704.png|453]]
 
 # 4. Transmisiones Directas y Aislamiento de Tráfico
 Una vez que la tabla CAM tiene registradas las direcciones, el switch optimiza la red:
