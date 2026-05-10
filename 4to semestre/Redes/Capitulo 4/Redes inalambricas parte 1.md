@@ -29,7 +29,6 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >     
 > - **Técnica:** Utiliza espectro ensanchado (**DSSS**) con secuencias de Barker y modulación **CCK** (Complementary code Keying). Con modulacion mas altas con el mismo ancho de banda. 
 
-
 > [!todo] 2. 802.11a (Lanzada en 1999)
 > 
 > Utiliza una tecnología de modulación más avanzada. Soporta tasa de bits elevadas, esta menos usada
@@ -105,15 +104,24 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 **Capa Física (PHY):** Esta capa varía según el estándar utilizado (como 802.11a, b, g, n, etc.).
 - **Determinación de la tasa de bits:** La velocidad de transmisión (bitrate) se define mediante la combinación de la **técnica de modulación** y la **tasa de codificación** (que provee corrección de errores).
 - **Rate Adaptation - Adaptación de tasas:** Las velocidades se adaptan al medio (evita errores de transmisión)
-# Protocolo CSMA/CA (IEEE 802.11)
+## Protocolo de la sub capa MAC CSMA/CA (IEEE 802.11)
 
 > [!abstract] Concepto Clave
 > 
 > El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
 
-## Modos de Operación
-
-## 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
+# El Problema de la Estación (o Terminal) Escondida
+Este problema ocurre cuando una estación no puede detectar a un competidor potencial porque este se encuentra fuera de su rango de alcance, lo que lleva a colisiones no detectadas en el receptor.
+- **Escenario:** Supongamos que la estación **A** está transmitiendo datos a la estación **B**. Si la estación **C** también quiere transmitir a **B**, escuchará el medio antes de empezar. Como **C** está fuera del alcance de **A**, concluirá erróneamente que el canal está libre.
+- **Consecuencia:** **C** comienza su transmisión, la cual interfiere en la ubicación de **B**, destruyendo la trama que venía de **A**.
+- **Causa raíz:** El protocolo **CSMA** falla en este caso porque la detección de portadora solo indica si hay actividad cerca del _emisor_, pero lo que realmente importa es si hay interferencia cerca del _receptor_.
+# El Problema de la Estación (o Terminal) Expuesta
+Este es el caso inverso, donde una estación decide no transmitir innecesariamente porque oye una comunicación cercana que en realidad no interferiría con su destino.
+- **Escenario:** La estación **B** está enviando datos a la estación **A**. Al mismo tiempo, la estación **C** desea enviar datos a la estación **D**. Al detectar el medio, **C** oye la transmisión de **B** y concluye falsamente que no puede enviar nada.
+- **Consecuencia:** **C** permanece en silencio y posterga su envío, a pesar de que su transmisión a **D** no causaría interferencia en la recepción de **A**.
+- **Impacto:** Se desperdicia ancho de banda y capacidad del sistema, ya que en las redes inalámbricas podrían ocurrir múltiples transmisiones simultáneas si los destinos están lo suficientemente alejados
+# Modos de Operación
+# 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
 
 Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado.
 
@@ -125,7 +133,7 @@ Es el modo de operación **estándar y más común**, donde cada estación actú
 >- **Intervalos entre tramas (IFS):** Utiliza huecos de tiempo como **DIFS** (para tramas normales) y **SIFS** (el más corto, para dar prioridad a respuestas inmediatas como el ACK).
 >- **Confirmación explícita (ACK):** Dado que las colisiones no pueden detectarse físicamente mientras se transmite, el receptor debe enviar siempre una trama **ACK** para confirmar la recepción correcta; de lo contrario, el emisor asume una colisión.
 >- **Mecanismo opcional RTS/CTS:** Permite reservar el canal mediante el intercambio de tramas de "petición para enviar" y "listo para enviar", lo cual ayuda a mitigar el **problema de la estación escondida** en tramas largas.
-## 2.Función de Coordinación de Punto (PCF - Point Coordination Function)
+# 2.Función de Coordinación de Punto (PCF - Point Coordination Function)
 Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
 
 - **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
@@ -143,7 +151,6 @@ Establecen prioridades según el tiempo de espera:
 |**PIFS**|PCF IFS|30 μseg|Utilizado en modo centralizado (PCF).|
 |**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
 |**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
-
 # Algoritmo de Backoff (Retroceso)
 
 Si el canal está ocupado, la estación espera un **DIFS** y luego:
@@ -158,23 +165,6 @@ Inicialmente se espera un DIFS
 - Si no:  -  Se espera hasta que el medio este libre
 		- Se espera un IFS + algoritmo de backoff
 ![[Pasted image 20260507183508.png|430]]
-# El Problema de la Estación (o Terminal) Escondida
-Este problema ocurre cuando una estación no puede detectar a un competidor potencial porque este se encuentra fuera de su rango de alcance, lo que lleva a colisiones no detectadas en el receptor.
-- **Escenario:** Supongamos que la estación **A** está transmitiendo datos a la estación **B**. Si la estación **C** también quiere transmitir a **B**, escuchará el medio antes de empezar. Como **C** está fuera del alcance de **A**, concluirá erróneamente que el canal está libre.
-- **Consecuencia:** **C** comienza su transmisión, la cual interfiere en la ubicación de **B**, destruyendo la trama que venía de **A**.
-- **Causa raíz:** El protocolo **CSMA** falla en este caso porque la detección de portadora solo indica si hay actividad cerca del _emisor_, pero lo que realmente importa es si hay interferencia cerca del _receptor_.
-# El Problema de la Estación (o Terminal) Expuesta
-Este es el caso inverso, donde una estación decide no transmitir innecesariamente porque oye una comunicación cercana que en realidad no interferiría con su destino.
-- **Escenario:** La estación **B** está enviando datos a la estación **A**. Al mismo tiempo, la estación **C** desea enviar datos a la estación **D**. Al detectar el medio, **C** oye la transmisión de **B** y concluye falsamente que no puede enviar nada.
-- **Consecuencia:** **C** permanece en silencio y posterga su envío, a pesar de que su transmisión a **D** no causaría interferencia en la recepción de **A**.
-- **Impacto:** Se desperdicia ancho de banda y capacidad del sistema, ya que en las redes inalámbricas podrían ocurrir múltiples transmisiones simultáneas si los destinos están lo suficientemente alejados
-# Mecanismo Opcional RTS/CTS
-Soluciona el problema de la **"estación escondida"**:
-- **RTS (Request to Send):** El emisor solicita permiso e indica la duración.
-- **CTS (Clear to Send):** El receptor confirma que el canal está libre.
-- **Resultado:** Todas las estaciones que oyen el RTS o CTS actualizan su NAV y guardan silencio.
-- _Nota:_ Solo se usa para **tramas muy largas** por el overhead que genera.
-
 ## Técnicas para mejorar la confiabilidad
 
 Especialmente en redes como **802.11 (Wi-Fi)**, se utilizan dos estrategias clave para aumentar el éxito de las entregas:
