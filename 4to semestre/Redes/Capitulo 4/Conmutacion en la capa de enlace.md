@@ -76,3 +76,45 @@ Para implementar esta división de forma física, se requiere:
 - **Puentes transparentes:** Se utilizan estos dispositivos (normalmente switches modernos) para unir los segmentos físicos y que funcionen como una única red lógica
 
 ## Redes de area local virtuales VLANs
+
+Las VLAN  son una tecnología que permite dividir lógicamente una red física grande en varias redes lógicas más pequeñas e independientes. Básicamente, equivale a **"partir" un conmutador (switch) físico en otros más pequeños y virtuales**, permitiendo que la disposición lógica de la red no dependa de la geografía del edificio.
+# 1. Objetivos de la implementación de VLANs
+
+> [!info] Las organizaciones utilizan VLANs por tres razones fundamentales:
+>- **Rendimiento:** Reducen el **tráfico de difusión (broadcast)**. En una LAN única, las tramas broadcast llegan a la CPU de todos los hosts, lo que degrada el rendimiento; las VLANs limitan estas tormentas a un grupo específico de puertos.
+>- **Seguridad:** Permiten aislar colectivos (como Finanzas vs. Ingeniería). Los paquetes de una VLAN no son recibidos por los miembros de otra, impidiendo que usuarios no autorizados "escuchen" tráfico sensible.
+>- **Flexibilidad:** Permiten la configuración de la red por **software**. Se puede mover a un usuario de departamento sin necesidad de cambiar cables físicos, simplemente reasignando su puerto en el switch.
+
+# 2. Funcionamiento y el Estándar IEEE 802.1Q
+
+Para que las VLANs funcionen, los switches deben ser **"VLAN-aware" (gestionables)**. 
+
+>[!amarillo] El mecanismo clave es el etiquetado de tramas:
+>- **Standard 802.1Q:** Fue introducido para permitir que tramas de diferentes VLANs viajen por el mismo cable.
+>- **Etiqueta (Tag):** Se inserta un campo de **4 bytes** en la cabecera Ethernet original.
+>- **Identificador de VLAN (VID):** Dentro de la etiqueta, hay **12 bits** destinados a identificar la VLAN, lo que permite hasta **4096 redes distintas** en un mismo sistema.
+>- **Prioridad:** Incluye 3 bits para gestionar la Calidad de Servicio (QoS), distinguiendo, por ejemplo, el tráfico de voz en tiempo real del tráfico de datos normal.
+
+# 3. Interconexión y Tipos de Enlaces
+
+>[!warning] Existen dos formas principales de conectar dispositivos en un entorno VLAN:
+>- **Puertos de Acceso:** Conectan a los hosts finales (PCs, impresoras). Para el host, la VLAN es transparente; no recibe tramas etiquetadas, ya que el switch añade/quita la etiqueta al entrar/salir del puerto.
+>- **Puertos Troncales (Trunk):** Conectan switches entre sí o con un router. Estos enlaces transportan tramas de **múltiples VLANs simultáneamente**, por lo que es obligatorio que las tramas viajen etiquetadas según el estándar **802.1Q** para que el receptor pueda separarlas.
+>- **Interconexión Inter-VLAN:** Los puertos asignados a una VLAN se comportan como un switch independiente; por lo tanto, para que una estación de la VLAN "Roja" hable con una de la VLAN "Azul", **se requiere obligatoriamente un router**.
+
+# 4. Asignación de puertos
+
+Existen tres métodos principales para decidir a qué VLAN pertenece un dispositivo:
+
+1. **Estático (por configuración):** Es el método más común. El administrador establece una tabla fija de **Puerto físico vs. Número de VLAN**.
+2. **Dinámico por dirección MAC:** El switch asigna la VLAN basándose en la identidad del dispositivo, permitiendo que el usuario se mueva a cualquier puerto del edificio y mantenga su red.
+3. **Dinámico por autentificación (802.1x):** La VLAN se asigna tras validar el usuario y contraseña del cliente.
+
+# 5. Spanning Tree con VLANs
+
+Cuando hay enlaces redundantes en la red para evitar caídas, se utiliza el protocolo **STP (Spanning Tree Protocol)**. 
+
+>[!example] Con VLANs, el comportamiento es el siguiente:
+>- **Independencia:** Cada VLAN construye su propio árbol de expansión de forma **independiente**.
+>- **Bloqueo de puertos:** Esto permite que un puerto que está bloqueado para una VLAN (para evitar un bucle) pueda estar activo para otra, optimizando el uso de los enlaces físicos.
+>- **Configuración:** Los puentes eligen un **Puente Raíz** por cada VLAN. A igual costo de camino, se bloquea el puerto con el identificador más alto. Se puede modificar la prioridad de un puerto (por defecto 128) para forzar qué camino debe ser el principal y cuál el de reserva.

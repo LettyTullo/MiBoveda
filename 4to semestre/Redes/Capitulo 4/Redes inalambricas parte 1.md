@@ -214,4 +214,4 @@ Introducido con el estándar **802.11e** en 2005, es un mecanismo más eficiente
 - Es mas eficiente que el anterior
 - Funciona bien para VoIP
 
-[[]]
+[[Redes inalambricas parte 2]]
