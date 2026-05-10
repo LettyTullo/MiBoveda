@@ -30,6 +30,7 @@ Cuando se instalan enlaces redundantes para aumentar la fiabilidad, se pueden ge
 >- **Cálculo de caminos cortos:** Se construye un árbol de rutas óptimas desde la raíz a cada puente.
 >- **Bloqueo de puertos:** Cualquier enlace que no forme parte del camino más corto se coloca en estado de bloqueo, eliminando lógicamente el bucle pero manteniendo la redundancia física en caso de fallo
 
+**Rapid Spanning Tree - IEEE 802.1w:** Una versión revisada para lograr una convergencia más rápida tras cambios en la red
 # Dispositivos de networking en cada capa
 
 |Capa|Dispositivo Principal|Unidad de Datos|
