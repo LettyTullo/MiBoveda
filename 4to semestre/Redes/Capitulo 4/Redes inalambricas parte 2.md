@@ -42,10 +42,9 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 
 >[!fire] **Beneficios:** 
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
-Fórmulas del TXOP
-# Fórmulas del TXOP (Transmit Opportunity)
 
-El mecanismo **TXOP** es fundamental en redes WLAN (802.11e) para mejorar la eficiencia del canal. Estas fórmulas permiten comparar el rendimiento o **VTH** (_Throughput_) del sistema cuando se utiliza esta técnica frente al mecanismo de acceso tradicional.
+# Fórmulas del TXOP 
+
 ### **1. Escenario SIN TXOP (Mecanismo Tradicional)
 En el acceso tradicional, las estaciones compiten por el canal y envían **una trama a la vez**. Esto provoca que todas las estaciones acaben obteniendo la misma tasa de salida, independientemente de su velocidad nominal (problema del "nodo lento").
 ### Fórmula de Rendimiento Combinado
