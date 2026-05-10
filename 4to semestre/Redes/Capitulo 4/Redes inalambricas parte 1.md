@@ -102,22 +102,9 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 
 **Subcapa MAC (Medium Access Control):** Una característica clave de la arquitectura 802.11 es que esta subcapa es **común** a todas las diferentes implementaciones de la capa física. Se encarga de gestionar el acceso al medio compartido y la formación de tramas.
 
-|                                  | IEEE 802.11n | IEEE 802.11ac    | IEEE 502.11ax    |
-| -------------------------------- | ------------ | ---------------- | ---------------- |
-| Generación                       | 4 - 2009     | 5 - 2013         | 6 - 2019         |
-| Frecuencia                       | 2,4 / 5 GHz  | 5 GHz            | 2,4 / 5 GHz      |
-| Ancho del canal                  | 20 / 40 MHZ  | 20/40/80/160 MHz | 20/40/80/160 MHz |
-| Compatibilidad                   | 802.11a/b/g  | 802.11a/n        | 802.11a/b/g/n/ac |
-| Modulación                       | OFDM         | OFDM             | OFDMA            |
-| Codificación máxima              | 64 - QAM     | 256 - QAM        | 1024 - QAM       |
-| Tasa de transmisión máx          | 600 Mbps     | 6,933 Gbps       | 9,607 Gbps       |
-| MIMO                             | MIMO         | MU-MIMO downlink | MU - MIMO ambos  |
-| Máximo de cadenas de transmisión | 4            | 8                | 8                |
 **Capa Física (PHY):** Esta capa varía según el estándar utilizado (como 802.11a, b, g, n, etc.).
 - **Determinación de la tasa de bits:** La velocidad de transmisión (bitrate) se define mediante la combinación de la **técnica de modulación** y la **tasa de codificación** (que provee corrección de errores).
 - **Rate Adaptation - Adaptación de tasas:** Las velocidades se adaptan al medio (evita errores de transmisión)
-
-
 # Protocolo CSMA/CA (IEEE 802.11)
 
 > [!abstract] Concepto Clave
@@ -138,6 +125,15 @@ Es el modo de operación **estándar y más común**, donde cada estación actú
 >- **Intervalos entre tramas (IFS):** Utiliza huecos de tiempo como **DIFS** (para tramas normales) y **SIFS** (el más corto, para dar prioridad a respuestas inmediatas como el ACK).
 >- **Confirmación explícita (ACK):** Dado que las colisiones no pueden detectarse físicamente mientras se transmite, el receptor debe enviar siempre una trama **ACK** para confirmar la recepción correcta; de lo contrario, el emisor asume una colisión.
 >- **Mecanismo opcional RTS/CTS:** Permite reservar el canal mediante el intercambio de tramas de "petición para enviar" y "listo para enviar", lo cual ayuda a mitigar el **problema de la estación escondida** en tramas largas.
+## 2.Función de Coordinación de Punto (PCF - Point Coordination Function)
+Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
+
+- **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
+- **Uso en la práctica:** Aunque está definido en el estándar, **no se utiliza habitualmente** en entornos reales porque no hay forma de impedir que estaciones de redes cercanas (ajenas al AP) transmitan tráfico competidor, y además no forma parte del estándar de interoperabilidad de la _Wi-Fi Alliance_.
+
+>[!important] En resumen
+Mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
+
 # Intervalos entre Tramas (IFS)
 Establecen prioridades según el tiempo de espera:
 
@@ -178,15 +174,6 @@ Soluciona el problema de la **"estación escondida"**:
 - **CTS (Clear to Send):** El receptor confirma que el canal está libre.
 - **Resultado:** Todas las estaciones que oyen el RTS o CTS actualizan su NAV y guardan silencio.
 - _Nota:_ Solo se usa para **tramas muy largas** por el overhead que genera.
-## 2.Función de Coordinación de Punto (PCF - Point Coordination Function)
-Es un modo de operación **opcional y centralizado** donde el **Punto de Acceso (AP)** controla toda la actividad dentro de su célula.
-
-- **Prioridad basada en sondeos (Polling):** El AP actúa como un "maestro" que interroga a cada estación para determinar si tiene datos que enviar, eliminando la contención.
-- **Uso en la práctica:** Aunque está definido en el estándar, **no se utiliza habitualmente** en entornos reales porque no hay forma de impedir que estaciones de redes cercanas (ajenas al AP) transmitan tráfico competidor, y además no forma parte del estándar de interoperabilidad de la _Wi-Fi Alliance_.
-
->[!important] En resumen
-Mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispositivo decide cuándo transmitir siguiendo reglas de espera aleatoria, el **PCF** intenta centralizar ese control en el AP para garantizar un acceso libre de colisiones mediante turnos asignados.
-
 
 ## Técnicas para mejorar la confiabilidad
 
