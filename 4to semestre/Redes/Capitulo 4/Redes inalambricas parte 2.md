@@ -43,28 +43,54 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 >[!fire] **Beneficios:** 
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
 Fórmulas del TXOP
+# Fórmulas del TXOP (Transmit Opportunity)
 
-Las fórmulas permiten comparar el rendimiento o **VTH (Throughput - Tasa de salida)** del sistema cuando se utiliza esta técnica frente a cuando no se utiliza.
-1. **Escenario SIN TXOP (Mecanismo tradicional)**
-Cuando las estaciones operan de forma alternada enviando una trama a la vez, ambas acaban obteniendo la misma tasa de salida, independientemente de su velocidad nominal. La fórmula para calcular el rendimiento combinado o individual (VTH​) de dos estaciones (A y B) es:
+El mecanismo **TXOP** es fundamental en redes WLAN (802.11e) para mejorar la eficiencia del canal. Estas fórmulas permiten comparar el rendimiento o **VTH** (_Throughput_) del sistema cuando se utiliza esta técnica frente al mecanismo de acceso tradicional.
+### **1. Escenario SIN TXOP (Mecanismo Tradicional)
+En el acceso tradicional, las estaciones compiten por el canal y envían **una trama a la vez**. Esto provoca que todas las estaciones acaben obteniendo la misma tasa de salida, independientemente de su velocidad nominal (problema del "nodo lento").
+### Fórmula de Rendimiento Combinado
 
-VA​1​+VB​1​=VTH​1​
+Para dos estaciones ($A$ y $B$), la tasa efectiva ($V_{TH}$) se calcula mediante la media armónica:
 
-- **Ejemplo:** Si la estación A transmite a 5 Mbps y la B a 60 Mbps, al aplicar la fórmula, ambas estaciones operarán a una velocidad efectiva de solo **4,62 Mbps**, perjudicando severamente a la estación más rápida.
+$$\frac{1}{V_{TH}} = \frac{1}{V_A} + \frac{1}{V_B}$$
 
-2. Escenario CON TXOP
+> [!EXAMPLE] Ejemplo Práctico
+> 
+> Si la **Estación A** transmite a **5 Mbps** ($V_A$) y la **Estación B** a **60 Mbps** ($V_B$):
+> 
+> $$\frac{1}{V_{TH}} = \frac{1}{5} + \frac{1}{60} = \frac{12 + 1}{60} = \frac{13}{60}$$
+> 
+> $$V_{TH} = \frac{60}{13} \approx 4,62 \text{ Mbps}$$
+> 
+> **Resultado:** Ambas estaciones operan a **4,62 Mbps**. La estación rápida ($B$) se ve severamente perjudicada por la lentitud de la estación $A$.
+### 2. Escenario CON TXOP
 
-Con el uso de **TXOP**, las tasas de salida no son iguales porque cada una aprovecha su tiempo de emisión según su capacidad técnica. La fórmula para determinar el rendimiento de una estación específica bajo este esquema es:
+Con **TXOP**, en lugar de transmitir una sola trama, las estaciones tienen asignado un **tiempo de uso del canal**. Esto permite que cada estación aproveche su velocidad nominal durante ese tiempo.
+### Fórmula de Rendimiento por Estación
+El rendimiento de una estación específica bajo este esquema se basa en la división equitativa del tiempo de transmisión:
 
-VTH_A​=NVA​​
+$$VTH_A = \frac{V_A}{N}$$
 
 Donde:
 
-- VA​: Es la tasa de bits nominal de la estación.
-- N: Es la cantidad de estaciones que están compitiendo y compartiendo el tiempo de forma equitativa.
-- **Ejemplo:** Siguiendo el caso anterior con 2 estaciones (N=2):
-    - VTH_A​: 5 Mbps / 2 = **2,5 Mbps**.
-    - VTH_B​: 60 Mbps / 2 = **30 Mbps**.
+- **$V_A$**: Tasa de bits nominal de la estación.
+- **$N$**: Cantidad de estaciones compitiendo por el tiempo de forma equitativa.
+
+> [!SUCCESS] Ejemplo Práctico (N = 2)
+> 
+> Siguiendo el caso anterior con las mismas dos estaciones:
+> 
+> - **Para Estación A (lenta):**
+>     
+>     $$VTH_A = \frac{5 \text{ Mbps}}{2} = 2,5 \text{ Mbps}$$
+>     
+> - **Para Estación B (rápida):**
+>     
+>     $$VTH_B = \frac{60 \text{ Mbps}}{2} = 30 \text{ Mbps}$$
+>     
+> 
+> **Conclusión:** Aunque la estación lenta reduce su rendimiento a la mitad, la estación rápida logra un _throughput_ mucho mayor (**30 Mbps** frente a **4,62 Mbps**), mejorando la eficiencia global de la red.
+
 ## Servicios IEEE 802.11
 ![[Pasted image 20260508154505.png|506]]
 
