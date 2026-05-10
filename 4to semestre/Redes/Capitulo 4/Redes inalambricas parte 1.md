@@ -125,7 +125,7 @@ Este es el caso inverso, donde una estación decide no transmitir innecesariamen
 
 Es el modo de operación **estándar y más común**, donde cada estación actúa de forma independiente sin un control centralizado.
 
-> [!info]- Sus caracteristicas principales:
+> [!info] Sus caracteristicas principales:
 >- **Acceso basado en contención:** Las estaciones compiten por el canal utilizando un algoritmo de **backoff exponencial binario** similar al de Ethernet, pero con un inicio anticipado para evitar colisiones.
 >- **Detección de canal dual:**
 >**Física:** La estación escucha el medio para detectar señales de radio.
