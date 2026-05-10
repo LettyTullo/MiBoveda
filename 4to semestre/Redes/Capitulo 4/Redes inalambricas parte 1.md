@@ -164,7 +164,7 @@ Inicialmente se espera un DIFS
 - Si el canal esta libre, se transmite
 - Si no:  -  Se espera hasta que el medio este libre
 		- Se espera un IFS + algoritmo de backoff
-![[Pasted image 20260507183508.png|430]]
+![[Pasted image 20260510191545.png|450]]
 ## Técnicas para mejorar la confiabilidad
 
 Especialmente en redes como **802.11 (Wi-Fi)**, se utilizan dos estrategias clave para aumentar el éxito de las entregas:
