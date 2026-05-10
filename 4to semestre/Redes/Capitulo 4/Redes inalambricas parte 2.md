@@ -42,7 +42,29 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 
 >[!fire] **Beneficios:** 
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
+Fórmulas del TXOP
 
+Las fórmulas permiten comparar el rendimiento o **VTH (Throughput - Tasa de salida)** del sistema cuando se utiliza esta técnica frente a cuando no se utiliza.
+1. **Escenario SIN TXOP (Mecanismo tradicional)**
+Cuando las estaciones operan de forma alternada enviando una trama a la vez, ambas acaban obteniendo la misma tasa de salida, independientemente de su velocidad nominal. La fórmula para calcular el rendimiento combinado o individual (VTH​) de dos estaciones (A y B) es:
+
+VA​1​+VB​1​=VTH​1​
+
+- **Ejemplo:** Si la estación A transmite a 5 Mbps y la B a 60 Mbps, al aplicar la fórmula, ambas estaciones operarán a una velocidad efectiva de solo **4,62 Mbps**, perjudicando severamente a la estación más rápida.
+
+2. Escenario CON TXOP
+
+Con el uso de **TXOP**, las tasas de salida no son iguales porque cada una aprovecha su tiempo de emisión según su capacidad técnica. La fórmula para determinar el rendimiento de una estación específica bajo este esquema es:
+
+VTH_A​=NVA​​
+
+Donde:
+
+- VA​: Es la tasa de bits nominal de la estación.
+- N: Es la cantidad de estaciones que están compitiendo y compartiendo el tiempo de forma equitativa.
+- **Ejemplo:** Siguiendo el caso anterior con 2 estaciones (N=2):
+    - VTH_A​: 5 Mbps / 2 = **2,5 Mbps**.
+    - VTH_B​: 60 Mbps / 2 = **30 Mbps**.
 ## Servicios IEEE 802.11
 ![[Pasted image 20260508154505.png|506]]
 
