@@ -38,7 +38,7 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 - **Propósito:** Resolver el problema conocido como **anomalía de velocidad (rate anomaly)**. En las redes originales, cada estación enviaba una sola trama por turno; si una estación era muy lenta (6 Mbps) y otra rápida (54 Mbps), la estación lenta ocupaba el canal mucho más tiempo, penalizando drásticamente el rendimiento de la estación rápida.
 
 >[!important] Funcionamiento
->TXOP** permite que una estación, tras ganar el acceso al canal, lo utilice durante un **periodo de tiempo fijo** definido por el Punto de Acceso. Durante este intervalo, la estación puede transmitir **todas las tramas que pueda**.
+>TXOP permite que una estación, tras ganar el acceso al canal, lo utilice durante un **periodo de tiempo fijo definido por el Punto de Acceso. Durante este intervalo, la estación puede transmitir todas las tramas que pueda.
 
 >[!fire] **Beneficios:** 
 >De esta forma, cada dispositivo obtiene la misma cantidad de tiempo de emisión en lugar del mismo número de tramas, lo que permite que las estaciones más rápidas consigan un mayor rendimiento sin ser "frenadas" por los dispositivos lentos.
@@ -110,10 +110,27 @@ Son tramas cortas que ayudan en la entrega de las tramas de datos y gestionan el
 Transportan la carga útil real de la red (como paquetes IP). Se caracterizan por poder contener hasta **4 direcciones MAC** para gestionar el tráfico que pasa a través del sistema de distribución inalámbrico.
 ![[Pasted image 20260508155530.png|529]]
 
->[!amarillo]  Alugunos campos:
->**Duracion:** En microsegundos, tiempo de transmision de la trama +ACK
->**Secuencia**: 12 bits de secuencia de la trama + 4 bits de numero de fragmento
->**Check sequence:** CRC de 32 bits.
+>[!amarillo]  Estructura y Campos:
+>- **Control de Trama (2 bytes):** Contiene los subcampos que definen el comportamiento de la trama (ver detalle abajo).
+>- **Duración (2 bytes):** Indica el tiempo en microsegundos que la trama y su respectivo **ACK** (**Acknowledgment** - Acuse de Recibo) ocuparán el canal. Se usa para actualizar el **NAV** (**Network Allocation Vector** - Vector de Asignación de Red) de otras estaciones.
+>- **Direcciones (Dirección 1 a 4, 6 bytes cada una):** Las tramas Wi-Fi pueden usar hasta 4 direcciones **MAC** (**Medium Access Control** - Control de Acceso al Medio) para identificar el origen y destino final, además de los **AP** (**Access Point** - Puntos de Acceso) intermedios.
+>- **Secuencia (2 bytes):** Consta de 12 bits para el número de secuencia (detectar duplicados) y 4 bits para el número de fragmento.
+>- **Datos (0 a 2312 bytes):** Contiene el paquete de capas superiores. Comienza con una cabecera **LLC** (**Logical Link Control** - Control de Enlace Lógico) que identifica el protocolo transportado.
+>- **Secuencia de Verificación (**Check Sequence**, 4 bytes):** Un código **CRC** (**Cyclic Redundancy Check** - Verificación de Redundancia Cíclica) de 32 bits para detectar errores de transmisión.
+
+# Subcampos del Control de Trama:
+
+1. **Versión (2 bits):** Actualmente fijada en `00`.
+2. **Tipo (2 bits):** Gestión (`00`), Control (`01`) o Datos (`10`).
+3. **Subtipo (4 bits):** Define la función específica (ej. trama de datos regular o **QoS** - **Quality of Service** - Calidad de Servicio).
+4. **To DS (Hacia el Sistema de Distribución):** Indica si la trama se dirige hacia la red cableada.
+5. **From DS (Desde el Sistema de Distribución):** Indica si la trama proviene de la red cableada.
+6. **Más fragmentos:** Indica que la trama actual es parte de una ráfaga y hay más fragmentos por venir.
+7. **Retry (Reintento):** Indica que la trama es una retransmisión de una que no fue confirmada.
+8. **Gestión de Energía:** Avisa al **AP** que la estación entrará en modo reposo (**PSM** - **Power Save Mode** - Modo de Ahorro de Energía).
+9. **Más datos:** El emisor indica que tiene más tramas pendientes para el receptor.
+10. **Protegido:** Indica que el cuerpo de la trama está cifrado.
+11. **Order (Orden):** Indica que las tramas deben entregarse estrictamente en el orden recibido.
 
 >[!danger] Campos TO DS y FROM DS
 >Los campos **To DS** (Para el DS) y **From DS** (Desde el DS) son subcampos de un solo bit. Su función principal es indicar el origen y destino de la trama en relación con el **Sistema de Distribución (DS)**, que es la red (normalmente cableada) que interconecta los Puntos de Acceso (AP).
