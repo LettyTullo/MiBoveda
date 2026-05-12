@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
+                "file": "4to semestre/Redes/Capitulo 5/Guia de estudio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "La Sub - capa MAC parte 2"
+              "title": "Guia de estudio"
             }
           }
         ]
@@ -196,8 +196,13 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "6845d21164a0ab63",
+  "active": "9be28b66b59e4e2c",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 5/Capa de Red parte 1.md",
+    "4to semestre/Redes/Capitulo 5/Guia de estudio.md",
+    "4to semestre/Redes/Capitulo 5/Sin título 1.md",
+    "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
+    "4to semestre/Redes/Capitulo 5",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
     "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
@@ -209,7 +214,6 @@
     "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "Sin título 1.base",
     "Pasted image 20260510191545.png",
-    "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
     "Pasted image 20260509173817.png",
     "Pasted image 20260509173525.png",
     "Pasted image 20260508155530.png",
@@ -236,15 +240,12 @@
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
     "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
     "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
-    "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
-    "Control de errores (Detección y corrección).md",
     "4to semestre/Redes/Capitulo 3",
     "4to semestre/Redes/Capitulo 2/Sin nombre",
     "4to semestre/Redes/Capitulo 2",
     "Sin título.canvas",
     "Sin título 2.canvas",
     "4to semestre/Redes/Capitulo 1.zip",
-    "4to semestre/Redes/Capitulo 1",
-    "4to semestre/Redes"
+    "4to semestre/Redes/Capitulo 1"
   ]
 }
