@@ -28,6 +28,10 @@ Una dirección IPv4 es una etiqueta lógica de **32 bits** que define la conexi�
 - **Prefijos y Máscaras:**
     - **CIDR:** Usa una barra seguida de la longitud del prefijo (ej. `/24`).
     - **Máscara de subred:** Es una secuencia de bits donde los "1" indican la parte de red y los "0" la de host (ej. `255.255.255.0`).
+>[!danger] ¿Qué es un Prefijo?
+
+- Un **prefijo** es un bloque contiguo de espacio de direcciones IP donde todos los dispositivos comparten los mismos bits iniciales (la parte de red).
+- **Notación CIDR:** Los bloques de direcciones se definen como `x.y.z.t /n`, donde `x.y.z.t` es una de las direcciones del bloque y **/n** indica la longitud del prefijo en bits. Por ejemplo, `/24` indica que los primeros 24 bits identifican a la red.
 
 3. Tipos de Direcciones y Subnetting
 
