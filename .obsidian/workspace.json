@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
+                "file": "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Conmutacion en la capa de enlace"
+              "title": "Tipos de Ventanas"
             }
           }
         ]
@@ -198,9 +198,10 @@
   },
   "active": "6845d21164a0ab63",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
+    "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
-    "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
     "Sin título 1.base",
     "Pasted image 20260510191545.png",
@@ -225,7 +226,6 @@
     "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
     "Screenshot 2026-05-02 161543.png",
     "Pasted image 20260429114642.png",
-    "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
     "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
     "4to semestre/Redes/Capitulo 4",
     "4to semestre/Redes/REPASO GENERAL LO QUE ME FALTA.md",
