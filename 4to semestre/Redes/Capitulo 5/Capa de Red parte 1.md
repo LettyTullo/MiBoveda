@@ -2,13 +2,23 @@ El protocolo **IPv4 (Internet Protocol versión 4)** es el "pegamento" que manti
 ##  El Formato del Datagrama IPv4
 
 ![[Pasted image 20260512150703.png|605]]
-Un paquete IPv4 consta de una **cabecera** (mínimo 20 bytes) y un **cuerpo** con la carga útil. Los campos más relevantes de la cabecera son:
+La cabecera tiene una **parte fija de 20 bytes** y una parte opcional de longitud variable.
 
-- **IHL (Internet Header Length):** Indica la longitud de la cabecera.
-- **TTL (Time to Live):** Un contador que se reduce en cada router; evita que los paquetes circulen infinitamente si hay un bucle.
-- **Protocolo:** Indica a qué protocolo de transporte (como **TCP** o **UDP**) debe entregarse el paquete en el destino.
-- **Checksum:** Verifica la integridad únicamente de la cabecera IP.
-- **Direcciones de Origen y Destino:** Campos de 32 bits que identifican las interfaces de red de los dispositivos involucrados.
+>[!info] Explicacion de cada campo 
+>- **Versión (4 bits):** Indica la versión del protocolo (en este caso, 4).
+>- **IHL (4 bits):** Indica la longitud de la cabecera en palabras de **32 bits**. El valor mínimo es 5 (20 bytes) y el máximo 15 (60 bytes).
+>- **Servicios Diferenciados (8 bits):** Se utiliza para distinguir la clase de servicio de los paquetes (QoS) y para señalar indicaciones de congestión.
+>- **Longitud Total (16 bits):** Incluye la cabecera y los datos, con un máximo de **65,535 bytes**.
+>- **Identificación (16 bits):** Permite al host de destino identificar a qué datagrama pertenecen los fragmentos recibidos.
+>- **Flags (DF y MF):**
+>	- **DF (Don't Fragment):** Ordena a los routers no fragmentar el paquete.
+>	- **MF (More Fragments):** Indica si hay más fragmentos después del actual.
+>- **Desplazamiento de Fragmento (13 bits):** Indica en qué parte del datagrama original se sitúa el fragmento.
+>- **Tiempo de Vida (TTL) (8 bits):** Contador que se reduce en cada salto (router) para evitar que los paquetes circulen infinitamente; si llega a cero, el paquete se descarta.
+>- **Protocolo (8 bits):** Indica a qué proceso de la capa de transporte (como **TCP** o **UDP**) debe entregarse el paquete en el destino.
+>- **Suma de Comprobación (Checksum) (16 bits):** Verifica la integridad de la cabecera.
+>- **Direcciones de Origen y Destino (32 bits cada una):** Indican las direcciones IP de las interfaces de red del emisor y receptor.
+>- **Opciones (Variable):** Diseñado para permitir pruebas, seguridad o enrutamiento específico, aunque hoy en día muchos routers las ignoran.
 
 ### 2. Direccionamiento IPv4
 
