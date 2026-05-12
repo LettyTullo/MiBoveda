@@ -20,15 +20,25 @@ La cabecera tiene una **parte fija de 20 bytes** y una parte opcional de longitu
 >- **Direcciones de Origen y Destino (32 bits cada una):** Indican las direcciones IP de las interfaces de red del emisor y receptor.
 >- **Opciones (Variable):** Diseñado para permitir pruebas, seguridad o enrutamiento específico, aunque hoy en día muchos routers las ignoran.
 
-### 2. Direccionamiento IPv4
+# Direccionamiento IPv4
+Una dirección IPv4 es una etiqueta lógica de **32 bits** que define la conexión de un dispositivo a una red (un router, un servidor u host).
 
-Una dirección IPv4 es una etiqueta lógica de 32 bits que define la conexión de un dispositivo (host, router o servidor) a una red.
+- **Notación:** Se escribe comúnmente en formato **decimal con puntos**, dividiendo los 32 bits en 4 octetos (ej. `128.208.2.151`).
+- **Jerarquía:** Cada dirección consta de un **Número de RED** y un **Número de HOST**. Esto permite a los routers encaminar basándose solo en el prefijo de red, reduciendo el tamaño de las tablas de rutas.
+- **Prefijos y Máscaras:**
+    - **CIDR:** Usa una barra seguida de la longitud del prefijo (ej. `/24`).
+    - **Máscara de subred:** Es una secuencia de bits donde los "1" indican la parte de red y los "0" la de host (ej. `255.255.255.0`).
 
-- **Estructura Jerárquica:** Cada dirección se divide en dos partes principales: un **Número de RED** y un **Número de HOST**. Esto permite que los routers solo necesiten conocer las rutas hacia las redes y no hacia cada dispositivo individual, lo que hace que las tablas de enrutamiento sean manejables.
-- **Notación:** Se expresan comúnmente en **formato decimal con puntos**, agrupando los 32 bits en 4 octetos (8 bits cada uno) separados por puntos (ej. `128.11.3.31`).
-- **Prefijos y Máscaras:** La longitud de la parte de red se define mediante un **prefijo** o **máscara de subred**.
-    - **Notación CIDR:** Se usa una barra seguida del número de bits de red (ej. `/24`).
-    - **Máscara de subred:** Es una secuencia de bits donde los "1" indican la parte de red y los "0" la parte de host (ej. `255.255.255.0` corresponde a un `/24`).
+3. Tipos de Direcciones y Subnetting
+
+- **Dirección de Red:** Es la más baja del bloque (bits de host en "0") y no puede asignarse a un equipo.
+- **Dirección de Broadcast:** Es la más alta del bloque (bits de host en "1") y se usa para enviar datos a todos los hosts de esa red.
+- **Subnetting:** Divide una red grande en trozos más pequeños e independientes para reducir el tráfico de broadcast y mejorar la gestión interna.
+- **CIDR (Agregación de Rutas):** Permite combinar varios prefijos pequeños en uno mayor (superred) para que las tablas de enrutamiento globales no colapsen.
+- **Direcciones Especiales:**
+    - **0.0.0.0:** Utilizada durante el arranque del host.
+    - **127.x.x.x:** Reservada para pruebas de **loopback** (el tráfico no sale al cable).
+    - **Privadas:** Rangos como `10.0.0.0/8`, `172.16.0.0/12` o `192.168.0.0/16` que no son visibles en Internet y requieren **NAT** para navegar
 
 ### 3. Tipos de Direcciones y Reglas Especiales
 
