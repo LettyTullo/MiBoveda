@@ -26,13 +26,17 @@ Una dirección IPv4 es una etiqueta lógica de **32 bits** que define la conexi�
 - **Notación:** Se escribe comúnmente en formato **decimal con puntos**, dividiendo los 32 bits en 4 octetos (ej. `128.208.2.151`).
 - **Jerarquía:** Cada dirección consta de un **Número de RED** y un **Número de HOST**. Esto permite a los routers encaminar basándose solo en el prefijo de red, reduciendo el tamaño de las tablas de rutas.
 - **Prefijos y Máscaras:**
-    - **CIDR(Enrutamiento Entre Dominios sin Clases):** Usa una barra seguida de la longitud del prefijo (ej. `/24`).
-    - **Máscara de subred:** Es una secuencia de bits donde los "1" indican la parte de red y los "0" la de host (ej. `255.255.255.0`).
+    - **CIDR(Enrutamiento Entre Dominios sin Clases):** Es el sistema estándar actual para la asignación de direcciones IP y el enrutamiento de paquetes en Internet. Usa una barra seguida de la longitud del prefijo (ej. `/24`).
 
 >[!danger] ¿Qué es un Prefijo?
 >Un **prefijo** es un bloque contiguo de espacio de direcciones IP donde todos los dispositivos comparten los mismos bits iniciales (la parte de red).
 > **Notación CIDR:** Los bloques de direcciones se definen como `x.y.z.t /n`, donde `x.y.z.t` es una de las direcciones del bloque y **/n** indica la longitud del prefijo en bits. Por ejemplo, `/24` indica que los primeros 24 bits identifican a la red.
 
+>[!example] Que es una Mascara?
+> Dado que la longitud de la parte de red no se puede adivinar solo mirando la dirección IP, se utiliza la **máscara de subred** para indicar dónde termina la red y dónde empieza el host.
+>- **Estructura binaria:** Es una secuencia de 32 bits que contiene **"1"** en todas las posiciones correspondientes a la parte de red (prefijo) y **"0"** en las posiciones de la parte de host.
+>- **Relación visual:** Si un prefijo tiene una longitud **L**, su máscara tendrá exactamente **L** unos seguidos de **32–L** ceros.
+>- **Conversión a decimal:** Las máscaras también se expresan en formato decimal con puntos. Por ejemplo, un prefijo **/20** (20 unos seguidos de 12 ceros) equivale a la máscara **255.255.240.0**
 # 3. Tipos de Direcciones y Reglas Especiales
 
 Dentro de un bloque de direcciones, existen valores con funciones específicas:
@@ -47,14 +51,3 @@ k = Cantidad de bits de host
     - **127.x.x.x (Loopback):** Reservada para pruebas internas del propio host; los paquetes enviados aquí nunca salen al cable físico.
     - **Direcciones Privadas:** Rangos (como `10.0.0.0/8`, `172.16.0.0/12` o `192.168.0.0/16`) reservados para redes locales que no son visibles directamente en Internet y requieren **NAT** para navegar.
 
-### 4. División en Subredes (Subnetting)
-
-Consiste en dividir un bloque de red grande en segmentos más pequeños e independientes. Su objetivo principal es **reducir el tráfico de broadcast** y mejorar la organización administrativa, permitiendo que cada subred sea vista externamente como una sola red unificada.
-
-### 5. Protocolos Auxiliares Necesarios
-
-Para que el direccionamiento IP sea efectivo en una red real, se apoya en otros protocolos:
-
-- **ARP (Address Resolution Protocol):** Traduce una dirección IP lógica a una dirección **MAC física** para poder enviar la trama por el cable (ej. Ethernet).
-- **DHCP (Dynamic Host Configuration Protocol):** Asigna automáticamente direcciones IP dinámicas y otros parámetros de red a los dispositivos cuando se conectan.
-- **ICMP (Internet Control Message Protocol):** Envía mensajes de diagnóstico y error entre routers y hosts (ej. cuando un destino es inalcanzable).
