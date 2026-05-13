@@ -45,7 +45,7 @@ Dentro de un bloque de direcciones, existen valores con funciones específicas:
 - **Dirección de Broadcast (Difusión):** Es la dirección más alta del bloque (todos los bits de host en "1") y se usa para enviar un paquete a **todos** los dispositivos de esa red simultáneamente.
 >[!amarillo] Cantidad de direcciones posibles a asignar
 >$$Host = 2^k- 2$$
-k = Cantidad de bits de host
+k = Cantidad de bits de prefijo
 - **Direcciones Especiales:**
     - **0.0.0.0:** Utilizada por los hosts durante el proceso de arranque.
     - **127.x.x.x (Loopback):** Reservada para pruebas internas del propio host; los paquetes enviados aquí nunca salen al cable físico.
@@ -94,7 +94,4 @@ A diferencia del direccionamiento por clases antiguo (donde los bloques eran fij
 Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
 
 - Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
-
-### 4. Contexto Histórico
-
-CIDR se introdujo en **1993** para reemplazar el diseño jerárquico de clases (A, B, C), el cual desperdiciaba millones de direcciones y saturaba las tablas de rutas globales. Hoy en día, aunque se sigan mencionando las clases en la literatura, los bits que las identificaban originalmente ya no se utilizan para el enrutamiento.
+.
