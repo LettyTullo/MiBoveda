@@ -51,7 +51,7 @@ k =( 32 - prefijo)
     - **127.x.x.x (Loopback):** Reservada para pruebas internas del propio host; los paquetes enviados aquí nunca salen al cable físico.
     - **Direcciones Privadas:** Rangos (como `10.0.0.0/8` hasta `10.255.255.255/8` , `172.16.0.0/12` hasta `172.31.255.255/12`o `192.168.0.0/16` hasta `192.168.255.255/16`) reservados para redes locales que no son visibles directamente en Internet y requieren **NAT** para navegar.
 
-
+## // leer otra vez desca aca 
 # Subnetting (Division en Subredes)
 La **división en subredes** (_subnetting_) es una técnica que permite fragmentar un bloque de direcciones IP grande en varias redes más pequeñas e independientes para uso interno, mientras que para el resto de Internet siguen pareciendo una única red.
 
@@ -69,7 +69,7 @@ Para dividir una red, se toman bits que originalmente pertenecían a la **porci�
 - **Flexibilidad:** La división no tiene que ser uniforme. Un bloque se puede partir en trozos de diferentes tamaños (por ejemplo, una mitad como `/17`, un cuarto como `/18`, etc.) según las necesidades.
 
 
-////mirar que es esto, se divide otra vez
+## ///mirar que es esto, se divide otra vez
 
 **CIDR** son las siglas de **Classless Inter-Domain Routing** (Enrutamiento Entre Dominios sin Clases). Es el sistema estándar actual para la asignación de direcciones IP y el enrutamiento de paquetes en Internet.
 
@@ -94,3 +94,41 @@ A diferencia del direccionamiento por clases antiguo (donde los bloques eran fij
 Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
 
 - Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
+
+## NAT 
+**NAT (Network Address Translation)**, o Traducción de Direcciones de Red, es una tecnología que permite el intercambio de direcciones IP y/o puertos en los paquetes que entran y salen de una red.
+
+A continuación se detalla su funcionamiento, objetivos y tipos principales según las fuentes:
+# 1. Objetivo Principal
+
+El propósito fundamental de NAT es **paliar la escasez de direcciones IPv4**. Dado que las direcciones de 32 bits son limitadas y se han agotado prácticamente en todo el mundo, NAT permite que una organización o un hogar utilice un bloque de **direcciones IP privadas** internamente y se conecte a Internet usando una sola (o unas pocas) **dirección IP pública**.
+
+# 2. Funcionamiento Básico
+
+NAT opera generalmente en un dispositivo de interconexión (como un router o cortafuegos) situado en el límite entre la red interna del cliente y el ISP.
+
+- **Hacia fuera:** Cuando un host interno envía un paquete a Internet, la caja NAT traduce su dirección de origen privada a la dirección IP pública compartida.
+- **Hacia dentro:** Cuando llega una respuesta desde Internet, el dispositivo NAT debe identificar a qué host de la red interna corresponde ese tráfico para realizar la traducción inversa.
+
+Para que esto funcione internamente, se utilizan rangos de **direcciones privadas** que no son válidas en la Internet pública:
+
+- `10.0.0.0` a `10.255.255.255`
+- `172.16.0.0` a `172.31.255.255`
+- `192.168.0.0` a `192.168.255.255`
+
+# 3. Tipos de NAT
+
+- **NAT Estática:** Se realiza un mapeo fijo de uno a uno, donde una dirección IP privada siempre se traduce a una dirección IP pública específica.
+- **NAT Dinámica:** Se dispone de un conjunto (_pool_) de direcciones IP públicas. Cuando un host interno requiere conexión, el router le asigna dinámicamente una dirección pública que no esté siendo utilizada en ese momento.
+- **PAT (Port Address Translation) o NAT con sobrecarga:** Es el tipo más común (usado en hogares). Permite mapear múltiples direcciones privadas a través de una **única dirección pública** utilizando los números de **puerto TCP/UDP** para distinguir las conexiones. El router guarda una tabla que asocia la IP privada y el puerto de origen con la IP pública y un puerto asignado al azar.
+
+# 4. Limitaciones y Objeciones
+
+A pesar de su utilidad, NAT presenta varias desventajas técnicas señaladas por los puristas de redes:
+
+- **Viola el modelo arquitectónico de IP:** Rompe la premisa de que cada dirección IP identifica de forma única a una sola máquina en el mundo.
+- **Rompe la conectividad extremo a extremo:** Dificulta que un host externo inicie una conexión con uno interno si este no ha enviado un paquete primero (problema para servidores domésticos o juegos).
+- **Viola la estratificación de protocolos:** Un dispositivo de capa de red (Capa 3) debe "espiar" y modificar campos de la capa de transporte (Capa 4), como los puertos.
+- **Problemas con aplicaciones específicas:** Algunas aplicaciones como **FTP** insertan direcciones IP dentro del cuerpo del mensaje, lo que requiere que NAT sea "parcheado" para cada aplicación que no sea transparente al protocolo.
+
+En resumen, NAT es una "solución rápida" y necesaria ante la falta de direcciones, aunque introduce complejidad y vulnerabilidades en la arquitectura original de Internet.
