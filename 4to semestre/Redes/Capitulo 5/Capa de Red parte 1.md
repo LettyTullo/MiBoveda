@@ -70,27 +70,27 @@ Para dividir una red, se toman bits que originalmente pertenecían a la **porci�
 
 
 ////mirar que es esto, se divide otra vez
+
 **CIDR** son las siglas de **Classless Inter-Domain Routing** (Enrutamiento Entre Dominios sin Clases). Es el sistema estándar actual para la asignación de direcciones IP y el enrutamiento de paquetes en Internet.
 
 A continuación se detallan sus características principales según las fuentes:
 
-### 1. Propósito: Agregación de Rutas
+# 1. Propósito: Agregación de Rutas
 
 El objetivo fundamental de CIDR es frenar el crecimiento explosivo de las **tablas de enrutamiento** en los routers troncales de Internet.
 
 - Para lograrlo, utiliza la **agregación de rutas**, que permite juntar múltiples prefijos IP pequeños en uno solo más grande (a veces llamado **superred**).
 - De esta forma, un router distante solo necesita una entrada en su tabla para representar a miles de hosts o redes pequeñas.
 
-### 2. Funcionamiento y Notación
+# 2. Funcionamiento y Notación
 
 A diferencia del direccionamiento por clases antiguo (donde los bloques eran fijos como Clase A, B o C), CIDR permite que los prefijos tengan cualquier longitud.
 
 - **Notación:** Se escribe como una dirección IP seguida de una barra y el número de bits de la red (ejemplo: `194.24.0.0/21`).
 - **Flexibilidad:** Permite que un bloque de direcciones se divida o combine de forma mucho más eficiente, adaptándose a las necesidades reales de cada organización.
 
-### 3. Regla del Prefijo más Largo Coincidente
+# 3. Regla del Prefijo más Largo Coincidente
 
 Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
 
 - Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
-.
