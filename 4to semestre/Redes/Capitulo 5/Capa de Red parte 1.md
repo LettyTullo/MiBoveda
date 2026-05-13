@@ -20,7 +20,7 @@ La cabecera tiene una **parte fija de 20 bytes** y una parte opcional de longitu
 >- **Direcciones de Origen y Destino (32 bits cada una):** Indican las direcciones IP de las interfaces de red del emisor y receptor.
 >- **Opciones (Variable):** Diseñado para permitir pruebas, seguridad o enrutamiento específico, aunque hoy en día muchos routers las ignoran.
 
-# Direccionamiento IPv4
+## Direccionamiento IPv4
 Una dirección IPv4 es una etiqueta lógica de **32 bits** que define la conexión de un dispositivo a una red (un router, un servidor u host).
 
 - **Notación:** Se escribe comúnmente en formato **decimal con puntos**, dividiendo los 32 bits en 4 octetos (ej. `128.208.2.151`).
@@ -37,7 +37,7 @@ Una dirección IPv4 es una etiqueta lógica de **32 bits** que define la conexi�
 >- **Estructura binaria:** Es una secuencia de 32 bits que contiene **"1"** en todas las posiciones correspondientes a la parte de red (prefijo) y **"0"** en las posiciones de la parte de host.
 >- **Relación visual:** Si un prefijo tiene una longitud **L**, su máscara tendrá exactamente **L** unos seguidos de **32–L** ceros.
 >- **Conversión a decimal:** Las máscaras también se expresan en formato decimal con puntos. Por ejemplo, un prefijo **/20** (20 unos seguidos de 12 ceros) equivale a la máscara **255.255.240.0**
-# 3. Tipos de Direcciones y Reglas Especiales
+# Tipos de Direcciones y Reglas Especiales
 
 Dentro de un bloque de direcciones, existen valores con funciones específicas:
 
@@ -51,3 +51,50 @@ k = Cantidad de bits de host
     - **127.x.x.x (Loopback):** Reservada para pruebas internas del propio host; los paquetes enviados aquí nunca salen al cable físico.
     - **Direcciones Privadas:** Rangos (como `10.0.0.0/8`, `172.16.0.0/12` o `192.168.0.0/16`) reservados para redes locales que no son visibles directamente en Internet y requieren **NAT** para navegar.
 
+La **división en subredes** (_subnetting_) es una técnica que permite fragmentar un bloque de direcciones IP grande en varias redes más pequeñas e independientes para uso interno, mientras que para el resto de Internet siguen pareciendo una única red.
+
+A continuación, se detalla su funcionamiento, motivos y reglas según las fuentes:
+
+# Subnetting (Division en Subredes)
+La implementación de subredes responde a varias necesidades técnicas y administrativas:
+- **Reducción del tráfico de difusión (broadcast):** Este es el motivo principal; al dividir una LAN grande, se limita el alcance de los mensajes de difusión, mejorando el rendimiento general.
+- **Organización jerárquica:** Permite que la red refleje la estructura de la organización (por ejemplo, dividiendo un bloque en subredes para los departamentos de Informática, Ingeniería y Arte).
+- **Seguridad y gestión:** Facilita la administración interna y permite aislar el tráfico entre diferentes grupos de usuarios, dificultando ataques entre colectivos.
+- **Eficiencia en el direccionamiento:** Evita el desperdicio de direcciones IP al adaptar el tamaño de cada subred a la cantidad real de hosts que necesita.
+# Funcionamiento técnico
+
+Para dividir una red, se toman bits que originalmente pertenecían a la **porción de host** y se utilizan para identificar la **subred**.
+
+- **Transparencia externa:** Desde fuera de la organización, la red se ve como un único prefijo (por ejemplo, un `/16`). Los routers externos no necesitan conocer la estructura interna, lo que ayuda a que las tablas de enrutamiento globales no colapsen.
+- **Uso de máscaras de subred:** Los routers internos utilizan la **máscara de subred** para procesar los paquetes. Cuando llega un paquete, el router realiza una operación lógica **AND** entre la dirección IP de destino y la máscara de la subred para determinar a qué segmento enviarlo.
+- **Flexibilidad:** La división no tiene que ser uniforme. Un bloque se puede partir en trozos de diferentes tamaños (por ejemplo, una mitad como `/17`, un cuarto como `/18`, etc.) según las necesidades.
+
+
+////mirar que es esto, se divide otra vez
+**CIDR** son las siglas de **Classless Inter-Domain Routing** (Enrutamiento Entre Dominios sin Clases). Es el sistema estándar actual para la asignación de direcciones IP y el enrutamiento de paquetes en Internet.
+
+A continuación se detallan sus características principales según las fuentes:
+
+### 1. Propósito: Agregación de Rutas
+
+El objetivo fundamental de CIDR es frenar el crecimiento explosivo de las **tablas de enrutamiento** en los routers troncales de Internet.
+
+- Para lograrlo, utiliza la **agregación de rutas**, que permite juntar múltiples prefijos IP pequeños en uno solo más grande (a veces llamado **superred**).
+- De esta forma, un router distante solo necesita una entrada en su tabla para representar a miles de hosts o redes pequeñas.
+
+### 2. Funcionamiento y Notación
+
+A diferencia del direccionamiento por clases antiguo (donde los bloques eran fijos como Clase A, B o C), CIDR permite que los prefijos tengan cualquier longitud.
+
+- **Notación:** Se escribe como una dirección IP seguida de una barra y el número de bits de la red (ejemplo: `194.24.0.0/21`).
+- **Flexibilidad:** Permite que un bloque de direcciones se divida o combine de forma mucho más eficiente, adaptándose a las necesidades reales de cada organización.
+
+### 3. Regla del Prefijo más Largo Coincidente
+
+Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
+
+- Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
+
+### 4. Contexto Histórico
+
+CIDR se introdujo en **1993** para reemplazar el diseño jerárquico de clases (A, B, C), el cual desperdiciaba millones de direcciones y saturaba las tablas de rutas globales. Hoy en día, aunque se sigan mencionando las clases en la literatura, los bits que las identificaban originalmente ya no se utilizan para el enrutamiento.
