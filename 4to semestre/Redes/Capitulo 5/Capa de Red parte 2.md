@@ -58,13 +58,11 @@ Debido a que el protocolo ARP es simple y no tiene estado (acepta respuestas inc
 
 ## Protocolo DHCP 
 El **DHCP** (Dynamic Host Configuration Protocol o Protocolo de Configuración Dinámica de Host) es un protocolo de la capa de red diseñado para la **asignación automática y dinámica de direcciones IP** y otros parámetros de configuración a los dispositivos que se conectan a una red.
-
-
-# Propósito y necesidad**
+# Propósito y necesidad
 
 Aunque es posible configurar manualmente la dirección IP de cada ordenador, este proceso es tedioso y propenso a errores en redes grandes. El DHCP soluciona esto permitiendo que una red tenga un servidor encargado de gestionar un **conjunto (pool) de direcciones IP** y asignarlas a los equipos a medida que estos se activan, recuperándolas cuando dejan de usarse.
 
-### **2. Proceso de funcionamiento (4 pasos clave)**
+# Proceso de funcionamiento (4 pasos clave)
 
 Cuando un dispositivo (cliente) se conecta a la red y no tiene una dirección IP, inicia un intercambio de mensajes con el servidor DHCP:
 
@@ -75,14 +73,13 @@ Cuando un dispositivo (cliente) se conecta a la red y no tiene una dirección IP
 
 _Nota: Si el servidor DHCP no está en la misma red local, los routers pueden configurarse para recibir estas difusiones y retransmitirlas hacia donde se encuentre el servidor._
 
-### **3. Concepto de Arrendamiento (Leasing)**
+# Concepto de Arrendamiento (Leasing)
 
 La asignación de una dirección IP no suele ser permanente, sino por un **periodo fijo de tiempo** llamado **arrendamiento** o _lease_.
-
 - Esto evita que las direcciones se pierdan si un host abandona la red sin devolverla.
 - Justo antes de que expire el tiempo, el host debe solicitar una **renovación**; de lo contrario, perderá el derecho a usar esa IP.
 
-### **4. Otros parámetros configurados**
+# Otros parámetros configurados
 
 Además de la dirección IP, el servidor DHCP proporciona información esencial para que el dispositivo pueda navegar en Internet, como:
 
