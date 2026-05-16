@@ -66,60 +66,47 @@ Para dividir una red, se toman bits que originalmente pertenecían a la **porci�
 - **Transparencia externa:** Desde fuera de la organización, la red se ve como un único prefijo (por ejemplo, un `/16`). Los routers externos no necesitan conocer la estructura interna, lo que ayuda a que las tablas de enrutamiento globales no colapsen.
 - **Uso de máscaras de subred:** Los routers internos utilizan la **máscara de subred** para procesar los paquetes. Cuando llega un paquete, el router realiza una operación lógica **AND** entre la dirección IP de destino y la máscara de la subred para determinar a qué segmento enviarlo.
 - **Flexibilidad:** La división no tiene que ser uniforme. Un bloque se puede partir en trozos de diferentes tamaños (por ejemplo, una mitad como `/17`, un cuarto como `/18`, etc.) según las necesidades.
-
-
-## ///mirar que es esto, se divide otra vez
+## Que es CIDR?
 
 **CIDR** son las siglas de **Classless Inter-Domain Routing** (Enrutamiento Entre Dominios sin Clases). Es el sistema estándar actual para la asignación de direcciones IP y el enrutamiento de paquetes en Internet.
-
-A continuación se detallan sus características principales según las fuentes:
-
 # 1. Propósito: Agregación de Rutas
-
 El objetivo fundamental de CIDR es frenar el crecimiento explosivo de las **tablas de enrutamiento** en los routers troncales de Internet.
 
 - Para lograrlo, utiliza la **agregación de rutas**, que permite juntar múltiples prefijos IP pequeños en uno solo más grande (a veces llamado **superred**).
 - De esta forma, un router distante solo necesita una entrada en su tabla para representar a miles de hosts o redes pequeñas.
-
 # 2. Funcionamiento y Notación
 
 A diferencia del direccionamiento por clases antiguo (donde los bloques eran fijos como Clase A, B o C), CIDR permite que los prefijos tengan cualquier longitud.
-
 - **Notación:** Se escribe como una dirección IP seguida de una barra y el número de bits de la red (ejemplo: `194.24.0.0/21`).
 - **Flexibilidad:** Permite que un bloque de direcciones se divida o combine de forma mucho más eficiente, adaptándose a las necesidades reales de cada organización.
-
 # 3. Regla del Prefijo más Largo Coincidente
 
 Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
 
 - Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
-
 ## NAT 
 **NAT (Network Address Translation)**, o Traducción de Direcciones de Red, es una tecnología que permite el intercambio de direcciones IP y/o puertos en los paquetes que entran y salen de una red.
 
-A continuación se detalla su funcionamiento, objetivos y tipos principales según las fuentes:
-# 1. Objetivo Principal
-
+>[!danger]  Objetivo Principal
 El propósito fundamental de NAT es **paliar la escasez de direcciones IPv4**. Dado que las direcciones de 32 bits son limitadas y se han agotado prácticamente en todo el mundo, NAT permite que una organización o un hogar utilice un bloque de **direcciones IP privadas** internamente y se conecte a Internet usando una sola (o unas pocas) **dirección IP pública**.
 
-# 2. Funcionamiento Básico
-
+# Funcionamiento Básico
 NAT opera generalmente en un dispositivo de interconexión (como un router o cortafuegos) situado en el límite entre la red interna del cliente y el ISP.
 
-- **Hacia fuera:** Cuando un host interno envía un paquete a Internet, la caja NAT traduce su dirección de origen privada a la dirección IP pública compartida.
-- **Hacia dentro:** Cuando llega una respuesta desde Internet, el dispositivo NAT debe identificar a qué host de la red interna corresponde ese tráfico para realizar la traducción inversa.
+>[!example] Hay dos tipos de funcionamiento
+> **Hacia fuera:** Cuando un host interno envía un paquete a Internet, la caja NAT traduce su dirección de origen privada a la dirección IP pública compartida.
+> - **Hacia dentro:** Cuando llega una respuesta desde Internet, el dispositivo NAT debe identificar a qué host de la red interna corresponde ese tráfico para realizar la traducción inversa.
 
 Para que esto funcione internamente, se utilizan rangos de **direcciones privadas** que no son válidas en la Internet pública:
-
 - `10.0.0.0` a `10.255.255.255`
 - `172.16.0.0` a `172.31.255.255`
 - `192.168.0.0` a `192.168.255.255`
+# Tipos de NAT
 
-# 3. Tipos de NAT
-
-- **NAT Estática:** Se realiza un mapeo fijo de uno a uno, donde una dirección IP privada siempre se traduce a una dirección IP pública específica.
-- **NAT Dinámica:** Se dispone de un conjunto (_pool_) de direcciones IP públicas. Cuando un host interno requiere conexión, el router le asigna dinámicamente una dirección pública que no esté siendo utilizada en ese momento.
-- **PAT (Port Address Translation) o NAT con sobrecarga:** Es el tipo más común (usado en hogares). Permite mapear múltiples direcciones privadas a través de una **única dirección pública** utilizando los números de **puerto TCP/UDP** para distinguir las conexiones. El router guarda una tabla que asocia la IP privada y el puerto de origen con la IP pública y un puerto asignado al azar.
+>[!amarillo] Existen tres tipos de NAT
+>- **NAT Estática:** Se realiza un mapeo fijo de uno a uno, donde una dirección IP privada siempre se traduce a una dirección IP pública específica.
+>- **NAT Dinámica:** Se dispone de un conjunto (_pool_) de direcciones IP públicas. Cuando un host interno requiere conexión, el router le asigna dinámicamente una dirección pública que no esté siendo utilizada en ese momento.
+>- **PAT (Port Address Translation) o NAT con sobrecarga:** Es el tipo más común (usado en hogares). Permite mapear múltiples direcciones privadas a través de una **única dirección pública** utilizando los números de **puerto TCP/UDP** para distinguir las conexiones. El router guarda una tabla que asocia la IP privada y el puerto de origen con la IP pública y un puerto asignado al azar.
 
 # 4. Limitaciones y Objeciones
 
