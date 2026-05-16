@@ -116,22 +116,15 @@ A pesar de su utilidad, NAT presenta varias desventajas técnicas señaladas por
 - **Rompe la conectividad extremo a extremo:** Dificulta que un host externo inicie una conexión con uno interno si este no ha enviado un paquete primero (problema para servidores domésticos o juegos).
 - **Viola la estratificación de protocolos:** Un dispositivo de capa de red (Capa 3) debe "espiar" y modificar campos de la capa de transporte (Capa 4), como los puertos.
 - **Problemas con aplicaciones específicas:** Algunas aplicaciones como **FTP** insertan direcciones IP dentro del cuerpo del mensaje, lo que requiere que NAT sea "parcheado" para cada aplicación que no sea transparente al protocolo.
-
-En resumen, NAT es una "solución rápida" y necesaria ante la falta de direcciones, aunque introduce complejidad y vulnerabilidades en la arquitectura original de Internet.
-
 ## Estructura de los routers
 La estructura de un router es fundamentalmente **similar a la de una computadora personal**, diseñada específicamente para realizar tareas de interconexión de redes en la capa de red (Capa 3) del modelo OSI.
+# Componentes de un router
 
-A continuación se detalla su estructura física, lógica y operativa según las fuentes:
-
-# 1. Componentes de Hardware (Memorias)
-
-Un router utiliza diferentes tipos de memoria para gestionar su funcionamiento y almacenamiento:
-
-- **Memoria de Trabajo o RAM:** Es volátil y se encarga de guardar la **tabla de enrutamiento**, la configuración actual en ejecución (_running configuration_), las colas de paquetes en espera y el sistema operativo mientras el equipo está encendido.
-- **NVRAM (Non-volatile RAM):** Almacena la **configuración de inicio** (_start-up configuration_), la cual se carga en la memoria RAM cada vez que el equipo arranca. Generalmente una memoria flahs de poca capacidad.
-- **Memoria Flash:** Es una memoria no volátil de mayor capacidad que guarda la **imagen del Sistema Operativo (IOS)**. Puede retener varias versiones del software.
-- **Memoria ROM:** Contiene el programa de arranque o **bootstrap**, el software básico de inicio, pruebas de diagnóstico de hardware y rutinas de recuperación.
+>[!warning] Un router utiliza diferentes tipos de memoria para gestionar su funcionamiento y almacenamiento:
+>- **Memoria de Trabajo o RAM:** Es volátil y se encarga de guardar la **tabla de enrutamiento**, la configuración actual en ejecución (_running configuration_), las colas de paquetes en espera y el sistema operativo mientras el equipo está encendido.
+>- **NVRAM (Non-volatile RAM):** Almacena la **configuración de inicio** (_start-up configuration_), la cual se carga en la memoria RAM cada vez que el equipo arranca. Generalmente una memoria flash de poca capacidad.
+>- **Memoria Flash:** Es una memoria no volátil de mayor capacidad que guarda la **imagen del Sistema Operativo (IOS)**. Puede retener varias versiones del software.
+>- **Memoria ROM:** Contiene el programa de arranque o **bootstrap**, el software básico de inicio, pruebas de diagnóstico de hardware y rutinas de recuperación.
 
 # 2. Interfaces y Puertos
 
