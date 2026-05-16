@@ -126,8 +126,7 @@ La estructura de un router es fundamentalmente **similar a la de una computadora
 >- **Memoria Flash:** Es una memoria no volátil de mayor capacidad que guarda la **imagen del Sistema Operativo (IOS)**. Puede retener varias versiones del software.
 >- **Memoria ROM:** Contiene el programa de arranque o **bootstrap**, el software básico de inicio, pruebas de diagnóstico de hardware y rutinas de recuperación.
 
-# 2. Interfaces y Puertos
-
+# Interfaces y Puertos
 Los routers poseen diversos puntos de conexión física para interactuar con distintas tecnologías de red:
 
 - **Interfaces de LAN:** Utilizadas para conectar el router a redes locales (típicamente puertos Ethernet).
