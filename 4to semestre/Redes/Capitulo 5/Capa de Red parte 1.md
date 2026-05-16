@@ -133,19 +133,10 @@ Los routers poseen diversos puntos de conexión física para interactuar con dis
 - **Interfaces de WAN:** Permiten la conexión con redes de área amplia proporcionadas por los ISP (como enlaces seriales, fibra óptica o DSL).
 - **Puertos de Administración:** Incluyen el **Puerto de Consola** (puerto serial no destinado al tráfico de red) y el puerto AUX para configurar el equipo de forma local o remota.
 
-# 3. Estructura Lógica y Operativa
-
+# Estructura Lógica y Operativa
 Internamente, el router funciona mediante un sistema operativo especializado denominado **IOS (Internetworking Operating System)**. Operativamente, se divide en dos procesos o planos distintos:
 
 - **Plano de Datos (Reenvío):** Es la parte encargada de procesar cada paquete individual que llega. Su función es extraer la dirección de destino de la cabecera del paquete, buscarla en la **tabla de enrutamiento** y decidir por qué interfaz de salida debe enviarse.
 - **Plano de Control (Algoritmo de Enrutamiento):** Es el software responsable de **rellenar y actualizar las tablas de enrutamiento**. Utiliza protocolos de enrutamiento dinámico (como OSPF, RIP o BGP) para intercambiar información con otros routers y calcular el camino óptimo hacia cada red.
 
-# 4. Tablas Fundamentales
-
-Para que su estructura sea efectiva, el router mantiene dos bases de datos clave:
-
-- **Tabla de Enrutamiento:** Lista las redes conocidas, sus máscaras, el costo o métrica de la ruta y la interfaz de salida o la dirección del "siguiente salto". Por defecto, incluye las subredes directamente conectadas.
-- **Tabla ARP (Address Resolution Protocol):** Relaciona las direcciones IP lógicas con las **direcciones MAC físicas** de los dispositivos en el mismo segmento de red, permitiendo que el router pueda encapsular el paquete IP en una trama de enlace de datos para enviarla por el cable.
-
-En resumen, la función principal de esta estructura es **retransmitir paquetes de datos** de forma eficiente bajo el esquema de "mejor esfuerzo", eliminando la cabecera de la trama entrante y generando una nueva para el siguiente salto basándose en direcciones de capa 3.
 
