@@ -108,7 +108,7 @@ Para que esto funcione internamente, se utilizan rangos de **direcciones privada
 >- **NAT Dinámica:** Se dispone de un conjunto (_pool_) de direcciones IP públicas. Cuando un host interno requiere conexión, el router le asigna dinámicamente una dirección pública que no esté siendo utilizada en ese momento.
 >- **PAT (Port Address Translation) o NAT con sobrecarga:** Es el tipo más común (usado en hogares). Permite mapear múltiples direcciones privadas a través de una **única dirección pública** utilizando los números de **puerto TCP/UDP** para distinguir las conexiones. El router guarda una tabla que asocia la IP privada y el puerto de origen con la IP pública y un puerto asignado al azar.
 
-# 4. Limitaciones y Objeciones
+# Limitaciones y Objeciones
 
 A pesar de su utilidad, NAT presenta varias desventajas técnicas señaladas por los puristas de redes:
 
@@ -132,11 +132,48 @@ Los routers poseen diversos puntos de conexión física para interactuar con dis
 - **Interfaces de LAN:** Utilizadas para conectar el router a redes locales (típicamente puertos Ethernet).
 - **Interfaces de WAN:** Permiten la conexión con redes de área amplia proporcionadas por los ISP (como enlaces seriales, fibra óptica o DSL).
 - **Puertos de Administración:** Incluyen el **Puerto de Consola** (puerto serial no destinado al tráfico de red) y el puerto AUX para configurar el equipo de forma local o remota.
+# Configuración de la línea serial
 
-# Estructura Lógica y Operativa
-Internamente, el router funciona mediante un sistema operativo especializado denominado **IOS (Internetworking Operating System)**. Operativamente, se divide en dos procesos o planos distintos:
+Para que dos dispositivos se comuniquen correctamente a través de una línea serial, ambos deben estar configurados con los mismos parámetros. Según las fuentes, los parámetros principales son:
+>[!rosado] 
+>1. **Tasa de datos (velocidad):** Se mide en bits por segundo (bps) o baudios. Los valores comunes son **4800, 9600 o 19200 bps**..
+>2. **Bits por carácter:** Define cuántos bits se utilizan para representar un carácter ASCII, siendo habituales **5, 7 u 8 bits**.
+>3. **Bits de parada:** Son bits adicionales que indican el final de la transmisión de un carácter. Pueden configurarse **1, 1.5 o 2 bits**
+>4. **Paridad:** Un mecanismo básico de detección de errores. Las opciones son **Sin paridad (No), Par o Impar**.
+>5. **Control de flujo:** Evita que el receptor se sature. Puede ser:
+>- **Por Software:** Utiliza caracteres ASCII especiales como **XON** (carácter 17) y **XOFF** (carácter 19).
+>- **Por Hardware:** Utiliza señales físicas como **RTS/CTS** (Request To Send / Clear To Send).
 
-- **Plano de Datos (Reenvío):** Es la parte encargada de procesar cada paquete individual que llega. Su función es extraer la dirección de destino de la cabecera del paquete, buscarla en la **tabla de enrutamiento** y decidir por qué interfaz de salida debe enviarse.
-- **Plano de Control (Algoritmo de Enrutamiento):** Es el software responsable de **rellenar y actualizar las tablas de enrutamiento**. Utiliza protocolos de enrutamiento dinámico (como OSPF, RIP o BGP) para intercambiar información con otros routers y calcular el camino óptimo hacia cada red.
+Esta configuración es la que se utiliza típicamente para acceder a la **consola de un router** o configurar **interfaces de WAN**.
 
+### Transmisión asíncrona
+
+La **transmisión asíncrona** (o serial) se caracteriza porque los datos se envían en pequeños grupos (generalmente caracteres) y el **intervalo de tiempo entre ellos es impredecible**.
+
+Los aspectos clave de su funcionamiento son:
+
+- **Estructura del carácter:** Cada bloque de datos está rodeado por bits de control. Comienza con un **bit de inicio (start bit)**, seguido de los **bits de datos** (5 a 8), un **bit de paridad** opcional y finaliza con uno o más **bits de parada**.
+- **Sincronización:** A diferencia de la transmisión síncrona (donde se envía un flujo continuo de bits con un reloj constante como en SONET), en la asíncrona la línea puede permanecer en **estado inactivo (idle)** entre caracteres.
+- **Contexto ATM:** El término "asíncrono" también se aplica al protocolo **ATM (Asynchronous Transfer Mode)**, donde significa que las celdas de información solo se envían cuando hay datos reales que transportar, en lugar de ocupar el canal constantemente.
+- **Errores de temporización:** Un factor crítico es que el receptor debe muestrear la señal en momentos precisos; si hay una diferencia entre el reloj del emisor y el del receptor, pueden ocurrir errores en la interpretación de los bits.
+## Tabla de enrutamiento
+La **tabla de enrutamiento** es una base de datos interna o "mapa" que reside en la memoria RAM de un router y que contiene la información necesaria para decidir por qué interfaz de salida debe reenviar un paquete hacia su destino final.
+# Función y proceso de reenvío
+
+El router utiliza esta tabla cada vez que llega un paquete IP. El proceso, conocido como **reenvío (forwarding)**, consiste en extraer la dirección IP de destino del paquete y buscar en la tabla la línea de salida que corresponda a esa dirección.
+# Estructura de una entrada de la tabla
+Cada entrada de la tabla es típicamente un conjunto de datos que incluye:
+
+- **Red de destino:** El prefijo o dirección de la red a la que se desea llegar.
+- **Máscara de subred:** Define qué parte de la dirección es red y qué parte es host.
+- **Interfaz:** El puerto físico del router (ej. GI0/0, Ethernet 1) por donde debe salir el paquete.
+- **IP del siguiente salto (Next Hop):** La dirección IP del próximo router en el camino si el destino no está conectado directamente.
+- **Métrica:** Un valor que indica el "costo" de la ruta (basado en saltos, retardo o ancho de banda). Si hay dos rutas al mismo destino, se elige la de menor métrica.
+# Tipos de entradas en la tabla
+
+Las rutas en la tabla pueden originarse de tres maneras:
+
+1. **Directamente conectadas:** Se agregan automáticamente cuando se configura una interfaz del router y se activa. Son las redes a las que el router tiene acceso físico inmediato.
+2. **Rutas estáticas:** Son introducidas manualmente por un administrador de red. Son útiles cuando el camino es obvio y no cambia, pero no se adaptan automáticamente a fallos en la red.
+3. **Rutas dinámicas:** Se generan mediante **protocolos de enrutamiento** (como **OSPF, RIP, BGP o EIGRP**) que intercambian información con otros routers para aprender la topología de la red y calcular los caminos más cortos o eficientes de forma automática.
 
