@@ -119,3 +119,5 @@ Cuando hay enlaces redundantes en la red para evitar caídas, se utiliza el prot
 >- **Independencia:** Cada VLAN construye su propio árbol de expansión de forma **independiente**.
 >- **Bloqueo de puertos:** Esto permite que un puerto que está bloqueado para una VLAN (para evitar un bucle) pueda estar activo para otra, optimizando el uso de los enlaces físicos.
 >- **Configuración:** Los puentes eligen un **Puente Raíz** por cada VLAN. A igual costo de camino, se bloquea el puerto con el identificador más alto. Se puede modificar la prioridad de un puerto (por defecto 128) para forzar qué camino debe ser el principal y cuál el de reserva.
+
+[[Capa de Red parte 1]]

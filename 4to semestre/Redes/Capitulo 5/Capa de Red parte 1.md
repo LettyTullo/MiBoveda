@@ -132,7 +132,7 @@ Los routers poseen diversos puntos de conexión física para interactuar con dis
 - **Interfaces de LAN:** Utilizadas para conectar el router a redes locales (típicamente puertos Ethernet).
 - **Interfaces de WAN:** Permiten la conexión con redes de área amplia proporcionadas por los ISP (como enlaces seriales, fibra óptica o DSL).
 - **Puertos de Administración:** Incluyen el **Puerto de Consola** (puerto serial no destinado al tráfico de red) y el puerto AUX para configurar el equipo de forma local o remota.
-# Configuración de la línea serial
+## Configuración de la línea serial
 
 Para que dos dispositivos se comuniquen correctamente a través de una línea serial, ambos deben estar configurados con los mismos parámetros. Según las fuentes, los parámetros principales son:
 >[!rosado] 
@@ -146,16 +146,14 @@ Para que dos dispositivos se comuniquen correctamente a través de una línea se
 
 Esta configuración es la que se utiliza típicamente para acceder a la **consola de un router** o configurar **interfaces de WAN**.
 
-### Transmisión asíncrona
-
+## Transmisión asíncrona
 La **transmisión asíncrona** (o serial) se caracteriza porque los datos se envían en pequeños grupos (generalmente caracteres) y el **intervalo de tiempo entre ellos es impredecible**.
 
-Los aspectos clave de su funcionamiento son:
-
-- **Estructura del carácter:** Cada bloque de datos está rodeado por bits de control. Comienza con un **bit de inicio (start bit)**, seguido de los **bits de datos** (5 a 8), un **bit de paridad** opcional y finaliza con uno o más **bits de parada**.
-- **Sincronización:** A diferencia de la transmisión síncrona (donde se envía un flujo continuo de bits con un reloj constante como en SONET), en la asíncrona la línea puede permanecer en **estado inactivo (idle)** entre caracteres.
-- **Contexto ATM:** El término "asíncrono" también se aplica al protocolo **ATM (Asynchronous Transfer Mode)**, donde significa que las celdas de información solo se envían cuando hay datos reales que transportar, en lugar de ocupar el canal constantemente.
-- **Errores de temporización:** Un factor crítico es que el receptor debe muestrear la señal en momentos precisos; si hay una diferencia entre el reloj del emisor y el del receptor, pueden ocurrir errores en la interpretación de los bits.
+>[!warning] Los aspectos clave de su funcionamiento son:
+>- **Estructura del carácter:** Cada bloque de datos está rodeado por bits de control. Comienza con un **bit de inicio (start bit)**, seguido de los **bits de datos** (5 a 8), un **bit de paridad** opcional y finaliza con uno o más **bits de parada**.
+>- **Sincronización:** A diferencia de la transmisión síncrona (donde se envía un flujo continuo de bits con un reloj constante como en SONET), en la asíncrona la línea puede permanecer en **estado inactivo (idle)** entre caracteres.
+>- **Contexto ATM:** El término "asíncrono" también se aplica al protocolo **ATM (Asynchronous Transfer Mode)**, donde significa que las celdas de información solo se envían cuando hay datos reales que transportar, en lugar de ocupar el canal constantemente.
+>- **Errores de temporización:** Un factor crítico es que el receptor debe muestrear la señal en momentos precisos; si hay una diferencia entre el reloj del emisor y el del receptor, pueden ocurrir errores en la interpretación de los bits.
 ## Tabla de enrutamiento
 La **tabla de enrutamiento** es una base de datos interna o "mapa" que reside en la memoria RAM de un router y que contiene la información necesaria para decidir por qué interfaz de salida debe reenviar un paquete hacia su destino final.
 # Función y proceso de reenvío
