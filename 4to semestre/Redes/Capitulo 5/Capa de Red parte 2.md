@@ -17,25 +17,16 @@ Existen diversos tipos de mensajes definidos para diferentes diagnósticos y sit
 4. **Eco y Respuesta a Eco (Echo Request/Reply):** Se utilizan para comprobar si una máquina está activa y es alcanzable en la red.
 5. **Problema de parámetros:** Indica que se ha detectado un valor ilegal o no válido en un campo de la cabecera IP.
 6. **Fuente de enfriamiento (Source Quench):** Un mensaje antiguo (ya casi en desuso) que servía para pedirle a un emisor que redujera su velocidad de transmisión por congestión.
-7. **Timestamp Request y Timestamp Reply (Solicitud y Respuesta de Marca de Tiempo)**:
-
-- *si una máquina está activa, estos mensajes registran la **hora exacta de llegada** del mensaje y la **hora de salida** de la respuesta.
-- **Utilidad:** Se utilizan principalmente para **medir el rendimiento de la red**, permitiendo calcular con precisión los retardos de ida y vuelta entre dos puntos.
-
-### **2. Router Advertisement y Router Solicitation (Anuncio y Solicitud de Router)**
-
+7. **Timestamp Request y Timestamp Reply (Solicitud y Respuesta de Marca de Tiempo)**: Verifica si una máquina está activa, estos mensajes registran la **hora exacta de llegada** del mensaje y la **hora de salida** de la respuesta. Se utilizan principalmente para **medir el rendimiento de la red**, permitiendo calcular con precisión los retardos de ida y vuelta entre dos puntos.
+8. **Router Advertisement y Router Solicitation (Anuncio y Solicitud de Router)**
 Estos mensajes son esenciales para que los dispositivos finales puedan comunicarse con el resto del mundo:
-
 - **Router Solicitation (Solicitud):** Cuando un host arranca o se conecta a una red, envía este mensaje para **encontrar routers cercanos** de forma activa.
 - **Router Advertisement (Anuncio):** Los routers envían estos mensajes periódicamente (o en respuesta a una solicitud) para anunciar su presencia y proporcionar su dirección IP.
-- **Objetivo:** Un host necesita conocer la dirección IP de al menos un router (**puerta de enlace predeterminada**) para poder **enviar paquetes fuera de su red local**.
-
-Estos tipos de mensajes permiten que la red sea más **autónoma**, facilitando que los equipos se configuren y midan su estado sin intervención manual constante.
-
-
+- **Objetivo:** Un host necesita conocer la dirección IP de al menos un router (**puerta de enlace predeterminada**) para poder **enviar paquetes fuera de su red local**
 # Herramientas Basadas en ICMP
 
 ICMP es la base técnica de dos de las herramientas de diagnóstico más utilizadas en redes:
 
 - **Comando "ping":** Utiliza los mensajes **Echo Request** y **Echo Reply**. El emisor envía un "eco" y el receptor está obligado a devolverlo, confirmando que la comunicación entre ambos es posible.
 - **Comando "traceroute" (o tracert):** Utiliza de forma ingeniosa el mensaje de **Tiempo excedido**. Envía una serie de paquetes con el TTL empezando en 1 y aumentando de uno en uno en cada intento. Cada router en el camino descarta el paquete cuando el TTL llega a cero y devuelve un mensaje ICMP de error, permitiendo al emisor identificar cada salto en la ruta hasta el destino final.
+## Protocolo ARP (Address Resolution Protocol)
