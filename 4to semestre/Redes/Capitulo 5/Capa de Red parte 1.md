@@ -50,16 +50,15 @@ k =( 32 - prefijo)
     - **0.0.0.0:** Utilizada por los hosts durante el proceso de arranque.
     - **127.x.x.x (Loopback):** Reservada para pruebas internas del propio host; los paquetes enviados aquí nunca salen al cable físico.
     - **Direcciones Privadas:** Rangos (como `10.0.0.0/8` hasta `10.255.255.255/8` , `172.16.0.0/12` hasta `172.31.255.255/12`o `192.168.0.0/16` hasta `192.168.255.255/16`) reservados para redes locales que no son visibles directamente en Internet y requieren **NAT** para navegar.
+## Subnetting (Division en Subredes)
+La **división en subredes** es una técnica que permite fragmentar un bloque de direcciones IP grande en varias redes más pequeñas e independientes para uso interno, mientras que para el resto de Internet siguen pareciendo una única red.
 
-## // leer otra vez desca aca 
-# Subnetting (Division en Subredes)
-La **división en subredes** (_subnetting_) es una técnica que permite fragmentar un bloque de direcciones IP grande en varias redes más pequeñas e independientes para uso interno, mientras que para el resto de Internet siguen pareciendo una única red.
+>[!info] La implementación de subredes responde a varias necesidades técnicas y administrativas:
+>- **Reducción del tráfico de difusión (broadcast):** Este es el motivo principal; al dividir una LAN grande, se limita el alcance de los mensajes de difusión, mejorando el rendimiento general.
+>- **Organización jerárquica:** Permite que la red refleje la estructura de la organización (por ejemplo, dividiendo un bloque en subredes para los departamentos de Informática, Ingeniería y Arte).
+>- **Seguridad y gestión:** Facilita la administración interna y permite aislar el tráfico entre diferentes grupos de usuarios, dificultando ataques entre colectivos.
+>- **Eficiencia en el direccionamiento:** Evita el desperdicio de direcciones IP al adaptar el tamaño de cada subred a la cantidad real de hosts que necesita.
 
-La implementación de subredes responde a varias necesidades técnicas y administrativas:
-- **Reducción del tráfico de difusión (broadcast):** Este es el motivo principal; al dividir una LAN grande, se limita el alcance de los mensajes de difusión, mejorando el rendimiento general.
-- **Organización jerárquica:** Permite que la red refleje la estructura de la organización (por ejemplo, dividiendo un bloque en subredes para los departamentos de Informática, Ingeniería y Arte).
-- **Seguridad y gestión:** Facilita la administración interna y permite aislar el tráfico entre diferentes grupos de usuarios, dificultando ataques entre colectivos.
-- **Eficiencia en el direccionamiento:** Evita el desperdicio de direcciones IP al adaptar el tamaño de cada subred a la cantidad real de hosts que necesita.
 # Funcionamiento técnico
 
 Para dividir una red, se toman bits que originalmente pertenecían a la **porción de host** y se utilizan para identificar la **subred**.
