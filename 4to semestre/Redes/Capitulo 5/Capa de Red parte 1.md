@@ -60,7 +60,6 @@ La **división en subredes** es una técnica que permite fragmentar un bloque de
 >- **Eficiencia en el direccionamiento:** Evita el desperdicio de direcciones IP al adaptar el tamaño de cada subred a la cantidad real de hosts que necesita.
 
 # Funcionamiento técnico
-
 Para dividir una red, se toman bits que originalmente pertenecían a la **porción de host** y se utilizan para identificar la **subred**.
 
 - **Transparencia externa:** Desde fuera de la organización, la red se ve como un único prefijo (por ejemplo, un `/16`). Los routers externos no necesitan conocer la estructura interna, lo que ayuda a que las tablas de enrutamiento globales no colapsen.
@@ -116,6 +115,8 @@ A pesar de su utilidad, NAT presenta varias desventajas técnicas señaladas por
 - **Rompe la conectividad extremo a extremo:** Dificulta que un host externo inicie una conexión con uno interno si este no ha enviado un paquete primero (problema para servidores domésticos o juegos).
 - **Viola la estratificación de protocolos:** Un dispositivo de capa de red (Capa 3) debe "espiar" y modificar campos de la capa de transporte (Capa 4), como los puertos.
 - **Problemas con aplicaciones específicas:** Algunas aplicaciones como **FTP** insertan direcciones IP dentro del cuerpo del mensaje, lo que requiere que NAT sea "parcheado" para cada aplicación que no sea transparente al protocolo.
+- El internet no se exige el uso de TCP o UDP
+- Restriccion del numero de asignaciones a una sola direccion IP
 ## Estructura de los routers
 La estructura de un router es fundamentalmente **similar a la de una computadora personal**, diseñada específicamente para realizar tareas de interconexión de redes en la capa de red (Capa 3) del modelo OSI.
 # Componentes de un router
