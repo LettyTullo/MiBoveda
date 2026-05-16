@@ -30,3 +30,65 @@ ICMP es la base técnica de dos de las herramientas de diagnóstico más utiliza
 - **Comando "ping":** Utiliza los mensajes **Echo Request** y **Echo Reply**. El emisor envía un "eco" y el receptor está obligado a devolverlo, confirmando que la comunicación entre ambos es posible.
 - **Comando "traceroute" (o tracert):** Utiliza de forma ingeniosa el mensaje de **Tiempo excedido**. Envía una serie de paquetes con el TTL empezando en 1 y aumentando de uno en uno en cada intento. Cada router en el camino descarta el paquete cuando el TTL llega a cero y devuelve un mensaje ICMP de error, permitiendo al emisor identificar cada salto en la ruta hasta el destino final.
 ## Protocolo ARP (Address Resolution Protocol)
+El protocolo **ARP (Address Resolution Protocol)** es un mecanismo fundamental de la capa de red que se encarga de **mapear direcciones lógicas (IP) a direcciones físicas (MAC)** dentro de una red de área local.
+# ¿Por qué es necesario el ARP?
+
+Aunque las aplicaciones y el software de red utilizan direcciones IP para identificar los destinos, las tarjetas de red (NIC) de la capa de enlace de datos, como las de Ethernet, **no entienden las direcciones IP**. Las NIC solo pueden enviar y recibir tramas basándose en direcciones físicas de 48 bits (direcciones MAC). Por lo tanto, se necesita un "traductor" que convierta la dirección IP en una dirección MAC para que el paquete pueda viajar por el cable físico.
+# Funcionamiento básico (Solicitud y Respuesta)
+Cuando un host necesita enviar un paquete a una dirección IP específica dentro de su misma red:
+
+1. **Solicitud ARP (Request):** El host emisor envía un paquete de **difusión (broadcast)** a toda la red preguntando: "¿Quién tiene la dirección IP X? Por favor, dime tu dirección MAC". Este mensaje incluye la IP y la MAC del emisor para que el destinatario sepa a quién responder.
+2. **Respuesta ARP (Reply):** Todas las máquinas de la red reciben la pregunta, pero **solo aquella que posee la dirección IP especificada** responde con un mensaje enviando su dirección MAC.
+3. **Encapsulamiento:** Una vez que el emisor recibe la MAC, puede encapsular el paquete IP en una trama Ethernet y enviarlo directamente al destino.
+
+# La Tabla ARP (Caché)
+
+Para evitar saturar la red con mensajes de difusión cada vez que se quiere enviar un dato, cada host mantiene una **Tabla ARP** en su memoria.
+
+- Esta tabla relaciona temporalmente las direcciones IP con sus correspondientes direcciones MAC.
+- Las entradas en esta tabla tienen un **tiempo de vida (TTL)** limitado (usualmente unos minutos) y expiran si no hay comunicación, obligando a realizar una nueva búsqueda ARP si se requiere contactar al equipo de nuevo.
+
+# Casos especiales y variantes
+
+- **Envío fuera de la red local:** Si el host destino no está en la misma subred, el emisor no realiza ARP por la IP del destino final. En su lugar, realiza ARP para obtener la dirección MAC de su **puerta de enlace predeterminada** (el router) y le envía el paquete a él para que lo encamine.
+- **Proxy ARP:** Es una configuración donde un router responde a solicitudes ARP en nombre de hosts que se encuentran en otras redes, haciendo que el solicitante crea que el destino está en su propia red local.
+- **ARP gratuito:** Ocurre cuando un host difunde su propia dirección IP al conectarse a la red. Sirve para actualizar las tablas ARP de otros hosts y para detectar si hay **direcciones IP duplicadas** en la red (si alguien responde, hay un conflicto).
+# Seguridad: ARP Spoofing
+Debido a que el protocolo ARP es simple y no tiene estado (acepta respuestas incluso si no hubo una petición previa), es vulnerable a ataques de **ARP spoofing** o envenenamiento de tabla. Un atacante puede suministrar su propia dirección MAC como respuesta a una consulta por la IP de otra persona, logrando así que todo el tráfico de la víctima pase por su máquina (**Man-in-the-Middle**).
+
+## Protocolo DHCP 
+El **DHCP** (Dynamic Host Configuration Protocol o Protocolo de Configuración Dinámica de Host) es un protocolo de la capa de red diseñado para la **asignación automática y dinámica de direcciones IP** y otros parámetros de configuración a los dispositivos que se conectan a una red.
+
+
+# Propósito y necesidad**
+
+Aunque es posible configurar manualmente la dirección IP de cada ordenador, este proceso es tedioso y propenso a errores en redes grandes. El DHCP soluciona esto permitiendo que una red tenga un servidor encargado de gestionar un **conjunto (pool) de direcciones IP** y asignarlas a los equipos a medida que estos se activan, recuperándolas cuando dejan de usarse.
+
+### **2. Proceso de funcionamiento (4 pasos clave)**
+
+Cuando un dispositivo (cliente) se conecta a la red y no tiene una dirección IP, inicia un intercambio de mensajes con el servidor DHCP:
+
+1. **DHCP DISCOVER:** El cliente envía un mensaje de difusión (**broadcast**) a toda la red para localizar servidores DHCP disponibles. En este mensaje, el cliente incluye su dirección física (**MAC**) para que el servidor pueda identificarlo.
+2. **DHCP OFFER:** El servidor DHCP recibe la solicitud, selecciona una dirección IP libre de su lista y la envía al cliente en un mensaje de oferta.
+3. **DHCP REQUEST:** Como puede haber más de un servidor DHCP en la red, el cliente envía este mensaje para aceptar formalmente una de las ofertas recibidas.
+4. **DHCP ACK:** El servidor confirma la asignación con un acuse de recibo, indicando que la configuración está lista para ser usada.
+
+_Nota: Si el servidor DHCP no está en la misma red local, los routers pueden configurarse para recibir estas difusiones y retransmitirlas hacia donde se encuentre el servidor._
+
+### **3. Concepto de Arrendamiento (Leasing)**
+
+La asignación de una dirección IP no suele ser permanente, sino por un **periodo fijo de tiempo** llamado **arrendamiento** o _lease_.
+
+- Esto evita que las direcciones se pierdan si un host abandona la red sin devolverla.
+- Justo antes de que expire el tiempo, el host debe solicitar una **renovación**; de lo contrario, perderá el derecho a usar esa IP.
+
+### **4. Otros parámetros configurados**
+
+Además de la dirección IP, el servidor DHCP proporciona información esencial para que el dispositivo pueda navegar en Internet, como:
+
+- La **máscara de subred**.
+- La dirección IP de la **puerta de enlace predeterminada** (_default gateway_).
+- Las direcciones de los **servidores DNS**.
+- Direcciones de servidores de hora.
+
+Este protocolo ha sustituido casi por completo a métodos más antiguos y limitados como **RARP** y **BOOTP**. Es utilizado ampliamente tanto por administradores de redes empresariales como por los **ISP** (Proveedores de Servicio de Internet) para configurar automáticamente los módems y routers de los hogares.
