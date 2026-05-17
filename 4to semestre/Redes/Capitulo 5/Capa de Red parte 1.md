@@ -43,7 +43,7 @@ Dentro de un bloque de direcciones, existen valores con funciones específicas:
 
 - **Dirección de Red:** Es la dirección más baja del bloque (todos los bits de host en "0") y sirve para identificar el segmento de red; **no se puede asignar** a ningún host.
 - **Dirección de Broadcast (Difusión):** Es la dirección más alta del bloque (todos los bits de host en "1") y se usa para enviar un paquete a **todos** los dispositivos de esa red simultáneamente.
->[!amarillo] Maximo numero de hosts en un bloque (red o suubred)
+>[!amarillo] Maximo numero de hosts en un bloque (red o subred)
 >$$Host = 2^k- 2$$
 k =( 32 - prefijo)
 - **Direcciones Especiales:**
