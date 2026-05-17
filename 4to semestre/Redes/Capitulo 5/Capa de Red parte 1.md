@@ -93,7 +93,7 @@ El propósito fundamental de NAT es **paliar la escasez de direcciones IPv4**. D
 NAT opera generalmente en un dispositivo de interconexión (como un router o cortafuegos) situado en el límite entre la red interna del cliente y el ISP.
 
 >[!example] Hay dos tipos de funcionamiento
-> **Hacia fuera:** Cuando un host interno envía un paquete a Internet, la caja NAT traduce su dirección de origen privada a la dirección IP pública compartida.
+> - **Hacia fuera:** Cuando un host interno envía un paquete a Internet, la caja NAT traduce su dirección de origen privada a la dirección IP pública compartida.
 > - **Hacia dentro:** Cuando llega una respuesta desde Internet, el dispositivo NAT debe identificar a qué host de la red interna corresponde ese tráfico para realizar la traducción inversa.
 
 Para que esto funcione internamente, se utilizan rangos de **direcciones privadas** que no son válidas en la Internet pública:
