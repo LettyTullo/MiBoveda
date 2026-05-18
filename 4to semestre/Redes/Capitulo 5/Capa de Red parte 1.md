@@ -175,4 +175,4 @@ Las rutas en la tabla pueden originarse de tres maneras:
 1. **Directamente conectadas:** Se agregan automáticamente cuando se configura una interfaz del router y se activa. Son las redes a las que el router tiene acceso físico inmediato.
 2. **Rutas estáticas:** Son introducidas manualmente por un administrador de red. Son útiles cuando el camino es obvio y no cambia, pero no se adaptan automáticamente a fallos en la red.
 3. **Rutas dinámicas:** Se generan mediante **protocolos de enrutamiento** (como **OSPF, RIP, BGP o EIGRP**) que intercambian información con otros routers para aprender la topología de la red y calcular los caminos más cortos o eficientes de forma automática.
-
+4. La **puerta de enlace predeterminada** (o _default gateway_) es la interfaz de un **router** que está conectada al mismo segmento de red o subred que un host. Su función principal es actuar como el punto de salida para que los dispositivos de una red local puedan comunicarse con destinos que se encuentran **fuera** de su propio segmento
