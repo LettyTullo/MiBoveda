@@ -83,6 +83,33 @@ A diferencia del direccionamiento por clases antiguo (donde los bloques eran fij
 Debido a que con CIDR un destino puede estar contenido en varios prefijos de diferentes tamaños dentro de la misma tabla de enrutamiento, los routers aplican la regla del **prefijo más largo coincidente** (_longest matching prefix_).
 
 - Esto significa que si un paquete coincide con una entrada de máscara `/20` y otra de `/24`, el router elegirá la entrada `/24` por ser la más específica para ese destino.
+## Direccionamiento por clase 
+El **direccionamiento por clase** (_classful addressing_) fue el diseño original para la asignación de direcciones IP que precedió al sistema actual (CIDR). En este esquema, el espacio de direcciones IP se dividía en cinco categorías fijas, identificadas por los bits de mayor orden de la dirección.
+
+>[!info] Las Cinco Clases de Direcciones
+>- **Clase A (Inicia con bit `0`):** El rango decimal es **0 a 127**. Utiliza los primeros **8 bits** para la red y los **24 restantes** para el host. Permitía pocas redes (128) pero con muchísimos hosts (16 millones cada una).
+>- **Clase B (Inicia con bits `10`):** El rango decimal es **128 a 191**. Utiliza los primeros **16 bits** para la red y los **16 restantes** para el host. Diseñada para organizaciones de tamaño medio, permitía 65,536 hosts por red.
+>- **Clase C (Inicia con bits `110`):** El rango decimal es **192 a 223**. Utiliza los primeros **24 bits** para la red y solo **8 bits** para el host. Admitía más de 2 millones de redes, pero cada una limitada a solo 256 hosts.
+>- **Clase D (Inicia con bits `1110`):** Rango **224 a 239**. Reservada exclusivamente para el tráfico de **multidifusión** (_multicast_).
+>- **Clase E (Inicia con bits `1111`):** Rango **240 a 255**. Reservada para **uso futuro** y experimentación.
+## Diferencias entre CIDR y Direccionamiento con clases
+
+# 1. Flexibilidad de los Bloques (Fijo vs. Variable)
+- **Direccionamiento por clases:** El espacio se dividía en categorías fijas (**Clase A, B y C**) con máscaras predefinidas de 8, 16 o 24 bits. No se podía tener un bloque de un tamaño intermedio.
+- **CIDR:** Los bloques pueden tener **cualquier longitud de prefijo** (notación `/n`), lo que permite que el tamaño de la red se ajuste exactamente a las necesidades de la organización, evitando el desperdicio masivo de direcciones.
+# 2. Uso de Direcciones 
+- **Direccionamiento por clases:** Sufría por ser muy rígido: la Clase A era demasiado grande (16 millones de hosts), la Clase C demasiado pequeña (256 hosts) y la Clase B era el "término medio" tan solicitado que se agotó rápidamente.
+- **CIDR:** Resolvió esto permitiendo la creación de **subredes** (dividir bloques) y **superredes** (combinar bloques), optimizando el uso del escaso espacio de direcciones IPv4.
+
+# 3. Mecánica de Reenvío en los Routers
+
+- **Direccionamiento por clases:** El reenvío era muy simple; el router solo miraba los primeros bits de la dirección para saber automáticamente cuántos bits correspondían a la red y buscaba en una tabla fija.
+- **CIDR:** El reenvío es más complejo porque ya no hay clases fijas. El router debe utilizar la regla del **prefijo más largo coincidente** (_longest matching prefix_), buscando en su tabla la entrada que tenga la máscara más específica para el destino.
+
+# 4. Escalabilidad y Tablas de Enrutamiento
+
+- **Direccionamiento por clases:** Las tablas de enrutamiento globales estaban "explotando" porque cada red individual necesitaba su propia entrada.
+- **CIDR:** Introdujo la **agregación de rutas**. Esto permite que un router anuncie un solo prefijo grande (ej. un `/19`) que represente a miles de redes pequeñas internas, reduciendo drásticamente el tamaño de las tablas de rutas en el núcleo de Internet.
 ## NAT 
 **NAT (Network Address Translation)**, o Traducción de Direcciones de Red, es una tecnología que permite el intercambio de direcciones IP y/o puertos en los paquetes que entran y salen de una red.
 
