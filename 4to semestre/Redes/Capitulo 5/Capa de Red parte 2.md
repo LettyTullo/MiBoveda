@@ -30,7 +30,7 @@ ICMP es la base técnica de dos de las herramientas de diagnóstico más utiliza
 - **Comando "ping":** Utiliza los mensajes **Echo Request** y **Echo Reply**. El emisor envía un "eco" y el receptor está obligado a devolverlo, confirmando que la comunicación entre ambos es posible.
 - **Comando "traceroute" (o tracert):** Utiliza de forma ingeniosa el mensaje de **Tiempo excedido**. Envía una serie de paquetes con el TTL empezando en 1 y aumentando de uno en uno en cada intento. Cada router en el camino descarta el paquete cuando el TTL llega a cero y devuelve un mensaje ICMP de error, permitiendo al emisor identificar cada salto en la ruta hasta el destino final.
 ## Protocolo ARP (Address Resolution Protocol)
-El protocolo **ARP (Address Resolution Protocol)** es un mecanismo fundamental de la capa de red que se encarga de **mapear direcciones lógicas (IP) a direcciones físicas (MAC)** dentro de una red de área local.
+El protocolo **ARP (Address Resolution Protocol)** es un mecanismo fundamental de la capa de red que se encarga de **mapear(resolucion) direcciones lógicas (IP) a direcciones físicas (MAC)** dentro de una red de área local.
 # ¿Por qué es necesario el ARP?
 
 Aunque las aplicaciones y el software de red utilizan direcciones IP para identificar los destinos, las tarjetas de red (NIC) de la capa de enlace de datos, como las de Ethernet, **no entienden las direcciones IP**. Las NIC solo pueden enviar y recibir tramas basándose en direcciones físicas de 48 bits (direcciones MAC). Por lo tanto, se necesita un "traductor" que convierta la dirección IP en una dirección MAC para que el paquete pueda viajar por el cable físico.
