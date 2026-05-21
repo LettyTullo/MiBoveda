@@ -116,3 +116,7 @@ Esta tabla resume todas las variantes de 10 Gigabit según el medio físico:
 | **10GBase-ER**  | Fibra Monomodo        | 40 km                | Larga distancia / Troncales (1,5 $\mu$m). |
 | **10GBase-CX4** | Cobre (Twinax)        | 15 m                 | Muy baja latencia en distancias mínimas.  |
 | **10GBase-T**   | Par Trenzado (Cat 6a) | 100 m                | Compatibilidad y bajo costo en cobre.     |
+- **10 Mbps (Ethernet clásico - 10Base-T):** 
+- **100 Mbps (Fast Ethernet - 100Base-TX):** 
+- **1 Gbps / 1000 Mbps (Gigabit Ethernet - 1000Base-T):** 
+- **10 Gbps (10 Gigabit Ethernet - 10GBase-T):**
