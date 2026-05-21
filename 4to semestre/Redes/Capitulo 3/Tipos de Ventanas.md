@@ -66,6 +66,7 @@ PPP ofrece tres características fundamentales para garantizar la comunicación:
 
 3. **NCP (Network Control Protocol):** Una familia de protocolos para negociar las opciones de la capa de red de forma independiente al protocolo utilizado (como **IPv4 o IPv6**). Existe un NCP diferente para cada capa de red soportada.
 # 2. Formato de la trama PPP
+![[Pasted image 20260521184129.png]]
 La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 
 > [!success] Estructura de Campos
