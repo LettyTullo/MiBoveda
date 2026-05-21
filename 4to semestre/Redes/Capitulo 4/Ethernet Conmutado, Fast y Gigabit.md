@@ -120,3 +120,5 @@ Esta tabla resume todas las variantes de 10 Gigabit según el medio físico:
 - **100 Mbps (Fast Ethernet - 100Base-TX):** 
 - **1 Gbps / 1000 Mbps (Gigabit Ethernet - 1000Base-T):** 
 - **10 Gbps (10 Gigabit Ethernet - 10GBase-T):**
+
+[[Redes inalambricas parte 1]]
