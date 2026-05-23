@@ -71,13 +71,13 @@ Gigabit Ethernet es la evolución que incrementa la velocidad a **1000 Mbps (1 G
 # Implementaciones Físicas y Medios
 Existen diferentes variantes según el cableado y la distancia necesaria:
 
-|**Estándar**|**Medio de Transmisión**|**Distancia Máxima**|**Características Clave**|
-|---|---|---|---|
-|**1000Base-T**|Cobre (4 pares UTP Cat 5e/6)|100 m|La más común. Usa los 4 pares en modo dual full-duplex.|
-|**1000Base-SX**|Fibra Multimodo (Onda corta)|550 m|Usa LEDs o láseres económicos; ideal para interiores.|
-|**1000Base-LX**|Fibra Monomodo/Multimodo|5 km|Usa láseres; para largas distancias (troncales).|
-|**1000Base-CX**|Cobre (2 pares STP)|25 m|Cables apantallados muy cortos.|
-|**1000Base-TX**|Cobre (2 pares UTP Cat 6)|100 m|Estándar TIA/EIA 854; requiere mayor categoría de cable.|
+| **Estándar**    | **Medio de Transmisión**     | **Distancia Máxima** | **Características Clave**                                |
+| --------------- | ---------------------------- | -------------------- | -------------------------------------------------------- |
+| **1000Base-T**  | Cobre (4 pares UTP Cat 5e/6) | 100 m                | La más común. Usa los 4 pares en modo dual full-duplex.  |
+| **1000Base-SX** | Fibra Multimodo (Onda corta) | 550 m                | Usa LEDs o láseres económicos; ideal para interiores.    |
+| **1000Base-LX** | Fibra Monomodo/Multimodo     | 5 km                 | Usa láseres; para largas distancias (troncales).         |
+| **1000Base-CX** | Cobre (2 pares STP)          | 25 m                 | Cables apantallados muy cortos.                          |
+| **1000Base-TX** | Cobre (2 pares UTP Cat 6)    | 100 m                | Estándar TIA/EIA 854; requiere mayor categoría de cable. |
 
 # Modos de Operación
 Dependiendo del dispositivo de interconexión (Hub o Switch), el protocolo se comporta de dos formas:
