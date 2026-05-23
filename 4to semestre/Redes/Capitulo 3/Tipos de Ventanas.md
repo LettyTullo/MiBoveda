@@ -60,7 +60,7 @@
 
 # 1. Componentes principales de PPP
 PPP ofrece tres características fundamentales para garantizar la comunicación:
- 1. **Método de entramado:** Un mecanismo para **delimitar inequívocamente** el inicio y el fin de cada trama, que además incluye **detección de errores**.
+ 1. **Método de entramado:** Un mecanismo para **delimitar el inicio y el fin de cada trama, que además incluye **detección de errores**.
  
 2. **LCP (Link Control Protocol):** Un protocolo de control de enlace diseñado para **activar las líneas, probarlas, negociar opciones y desactivarlas** cuando ya no se necesitan.
 
