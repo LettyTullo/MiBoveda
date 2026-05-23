@@ -79,7 +79,7 @@ Es la base de las redes Ethernet no conmutadas y establece condiciones específi
 > - **Backoff Exponencial Binario:** Tras una colisión, se espera un tiempo aleatorio definido por el intervalo $2^i - 1$, donde $i$ es el número de colisiones consecutivas. Tras 16 intentos fallidos, el sistema "dice que ocurrio un error".
 >  $$\text{Espera} = \text{Número aleatorio en el rango } [0, 2^i - 1]$$
 > 
-> 	_Donde $i$ es el número de colisiones consecutivas experimentadas por la trama._ 
+
 
 # 3. Protocolos Libres de Colisiones
 
