@@ -32,6 +32,13 @@ Imagina que estás en una cena a oscuras. No ves a nadie. Si quieres decir algo,
 > [!danger] Periodo Vulnerable
 > Es el intervalo de tiempo durante el cual una trama puede sufrir una colisión. Si $t$ es el tiempo necesario para transmitir una trama, el periodo vulnerable en ALOHA puro es de $2t$. Esto se debe a que cualquier trama que comience justo antes o durante la transmisión actual provocará un solapamiento y destruirá ambos mensajes.
 
+# Funcionamiento de ALOHA RANURADO
+
+A diferencia del ALOHA puro, donde los usuarios transmiten en cualquier momento, en el ALOHA ranurado el tiempo se divide en **intervalos discretos llamados ranuras o slots**.
+- Cada ranura corresponde exactamente al tiempo de transmisión de una **trama**.
+- Las estaciones no pueden transmitir apenas tienen datos; deben esperar obligatoriamente al **inicio de la siguiente ranura** para comenzar a enviar.
+- Para que esto funcione, todos los usuarios deben estar **sincronizados** con los límites de las ranuras (usualmente mediante una estación central que emite una señal de reloj)
+
 > [!tip] Eficiencia
 > Debido a la falta de coordinación y a que las tramas se envían en tiempos arbitrarios, su rendimiento es bajo:
 > La fórmula de rendimiento es $S = G \cdot e^{-2G}$ (donde $G$ es la carga del canal).
@@ -45,7 +52,7 @@ Los protocolos CSMA son una evolución de ALOHA basados en la premisa: **"Si el 
 #  Variaciones según la Persistencia
 
 **CSMA 1-persistente**
- - **Funcionamiento:** La estación escucha el canal. Si está libre, transmite con probabilidad 1. Si está ocupado, espera escuchando continuamente hasta que el canal quede libre para transmitir de inmediato.     
+ - **Funcionamiento:** La estación escucha el canal. Si está libre, transmite. Si está ocupado, espera escuchando continuamente hasta que el canal quede libre para transmitir de inmediato.     
  - **Debilidad:** Si varias estaciones están esperando, todas intentarán transmitir apenas se libere el canal, garantizando una colisión.
 **CSMA No-persistente** 
 - **Funcionamiento:** Si el canal está ocupado, la estación **no** espera continuamente. En su lugar, espera un tiempo aleatorio y vuelve a iniciar el algoritmo.
