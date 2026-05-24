@@ -53,14 +53,11 @@ Para evitar saturar la red con mensajes de difusión cada vez que se quiere envi
 - **Envío fuera de la red local:** Si el host destino no está en la misma subred, el emisor no realiza ARP por la IP del destino final. En su lugar, realiza ARP para obtener la dirección MAC de su **puerta de enlace predeterminada** (el router) y le envía el paquete a él para que lo encamine.
 - **Proxy ARP:** Es una configuración donde un router responde a solicitudes ARP en nombre de hosts que se encuentran en otras redes, haciendo que el solicitante crea que el destino está en su propia red local.
 - **ARP gratuito:** Ocurre cuando un host difunde su propia dirección IP al conectarse a la red. Sirve para actualizar las tablas ARP de otros hosts y para detectar si hay **direcciones IP duplicadas** en la red (si alguien responde, hay un conflicto).
-# Seguridad: ARP Spoofing
-Debido a que el protocolo ARP es simple y no tiene estado (acepta respuestas incluso si no hubo una petición previa), es vulnerable a ataques de **ARP spoofing** o envenenamiento de tabla. Un atacante puede suministrar su propia dirección MAC como respuesta a una consulta por la IP de otra persona, logrando así que todo el tráfico de la víctima pase por su máquina (**Man-in-the-Middle**).
-
 ## Protocolo DHCP 
 El **DHCP** (Dynamic Host Configuration Protocol o Protocolo de Configuración Dinámica de Host) es un protocolo de la capa de red diseñado para la **asignación automática y dinámica de direcciones IP** y otros parámetros de configuración a los dispositivos que se conectan a una red.
 # Propósito y necesidad
 
-Aunque es posible configurar manualmente la dirección IP de cada ordenador, este proceso es tedioso y propenso a errores en redes grandes. El DHCP soluciona esto permitiendo que una red tenga un servidor encargado de gestionar un **conjunto (pool) de direcciones IP** y asignarlas a los equipos a medida que estos se activan, recuperándolas cuando dejan de usarse.
+Aunque es posible configurar manualmente la dirección IP de cada ordenador, este proceso es tedioso y propenso a errores en redes grandes. El DHCP soluciona esto permitiendo que una red tenga un servidor encargado de gestionar un **conjunto de direcciones IP** y asignarlas a los equipos a medida que estos se activan, recuperándolas cuando dejan de usarse.
 
 # Proceso de funcionamiento (4 pasos clave)
 
@@ -72,23 +69,6 @@ Cuando un dispositivo (cliente) se conecta a la red y no tiene una dirección IP
 4. **DHCP ACK:** El servidor confirma la asignación con un acuse de recibo, indicando que la configuración está lista para ser usada.
 
 _Nota: Si el servidor DHCP no está en la misma red local, los routers pueden configurarse para recibir estas difusiones y retransmitirlas hacia donde se encuentre el servidor._
-
-# Concepto de Arrendamiento (Leasing)
-
-La asignación de una dirección IP no suele ser permanente, sino por un **periodo fijo de tiempo** llamado **arrendamiento** o _lease_.
-- Esto evita que las direcciones se pierdan si un host abandona la red sin devolverla.
-- Justo antes de que expire el tiempo, el host debe solicitar una **renovación**; de lo contrario, perderá el derecho a usar esa IP.
-
-# Otros parámetros configurados
-
-Además de la dirección IP, el servidor DHCP proporciona información esencial para que el dispositivo pueda navegar en Internet, como:
-
-- La **máscara de subred**.
-- La dirección IP de la **puerta de enlace predeterminada** (_default gateway_).
-- Las direcciones de los **servidores DNS**.
-- Direcciones de servidores de hora.
-
-Este protocolo ha sustituido casi por completo a métodos más antiguos y limitados como **RARP** y **BOOTP**. Es utilizado ampliamente tanto por administradores de redes empresariales como por los **ISP** (Proveedores de Servicio de Internet) para configurar automáticamente los módems y routers de los hogares.
 
 
 [[Fin]]
