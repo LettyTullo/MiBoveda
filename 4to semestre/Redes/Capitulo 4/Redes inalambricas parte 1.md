@@ -104,12 +104,6 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 **Capa Física (PHY):** Esta capa varía según el estándar utilizado (como 802.11a, b, g, n, etc.).
 - **Determinación de la tasa de bits:** La velocidad de transmisión (bitrate) se define mediante la combinación de la **técnica de modulación** y la **tasa de codificación** (que provee corrección de errores).
 - **Rate Adaptation - Adaptación de tasas:** Las velocidades se adaptan al medio (evita errores de transmisión)
-## Protocolo de la sub capa MAC CSMA/CA (IEEE 802.11)
-
-> [!abstract] Concepto Clave
-> 
-> El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
-
 # El Problema de la Estación (o Terminal) Escondida
 Este problema ocurre cuando una estación no puede detectar a un competidor potencial porque este se encuentra fuera de su rango de alcance, lo que lleva a colisiones no detectadas en el receptor.
 - **Escenario:** Supongamos que la estación **A** está transmitiendo datos a la estación **B**. Si la estación **C** también quiere transmitir a **B**, escuchará el medio antes de empezar. Como **C** está fuera del alcance de **A**, concluirá erróneamente que el canal está libre.
@@ -120,6 +114,11 @@ Este es el caso inverso, donde una estación decide no transmitir innecesariamen
 - **Escenario:** La estación **B** está enviando datos a la estación **A**. Al mismo tiempo, la estación **C** desea enviar datos a la estación **D**. Al detectar el medio, **C** oye la transmisión de **B** y concluye falsamente que no puede enviar nada.
 - **Consecuencia:** **C** permanece en silencio y posterga su envío, a pesar de que su transmisión a **D** no causaría interferencia en la recepción de **A**.
 - **Impacto:** Se desperdicia ancho de banda y capacidad del sistema, ya que en las redes inalámbricas podrían ocurrir múltiples transmisiones simultáneas si los destinos están lo suficientemente alejados
+## Protocolo de la sub capa MAC CSMA/CA (IEEE 802.11)
+
+> [!abstract] Concepto Clave
+> 
+> El mecanismo **CSMA/CA** (Carrier Sense Multiple Access with Collision Avoidance) es el control de acceso al medio para redes Wi-Fi. A diferencia de Ethernet, Wi-Fi **no puede detectar colisiones** durante la transmisión porque las radios son **semidúplex** y la señal propia opaca a las demás (potencia 1.000.000 a 1).
 # Modos de Operación
 # 1. Función de Coordinación Distribuida (DCF - Distributed Coordination Function)
 
