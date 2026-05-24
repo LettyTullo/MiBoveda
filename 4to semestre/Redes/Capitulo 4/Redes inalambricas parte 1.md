@@ -144,12 +144,12 @@ Mientras que el **DCF** permite un acceso múltiple distribuido donde cada dispo
 # Intervalos entre Tramas (IFS)
 Establecen prioridades según el tiempo de espera:
 
-|**Sigla**|**Nombre**|**Tiempo Típico**|**Uso Principal**|
-|---|---|---|---|
-|**SIFS**|Short IFS|10 μseg|Prioridad alta: **ACK** o respuesta **CTS**.|
-|**PIFS**|PCF IFS|30 μseg|Utilizado en modo centralizado (PCF).|
-|**DIFS**|DCF IFS|50 μseg|Intervalo estándar para **tramas de datos**.|
-|**EIFS**|Extended IFS|Variable|Se usa tras recibir una **trama dañada**.|
+| **Sigla** | **Nombre**   | **Tiempo Típico** | **Uso Principal**                            |
+| --------- | ------------ | ----------------- | -------------------------------------------- |
+| **SIFS**  | Short IFS    | 10 μseg           | Prioridad alta: **ACK** o respuesta **CTS**. |
+| **PIFS**  | PCF IFS      | 30 μseg           | Utilizado en modo centralizado (PCF).        |
+| **DIFS**  | DCF IFS      | 50 μseg           | Intervalo estándar para **tramas de datos**. |
+| **EIFS**  | Extended IFS | Variable          | Se usa tras recibir una **trama dañada**.    |
 # Algoritmo de Backoff (Retroceso)
 
 Si el canal está ocupado, la estación espera un **DIFS** y luego:
