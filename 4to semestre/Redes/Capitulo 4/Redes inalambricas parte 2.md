@@ -35,7 +35,7 @@ En el diseño original del mecanismo **CSMA/CA** ), el protocolo permitía que c
 > - En este escenario, ambas estaciones transmitirán a una velocidad efectiva de solo **4,62 Mbps**, lo que perjudica claramente a la estación más rápida
 # 2. Oportunidad de Transmisión (TXOP)
 
-- **Propósito:** Resolver el problema conocido como **anomalía de velocidad (rate anomaly)**. En las redes originales, cada estación enviaba una sola trama por turno; si una estación era muy lenta (6 Mbps) y otra rápida (54 Mbps), la estación lenta ocupaba el canal mucho más tiempo, penalizando drásticamente el rendimiento de la estación rápida.
+- **Propósito:** Resolver el problema conocido como **anomalía de velocidad (rate anomaly)**.
 
 >[!important] Funcionamiento
 >TXOP permite que una estación, tras ganar el acceso al canal, lo utilice durante un **periodo de tiempo fijo definido por el Punto de Acceso. Durante este intervalo, la estación puede transmitir todas las tramas que pueda.
