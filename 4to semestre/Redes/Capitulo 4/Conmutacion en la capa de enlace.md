@@ -89,6 +89,7 @@ Las VLAN  son una tecnología que permite dividir lógicamente una red física g
 # 2. Funcionamiento y el Estándar IEEE 802.1Q
 
 Para que las VLANs funcionen, los switches deben ser **"VLAN-aware" (gestionables)**.
+
 ![[Pasted image 20260523110924.png|523]]
 
 >[!amarillo] El mecanismo clave es el etiquetado de tramas:
