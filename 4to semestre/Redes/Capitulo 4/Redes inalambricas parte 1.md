@@ -167,8 +167,8 @@ Inicialmente se espera un DIFS
 ## Técnicas para mejorar la confiabilidad
 
 Especialmente en redes como **802.11 (Wi-Fi)**, se utilizan dos estrategias clave para aumentar el éxito de las entregas:
-- **Adaptación de tasa (Rate adaptation):** Consiste en **disminuir la tasa de bits** cuando se pierden demasiadas tramas. Al reducir la velocidad, se utilizan **modulaciones más robustas** que tienen mayores probabilidades de ser recibidas correctamente para una relación señal/ruido determinada.
-- **Fragmentación de la trama:** Consiste en enviar **tramas más cortas**. Matemáticamente, si la probabilidad de error de un bit es $p$, la probabilidad de recibir correctamente una trama de $n$ bits es $(1-p)^n$; por lo tanto, al reducir el tamaño de la trama, aumenta significativamente la probabilidad de que llegue intacta, requiriendo menos retransmisiones totales.
+- **Adaptación de tasa (Rate adaptation):** Consiste en **disminuir la tasa de bits** cuando se pierden demasiadas tramas. Al reducir la velocidad, se utilizan **modulaciones más robustas** que tienen mayores probabilidades de ser recibidas correctamente 
+- **Fragmentación de la trama:** Consiste en enviar **tramas más cortas**, al reducir el tamaño de la trama, aumenta significativamente la probabilidad de que llegue intacta, requiriendo menos retransmisiones totales.
 ## Tecnicas de ahorro de energia 
 Las técnicas de ahorro de energía son fundamentales para prolongar la duración de la batería en dispositivos inalámbricos móviles. Según las fuentes, los estándares **IEEE 802.11 (Wi-Fi)** y **Bluetooth** implementan los siguientes mecanismos:
 # 1. Power Save Mode (PSM) - Wi-Fi
