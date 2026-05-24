@@ -89,3 +89,6 @@ Además de la dirección IP, el servidor DHCP proporciona información esencial 
 - Direcciones de servidores de hora.
 
 Este protocolo ha sustituido casi por completo a métodos más antiguos y limitados como **RARP** y **BOOTP**. Es utilizado ampliamente tanto por administradores de redes empresariales como por los **ISP** (Proveedores de Servicio de Internet) para configurar automáticamente los módems y routers de los hogares.
+
+
+[[Fin]]
