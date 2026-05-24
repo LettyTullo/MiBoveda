@@ -1,4 +1,4 @@
- ## Tipos principales de protocolos
+  ## Tipos principales de protocolos
 
 # 1. Parada y Espera (Stop-and-Wait)
 
