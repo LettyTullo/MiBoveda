@@ -97,6 +97,7 @@ Para que las VLANs funcionen, los switches deben ser **"VLAN-aware" (gestionable
 >- **Etiqueta (Tag):** Se inserta un campo de **4 bytes** en la cabecera Ethernet original.
 >- **Identificador de VLAN (VID):** Dentro de la etiqueta, hay **12 bits** destinados a identificar la VLAN, lo que permite hasta **4096 redes distintas** en un mismo sistema.
 >- **Prioridad:** Incluye 3 bits para gestionar la Calidad de Servicio (QoS), distinguiendo, por ejemplo, el tráfico de voz en tiempo real del tráfico de datos normal.
+>- CFI: Solo se utiliza en Token Ring 
 
 # 3. Interconexión y Tipos de Enlaces
 
