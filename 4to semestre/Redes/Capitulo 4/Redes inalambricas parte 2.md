@@ -112,11 +112,11 @@ Transportan la carga útil real de la red (como paquetes IP). Se caracterizan po
 
 >[!amarillo]  Estructura y Campos:
 >- **Control de Trama (2 bytes):** Contiene los subcampos que definen el comportamiento de la trama (ver detalle abajo).
->- **Duración (2 bytes):** Indica el tiempo en microsegundos que la trama y su respectivo **ACK** (**Acknowledgment** - Acuse de Recibo) ocuparán el canal. Se usa para actualizar el **NAV** (**Network Allocation Vector** - Vector de Asignación de Red) de otras estaciones.
->- **Direcciones (Dirección 1 a 4, 6 bytes cada una):** Las tramas Wi-Fi pueden usar hasta 4 direcciones **MAC** (**Medium Access Control** - Control de Acceso al Medio) para identificar el origen y destino final, además de los **AP** (**Access Point** - Puntos de Acceso) intermedios.
+>- **Duración (2 bytes):** Indica el tiempo en microsegundos que la trama y su respectivo **ACK** ocuparán el canal. Se usa para actualizar el **NAV** (**Network Allocation Vector** - Vector de Asignación de Red) de otras estaciones.
+>- **Direcciones (Dirección 1 a 4, 6 bytes cada una):** Las tramas Wi-Fi pueden usar hasta 4 direcciones **MAC** para identificar el origen y destino final, además de los **AP**  intermedios.
 >- **Secuencia (2 bytes):** Consta de 12 bits para el número de secuencia (detectar duplicados) y 4 bits para el número de fragmento.
 >- **Datos (0 a 2312 bytes):** Contiene el paquete de capas superiores. Comienza con una cabecera **LLC** (**Logical Link Control** - Control de Enlace Lógico) que identifica el protocolo transportado.
->- **Secuencia de Verificación (**Check Sequence**, 4 bytes):** Un código **CRC** (**Cyclic Redundancy Check** - Verificación de Redundancia Cíclica) de 32 bits para detectar errores de transmisión.
+>- **Secuencia de Verificación (**Check Sequence**, 4 bytes):** Un código **CRC** de 32 bits para detectar errores de transmisión.
 
 # Subcampos del Control de Trama:
 
@@ -127,7 +127,7 @@ Transportan la carga útil real de la red (como paquetes IP). Se caracterizan po
 5. **From DS (Desde el Sistema de Distribución):** Indica si la trama proviene de la red cableada.
 6. **Más fragmentos:** Indica que la trama actual es parte de una ráfaga y hay más fragmentos por venir.
 7. **Retry (Reintento):** Indica que la trama es una retransmisión de una que no fue confirmada.
-8. **Gestión de Energía:** Avisa al **AP** que la estación entrará en modo reposo (**PSM** - **Power Save Mode** - Modo de Ahorro de Energía).
+8. **Gestión de Energía:** Avisa al **AP** que la estación entrará en modo reposo 
 9. **Más datos:** El emisor indica que tiene más tramas pendientes para el receptor.
 10. **Protegido:** Indica que el cuerpo de la trama está cifrado.
 11. **Order (Orden):** Indica que las tramas deben entregarse estrictamente en el orden recibido.
