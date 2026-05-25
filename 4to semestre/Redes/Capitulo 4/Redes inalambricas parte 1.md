@@ -86,7 +86,7 @@ La estructura lógica de una red 802.11 se compone de los siguientes elementos:
 >         
 >     - **Modulación 256-QAM:** Transporta más bits por símbolo.
 >         
-- **802.11ax (WiFi 6) - 2019:** Opera en 2.4 a 5 Ghz. Ancho del canal es como ac, combatible con todas las versiones anteriores, modulacion 1024-QAM, Utiliza MU- MIMO. Mejora la eficiencia en entornos densos mediante **OFDMA** (_Orthogonal Frequency Division Multiple Access_; Acceso Múltiple por División de Frecuencias Ortogonales).
+- **802.11ax (WiFi 6) - 2019:** Opera en 2.4 a 5 Ghz, combatible con todas las versiones anteriores, modulacion 1024-QAM, Utiliza MU- MIMO. Mejora la eficiencia en entornos densos mediante **OFDMA** (_Orthogonal Frequency Division Multiple Access_; Acceso Múltiple por División de Frecuencias Ortogonales).
 ## Resumen Comparativo
 
 | **Estándar** | **Año** | **Frecuencia** | **Velocidad Máx.** | **Técnica Principal** |
