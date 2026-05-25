@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
+                "file": "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redes inalambricas parte 2"
+              "title": "Conmutacion en la capa de enlace"
             }
           }
         ]
@@ -198,12 +198,12 @@
   },
   "active": "799c4e9bfaa25729",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
     "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
     "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
-    "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
     "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 1.md",
