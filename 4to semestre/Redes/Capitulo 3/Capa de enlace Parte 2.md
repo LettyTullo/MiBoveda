@@ -1,4 +1,4 @@
-## Codigos convulcionales 
+# Codigos convulcionales 
 Los **códigos convolucionales** son un método de corrección de errores que, a diferencia de los códigos de bloques, opera sobre una **cadena continua de bits** procesando una secuencia de entrada para generar una de salida.
 A continuación se explica su funcionamiento paso a paso:
 1. **Mantenimiento del estado (Memoria):** El codificador utiliza **registros de desplazamiento** para mantener un estado interno. Esto implica que la salida es una **función de los bits de entrada actuales y anteriores**, dotando al sistema de "memoria".
@@ -18,7 +18,7 @@ A continuación se explica su funcionamiento paso a paso:
 6. **Decodificación (Algoritmo de Viterbi):** Para recuperar el mensaje original en canales con ruido, se utiliza el **Algoritmo de Viterbi**. Este algoritmo busca la secuencia de estados con la **mayor probabilidad** de haber generado la secuencia de salida observada, manteniendo en cada paso el camino con el menor número de errores acumulados.
 
 Se utilizan ampliamente en estándares como **GSM (telefonía móvil)**, comunicaciones por satélite y **IEEE 802.11 (Wi-Fi)**.
-## Algoritmo de Viterbi
+# Algoritmo de Viterbi
 El **algoritmo de Viterbi** es el método estándar utilizado para la **decodificación de códigos convolucionales**, específicamente diseñado para procesar señales en canales de comunicación que presentan ruido. Su función principal es determinar la secuencia de bits original con la mayor precisión posible a partir de una señal recibida que puede contener errores.
 ### Proceso de Funcionamiento
 1. **Entrada:** Recibe el mensaje que ha sido codificado y posteriormente afectado por el ruido del canal.
@@ -33,15 +33,17 @@ Aunque su uso principal es en redes (como en el estándar **IEEE 802.11**), el a
 - **Bioinformática**.
 - Comunicaciones satelitales y telefonía móvil GSM.
 # Otros codigos de correccion
-**Códigos Reed-Solomon**
+# **Códigos Reed-Solomon**
 Son códigos de bloques lineales que, a diferencia de los anteriores, no trabajan con bits individuales sino con **símbolos de múltiples bits** (como bytes).
 - **Fortaleza:** Son excelentes para corregir **errores de ráfaga** (donde se dañan muchos bits consecutivos), ya que un error en una ráfaga de bits se trata simplemente como un error en un símbolo.
 - **Aplicaciones:** Se utilizan masivamente en tecnologías como **DSL**, redes de cable, comunicaciones por satélite y en el almacenamiento físico como **CD, DVD y discos Blu-ray**.
-**Códigos LDPC (Low-Density Parity Check)**
+# **Códigos LDPC (Low-Density Parity Check)**
 Estos códigos de comprobación de paridad de baja densidad se basan en una representación matricial donde cada bit de salida depende de solo una pequeña fracción de los bits de entrada.
 - **Ventajas:** Son muy prácticos para tamaños de bloque grandes y ofrecen una capacidad de corrección que **supera a casi todos los demás códigos** en la práctica.
 - **Aplicaciones modernas:** Se han vuelto fundamentales en estándares de alta velocidad como el **Ethernet de 10 Gbps**, redes eléctricas inteligentes y las versiones más recientes de **Wi-Fi (802.11)**
-## Bits de paridad (Deteccion de errores)
+
+## Codigos de deteccion de errores 
+# Bits de paridad (Deteccion de errores)
 La **detección de errores mediante bits de paridad** es uno de los métodos más sencillos y antiguos para asegurar la integridad de los datos transmitidos. Consiste en añadir un **solo bit de redundancia** al final de un mensaje para que la suma total de los bits con valor "1" sea par o impar.
 A continuación se detalla su funcionamiento según las fuentes:
 1. Tipos de Paridad
@@ -61,7 +63,7 @@ Para combatir las **ráfagas de errores** (donde fallan muchos bits consecutivos
 - Los datos se organizan en una matriz rectangular de N columnas.
 - Se calcula un bit de paridad para cada fila y para cada columna.
 - Esta técnica permite detectar ráfagas de error de longitud hasta N, ya que los bits erróneos se distribuyen entre diferentes columnas, afectando a múltiples sumas de paridad.
-## Checksums o sumas de comprobacion 
+# Checksums o sumas de comprobacion 
 
 Un **checksum** (o suma de comprobación) es un valor corto de redundancia que se añade a una unidad de datos para permitir que el receptor detecte errores ocurridos durante la transmisión.
 ### 1. ¿Cómo funciona?

@@ -121,8 +121,6 @@ Como ningún modelo es 100% efectivo, hay que considerar el tipo de error produc
 	- ($1/2$) en canal ruidoso
 	- ($1$) en canales de alta calidad
 
-## Códigos de detección
-
 # Codigo de Hamming 
 - [I] **Distancia de hamming:** es la cantidad mínima de bits cambiados para pasar de una palabra codificada válida a otra cualquiera. La **distancia de un código completo** es la menor de todas las distancias entre una palabra y otra.
 	Un código con distancia mínima de Hamming **d** puede detectar palabras codificadas (codewords) con hasta **s** bits con error, donde $d_{min}\gt{s}$
