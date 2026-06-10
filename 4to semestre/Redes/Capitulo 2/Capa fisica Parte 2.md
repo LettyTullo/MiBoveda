@@ -96,7 +96,7 @@ Los codigos de linea son los esquemas mas complejos que pueden convertir bits en
 **NRZ-I:** Si hay "uno" cambia y si hay "cero" se mantiene
 **Algunas diferencias:** 
 - El ancho de banda
-- Componente DC
+- Componente DCn
 - Sincronismo - el mejor es el de NRZ-I porque considera las largas cadenas de "unos"
 # Eficiencia del ancho de banda
 Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
