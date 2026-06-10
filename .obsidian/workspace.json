@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
+                "file": "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Capa Fisica Parte 3"
+              "title": "Ventanas corredizas"
             }
           }
         ]
@@ -198,15 +198,16 @@
   },
   "active": "799c4e9bfaa25729",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
+    "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
+    "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
+    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 2.md",
+    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
+    "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
     "4to semestre/Redes/Capitulo 2/Capa fisica Parte 2.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
     "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
-    "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
-    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 2.md",
-    "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
-    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
-    "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 1.md",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
@@ -218,7 +219,6 @@
     "2026-05-23.md",
     "Pasted image 20260523110924.png",
     "Pasted image 20260521184129.png",
-    "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
     "4to semestre/Redes/Capitulo 5/Guia de estudio.md",
     "Pasted image 20260516191453.png",
     "Pasted image 20260516191305.png",
