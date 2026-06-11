@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 2.md",
+                "file": "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Capa de enlace Parte 2"
+              "title": "Capa de enlace Parte 1"
             }
           }
         ]
@@ -198,12 +198,15 @@
   },
   "active": "799c4e9bfaa25729",
   "lastOpenFiles": [
-    "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
+    "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
     "4to semestre/Redes/Capitulo 2/Capa fisica Parte 2.md",
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 1.md",
-    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
+    "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+    "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
+    "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
     "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 2.md",
-    "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
+    "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
+    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
     "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
     "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
@@ -235,11 +238,8 @@
     "Pasted image 20260508154505.png",
     "Sin título.base",
     "4to semestre/Redes/Capitulo 4/holaz.md",
-    "4to semestre/Redes/Capitulo 4/Sin título 1.md",
-    "2026-05-03.md",
     "Sin título 1.canvas",
     "4to semestre/Redes/Capitulo 4",
-    "4to semestre/Redes/REPASO GENERAL LO QUE ME FALTA.md",
     "4to semestre/Redes/Ventanas Corredizas",
     "4to semestre/Redes/Capitulo 3",
     "4to semestre/Redes/Capitulo 2/Sin nombre",
