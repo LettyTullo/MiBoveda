@@ -1,15 +1,15 @@
- [I] **RTPC (Red Telefónica Pública Conmutada):** sistema tradicional de telefonía fija que usa la conmutación de circuitos para establecer una conexión física dedicada entre dos usuarios durante una llamada (tiene el objetivo de transmitir la voz humana). Es el **estándar para teléfonos fijos**.
+ **RTPC (Red Telefónica Pública Conmutada):** sistema tradicional de telefonía fija que usa la conmutación de circuitos para establecer una conexión física dedicada entre dos usuarios durante una llamada (tiene el objetivo de transmitir la voz humana). Es el **estándar para teléfonos fijos**.
 - [I] **DSL (Digital Subscriber Line):** tecnología que proporciona acceso a internet de banda ancha a alta velocidad usando los pares de cobre de red telefónica conmutada convencional. (Velocidades de hasta 1Gbps)
 
-1) Red conectada totalmente (full mesh)
+1) Red conectada totalmente 
 	Significa conectar cada teléfono a todos los demás teléfonos de las personas con las que se quiere hablar
-	![[full mesh.png]]
-2) Red centralizada (topología de Estrella)
+	
+2) Red centralizada 
 	La empresa de telecomunicaciones tenía un cable a cada casa de los clientes. Para hacer una llamada, el cliente tenía que llamad a la oficina de la empresa, luego un operador conectaba al cliente con otro mediante un cable corto manualmente.
-	![[centralizada.png]]
+	
 3) Red conmutada con dos niveles
 	Corregía las llamadas de larga distancia, conectaba cada oficina de la empresa de telecomunicaciones y se repetía el proceso indicado arriba.
-	![[conmutada dos niveles.png]]
+	
 
 >[!important] Los bucles locales en los hogares tienen cables de par trenzado de cobre de categoría 3, aunque algunos también son de fibra óptica.
 
@@ -29,8 +29,6 @@
 >[!important] Módems V32 ($9600\text{ kbps}$), V90 y V92 ($56\text{ kbps}$)
 ### Módem DSL
 - [I] DSL: modulación a líneas digitales y acceso a Internet.
-### FTTx
-
 
 ## Digitalizacion de las seañales de voz
 La **digitalización de las señales de voz** es el proceso de convertir datos analógicos en datos digitales para su transporte a través de redes modernas
@@ -71,6 +69,6 @@ a portadora (carrier) **E1** utiliza un total de **32 canales** de 8 bits cada u
 
 Es un sistema de transporte óptico basado en un **Reloj Maestro** que obliga a enviar tramas síncronas cada $125 \mu s$ exactos, garantizando una puntualidad atómica. Su estructura básica es la **Trama STS-1**, una cuadrícula de 9 filas por 90 columnas (810 bytes) donde las primeras 3 columnas son el **Overhead** (control) y el resto es el **SPE** (carga útil). La magia del sistema es que el **SPE es Flotante**, lo que significa que los datos del usuario no tienen que empezar al inicio de la trama, sino que pueden saltar de un "vagón" a otro para no perder tiempo. Para que el receptor no se pierda, se usan los **Punteros**, que son indicadores en el área de control que señalan la coordenada exacta donde empiezan los datos reales, permitiendo una **Jerarquía de Tasas** escalable (desde OC-1 a OC-768) mediante la combinación simple de estos flujos de bits.
 
+![[Pasted image 20260406092443.png|532]]
 
-![[Pasted image 20260406092443.png]]
 [[Capa de enlace Parte 1]]
