@@ -73,11 +73,11 @@ $$
 $$
 M = B \log_2 (1 + \text{SNR}) \text{ bits/seg}
 $$
-## Modulacion digital 
+## 1)Modulacion digital 
 Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  **modulacion digital**.
 El metodo que consiste en utilizar un solo cable para tranportar varias señales se denomina **multiplexacion**. 
 **Las tecnicas de modulacion y multiplexado** se utilizan en canales por cable, fibra, satelite y inalambricos terrestres.
-## Transmision en banda base
+## 1.1) Transmision en banda base
 Transmitir bits a una señal digital. Va desde cero hasta un valor maximo
 - La forma mas sencilla de modulacion digital consiste en utilizar la tension positiva para representar el bit "1" y la tension negativa para representar el bit "0".
 - Conversion de bits a señales digitales: Pulsos de voltaje o amplitud discretos
@@ -137,9 +137,9 @@ Cuando un valor se mantiene constante (no hay cambio por mucho tiempo) puede hab
 	Transformar una cadena de 8 bits para pasar de una codificacion Bipolar a una B8ZS
 	la V quiere decir cambio de nivel
 	solo se hace cuando hay una cadena de 8 "ceros"
-## Transmision de paso-banda o banda pasante
+## 1.2) Transmision de paso-banda o banda pasante
 Para pasar de bits a una señal analogica. En este método, la señal se desplaza para ocupar un **rango superior de frecuencias** que no comienza en cero, situándose en torno a una frecuencia específica denominada **señal portadora** (_carrier_). Se utilizan modems (modulador-demodulador)
-# Tecnicas de modulacion 
+## 1.2.1) Tecnicas de modulacion 
 # Modulacion por desplazamiento de amplitud 
  **ASK (Amplitude Shift Keying)** 
 - **Funcionamiento:** Utiliza dos o más niveles de amplitud diferentes para representar los bits "0" y "1".
@@ -168,7 +168,7 @@ La **codificación de Gray**: es un sistema de asignación de bits a símbolos e
 Su propósito principal en las comunicaciones de red es **minimizar la cantidad de errores de bits** que ocurren debido al ruido en el canal (Para evitar la diafonia)
 
 ![[Pasted image 20260404164221.png]]
-## Tecnicas de multiplexado
+## 1.2.2) Tecnicas de multiplexado
 Comun en redes de altas distancias. Son 4
 # a) FDM (Multiplexacion por division de frecuencia)
 Divide las frecuencias disponibles en diversas bandas. Cada uno tiene una frecuencia distinta utilizan lo que se denomina bandas de guarda para espacios vacíos entre los canales para evitar interferencias entre ellos.
