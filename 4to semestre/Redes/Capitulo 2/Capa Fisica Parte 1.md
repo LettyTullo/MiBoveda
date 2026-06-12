@@ -39,7 +39,7 @@ Es el medio con mayor capacidad tecnológica actual, capaz de transportar ciento
 # Componentes de Infraestructura Relacionados
 - **Racks o Gabinetes:** Estructuras para alojar equipos de red, con anchos estándar de 19 pulgadas y alturas medidas en Unidades "**U**" (1U = 4,445 cm).
 - **Patch Panels:** Elementos pasivos donde termina el cableado físico de la instalación.
-- **Patch Cords:** Cables cortos armados de fábrica para conectar equipos deentro del rack.
+- **Patch Cords:** Cables cortos armados de fábrica para conectar equipos dentro del rack.
 ## b) No Guiados
 Son aquellos que transportan datos sin un medio fisico, sino que se propagan por las ondas a traves del aire, el vacio o el agua. 
 # - El espectro electromagnetico:
