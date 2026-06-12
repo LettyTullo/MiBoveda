@@ -43,7 +43,7 @@ Estos códigos de comprobación de paridad de baja densidad se basan en una repr
 - **Aplicaciones modernas:** Se han vuelto fundamentales en estándares de alta velocidad como el **Ethernet de 10 Gbps**, redes eléctricas inteligentes y las versiones más recientes de **Wi-Fi (802.11)**
 
 ## Codigos de deteccion de errores 
-# Bits de paridad (Deteccion de errores)
+# Bits de paridad 
 La **detección de errores mediante bits de paridad** es uno de los métodos más sencillos y antiguos para asegurar la integridad de los datos transmitidos. Consiste en añadir un **solo bit de redundancia** al final de un mensaje para que la suma total de los bits con valor "1" sea par o impar.
 A continuación se detalla su funcionamiento según las fuentes:
 1. Tipos de Paridad
@@ -64,7 +64,6 @@ Para combatir las **ráfagas de errores** (donde fallan muchos bits consecutivos
 - Se calcula un bit de paridad para cada fila y para cada columna.
 - Esta técnica permite detectar ráfagas de error de longitud hasta N, ya que los bits erróneos se distribuyen entre diferentes columnas, afectando a múltiples sumas de paridad.
 # Checksums o sumas de comprobacion 
-
 Un **checksum** (o suma de comprobación) es un valor corto de redundancia que se añade a una unidad de datos para permitir que el receptor detecte errores ocurridos durante la transmisión.
 ### 1. ¿Cómo funciona?
 El algoritmo trata los datos como una secuencia de palabras de una longitud fija $N$ (por ejemplo, 8 bits).
