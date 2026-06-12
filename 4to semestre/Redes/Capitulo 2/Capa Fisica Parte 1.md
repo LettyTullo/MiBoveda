@@ -56,7 +56,22 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 **UHF** - TV UHF, teléfonos celulares, buscapersonas (_paging_), satélite
 **SHF** - Comunicación por satélite
 **EHF** - Radar, satélite
-
+# TIPOS DE PROPAGACION
+# Propagación superficial (Ground-wave)
+Este tipo de propagación es característico de las bandas de baja frecuencia: **VLF (muy baja frecuencia), LF (baja frecuencia) y MF (frecuencia media)**.
+	- En este modo, las ondas de radio **siguen la curvatura de la Tierra**.
+	- Pueden detectarse a distancias de unos **1,000 km** en las frecuencias más bajas, aunque este alcance disminuye a medida que aumenta la frecuencia.
+	- Un ejemplo común de su uso es la **radiodifusión AM**
+# Propagación aérea (Sky-wave)
+Se asocia específicamente con la banda **HF (alta frecuencia)**.
+- Las ondas terrestres en estas bandas tienden a ser absorbidas por la Tierra, pero las señales que se dirigen hacia arriba llegan a la **ionosfera** (una capa de partículas cargadas entre 100 y 500 km de altura)
+-  La ionosfera **refracta estas ondas** y las envía de vuelta a la Tierra, permitiendo comunicaciones a larga distancia.
+-  Dependiendo de las condiciones atmosféricas, la señal puede rebotar varias veces entre la atmósfera y el suelo
+# Propagación por línea de vista (Line-of-sight)
+Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (frecuencia ultra alta)**, así como para las **microondas**.
+- A frecuencias superiores a 100 MHz, las ondas viajan prácticamente en **línea recta** y pueden enfocarse de forma estrecha.
+- Requiere que el emisor y el receptor estén alineados físicamente sin obstáculos importantes.
+- Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
 # **Tipos de medios y usos del espectro** 
 # 1) **Radio frecuencias de (3KHZ a 2GHZ):** 
 Son faciles de generar, pueden recorrer largas distancias y **penetran edificios con facilidad**.
@@ -75,22 +90,7 @@ Se utiliza para comunicaciones de corto alcance, como mandos a distancia e inter
 - Incluye la tecnología **Li-Fi**, donde los LEDs parpadean en periodos de nanosegundos (imperceptibles al ojo humano) para transmitir datos.
 - También se utiliza el láser aéreo para conectar redes entre edificios cercanos, aunque puede verse afectado por corrientes de convección térmica.
 
-# TIPOS DE PROPAGACION
-# Propagación superficial (Ground-wave)
-Este tipo de propagación es característico de las bandas de baja frecuencia: **VLF (muy baja frecuencia), LF (baja frecuencia) y MF (frecuencia media)**.
-	- En este modo, las ondas de radio **siguen la curvatura de la Tierra**.
-	- Pueden detectarse a distancias de unos **1,000 km** en las frecuencias más bajas, aunque este alcance disminuye a medida que aumenta la frecuencia.
-	- Un ejemplo común de su uso es la **radiodifusión AM**
-# Propagación aérea (Sky-wave)
-Se asocia específicamente con la banda **HF (alta frecuencia)**.
-- Las ondas terrestres en estas bandas tienden a ser absorbidas por la Tierra, pero las señales que se dirigen hacia arriba llegan a la **ionosfera** (una capa de partículas cargadas entre 100 y 500 km de altura)
--  La ionosfera **refracta estas ondas** y las envía de vuelta a la Tierra, permitiendo comunicaciones a larga distancia.
--  Dependiendo de las condiciones atmosféricas, la señal puede rebotar varias veces entre la atmósfera y el suelo
-# Propagación por línea de vista (Line-of-sight)
-Es el método predominante para las bandas **VHF (frecuencia muy alta) y UHF (frecuencia ultra alta)**, así como para las **microondas**.
-- A frecuencias superiores a 100 MHz, las ondas viajan prácticamente en **línea recta** y pueden enfocarse de forma estrecha.
-- Requiere que el emisor y el receptor estén alineados físicamente sin obstáculos importantes.
-- Debido a que viajan en línea recta, si las antenas están muy separadas, la **curvatura de la Tierra** se interpone en el camino, lo que obliga a utilizar **repetidores** periódicos para mantener la comunicación a larga distancia
+
 ## Espectro expandido
 Es un método de codificación fundamental para las comunicaciones inalámbricas en el que la señal de datos se expande a través de un ancho de banda mucho mayor que el rango de frecuencias mínimo necesario para transmitir la información.
 # Beneficios
