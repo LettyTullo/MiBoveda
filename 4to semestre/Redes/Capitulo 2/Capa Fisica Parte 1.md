@@ -10,7 +10,7 @@ Un cable de par trenzado consiste en dos hilos de cobre aislados,
 - **FTP (Foiled Twisted Pair):** Cuenta con una hoja o lámina metálica que rodea los cuatro pares trenzados en su conjunto, brindando una protección intermedia.
 - **STP (Shielded Twisted Pair):** Incorpora una malla metálica o vaina que envuelve los pares, reduciendo drásticamente la interferencia. Su desventaja es que son más costosos, gruesos, pesados y difíciles de manejar.
 - **SFTP:** Combina técnicas de blindaje, añadiendo protección tanto a cada par individual como al conjunto completo del cable.
-![[Pasted image 20260403162653.png]]
+![[Pasted image 20260403162653.png|545]]
 Para realizar las terminaciones de estos cables, se utilizan los conectores **RJ-45**. La asignación de los hilos de colores a los pines está regida por los estándares **EIA/TIA T568A y T568B**. En la actualidad, la norma T568A está prácticamente en desuso y ha sido reemplazada por la T568B.
 Se pueden crear cables **directos (straight-through)** si se usa el mismo estándar en ambos extremos, o cables **cruzados (crossover)** si se mezclan asignaciones para cruzar las vías de transmisión y recepción.
 # - Cable Coaxial
