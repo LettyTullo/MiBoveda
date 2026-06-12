@@ -47,7 +47,7 @@ Es una fuente de luz que emite **luz incoherente** y representa la solución má
 Este dispositivo funciona mediante la emisión de **luz coherente**, lo que permite un haz mucho más concentrado y preciso.
 - **Uso:** Es compatible tanto con fibra multimodo como con **fibra monomodo**. Se requiere obligatoriamente para transmisiones de longitud de onda larga (1.3 micras) y para alcances de larga distancia o redes troncales (_backbones_).
 - **Ventajas:** Permite alcanzar **tasas de datos muy altas** y transmitir señales a **largas distancias** sin necesidad de amplificación frecuente.
-- **Limitaciones:** Es un componente **caro**, tiene una vida útil más corta que el LED y presenta una **sensibilidad sustancial a la temperatura**, lo que obliga a los sistemas (como los de DWDM) a regularla estrictamente para mantener la precisión de las frecuencias.
+- **Limitaciones:** Es un componente **caro**, tiene una vida útil más corta que el LED y presenta una **sensibilidad sustancial a la temperatura**.
 # Comparación entre LED e ILD
 
 | Característica           | LED         | ILD (Láser Semiconductor) |
@@ -122,7 +122,6 @@ Este metodo ofrece inmunidad al ruido y a la distorsion de trayectoria multple (
 En el FHSS (_Frequency-Hopping Spread Spectrum_), el transmisor **salta de una frecuencia a otra** cientos de veces por segundo siguiendo una serie seudoaleatoria.
 - **Funcionamiento:** El receptor debe estar en perfecto sincronismo con el transmisor para saltar entre las mismas frecuencias y reconstruir la señal.
 - **Tipos:** Se clasifica en **Slow FHSS** (donde el tiempo del salto es mayor o igual a la duración del símbolo) y **Fast FHSS** (donde el tiempo del salto es menor que la duración del símbolo), siendo este último el que ofrece mejor rendimiento.
-- **Uso:** Fue inventado por Hedy Lamarr en 1942 para fines militares y hoy se utiliza comercialmente en tecnologías como **Bluetooth**
 # Espectro Expandido de Secuencia Directa (DSSS)
 El DSSS (_Direct Sequence Spread Spectrum_) utiliza una secuencia de códigos para distribuir la señal de datos por una banda de frecuencias más amplia.
 - **Funcionamiento:** Cada bit de datos se representa mediante múltiples bits denominados **chips** usando un código de expansión. 
@@ -132,8 +131,6 @@ Aunque a veces se clasifica por separado, las fuentes la incluyen como una técn
 - **Funcionamiento:** Envía una serie de **impulsos rápidos de baja energía** que varían sus frecuencias. Se define por tener un ancho de banda de al menos 500 MHz o el 20% de su frecuencia central. (la norma IEEE 802.15.4a)
 - **Ventajas:** Tolera interferencias fuertes de otras señales de banda estrecha y, debido a su baja energía por frecuencia, no causa interferencias significativas a otros sistemas.
 - **Uso:** Es ideal para aplicaciones de corto alcance en interiores, radares de precisión y sistemas de localización.
-
-Estas técnicas son vitales para operar en las **bandas ISM** (Industrial, Científica y Médica), que son bandas de uso libre sin licencia (como la de 2.4 GHz) donde muchos dispositivos deben convivir y manejar la interferencia mutua.
 
 # Bandas ISM (Industrial, Scientific, and Medical)
 Su nombre corresponde a las siglas en inglés para **Industrial, Científica y Médica**.
