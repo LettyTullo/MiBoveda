@@ -5,7 +5,7 @@
 	Significa conectar cada teléfono a todos los demás teléfonos de las personas con las que se quiere hablar
 	
 2) Red centralizada 
-	La empresa de telecomunicaciones tenía un cable a cada casa de los clientes. Para hacer una llamada, el cliente tenía que llamad a la oficina de la empresa, luego un operador conectaba al cliente con otro mediante un cable corto manualmente.
+	La empresa de telecomunicaciones tenía un cable a cada casa de los clientes. Para hacer una llamada, el cliente tenía que llamar a la oficina de la empresa, luego un operador conectaba al cliente con otro mediante un cable corto manualmente.
 	
 3) Red conmutada con dos niveles
 	Corregía las llamadas de larga distancia, conectaba cada oficina de la empresa de telecomunicaciones y se repetía el proceso indicado arriba.
@@ -35,8 +35,7 @@ La **digitalización de las señales de voz** es el proceso de convertir datos a
 # Codecs  
 El término **códec** es la abreviatura de **"codificador-decodificador"**. Se trata de un dispositivo o proceso que realiza la conversión entre señales analógicas y bits digitales.
 # La técnica PCM (Modulación por Codificación de Pulsos)
-**PCM (Pulse Code Modulation):** Modulación por Impulsos Codificados. Es la técnica estándar utilizada por los códecs para digitalizar señales de voz analógicas en el sistema telefónico
-
+**PCM (Pulse Code Modulation) ** Es la técnica estándar utilizada por los códecs para digitalizar señales de voz analógicas en el sistema telefónico
 
 La técnica estándar utilizada en el corazón del sistema telefónico y en los **codecs** es la denominada **PCM**. Este proceso consta de los siguientes pasos técnicos:
 - **Muestreo:** Basándose en el **Teorema de Nyquist**, una señal se puede reconstruir totalmente si se muestrea a una frecuencia mayor al doble de su componente más alta. Para un canal de voz de 4,000 Hz, se toman **8,000 muestras por segundo** (una cada 125 μseg).
