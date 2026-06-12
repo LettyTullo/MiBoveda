@@ -64,7 +64,7 @@ La progresión funciona de la siguiente manera,:
 # SONET/SDH
 El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
 
-a portadora (carrier) **E1** utiliza un total de **32 canales** de 8 bits cada uno.
+La portadora (carrier) **E1** utiliza un total de **32 canales** de 8 bits cada uno.
 
 Es un sistema de transporte óptico basado en un **Reloj Maestro** que obliga a enviar tramas síncronas cada $125 \mu s$ exactos, garantizando una puntualidad atómica. Su estructura básica es la **Trama STS-1**, una cuadrícula de 9 filas por 90 columnas (810 bytes) donde las primeras 3 columnas son el **Overhead** (control) y el resto es el **SPE** (carga útil). La magia del sistema es que el **SPE es Flotante**, lo que significa que los datos del usuario no tienen que empezar al inicio de la trama, sino que pueden saltar de un "vagón" a otro para no perder tiempo. Para que el receptor no se pierda, se usan los **Punteros**, que son indicadores en el área de control que señalan la coordenada exacta donde empiezan los datos reales, permitiendo una **Jerarquía de Tasas** escalable (desde OC-1 a OC-768) mediante la combinación simple de estos flujos de bits.
 
