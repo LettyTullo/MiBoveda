@@ -42,12 +42,8 @@ Se usa un campo al inicio de la trama indicando el número de bytes de la misma.
 >	Si la cuenta de bytes es 5 en la segunda trama, se convierte en 7 debido a un solo bit.
 >- [i] Rara vez se utiliza por sí solo por esta razón
 
-![[Pasted image 20260327160201.png|400]]
 ## Marcar Bytes con relleno de Bytes - byte stuffing
 Resuelve el problema de desincronización tras un error de transmisión haciendo que cada trama comience y termine con bytes especiales (banderas -> FLAG). 
-
-> [!important] La bandera se adiciona **al inicio y al final** de la trama
-![[Pasted image 20260327160815.png]]
 
 Desventaja: está ligado al uso de bytes (8 bits) si o si.
 
