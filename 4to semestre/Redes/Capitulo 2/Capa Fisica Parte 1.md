@@ -132,6 +132,7 @@ Aunque a veces se clasifica por separado, las fuentes la incluyen como una técn
 - **Ventajas:** Tolera interferencias fuertes de otras señales de banda estrecha y, debido a su baja energía por frecuencia, no causa interferencias significativas a otros sistemas.
 - **Uso:** Es ideal para aplicaciones de corto alcance en interiores, radares de precisión y sistemas de localización.
 
+## Utilizacion del espectro expandido
 # Bandas ISM (Industrial, Scientific, and Medical)
 Su nombre corresponde a las siglas en inglés para **Industrial, Científica y Médica**.
 Bandas de frecuencias ultra altas que son utilizadas sin licencia
