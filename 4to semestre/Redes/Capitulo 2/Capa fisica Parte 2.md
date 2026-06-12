@@ -60,7 +60,7 @@ Tasa de errores - de bits corruptos
 # Formula de Nyquist 
 Obtuvo una ecuacion que representaba la velocidad maxima transmision en un canal sin ruido con un ancho de banda finito.
 $$
-C = 2B \log_2 M \text{ bits/sec}
+C = 2B \log_2 M \text{ bits/seg}
 $$
 C= Max. tasa de datos
 B= Ancho de banda del canal
@@ -71,7 +71,7 @@ $$
 \text{SNR}_{\text{db}} = 10 \log_{10} (\text{SNR})
 $$
 $$
-M = B \log_2 (1 + \text{SNR}) \text{ bits/sec}
+M = B \log_2 (1 + \text{SNR}) \text{ bits/seg}
 $$
 ## Modulacion digital 
 Para enviar la informacion digital debemos idear señales analogicas que representen bits, ese proceso de conversion de bits a señales que lo representa se denomina  **modulacion digital**.
@@ -92,11 +92,11 @@ Transmitir bits a una señal digital. Va desde cero hasta un valor maximo
 ## NRZ
 La presencia de luz representa el "1" y la ausencia de luz puede representar un "0". El NRZ se propaga por cable y una vez enviada el receptor convierte en bits la señal muestreando la señal en intervalos regulares de tiempo. Esta señal no se recibe exactamente como se envio debido a que estara atenuada y  distorcionada por el canal y el ruido del receptor.
 Los codigos de linea son los esquemas mas complejos que pueden convertir bits en señales que correspondan mejor a consideraciones tecnicas.
-**NRZ-L:** eficiente pero no se utiliza mucho es alta si tenemos "cero" y baja si tenemos "uno"
+**NRZ-L:** eficiente pero no se utiliza mucho. Es alta si tenemos "cero" y baja si tenemos "uno"
 **NRZ-I:** Si hay "uno" cambia y si hay "cero" se mantiene
 **Algunas diferencias:** 
 - El ancho de banda
-- Componente DCn
+- Componente DC
 - Sincronismo - el mejor es el de NRZ-I porque considera las largas cadenas de "unos"
 # Eficiencia del ancho de banda
 Con NRZ la señal puede ciclar entre los niveles positivo y negativo hasta cada 2 bits (en el caso de alternar 1s y 0s). Esto significa que necesitamos una anchura de al menos B/2 Hz cuando la velocidad de los bits es de B bits/seg.
