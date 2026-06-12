@@ -36,6 +36,29 @@ Es el medio con mayor capacidad tecnológica actual, capaz de transportar ciento
 - **Beneficios:** Ofrece un ancho de banda enorme (Terahertz), tasas de datos de cientos de Gbps, baja atenuación, peso ligero e inmunidad a interferencias electromagnéticas.
 - **Desventajas:** Requiere conocimientos específicos para su instalación, los cables son frágiles, el costo es mayor que el cobre y la comunicación suele ser unidireccional por hilo.
 - **Usos comunes:** Redes de "backbone" de larga distancia, acceso a Internet de alta velocidad (FTTH) y redes LAN.
+Los **LED** y los **ILD**  son los dos tipos de fuentes de luz utilizados en los sistemas de transmisión por fibra óptica para convertir impulsos eléctricos en señales luminosas.
+# 1. LED (Diodo Emisor de Luz)
+
+Es una fuente de luz que emite **luz incoherente** y representa la solución más sencilla y económica para la transmisión de datos por fibra.
+- **Uso:** Se utiliza casi exclusivamente con **fibra multimodo**. Es ideal para señalización de longitud de onda corta (0.85 micras) en distancias de hasta 500 metros, como las conexiones dentro de un mismo edificio.
+- **Ventajas:** Posee una **larga vida útil**, es poco sensible a las variaciones de temperatura y tiene un **bajo costo** de implementación.
+- **Limitaciones:** Su principal debilidad es que ofrece una **tasa de datos baja** y su alcance está limitado a distancias cortas.
+# 2. ILD (Diodo Láser de Inyección / Láser Semiconductor)
+Este dispositivo funciona mediante la emisión de **luz coherente**, lo que permite un haz mucho más concentrado y preciso.
+- **Uso:** Es compatible tanto con fibra multimodo como con **fibra monomodo**. Se requiere obligatoriamente para transmisiones de longitud de onda larga (1.3 micras) y para alcances de larga distancia o redes troncales (_backbones_).
+- **Ventajas:** Permite alcanzar **tasas de datos muy altas** y transmitir señales a **largas distancias** sin necesidad de amplificación frecuente.
+- **Limitaciones:** Es un componente **caro**, tiene una vida útil más corta que el LED y presenta una **sensibilidad sustancial a la temperatura**, lo que obliga a los sistemas (como los de DWDM) a regularla estrictamente para mantener la precisión de las frecuencias.
+# Comparación entre LED e ILD
+
+| Característica           | LED         | ILD (Láser Semiconductor) |
+| :----------------------- | :---------- | :------------------------ |
+| **Tipo de luz**          | Incoherente | Coherente                 |
+| **Tasa de datos**        | Baja        | Alta                      |
+| **Distancia**            | Corta       | Larga                     |
+| **Vida útil**            | Larga       | Corta                     |
+| **Costo**                | Bajo        | Caro                      |
+| **Sensibilidad térmica** | Menor       | Sustancial                |
+| **Fibra compatible**     | Multimodo   | Multimodo o Monomodo      |
 # Componentes de Infraestructura Relacionados
 - **Racks o Gabinetes:** Estructuras para alojar equipos de red, con anchos estándar de 19 pulgadas y alturas medidas en Unidades "**U**" (1U = 4,445 cm).
 - **Patch Panels:** Elementos pasivos donde termina el cableado físico de la instalación.
