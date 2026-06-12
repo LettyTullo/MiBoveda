@@ -129,7 +129,7 @@ Como ningún modelo es 100% efectivo, hay que considerar el tipo de error produc
 | **Detección de errores**                                                                                                       | **Corrección de errores**                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 | $d_{\text{min}}$ : distancia de Hamming<br>$s$ : cantidad de bits con error **máximos a detectar**<br>$$d_\text{{min}}\gt{s}$$ | $d_{\text{min}}$ : distancia de Hamming<br>$t$ : cantidad de bits con error **máximos a corregir**<br>$$d_{min}\gt{2t}$$ |
-| ![[Pasted image 20260329172902.png\|250]]                                                                                      | ![[Pasted image 20260329172830.png\|300]]                                                                                |
+|                                                                                                                                |                                                                                                                          |
 
 ---
 ## Corrección de errores de un solo bit
