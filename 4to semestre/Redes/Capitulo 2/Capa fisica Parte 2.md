@@ -188,3 +188,4 @@ Es esencialmente la multiplexación FDM aplicada al espectro de la luz en **enla
 Los multiplexores y demultiplexores son ópticos (no electrónicos)
 
 [[Capa Fisica Parte 3]]
+
