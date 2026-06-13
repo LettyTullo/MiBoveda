@@ -62,7 +62,7 @@ La progresión funciona de la siguiente manera,:
 - **Nivel T3:** Combina **7 flujos T2** para alcanzar **44.736 Mbps**. Este nivel es muy común y es ampliamente alquilado por clientes corporativos que requieren gran ancho de banda.
 - **Nivel T4:** Combina **6 flujos T3** para alcanzar **274.176 Mbps**. Se utiliza casi exclusivamente en el núcleo o _backbone_ del sistema telefónico y no es tan conocido por el público general.
 # SONET/SDH
-El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para unificar sistemas digitales incompatibles y permitir la transmisión a velocidades de gigabits por segundo.
+El multiplexado de las redes ópticas **SONET** (Red Optica Sincrona estándar ANSI utilizado en EE. UU.) y **SDH** (**Jerarquía Digital Síncrona** estándar de la UIT para el resto del mundo) es un método de transporte de datos en la capa física diseñado para los enlaces de fibra óptica de área extensa (WAN) y para permitir la **interoperabilidad** entre distintos operadores, unificar sistemas regionales y proporcionar soporte para la gestión de red (operación, administración y mantenimiento)
 
 La portadora (carrier) **E1** utiliza un total de **32 canales** de 8 bits cada uno.
 
