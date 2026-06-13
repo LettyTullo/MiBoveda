@@ -3,5 +3,6 @@
     "titulos",
     "subtitulosrojos",
     "miscolores"
-  ]
+  ],
+  "theme": "moonstone"
 }
