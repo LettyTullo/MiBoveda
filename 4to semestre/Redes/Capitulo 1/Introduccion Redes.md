@@ -95,14 +95,4 @@ WiFi utiliza frecuencias en **bandas sin licencia** (ISM), como 2,4 GHz y 5 GHz,
 - **Control de Acceso (CSMA/CA):** Debido a que las radios no pueden detectar colisiones mientras transmiten, utilizan el "acceso múltiple con detección de portadora y evitación de colisiones". Los dispositivos escuchan el canal y esperan un tiempo aleatorio antes de transmitir.
 - **Acuses de Recibo (ACK):** A diferencia de Ethernet, WiFi requiere que el receptor envíe un acuse de recibo por cada trama para confirmar que no hubo colisiones.
 - **Problemas de Señal:** Las redes WiFi enfrentan desafíos como el **desvanecimiento multitrayecto** (reflexiones de la señal en objetos sólidos) y el problema del **terminal oculto** (cuando dos estaciones no se ven entre sí pero interfieren al transmitir al mismo receptor)
-# Versiones (LEER)
-- **802.11 (Original, 1997):** Definía una LAN inalámbrica que funcionaba a **1 Mbps o 2 Mbps** mediante saltos de frecuencia o espectro ensanchado.
-- **802.11b (1999):** Funcionaba en la banda de **2,4 GHz** con velocidades de hasta **11 Mbps**. Fue un gran éxito comercial por su facilidad de despliegue.
-- **802.11a (1999):** Introdujo la técnica **OFDM** y operaba en la banda de **5 GHz**, alcanzando hasta **54 Mbps**. Aunque era más rápida, tenía un alcance menor que la versión "b".
-- **802.11g (2003):** Utilizó los métodos de modulación OFDM en la banda de **2,4 GHz**, ofreciendo hasta **54 Mbps** y manteniendo la compatibilidad con dispositivos 802.11b.
-- **802.11n (2009):** Introdujo la tecnología **MIMO** (múltiples antenas) para transmitir varios flujos de datos simultáneamente, superando los **100 Mbps** de rendimiento real.
-- **802.11ac (2013):** Utiliza canales más anchos, modulación 256-QAM y **MU-MIMO** (MIMO multiusuario) en la banda de **5 GHz**, con una capacidad teórica de hasta **7 Gbps** (aunque en la práctica es menor).
-- **802.11ad (2012):** Funciona en la banda de **60 GHz** (ondas milimétricas) alcanzando **7 Gbps**. Su alcance es muy corto y no atraviesa paredes, por lo que es ideal para uso dentro de una sola habitación.
-- **802.11ax / WiFi 6 (2019):** Conocida como "inalámbrica de alta eficiencia", utiliza **OFDMA** y 1024-QAM para alcanzar velocidades teóricas de hasta **11 Gbps**. Está diseñada para mejorar la eficiencia en entornos densos y reducir el consumo de energía.
-- **802.11ay:** Es una mejora de la versión "ad" que multiplica por cuatro el ancho de banda en la frecuencia de 60 GHz
 [[Protocolo de Red]]
