@@ -71,8 +71,8 @@ La trama está orientada a bytes y su diseño se basa en el protocolo **HDLC**.
 
 > [!success] Estructura de Campos
 > - **Flag (Bandera):** Un solo byte **0x7E** que indica el inicio y el fin de la trama.
-> - **Address (Dirección):** Un byte con el valor fijo **255 o 0xFF**, indicando que todas las estaciones deben aceptar la trama (evita asignar direcciones individuales).
-> - **Control:** Un byte con el valor fijo **00000011**, que indica una trama no numerada (servicio sin conexión ni confirmación).
+> - **Address (Dirección):** Un byte con el valor fijo de **255 o 0xFF**, indicando que todas las estaciones deben aceptar la trama (evita asignar direcciones individuales).
+> - **Control:** Un byte con el valor fijo de **3**, que indica una trama no numerada (servicio sin conexión ni confirmación).
 > - **Protocol (Protocolo):** Indica qué tipo de paquete viaja en la carga útil (p. ej., IP, IPv6, LCP o un NCP específico). Por defecto ocupa 2 bytes.
 > - **Payload (Carga útil):** Datos de longitud variable.
 > - **Checksum (Suma de comprobación):** Normalmente un **CRC de 2 o 4 bytes** para detectar errores de transmisión.
