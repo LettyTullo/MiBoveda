@@ -100,7 +100,7 @@ Al transmitir 100 veces más rápido que el Ethernet original, el tiempo de emis
 - **Autonegociación:** Permite ajustar el protocolo a utilizarse de forma automática (puertos 10/100/1000). Al conectarse los equipos negocian la comunicación siguiendo una prioridad. Sólo se utiliza en puertos con cable UTP. En la fibra lo único negociable es el modo dúplex. La Autonegociación puede no ser posible entre equipos de marcas diferentes. La autonegociación es opcional, puede estar o nó.
 - **Tramas Jumbo (Jumbo Frames):** Soporta tramas de hasta **9000 bytes**. Reduce la carga del CPU al mover archivos grandes.
 - **Control de Flujo:** Usa tramas **PAUSE** (Ethertype 0x8808) para detener temporalmente al emisor y evitar que se saturen los búferes del receptor.
-# 10GBase-T (La variante de cobre)
+## 10GBase-T (La variante de cobre)
 - **Cableado:** Requiere **Categoría 6a** para llegar a 100 metros (en Cat 6 solo llega a 55m).
 - **Operación:** Exclusivamente **Full Duplex** (envía y recibe a la vez). Ya **no existe CSMA/CD**.
 - **Codificación:** Usa **PAM-16** (16 niveles de tensión) para meter más datos en el mismo cable.
