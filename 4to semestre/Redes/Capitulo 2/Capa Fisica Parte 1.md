@@ -8,7 +8,7 @@ Aunque no es un "cable", el transporte físico de medios magnéticos o de estado
 Un cable de par trenzado consiste en dos hilos de cobre aislados,
 - **UTP (Unshielded Twisted Pair):** Es el cable de par trenzado sin apantallar. Son cuatro pares de hilos de colores dentro de una funda gris simple. Es el más económico, fácil de instalar y el más utilizado en redes LAN Ethernet y telefonía, pero es el más susceptible a la interferencia externa.
 - **FTP (Foiled Twisted Pair):** Cuenta con una hoja o lámina metálica que rodea los cuatro pares trenzados en su conjunto, brindando una protección intermedia.
-- **STP (Shielded Twisted Pair):** Incorpora una malla metálica o vaina que envuelve los pares, reduciendo drásticamente la interferencia. Su desventaja es que son más costosos, gruesos, pesados y difíciles de manejar.
+- **STP (Shielded Twisted Pair):** Incorpora una malla metálica o vaina que envuelve los pares individuales , reduciendo drásticamente la interferencia. Su desventaja es que son más costosos, gruesos, pesados y difíciles de manejar.
 - **SFTP:** Combina técnicas de blindaje, añadiendo protección tanto a cada par individual como al conjunto completo del cable.
 ![[Pasted image 20260403162653.png|545]]
 Para realizar las terminaciones de estos cables, se utilizan los conectores **RJ-45**. La asignación de los hilos de colores a los pines está regida por los estándares **EIA/TIA T568A y T568B**. En la actualidad, la norma T568A está prácticamente en desuso y ha sido reemplazada por la T568B.
@@ -63,6 +63,7 @@ Este dispositivo funciona mediante la emisión de **luz coherente**, lo que perm
 - **Racks o Gabinetes:** Estructuras para alojar equipos de red, con anchos estándar de 19 pulgadas y alturas medidas en Unidades "**U**" (1U = 4,445 cm).
 - **Patch Panels:** Elementos pasivos donde termina el cableado físico de la instalación.
 - **Patch Cords:** Cables cortos armados de fábrica para conectar equipos dentro del rack.
+![[Pasted image 20260614113336.png|414]]
 ## b) No Guiados
 Son aquellos que transportan datos sin un medio fisico, sino que se propagan por las ondas a traves del aire, el vacio o el agua. 
 # - El espectro electromagnetico:
