@@ -3,7 +3,7 @@
 No es una arquitectura de red, debido a que no especifica los protocolos. Es un modelo de referencia teórico. Una propuesta elaborada por ISO(Organizacion Internacional de Standars) en 1983. Fue revisado en 1995 y se denomina OSI (Interconexion de Sistemas Abiertos)
 ## Capas
 # 1- Capa Fisica: 
-Es la capa más baja y se encarga de la **transmisión de bits puros** a través de un canal de comunicación. Define las especificaciones mecánicas y eléctricas, como los niveles de voltaje, la duración de las señales, los tipos de conectores, cables y las bandas inalámbricas. Su unidad de información es el **bit**. 
+Es la capa más baja y se encarga de la **transmisión de bits puros** a través de un canal de comunicación. Define las especificaciones mecánicas y eléctricas, como los niveles de voltaje, la duración de las señales, los tipos de conectores, cables y las bandas inalámbricas. 
 # 2- Capa de Enlace de Datos:
 Su función principal es transformar un medio de transmisión crudo en una **línea libre de errores** para la capa de red. Sus tareas incluyen:
 - **Enmarcado:** Fragmentar el flujo de bits en unidades llamadas **tramas**.
