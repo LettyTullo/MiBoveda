@@ -122,7 +122,7 @@ Transportan la carga útil real de la red (como paquetes IP). Se caracterizan po
 
 1. **Versión (2 bits):** Actualmente fijada en `00`.
 2. **Tipo (2 bits):** Gestión (`00`), Control (`01`) o Datos (`10`).
-3. **Subtipo (4 bits):** Define la función específica (ej. trama de datos regular o **QoS** - **Quality of Service** - Calidad de Servicio).
+3. **Subtipo (4 bits):** Define la función específica (ej. trama de datos regular o  Calidad de Servicio).
 4. **To DS (Hacia el Sistema de Distribución):** Indica si la trama se dirige hacia la red cableada.
 5. **From DS (Desde el Sistema de Distribución):** Indica si la trama proviene de la red cableada.
 6. **Más fragmentos:** Indica que la trama actual es parte de una ráfaga y hay más fragmentos por venir.

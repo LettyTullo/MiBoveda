@@ -40,12 +40,6 @@ Cuando se instalan enlaces redundantes para aumentar la fiabilidad, se pueden ge
 |**Red**|Router|Paquete|
 |**Enlace de datos**|Bridge, Switch|Trama|
 |**Física**|Repetidor, Hub|Bit|
-
-# Simbolos de dispositivos de red 
-
- ![[Pasted image 20260509173817.png|429]]
-
-
 # Constitución del dominio de broadcast
 Debido a que los puentes **no filtran el tráfico broadcast**, sino que lo retransmiten fielmente a todos sus segmentos conectados, el resultado es que una trama de difusión enviada por una estación en la LAN 1 será repetida por los puentes hasta alcanzar a todas las estaciones en la LAN 2, LAN 3, etc..
 
