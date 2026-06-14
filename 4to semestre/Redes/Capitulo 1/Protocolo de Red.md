@@ -14,7 +14,7 @@ Consiste en diseñar una red que funcione correctamente aunque este formada por 
 # - Asignacion de recursos:
 - Se dice que los recursos que siguen funcionando bien cuando la red crece son escalables. Para lograr la escalabilidad, se utilizan mecanismos como las **estructuras de capas**, que dividen los problemas complejos en partes manejables, y el **enrutamiento jerárquico**, que permite a los routers manejar prefijos de red en lugar de direcciones de hosts individuales para reducir el tamaño de sus tablas
 - Un reparto basado en las estadisticas de demanda se denomina multiplexacion estadistica
-- Un problema comun de asignacion que se plantea en todos los niveles es como evitar que un emisor rapido sature de datos a un receptor lento, a este se lo denomina control de flujo. Este  ocurre cuando el emisor tiene una capacidad de transmisión superior a la capacidad de procesamiento o almacenamiento del receptor. 
+- Un problema comun de asignacion que se plantea en todos los niveles es como evitar que un emisor rapido sature de datos a un receptor lento, a este se lo denomina control de flujo. E
 - A veces la red se sobrecarga porque demasiados ordenadores quieren enviar demasiado trafico y la red no puede entregarlo todo a esta sobrecarga  se le denomina **congestion.**
 - La **calidad de servicios** se refiere al conjunto de mecanismos que permiten a la red conciliar las demandas contrapuestas de recursos para satisfacer las necesidades de las aplicaciones.
 # -Capacidad de evolucion:
