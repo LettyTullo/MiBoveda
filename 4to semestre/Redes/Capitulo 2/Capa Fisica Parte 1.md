@@ -71,7 +71,7 @@ Se propaga mediante las ondas para transportar informacion, dependiendo de la po
 - **Propiedades fundamentales:** Las ondas se definen por su **frecuencia** (f), medida en Hertz (Hz); su **longitud de onda** (λ), que es la distancia entre dos máximos; y su **fase** (ϕ).
 - **Relación matemática:** En el vacío, todas las ondas viajan a la velocidad de la luz (c≈3×108 m/seg), cumpliendo la fórmula c=λ⋅f.
 - **Capacidad de datos:** La cantidad de información que puede transportar una señal es proporcional a su **ancho de banda**
-![[Pasted image 20260404234205.png]]
+![[Pasted image 20260404234205.png|625]]
 **VLF** - Radionavegación de largo alcance
 **LF** - Radiofaros y localizadores de navegación
 **MF** - Radio AM
