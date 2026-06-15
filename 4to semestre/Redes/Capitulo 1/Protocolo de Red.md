@@ -13,10 +13,6 @@ Consiste en diseñar una red que funcione correctamente aunque este formada por 
 - **Enrutamiento**: Encontrar un camino que funcione a traves de una red, permitiendo a routers individuales tomar una decision automaticamente
 # - Asignacion de recursos:
 - Se dice que los recursos que siguen funcionando bien cuando la red crece son escalables. Para lograr la escalabilidad, se utilizan mecanismos como las **estructuras de capas**, que dividen los problemas complejos en partes manejables, y el **enrutamiento jerárquico**, que permite a los routers manejar prefijos de red en lugar de direcciones de hosts individuales para reducir el tamaño de sus tablas
-- Un reparto basado en las estadisticas de demanda se denomina multiplexacion estadistica
-- Un problema comun de asignacion que se plantea en todos los niveles es como evitar que un emisor rapido sature de datos a un receptor lento, a este se lo denomina control de flujo. E
-- A veces la red se sobrecarga porque demasiados ordenadores quieren enviar demasiado trafico y la red no puede entregarlo todo a esta sobrecarga  se le denomina **congestion.**
-- La **calidad de servicios** se refiere al conjunto de mecanismos que permiten a la red conciliar las demandas contrapuestas de recursos para satisfacer las necesidades de las aplicaciones.
 # -Capacidad de evolucion:
 - Con el tiempo las redes crecen y surgen nuevos diseños que deben conectarse a la red existente. 
 - La estratificacion es el mecanismo de estructuracion mas importante para soportar el cambio es la organizacion de la red en una pila de capas o niveles.
