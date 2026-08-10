@@ -51,12 +51,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
+                "file": "5to semestre/Redes II/Capitulo 5/Funciones de la capa de red.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CRC (Redundancia Ciclica)"
+              "title": "Funciones de la capa de red"
             }
           }
         ],
@@ -235,11 +235,14 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "9be28b66b59e4e2c",
+  "active": "4a17abf1d9759224",
   "lastOpenFiles": [
+    "5to semestre/Redes II/Sin título.md",
+    "5to semestre/Redes II/Capitulo 5/Funciones de la capa de red.md",
+    "5to semestre/Redes II/Capitulo 5",
+    "Sin título.md",
     "5to semestre/Redes II",
     "Sin título 1.md",
-    "Sin título.md",
     "Sin nombre",
     "5to semestre",
     "4to semestre/Redes/Capitulo 3/CRC (Redundancia Ciclica).md",
@@ -274,7 +277,6 @@
     "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 1.md",
     "4to semestre/Redes/Capitulo 3/Ventanas corredizas.md",
-    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 2.md",
     "Sin título 2.base",
     "_Adjuntos1/Pasted image 20260521184129.png",
     "_Adjuntos1/Pasted image 20260516191453.png",
@@ -283,8 +285,6 @@
     "Sin título 1.base",
     "Sin título 1.canvas",
     "4to semestre/Redes/Capitulo 4",
-    "4to semestre/Redes/Ventanas Corredizas",
-    "4to semestre/Redes/Capitulo 3",
     "Sin título 2.canvas"
   ]
 }
