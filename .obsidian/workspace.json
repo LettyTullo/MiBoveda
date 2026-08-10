@@ -22,45 +22,21 @@
             }
           },
           {
-            "id": "44c0ffb9e0df8c8f",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "_Adjuntos1/Pasted image 20260404234205.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260404234205"
-            }
-          },
-          {
-            "id": "db1e227ac6279ead",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "_Adjuntos1/Pasted image 20260404234232.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260404234232"
-            }
-          },
-          {
             "id": "4a17abf1d9759224",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5/Funciones de la capa de red.md",
+                "file": "5to semestre/Redes II/Capitulo 5/Seccion 5.1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Funciones de la capa de red"
+              "title": "Seccion 5.1"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -238,7 +214,7 @@
   "active": "4a17abf1d9759224",
   "lastOpenFiles": [
     "5to semestre/Redes II/Sin título.md",
-    "5to semestre/Redes II/Capitulo 5/Funciones de la capa de red.md",
+    "5to semestre/Redes II/Capitulo 5/Seccion 5.1.md",
     "5to semestre/Redes II/Capitulo 5",
     "Sin título.md",
     "5to semestre/Redes II",
