@@ -9,6 +9,14 @@
 
 1. **Conmutación de paquetes de almacenamiento y reenvío (Store-and-Forward):** Un host envía un paquete al router más cercano, el cual lo almacena hasta recibirlo por completo y verificar su suma de comprobación (control de errores); solo entonces lo reenvía al siguiente salto.
 
+![[Screenshot 2026-08-10 203803.png|470]]
+
+
+>[!danger] Explicacion
+> **Hosts (H1 y H2) y Procesos (P1 y P2):** El origen y el destino de la comunicación. El proceso P1 en el Host H1 fragmenta la información en bloques independientes llamados **paquetes** para enviarlos al proceso P2 en el Host H2.
+> - **Equipos del ISP (_ISP's equipment_):** Es la subred del proveedor de servicios de Internet, compuesta por los routers internos (A, B, C, D y E) interconectados por enlaces de comunicación.
+> - **Router de acceso (F) y LAN:** El router F actúa como la pasarela local que entrega los paquetes a la red de área local (LAN) donde reside H2.
+
 2. **Servicios prestados a la capa de transporte:** Existe un debate histórico sobre si el servicio debe ser orientado a la conexión o sin conexión.
     - **Servicio sin conexión (Datagramas):** Los paquetes (datagramas) se inyectan en la red de forma individual y se enrutan de manera independiente. No requiere configuración previa y cada paquete debe llevar la dirección de destino completa.
     - **Servicio orientado a la conexión (Circuitos Virtuales):** Antes de enviar datos, se establece una ruta fija (circuito virtual) desde el origen al destino. Los paquetes llevan un identificador corto en lugar de la dirección completa y todos siguen la misma ruta preestablecida.
