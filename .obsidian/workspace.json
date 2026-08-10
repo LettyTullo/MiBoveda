@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+                "file": "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Modelos de referencia"
+              "title": "Capa de Red parte 2"
             }
           }
         ]
@@ -196,8 +196,19 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "93cffeef94c89925",
+  "active": "9be28b66b59e4e2c",
   "lastOpenFiles": [
+    "Sin nombre",
+    "Fin.md",
+    "Control de errores (Detección y corrección).md",
+    "2026-05-23.md",
+    "2026-05-03.md",
+    "2026-03-08.md",
+    "3. Capa de Red.md",
+    "Screenshot 2026-05-02 161543.png",
+    "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
+    "Sin título.canvas",
+    "Sin título.base",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 1.md",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
@@ -206,7 +217,6 @@
     "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "4to semestre/Redes/Capitulo 4/La Sub - capa MAC parte 2.md",
     "4to semestre/Redes/Capitulo 4/La Sub-capa MAC parte 1.md",
-    "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
     "4to semestre/Redes/Capitulo 1/Introduccion Redes.md",
     "4to semestre/Redes/Capitulo 2/Capa fisica Parte 2.md",
     "4to semestre/Redes/Capitulo 1/Protocolo de Red.md",
@@ -218,32 +228,23 @@
     "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
     "4to semestre/Redes/Capitulo 2/Capa Fisica Parte 3.md",
     "Pasted image 20260614113336.png",
-    "Fin.md",
     "Sin título 2.base",
-    "2026-05-23.md",
     "Pasted image 20260523110924.png",
     "Pasted image 20260521184129.png",
-    "4to semestre/Redes/Capitulo 5/Guia de estudio.md",
     "Pasted image 20260516191453.png",
     "Pasted image 20260516191305.png",
     "Pasted image 20260512150703.png",
-    "4to semestre/Redes/Capitulo 5/Sin título 1.md",
     "4to semestre/Redes/Capitulo 5",
-    "4to semestre/Redes/Sin título.md",
-    "3. Capa de Red.md",
     "Sin título 1.base",
     "Pasted image 20260510191545.png",
     "Pasted image 20260509173817.png",
     "Pasted image 20260509173525.png",
-    "Pasted image 20260508155530.png",
-    "Sin título.base",
     "Sin título 1.canvas",
     "4to semestre/Redes/Capitulo 4",
     "4to semestre/Redes/Ventanas Corredizas",
     "4to semestre/Redes/Capitulo 3",
     "4to semestre/Redes/Capitulo 2/Sin nombre",
     "4to semestre/Redes/Capitulo 2",
-    "Sin título.canvas",
     "Sin título 2.canvas",
     "4to semestre/Redes/Capitulo 1.zip"
   ]
