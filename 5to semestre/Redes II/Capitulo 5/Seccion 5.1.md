@@ -5,9 +5,10 @@
 >- **Garantía de Calidad de Servicio (QoS):** Gestiona parámetros como el ancho de banda, el retardo, la fluctuación (jitter) y la pérdida de paquetes para satisfacer los requisitos de las aplicaciones.
 >- **Direccionamiento uniforme:** Proporciona a la capa de transporte un plan de numeración uniforme para identificar dispositivos, incluso si se atraviesan diferentes tipos de redes (LAN o WAN)
 
-# Aspectos de diseño 
+## Aspectos de diseño 
 
-1. **Conmutación de paquetes de almacenamiento y reenvío (Store-and-Forward):** Un host envía un paquete al router más cercano, el cual lo almacena hasta recibirlo por completo y verificar su suma de comprobación (control de errores); solo entonces lo reenvía al siguiente salto.
+# 1. Conmutación de paquetes de almacenamiento y reenvío (Store-and-Forward):
+Un host envía un paquete al router más cercano, el cual lo almacena hasta recibirlo por completo y verificar su suma de comprobación (control de errores); solo entonces lo reenvía al siguiente salto.
 
 ![[Screenshot 2026-08-10 203803.png|470]]
 
@@ -17,7 +18,7 @@
 > - **Equipos del ISP (_ISP's equipment_):** Es la subred del proveedor de servicios de Internet, compuesta por los routers internos (A, B, C, D y E) interconectados por enlaces de comunicación.
 > - **Router de acceso (F) y LAN:** El router F actúa como la pasarela local que entrega los paquetes a la red de área local (LAN) donde reside H2.
 
-2. **Servicios proporcionados a la capa de transporte**:
+# 2. **Servicios proporcionados a la capa de transporte**:
 
 >[!Rosado]- Servicio sin Conexión (Red de Datagramas)
 En este modelo, inspirado en el sistema de telegramas, cada paquete se inyecta en la red de forma individual
@@ -28,15 +29,24 @@ En este modelo, inspirado en el sistema de telegramas, cada paquete se inyecta e
 
 ![[Screenshot 2026-08-10 205108.png|558]]
 
+>[!info] Explicacion
+>**Estructura de la tabla**
+>- **Dest (Destino):** La columna izquierda enumera todos los posibles routers o nodos de destino final en la red.
+>- **Line (Línea de salida):** La columna derecha indica la interfaz física (o el router vecino directo) por la cual se debe despachar el paquete para alcanzar dicho destino.
+>
+**Cómo lee la tabla el Router A**
+>1. **Consulta del destino:** Cuando H1 envía paquetes hacia H2 (conectado a F), el Router A revisa la cabecera del paquete y busca la letra **F** en la columna **Dest**.
+>2. **Reenvío inicial:** En la tabla inicial (**A's table initially**), la fila **F** apunta a la línea **C**. Por esto, los paquetes 1, 2 y 3 son enviados a través del enlace hacia el Router C.
+>3. **Decisión local en cada salto:** Al recibir el paquete, el Router C consulta su propia tabla (**C's Table**). Para el destino **F**, su línea es **E**. El paquete 1, 2 y 3 sigue la ruta A $\rightarrow$ C $\rightarrow$ E $\rightarrow$ F.
 
-3. Servicio Orientado a la Conexión (Red de Circuitos Virtuales - CV)
+>[!tip] Servicio Orientado a la Conexión (Red de Circuitos Virtuales - CV)
+ Este modelo imita el funcionamiento del sistema telefónico tradicional.
+>- **Funcionamiento:** Antes de enviar datos, se establece una ruta fija desde el router de origen hasta el de destino, denominada **Circuito Virtual (CV)**.
+ >- **Identificadores:** Los paquetes no llevan la dirección completa, sino un **identificador o etiqueta corta** que indica a qué CV pertenecen.
+>- **Enrutamiento:** La decisión de ruta se toma una sola vez al establecer la conexión; todos los paquetes subsiguientes siguen esa misma trayectoria.
+>- **Ejemplo:** Tecnologías como ATM, Frame Relay y **MPLS** utilizan este enfoque
 
-Este modelo imita el funcionamiento del sistema telefónico tradicional.
 
-- **Funcionamiento:** Antes de enviar datos, se establece una ruta fija desde el router de origen hasta el de destino, denominada **Circuito Virtual (CV)**.
-- **Identificadores:** Los paquetes no llevan la dirección completa, sino un **identificador o etiqueta corta** que indica a qué CV pertenecen.
-- **Enrutamiento:** La decisión de ruta se toma una sola vez al establecer la conexión; todos los paquetes subsiguientes siguen esa misma trayectoria.
-- **Ejemplo:** Tecnologías como ATM, Frame Relay y **MPLS** utilizan este enfoque
 2. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
 3. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
 4. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
