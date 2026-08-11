@@ -46,8 +46,24 @@ En este modelo, inspirado en el sistema de telegramas, cada paquete se inyecta e
 >- **Enrutamiento:** La decisión de ruta se toma una sola vez al establecer la conexión; todos los paquetes subsiguientes siguen esa misma trayectoria.
 >- **Ejemplo:** Tecnologías como ATM, Frame Relay y **MPLS** utilizan este enfoque
 
+![[Screenshot 2026-08-10 210650.png|461]]
 
-2. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
-3. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
-4. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
-5. **Software-Defined Networking (SDN):** Una tendencia moderna de diseño es la separación del **plano de control** (el software que decide las rutas) del **plano de datos** (el hardware que reenvía los paquetes), permitiendo una gestión de red más flexible y programable
+>[!info] Explicacion
+>**Estructura de las tablas de conmutación**
+Las tablas ya no buscan destinos globales, sino coincidencias exactas entre la entrada y la salida:
+>- **Entrada (`In`):** Identifica la interfaz física por donde entra el paquete (**Line**) y su número de etiqueta actual (**Tag**).
+>- **Salida (`Out`):** Define hacia qué interfaz sale el paquete (**Line**) y con qué nueva etiqueta se reescribe (**Tag**).
+**Cómo se leen las tablas (Paso a paso)**
+>1. **Evitar colisiones en el Router A:**
+  >- **Host H1** envía un paquete etiquetado como `1` por la línea `H1`. El Router A lo mapea a la salida línea `C` con etiqueta `1`.
+>- **Host H3** envía _también_ un paquete etiquetado como `1` por su línea `H3`. Como el enlace A-C no puede tener dos circuitos usando la misma etiqueta `1`, el Router A la cambia a **etiqueta `2`** al reenviarlo por la línea `C`.
+>1. **Tránsito en el Router C:**
+>- El paquete del circuito de H1 llega desde `A` con `Tag 1` $\rightarrow$ C lo despacha hacia la línea `E` con `Tag 1`.
+>- El paquete del circuito de H3 llega desde `A` con `Tag 2` $\rightarrow$ C lo despacha hacia la línea `E` con `Tag 2`.      
+>3. **Entrega final en el Router E:**
+>- Ambas conexiones llegan al Router E y este las reenvía al Router F (línea `F`), entregando los paquetes en orden hacia el Host H2.
+
+4. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
+5. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
+6. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
+7. **Software-Defined Networking (SDN):** Una tendencia moderna de diseño es la separación del **plano de control** (el software que decide las rutas) del **plano de datos** (el hardware que reenvía los paquetes), permitiendo una gestión de red más flexible y programable
