@@ -17,10 +17,27 @@
 > - **Equipos del ISP (_ISP's equipment_):** Es la subred del proveedor de servicios de Internet, compuesta por los routers internos (A, B, C, D y E) interconectados por enlaces de comunicación.
 > - **Router de acceso (F) y LAN:** El router F actúa como la pasarela local que entrega los paquetes a la red de área local (LAN) donde reside H2.
 
-2. **Servicios prestados a la capa de transporte:** Existe un debate histórico sobre si el servicio debe ser orientado a la conexión o sin conexión.
-    - **Servicio sin conexión (Datagramas):** Los paquetes (datagramas) se inyectan en la red de forma individual y se enrutan de manera independiente. No requiere configuración previa y cada paquete debe llevar la dirección de destino completa.
-    - **Servicio orientado a la conexión (Circuitos Virtuales):** Antes de enviar datos, se establece una ruta fija (circuito virtual) desde el origen al destino. Los paquetes llevan un identificador corto en lugar de la dirección completa y todos siguen la misma ruta preestablecida.
-3. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
-4. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
-5. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
-6. **Software-Defined Networking (SDN):** Una tendencia moderna de diseño es la separación del **plano de control** (el software que decide las rutas) del **plano de datos** (el hardware que reenvía los paquetes), permitiendo una gestión de red más flexible y programable
+2. **Servicios proporcionados a la capa de transporte**:
+
+>[!Rosado]- Servicio sin Conexión (Red de Datagramas)
+En este modelo, inspirado en el sistema de telegramas, cada paquete se inyecta en la red de forma individual
+>- **Funcionamiento:** Cada paquete (datagrama) lleva la **dirección de destino completa**.
+>- **Enrutamiento:** Los routers deciden de forma independiente el camino para cada paquete, lo que significa que paquetes de un mismo mensaje podrían seguir rutas distintas y llegar en desorden.
+>- **Configuración:** No se requiere ninguna configuración previa antes de enviar los datos.
+>- **Ejemplo:** El protocolo **IP**, que es la base de Internet, funciona bajo este esquema.
+
+![[Screenshot 2026-08-10 205108.png|558]]
+
+
+3. Servicio Orientado a la Conexión (Red de Circuitos Virtuales - CV)
+
+Este modelo imita el funcionamiento del sistema telefónico tradicional.
+
+- **Funcionamiento:** Antes de enviar datos, se establece una ruta fija desde el router de origen hasta el de destino, denominada **Circuito Virtual (CV)**.
+- **Identificadores:** Los paquetes no llevan la dirección completa, sino un **identificador o etiqueta corta** que indica a qué CV pertenecen.
+- **Enrutamiento:** La decisión de ruta se toma una sola vez al establecer la conexión; todos los paquetes subsiguientes siguen esa misma trayectoria.
+- **Ejemplo:** Tecnologías como ATM, Frame Relay y **MPLS** utilizan este enfoque
+2. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
+3. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
+4. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
+5. **Software-Defined Networking (SDN):** Una tendencia moderna de diseño es la separación del **plano de control** (el software que decide las rutas) del **plano de datos** (el hardware que reenvía los paquetes), permitiendo una gestión de red más flexible y programable
