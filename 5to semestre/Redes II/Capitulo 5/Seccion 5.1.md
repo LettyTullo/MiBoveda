@@ -63,7 +63,14 @@ Las tablas ya no buscan destinos globales, sino coincidencias exactas entre la e
 >3. **Entrega final en el Router E:**
 >- Ambas conexiones llegan al Router E y este las reenvía al Router F (línea `F`), entregando los paquetes en orden hacia el Host H2.
 
-4. **Implementación del enrutamiento:** El algoritmo de enrutamiento decide por qué línea de salida enviar un paquete entrante. Los algoritmos pueden ser **estáticos** (calculados de antemano) o **adaptativos** (se ajustan a cambios en la topología y el tráfico).
-5. **Internetworking y fragmentación:** Al conectar redes heterogéneas, surgen diferencias en los tamaños máximos de paquetes permitidos. Si un paquete es demasiado grande para la siguiente red, la capa de red debe **fragmentarlo** en unidades menores y luego reensamblarlas en el destino.
-6. **Control de congestión y admisión:** El diseño debe incluir estrategias como el **aprovisionamiento de red** (diseño robusto), el **control de admisión** (rechazar nuevo tráfico si la red está llena) y la **regulación del tráfico** (pedir a los hosts que disminuyan la velocidad).
-7. **Software-Defined Networking (SDN):** Una tendencia moderna de diseño es la separación del **plano de control** (el software que decide las rutas) del **plano de datos** (el hardware que reenvía los paquetes), permitiendo una gestión de red más flexible y programable
+# Comparación entre Datagramas y Circuitos Virtuales
+
+| Aspecto                         | Red de Datagramas (Sin conexión)                                     | Red de Circuitos Virtuales (Con conexión)                                       |
+| ------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **Configuración**               | **No necesaria.** Se envían datos de inmediato.                      | **Requerida.** Toma tiempo establecer el circuito antes de enviar datos.        |
+| **Direccionamiento**            | Cada paquete contiene la dirección completa de origen y destino.     | Cada paquete contiene un **número de CV corto**.                                |
+| **Información de Estado**       | Los routers no conservan información de estado sobre las conexiones. | Cada CV requiere espacio en las tablas del router para cada conexión.           |
+| **Enrutamiento**                | Cada paquete se enruta de forma independiente.                       | La ruta se elige al inicio; todos los paquetes la siguen.                       |
+| **Efecto de fallas del router** | Ninguno, excepto por los paquetes perdidos durante la caída.         | **Fatal.** Terminan todos los CV que pasaban por el router defectuoso.          |
+| **Calidad de Servicio (QoS)**   | **Difícil** de garantizar de forma estricta.                         | **Fácil**, si se pueden asignar recursos (ancho de banda, buffers) de antemano. |
+| **Control de Congestión**       | Difícil de implementar proactivamente.                               | Fácil mediante el **control de admisión** al momento de crear el circuito.      |
