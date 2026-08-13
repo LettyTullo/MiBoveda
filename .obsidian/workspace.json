@@ -25,12 +25,14 @@
             "id": "4a17abf1d9759224",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "_Imagenes/Screenshot 2026-08-10 210650 1.png"
+                "file": "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Screenshot 2026-08-10 210650 1"
+              "icon": "lucide-file",
+              "title": "Algoritmos de enrutamiento"
             }
           }
         ],
@@ -213,12 +215,13 @@
   },
   "active": "4a17abf1d9759224",
   "lastOpenFiles": [
+    "5to semestre/Redes II/Capitulo 5/La capa de red.md",
+    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento.md",
+    "_Imagenes/Screenshot 2026-08-10 210650 1.png",
     "_Imagenes/Screenshot 2026-08-10 210650.png",
     "_Imagenes/Screenshot 2026-08-10 205108.png",
     "_Imagenes/Screenshot 2026-08-10 203803.png",
-    "5to semestre/Redes II/Capitulo 5/Seccion 5.1.md",
     "5to semestre/Redes II/Sin título.md",
-    "_Imagenes/Screenshot 2026-08-10 210650 1.png",
     "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
     "_Imagenes",
     "5to semestre/Redes II/Capitulo 5",
