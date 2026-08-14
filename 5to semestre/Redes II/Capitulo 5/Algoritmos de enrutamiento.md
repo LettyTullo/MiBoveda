@@ -46,3 +46,19 @@ El algoritmo utiliza etiquetas en los nodos para rastrear el progreso. Estas eti
 >4. **Selección del mínimo**: Tras examinar a los vecinos, el algoritmo busca entre **todos** los nodos provisionales del grafo aquel que tenga la **etiqueta de distancia más pequeña**.
 >5. **Cierre de ciclo**: Ese nodo con la distancia mínima se convierte en **permanente** y pasa a ser el nuevo nodo de trabajo para la siguiente ronda.
 >6. **Finalización**: Los pasos 2 a 5 se repiten hasta que el nodo de destino se vuelve permanente o todos los nodos han sido procesados.
+La **inundación** (o _flooding_) es un algoritmo de enrutamiento estático y sencillo cuyo objetivo es hacer llegar un paquete a **todos los nodos** de la red.
+
+## Inundacion
+Bajo esta técnica, cada vez que un enrutador recibe un paquete entrante, lo retransmite por **todas sus líneas de salida**, excepto por aquella por la que el paquete llegó originalmente.
+
+Su principal problema es que genera una **gran cantidad de paquetes duplicados**, lo que puede saturar la red o incluso crear bucles infinitos. Para evitar esto, se utilizan dos métodos de control:
+
+1. **Límite de saltos (TTL):** Se incluye un contador en la cabecera de cada paquete que disminuye en uno en cada enrutador. Cuando el contador llega a cero, el paquete se descarta.
+2. **Números de secuencia:** El enrutador de origen asigna un número de secuencia a cada paquete. Los enrutadores intermedios mantienen una lista de los paquetes que ya han procesado (identificados por origen y secuencia); si llega un paquete que ya está en la lista, no se vuelve a inundar.
+# Ventajas y aplicaciones
+A pesar de su ineficiencia en el uso de ancho de banda, tiene propiedades valiosas:
+- **Extrema robustez:** Es ideal para aplicaciones militares o redes donde muchos nodos pueden fallar simultáneamente, ya que si existe un camino al destino, la inundación lo encontrará.
+- **Métrica de camino más corto:** Como explora todos los caminos posibles en paralelo, garantiza que la primera copia en llegar al destino lo haga por la ruta más corta (menor retardo).
+- **Simplicidad:** Los routers solo necesitan conocer a sus vecinos directos, no requieren una imagen completa de la topología.
+- **Redes inalámbricas:** En estas redes, un mensaje transmitido por una estación es recibido naturalmente por todas las demás en su alcance, lo que facilita este proceso.
+## Enrutamiento por vector de distancia
