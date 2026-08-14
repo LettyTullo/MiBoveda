@@ -31,3 +31,18 @@ Como consecuencia directa de este principio, si juntas todos los mejores caminos
 # 3. ¿Por qué es importante?
 El objetivo final de cualquier algoritmo de enrutamiento (como Dijkstra o Bellman-Ford) es **descubrir y utilizar estos árboles sumideros** para cada enrutador de la red.
 Aunque en la práctica los fallos de routers o enlaces pueden hacer que diferentes nodos tengan ideas distintas sobre la topología, el principio de optimización proporciona el estándar o la "referencia" ideal para medir qué tan bien está funcionando un algoritmo de enrutamiento
+## Algoritmo de Dijkstra 
+Para aplicar el algoritmo, la red se representa como un grafo donde cada nodo es un enrutador y cada arista es un enlace de comunicación. A cada enlace se le asigna un **peso o costo no negativo**, que puede representar la distancia geográfica, el retardo medio, el ancho de banda o el tráfico promedio.
+# Tipos de etiquetas
+El algoritmo utiliza etiquetas en los nodos para rastrear el progreso. Estas etiquetas contienen la distancia desde el origen y el nodo predecesor (para poder reconstruir la ruta al final). Existen dos estados para estas etiquetas:
+
+- **Provisionales**: Se asignan inicialmente a los nodos cuando se descubre un camino, pero aún es posible encontrar uno mejor.
+- **Permanentes**: Una vez que el algoritmo confirma que una etiqueta representa el camino más corto posible desde el origen hasta ese nodo, la marca como permanente y su valor ya nunca cambia.
+
+>[!example] Funcionamiento
+>1. **Inicialización**: Se marca el nodo de origen como **permanente** con una distancia de 0. Todos los demás nodos se marcan como **provisionales** con una distancia de **infinito** y sin predecesor.
+>2. **Examen de vecinos (Relajación)**: El algoritmo toma el nodo que acaba de hacerse permanente (llamado "nodo de trabajo") y examina a todos sus vecinos que aún sean provisionales.
+>3. **Actualización de costos**: Para cada vecino, se calcula la distancia desde el origen sumando la etiqueta del nodo de trabajo y el costo del enlace hacia ese vecino. Si este nuevo valor es **menor** que la etiqueta actual del vecino, se actualiza su etiqueta con el nuevo valor y se marca al nodo de trabajo como su nuevo predecesor.
+>4. **Selección del mínimo**: Tras examinar a los vecinos, el algoritmo busca entre **todos** los nodos provisionales del grafo aquel que tenga la **etiqueta de distancia más pequeña**.
+>5. **Cierre de ciclo**: Ese nodo con la distancia mínima se convierte en **permanente** y pasa a ser el nuevo nodo de trabajo para la siguiente ronda.
+>6. **Finalización**: Los pasos 2 a 5 se repiten hasta que el nodo de destino se vuelve permanente o todos los nodos han sido procesados.
