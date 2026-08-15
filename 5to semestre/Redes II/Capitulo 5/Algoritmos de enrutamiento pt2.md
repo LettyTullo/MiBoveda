@@ -64,3 +64,37 @@ El uso de la jerarquía implica un intercambio de beneficios técnicos:
     - **Caminos subóptimos:** Puede resultar en rutas ligeramente más largas en comparación con el "enrutamiento plano" (donde cada router conoce toda la topología), aunque esta penalización suele ser pequeña y aceptable.
 
 **Ejemplo comparativo:** En una red de **720 nodos** sin jerarquía, cada enrutador necesita **720 entradas**. Si se divide en 24 regiones de 30 enrutadores, cada uno solo necesita **53 entradas** (30 locales + 23 remotas). Con tres niveles (clústeres, regiones y nodos), el número de entradas podría reducirse a tan solo **25**.
+
+## Enrutamiento de difusion (Broadcasting)
+Consiste en enviar simultáneamente un paquete desde un nodo de origen a **todos los demás nodos** de la red. Los métodos para lograr esto son:
+
+- **Envío individual:** La fuente envía un paquete por separado a cada dirección. Es sumamente ineficiente y lento, ya que requiere que el origen conozca la lista completa de todos los destinos.
+- **Enrutamiento multidestino:** El paquete contiene una lista de destinos o un mapa de bits. El router examina la lista, determina qué líneas de salida son necesarias para alcanzar al menos a uno de los destinos y reenvía copias filtradas solo con los destinos que usan esa línea.
+- **Inundación (Flooding):** El router reenvía cada paquete entrante por todas sus líneas excepto por la que llegó. Para evitar duplicados infinitos, se usan **números de secuencia** o un **límite de saltos (TTL)** que se decrementa en cada router. Es el método más robusto y garantiza encontrar la ruta más corta.
+- **Reenvío por Ruta Inversa (RPF):** Un router solo reenvía un paquete de difusión si este llegó por el enlace que el router usa normalmente para alcanzar al origen de la difusión. Esto evita duplicados de forma sencilla y eficiente.
+![[Pasted image 20260815174108.png|375]]
+>[!info] Nota
+>Cuando un router recibe un paquete de difusión cuya fuente original es el **nodo I**:
+>1. **Consulta la ruta invertida:** El router revisa su propia tabla de enrutamiento y se pregunta: _¿Este paquete llegó por la misma línea/interfaz que yo usaría para enviarle un paquete normal a I?_
+>2. **Si la respuesta es SÍ:** Significa que el paquete vino por el camino más rápido desde el origen. El router lo **duplica y reenvía** por todas sus demás líneas (excepto por la que entró).  
+>3. **Si la respuesta es NO:** El paquete llegó por un camino secundario o un bucle. Se **descarta inmediatamente**.
+- **Árboles de expansión (Spanning Trees):** Utiliza un subconjunto de la red que conecta todos los nodos sin ciclos. El router copia el paquete solo en las líneas que forman parte del árbol, lo que genera el número mínimo de paquetes necesarios.
+### 2. Enrutamiento Multidifusión (Multicast)
+
+Este modelo envía un mensaje a un **grupo específico de nodos** identificados por una dirección única (como las de Clase D en IPv4). Su funcionamiento varía según la densidad del grupo:
+
+- **Caso denso (muchos miembros):** Se basa en "podar" (poda o _pruning_) un árbol de expansión de difusión eliminando los enlaces que no llevan a miembros del grupo.
+    - **MOSPF (Multicast OSPF):** En protocolos de estado de enlace, los routers conocen la topología y construyen árboles podados para cada emisor.
+    - **DVMRP:** En vector de distancia, se usa RPF y mensajes `PRUNE` enviados por routers que no tienen hosts interesados para recortar el árbol recursivamente.
+- **Caso disperso (miembros alejados):** Se utilizan **Árboles Basados en el Núcleo (CBT)**, donde se elige un único nodo central como raíz o punto de encuentro. Los emisores envían los datos al núcleo y este los distribuye por el árbol a los miembros. Ahorra memoria porque solo se mantiene un árbol por grupo.
+- **Protocolos en Internet:** El protocolo **IGMP** permite a los routers saber qué hosts locales pertenecen a qué grupos, mientras que **PIM (Protocol Independent Multicast)** es el estándar para construir las rutas dentro de un sistema autónomo.
+
+### 3. Enrutamiento Anycast
+
+En este modelo, un paquete se entrega al **miembro más cercano** de un grupo. Es ideal para servicios donde lo importante es la información y no qué nodo específico la entrega.
+
+- **Funcionamiento técnico:** No requiere protocolos nuevos. Se asigna la **misma dirección IP** a múltiples nodos situados en diferentes ubicaciones.
+- **Lógica de enrutamiento:** Los protocolos estándar (vector de distancia o estado de enlace) no saben que hay varias instancias; simplemente calculan el **camino más corto** hacia la "instancia" más próxima del destino.
+- **Aplicaciones prácticas:**
+    - **DNS:** Se usa para acceder a los servidores raíz, mejorando la fiabilidad y el rendimiento al dirigir al usuario al servidor físicamente más cercano.
+    - **CDNs (Redes de Entrega de Contenido):** Empresas como Cloudflare lo usan para equilibrar la carga y dirigir el tráfico al punto de conexión de red más cercano al cliente.
