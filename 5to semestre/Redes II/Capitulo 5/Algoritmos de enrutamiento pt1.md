@@ -122,3 +122,12 @@ Ilustra la falla en el razonamiento de los routers cuando **el nodo A cae o el e
 # Detalles técnicos y límites
 - **Valor de infinito:** Debido a que los enrutadores deben "abrirse camino" hasta alcanzar el infinito para darse cuenta de que el destino es inalcanzable, se define un valor máximo para limitar este proceso. En el protocolo **RIP**, el valor de "infinito" es **16**.
 - **Convergencia lenta:** Mientras que las "buenas noticias" (nuevos enlaces activos) se propagan rápidamente (un salto por intercambio), las malas noticias pueden tardar muchos intercambios en procesarse totalmente, lo que degrada el rendimiento de la red
+# Algunos mecanismos de solucion
+Para mitigar los fallos en el **enrutamiento por vector de distancia**, específicamente el problema del **conteo al infinito**, se han desarrollado diversos mecanismos técnicos que buscan acelerar la convergencia cuando ocurren "malas noticias" en la red.
+
+Los principales mecanismos de solución mencionados en las fuentes son los siguientes:
+- **Horizonte dividido (Split Horizon):** Este mecanismo prohíbe que un enrutador anuncie una ruta de regreso a través de la misma interfaz por la cual aprendió originalmente dicha ruta. Esto ayuda a evitar bucles de enrutamiento simples entre dos nodos adyacentes.
+- **Envenenamiento de rutas (Route Poisoning):** Cuando un enrutador detecta que una ruta local ha fallado, en lugar de simplemente eliminarla, la mantiene de forma activa en sus actualizaciones pero le asigna inmediatamente el valor de **"infinito"**. Esto informa de manera explícita y rápida a los vecinos que el destino ya no es alcanzable.
+- **Envenenamiento en reversa (Poison Reverse):** Es una variante o mejora del horizonte dividido. En este caso, el enrutador receptor envía una actualización de vuelta por la misma interfaz por la que aprendió la ruta, pero marcando la distancia como "infinito" para asegurar que no se creen rutas cíclicas.
+
+Es importante notar que, a pesar de estos mecanismos, estos no siempre funcionan perfectamente en la práctica, ya que el problema fundamental persiste: cuando un enrutador recibe una ruta de un vecino, no tiene forma de saber con certeza si él mismo forma parte de ese camino anunciado.
