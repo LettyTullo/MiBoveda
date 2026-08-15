@@ -1,4 +1,4 @@
->[!amarillo] Funciones principales de la capa de red
+>[!example] Funciones principales de la capa de red
 >- **Enrutamiento de paquetes:** Su función fundamental es determinar la ruta que deben seguir los paquetes desde la máquina de origen hasta la de destino. Para ello, debe conocer la **topología de la red** (enrutadores y enlaces) y calcular las rutas óptimas.
 >- **Interconexión de redes (Internetworking):** Permite la comunicación entre dispositivos situados en redes o subredes autónomas distintas, lidiando con la heterogeneidad de las tecnologías de red.
 >- **Gestión del tráfico y congestión:** Debe evitar sobrecargar ciertas líneas o enrutadores mientras otros permanecen ociosos. Cuando hay demasiados paquetes en una parte de la red, se produce congestión, y la capa de red debe aplicar mecanismos para mitigarla.

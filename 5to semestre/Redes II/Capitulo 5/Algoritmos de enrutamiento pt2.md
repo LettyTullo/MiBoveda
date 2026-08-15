@@ -79,17 +79,14 @@ Consiste en enviar simultáneamente un paquete desde un nodo de origen a **todos
 >2. **Si la respuesta es SÍ:** Significa que el paquete vino por el camino más rápido desde el origen. El router lo **duplica y reenvía** por todas sus demás líneas (excepto por la que entró).  
 >3. **Si la respuesta es NO:** El paquete llegó por un camino secundario o un bucle. Se **descarta inmediatamente**.
 - **Árboles de expansión (Spanning Trees):** Utiliza un subconjunto de la red que conecta todos los nodos sin ciclos. El router copia el paquete solo en las líneas que forman parte del árbol, lo que genera el número mínimo de paquetes necesarios.
-### 2. Enrutamiento Multidifusión (Multicast)
-
+## Enrutamiento Multidifusión (Multicast)
 Este modelo envía un mensaje a un **grupo específico de nodos** identificados por una dirección única (como las de Clase D en IPv4). Su funcionamiento varía según la densidad del grupo:
-
 - **Caso denso (muchos miembros):** Se basa en "podar" (poda o _pruning_) un árbol de expansión de difusión eliminando los enlaces que no llevan a miembros del grupo.
-    - **MOSPF (Multicast OSPF):** En protocolos de estado de enlace, los routers conocen la topología y construyen árboles podados para cada emisor.
-    - **DVMRP:** En vector de distancia, se usa RPF y mensajes `PRUNE` enviados por routers que no tienen hosts interesados para recortar el árbol recursivamente.
-- **Caso disperso (miembros alejados):** Se utilizan **Árboles Basados en el Núcleo (CBT)**, donde se elige un único nodo central como raíz o punto de encuentro. Los emisores envían los datos al núcleo y este los distribuye por el árbol a los miembros. Ahorra memoria porque solo se mantiene un árbol por grupo.
+    - **MOSPF (Multicast OSPF)(Open Shortest Path First):** En protocolos de estado de enlace, los routers conocen la topología y construyen árboles podados para cada emisor.
+    - **DVMRP(distance vector multicast routing protocol):** En vector de distancia, se usa RPF y mensajes `PRUNE` enviados por routers que no tienen hosts interesados para recortar el árbol recursivamente.
+- **Caso disperso (miembros alejados):** Se utilizan **Árboles Basados en el Núcleo (CBT) (Core-Based Tree)**, donde se elige un único nodo central como raíz o punto de encuentro. Los emisores envían los datos al núcleo y este los distribuye por el árbol a los miembros. Ahorra memoria porque solo se mantiene un árbol por grupo.
 - **Protocolos en Internet:** El protocolo **IGMP** permite a los routers saber qué hosts locales pertenecen a qué grupos, mientras que **PIM (Protocol Independent Multicast)** es el estándar para construir las rutas dentro de un sistema autónomo.
-
-### 3. Enrutamiento Anycast
+## Enrutamiento Anycast
 
 En este modelo, un paquete se entrega al **miembro más cercano** de un grupo. Es ideal para servicios donde lo importante es la información y no qué nodo específico la entrega.
 
@@ -98,3 +95,5 @@ En este modelo, un paquete se entrega al **miembro más cercano** de un grupo. E
 - **Aplicaciones prácticas:**
     - **DNS:** Se usa para acceder a los servidores raíz, mejorando la fiabilidad y el rendimiento al dirigir al usuario al servidor físicamente más cercano.
     - **CDNs (Redes de Entrega de Contenido):** Empresas como Cloudflare lo usan para equilibrar la carga y dirigir el tráfico al punto de conexión de red más cercano al cliente.
+
+[[Manejo de trafico de la capa de red]]
