@@ -62,3 +62,31 @@ A pesar de su ineficiencia en el uso de ancho de banda, tiene propiedades valios
 - **Simplicidad:** Los routers solo necesitan conocer a sus vecinos directos, no requieren una imagen completa de la topología.
 - **Redes inalámbricas:** En estas redes, un mensaje transmitido por una estación es recibido naturalmente por todas las demás en su alcance, lo que facilita este proceso.
 ## Enrutamiento por vector de distancia
+El **enrutamiento por vector de distancia** o (Bellman-Ford) es un algoritmo de enrutamiento dinámico en el que cada enrutador mantiene una tabla (un vector) que registra la mejor distancia conocida a cada destino y qué enlace debe utilizar para llegar allí.
+# Funcionamiento básico
+- **Intercambio local:** A diferencia de otros algoritmos, los enrutadores que utilizan vector de distancia solo intercambian información con sus **vecinos directos**.
+- **Contenido de la tabla:** Cada entrada de la tabla de enrutamiento consta de dos partes: la línea de salida preferida para ese destino y una estimación de la distancia (métrica) hacia él.
+- **Proceso de actualización:** Periódicamente, cada enrutador envía a sus vecinos una lista de sus distancias estimadas a todos los destinos. Cuando un enrutador recibe un vector de un vecino \(X\), y sabe que el retraso hacia \(X\) es de \(m\) unidades, calcula que puede llegar a cualquier destino \(i\) a través de \(X\) con una distancia total de \(X_i + m\). Si este nuevo cálculo resulta ser menor que la mejor distancia que ya tenía registrada, actualiza su tabla.
+
+![[Screenshot 2026-08-14 125441.png|432]]
+  
+Para construir su nueva tabla, el Router J necesita combinar tres datos:
+1. **Sus vecinos directos:** Mirando el mapa (_Network_), los vecinos conectados directamente a **J** son **A**, **I**, **H** y **K**.
+2. **El retardo hacia sus vecinos:** J mide el tiempo de respuesta actual hacia cada vecino directo:
+    - Retardo $J \to A = 8$
+    - Retardo $J \to I = 10$
+    - Retardo $J \to H = 12$
+    - Retardo $J \to K = 6$
+3. **Los vectores recibidos:** Cada vecino le envía a J una lista (vector) con los tiempos que ellos tardan en llegar a **todos** los nodos de la red (columnas **A, I, H, K**).
+>[!info] ¿Cómo calcula J su nueva tabla?
+Para cada destino posible en la red ($A, B, C, \dots, L$), Router J prueba pasar por cada uno de sus 4 vecinos y calcula el costo total usando la fórmula:
+$$\text{Costo Total} = \text{Retardo de J al vecino} + \text{Retardo del vecino al destino final}$$
+Luego, **elige el menor valor** y guarda por qué línea (interfaz) debe enviar el paquete.
+
+>[!succes] Ejemplo
+>1. Para enviar un paquete al destino **C**:
+>- **Vía A:** $8 \text{ (de J a A)} + 25 \text{ (de A a C)} = 33$
+>**Vía I:** $10 \text{ (de J a I)} + 18 \text{ (de I a C)} = \mathbf{28}$ $\leftarrow$ **¡Mínimo!**
+>- **Vía H:** $12 \text{ (de J a H)} + 19 \text{ (de H a C)} = 31$    
+>- **Vía K:** $6 \text{ (de J a K)} + 36 \text{ (de K a C)} = 42$
+> **Resultado en la tabla de J para C:** Guarda el tiempo estimado **28** y la línea de salida **I**.
