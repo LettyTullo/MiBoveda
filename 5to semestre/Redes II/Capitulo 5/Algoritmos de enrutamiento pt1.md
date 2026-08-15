@@ -93,7 +93,32 @@ Luego, **elige el menor valor** y guarda por qué línea (interfaz) debe enviar 
 
 # El problema del conteo infinito
 El **problema del conteo al infinito** es un inconveniente fundamental de los algoritmos de **enrutamiento por vector de distancia** (como RIP) que ocurre cuando el algoritmo reacciona con lentitud ante las "malas noticias", como la caída de un enlace o un enrutador.
-**¿Por qué ocurre?
+
+**¿Por qué ocurre?**
 El núcleo del problema es que, en el enrutamiento por vector de distancia, cuando un enrutador le informa a un vecino que tiene una ruta hacia un destino, el vecino **no tiene forma de saber si él mismo forma parte de esa ruta**
 
 ![[Pasted image 20260815150732.png|486]]
+
+>[!example] Funcionamiento
+>**Gráfico (a): Propagación de "Buenas Noticias"**
+Representa el proceso cuando el nodo A entra en funcionamiento y la red aprende rápidamente a llegar a él:
+>- **Al principio:** Los nodos B, C, D y E desconocen cómo llegar a A, por lo que sus distancias son infinitas ($\infty, \infty, \infty, \infty$).  
+>- **1er intercambio:** B se conecta directamente a A y detecta que su distancia es de $1$ salto.  
+>- **2do intercambio:** C recibe el vector de B. Sabiendo que B llega a A en 1 salto, C calcula que puede llegar a A pasando por B en $1 + 1 = 2$ saltos.  
+>- **3er intercambio:** D recibe la actualización de C y calcula su costo como $2 + 1 = 3$ saltos.  
+>- **4to intercambio:** E escucha a D y fija su distancia en $3 + 1 = 4$ saltos.  
+> **Conclusión del caso (a):** La información positiva se propaga a razón de $1$ salto por intercambio. La red converge totalmente en solo $N-1$ pasos
+> 
+
+>[!danger] **Gráfico (b): Propagación de "Malas Noticias" (Conteo al infinito)**
+Ilustra la falla en el razonamiento de los routers cuando **el nodo A cae o el enlace A-B se rompe**:
+>- **Al principio:** La red está convergida con las distancias reales hacia A ($B=1, C=2, D=3, E=4$).
+>- **1er intercambio:** B detecta que se rompió la conexión directa con A. Sin embargo, consulta el último vector recibido de C (donde C decía estar a distancia $2$ de A). B piensa erróneamente: _"Si C llega a A en 2 saltos, yo puedo ir a A a través de C en $2 + 1 = 3$ saltos"_. B actualiza su valor a **3**.
+>- **2do intercambio:** C recibe la tabla de B. C solía llegar a A pasando por B, pero ahora ve que B dice estar a distancia 3, por lo que C calcula $3 + 1 = \mathbf{4}$.  
+>- **3er intercambio:** B observa que la distancia de C subió a 4, así que B incrementa su valor a $4 + 1 = \mathbf{5}$. Al mismo tiempo, D nota que C subió a 4 y actualiza su costo a $4 + 1 = \mathbf{5}$.  
+>- **4to intercambio:** C ve a B en 5 y recalcula $5 + 1 = \mathbf{6}$. E ve a D en 5 y recalcula $5 + 1 = \mathbf{6}$.  
+>- **5to e intercambios posteriores:** B y D incrementan su valor a **7**, en el siguiente paso C y E suben a **8**, y así sucesivamente.
+
+# Detalles técnicos y límites
+- **Valor de infinito:** Debido a que los enrutadores deben "abrirse camino" hasta alcanzar el infinito para darse cuenta de que el destino es inalcanzable, se define un valor máximo para limitar este proceso. En el protocolo **RIP**, el valor de "infinito" es **16**.
+- **Convergencia lenta:** Mientras que las "buenas noticias" (nuevos enlaces activos) se propagan rápidamente (un salto por intercambio), las malas noticias pueden tardar muchos intercambios en procesarse totalmente, lo que degrada el rendimiento de la red

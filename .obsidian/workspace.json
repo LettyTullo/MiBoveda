@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento.md",
+                "file": "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Algoritmos de enrutamiento"
+              "title": "Algoritmos de enrutamiento pt2"
             }
           }
         ],
@@ -215,10 +215,11 @@
   },
   "active": "4a17abf1d9759224",
   "lastOpenFiles": [
+    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt1.md",
+    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt2.md",
     "_Imagenes/Pasted image 20260815150732.png",
     "_Imagenes/Screenshot 2026-08-14 125441.png",
     "5to semestre/Redes II/Capitulo 5/La capa de red.md",
-    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento.md",
     "_Imagenes/Screenshot 2026-08-10 210650 1.png",
     "_Imagenes/Screenshot 2026-08-10 210650.png",
     "_Imagenes/Screenshot 2026-08-10 205108.png",
@@ -239,7 +240,6 @@
     "_Adjuntos1/Pasted image 20260614113336.png",
     "_Adjuntos1/Pasted image 20260523110924.png",
     "_Adjuntos1/Pasted image 20260406092443.png",
-    "_Adjuntos1/Pasted image 20260404234232.png",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "_Adjuntos1",
     "Fin.md",
