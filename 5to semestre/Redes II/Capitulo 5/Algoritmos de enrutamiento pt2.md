@@ -36,6 +36,21 @@ En este modelo, los enrutadores se dividen en unidades de agregación llamadas *
 
 - **Conocimiento local:** Cada enrutador conoce todos los detalles sobre cómo enrutar paquetes a destinos dentro de su propia región.
 - **Conocimiento remoto:** El enrutador no sabe nada sobre la estructura interna de otras regiones. Para enviar tráfico a una región distinta, simplemente sabe qué línea de salida utilizar para alcanzar dicha región de manera general.
+![[Pasted image 20260815171444.png|391]]
+>[!important] Funcionamiento
+>- **Tabla completa (_Full table for 1A_):**    
+>- **Estructura:** Contiene una entrada individual para **todos** los nodos de la red ($1B, 1C, 2A, \dots, 5E$).
+>- **Problema:** Ocupa 17 filas. En la Internet real (millones de nodos), requeriría tablas gigantescas e imposibles de procesar en memoria.    
+>- **Tabla jerárquica (_Hierarchical table for 1A_):**
+>- **Estructura:** El router 1A solo guarda el detalle de los nodos dentro de su **propia región** (1B y 1C). Para los destinos fuera de su zona, guarda una sola fila por **región entera** (Regiones 2, 3, 4 y 5).
+>- **Ventaja:** Reduce la tabla a solo **7 filas**, ahorrando enorme espacio de almacenamiento y tiempo de cómputo.
+**El costo: rutas levemente más largas (Flecha rosa)**
+
+La simplificación de la tabla jerárquica introduce una pequeña ineficiencia en el camino que toman ciertos paquetes:
+
+1. **La regla general para la Región 5:** Para el Router 1A, la mejor puerta de salida para alcanzar a la **Región 5** en promedio es la línea **1C** (a través de la cual llega a 5A, 5B, 5D y 5E en menos saltos). Por eso, en la tabla jerárquica asigna `Región 5 -> Línea 1C`.
+2. **La excepción del nodo 5C:** En la tabla completa, vemos que para llegar al nodo **5C** en específico, el camino más corto de 5 saltos era saliendo por **1B** (vía Región 2).
+3. **El compromiso (_Trade-off_):** Como la tabla jerárquica obliga a que **todo** lo destinado a la Región 5 salga por **1C**, los paquetes hacia **5C** tomarán una ruta subóptima de 6 saltos (1A $\rightarrow$ 1C $\rightarrow$ Región 3 $\rightarrow$ Región 4 $\rightarrow$ 5A $\rightarrow$ 5B $\rightarrow$ 5C).
 # Niveles de jerarquía
 
 En redes extremadamente grandes, dos niveles (red local y regiones) pueden ser insuficientes. En esos casos, se pueden agrupar las regiones en **clústeres**, los clústeres en **zonas**, y así sucesivamente. Según las investigaciones citadas en los textos, para una red de \(N\) enrutadores, el número óptimo de niveles es \(\ln N\), lo que requiere un total de \(e \ln N\) entradas en la tabla de cada enrutador.
