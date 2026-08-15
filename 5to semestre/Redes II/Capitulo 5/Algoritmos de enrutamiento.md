@@ -90,3 +90,10 @@ Luego, **elige el menor valor** y guarda por qué línea (interfaz) debe enviar 
 >- **Vía H:** $12 \text{ (de J a H)} + 19 \text{ (de H a C)} = 31$    
 >- **Vía K:** $6 \text{ (de J a K)} + 36 \text{ (de K a C)} = 42$
 > **Resultado en la tabla de J para C:** Guarda el tiempo estimado **28** y la línea de salida **I**.
+
+# El problema del conteo infinito
+El **problema del conteo al infinito** es un inconveniente fundamental de los algoritmos de **enrutamiento por vector de distancia** (como RIP) que ocurre cuando el algoritmo reacciona con lentitud ante las "malas noticias", como la caída de un enlace o un enrutador.
+**¿Por qué ocurre?
+El núcleo del problema es que, en el enrutamiento por vector de distancia, cuando un enrutador le informa a un vecino que tiene una ruta hacia un destino, el vecino **no tiene forma de saber si él mismo forma parte de esa ruta**
+
+![[Pasted image 20260815150732.png|486]]
