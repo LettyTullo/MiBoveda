@@ -29,4 +29,23 @@ Para que este algoritmo funcione, cada enrutador debe ejecutar los siguientes **
 - **Uso en la actualidad:** Es la base de los protocolos de enrutamiento intradominio (IGP) más utilizados en Internet, como **OSPF** (Open Shortest Path First) e **IS-IS** (Intermediate System-to-Intermediate System).
 - **Requisitos:** A diferencia del vector de distancia, el estado de enlace requiere **más memoria y potencia de cálculo**, ya que cada router debe almacenar la base de datos de toda la topología y procesar el grafo completo.
 - **Ventajas:** No sufre del problema del "conteo al infinito" y converge rápidamente ante cambios en la red, lo que lo hace mucho más robusto para infraestructuras de gran escala.
-Enrutamientr
+## Enrutamiento Jerarquico
+El **enrutamiento jerárquico** es una técnica utilizada para gestionar el crecimiento de las redes, permitiendo que las tablas de enrutamiento se mantengan en un tamaño manejable a medida que aumenta el número de enrutadores.
+
+En este modelo, los enrutadores se dividen en unidades de agregación llamadas **regiones** o **áreas**:
+
+- **Conocimiento local:** Cada enrutador conoce todos los detalles sobre cómo enrutar paquetes a destinos dentro de su propia región.
+- **Conocimiento remoto:** El enrutador no sabe nada sobre la estructura interna de otras regiones. Para enviar tráfico a una región distinta, simplemente sabe qué línea de salida utilizar para alcanzar dicha región de manera general.
+# Niveles de jerarquía
+
+En redes extremadamente grandes, dos niveles (red local y regiones) pueden ser insuficientes. En esos casos, se pueden agrupar las regiones en **clústeres**, los clústeres en **zonas**, y así sucesivamente. Según las investigaciones citadas en los textos, para una red de \(N\) enrutadores, el número óptimo de niveles es \(\ln N\), lo que requiere un total de \(e \ln N\) entradas en la tabla de cada enrutador.
+# Ventajas y Desventajas
+El uso de la jerarquía implica un intercambio de beneficios técnicos:
+- **Ventajas:**
+    - **Reducción del tamaño de las tablas:** Ahorra memoria en los enrutadores y ancho de banda al enviar informes de estado.
+    - **Aislamiento:** Evita que los cambios en la topología de una región obliguen a todos los enrutadores de la red a recalcular sus rutas.
+    - **Eficiencia de CPU:** Requiere menos tiempo de procesamiento para escanear las tablas.
+- **Desventajas:**
+    - **Caminos subóptimos:** Puede resultar en rutas ligeramente más largas en comparación con el "enrutamiento plano" (donde cada router conoce toda la topología), aunque esta penalización suele ser pequeña y aceptable.
+
+**Ejemplo comparativo:** En una red de **720 nodos** sin jerarquía, cada enrutador necesita **720 entradas**. Si se divide en 24 regiones de 30 enrutadores, cada uno solo necesita **53 entradas** (30 locales + 23 remotas). Con tres niveles (clústeres, regiones y nodos), el número de entradas podría reducirse a tan solo **25**.
