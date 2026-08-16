@@ -63,6 +63,7 @@ Su funcionamiento se basa en:
 - **Enfoque preventivo:** Se aplica en una escala de tiempo intermedia y es principalmente utilizado en redes de **circuitos virtuales**.
 - **Decisión de entrada:** No se establece un nuevo circuito virtual a menos que la red confirme que puede soportar el tráfico adicional. Si la red está muy cargada, la solicitud de conexión falla, de forma similar a cuando un sistema telefónico no da tono de llamada por sobrecarga.
 - **Combinación con enrutamiento:** Puede combinarse con el **enrutamiento consciente del tráfico** para buscar rutas alternativas que eviten los "puntos calientes" o nodos ya congestionados durante el proceso de configuración de la conexión.
+![[Pasted image 20260816172639.png|374]]
 ## Servicios integrados
 Los **Servicios Integrados** (frecuentemente abreviados como **IntServ**) son una arquitectura de red. Su objetivo principal es proporcionar garantías de **Calidad de Servicio (QoS)** específicas para cada flujo de datos individual, manejando tanto tráfico unicast como multicast.
 # Modelo basado en flujos
@@ -85,3 +86,24 @@ A pesar de su diseño robusto, las fuentes señalan que los Servicios Integrados
 - **Falta de escalabilidad:** Requerir que cada router mantenga el estado de cada flujo individual no escala bien cuando existen millones de flujos simultáneos en el núcleo de Internet.
 - **Complejidad:** Los cambios necesarios en el código de los enrutadores y los intercambios de mensajes para configurar los flujos son muy complejos.
 - **Vulnerabilidad:** Al mantener el estado internamente, el sistema es vulnerable si un enrutador se cae, ya que se pierde la información de las conexiones que pasaban por él.
+## Servicios diferenciados
+Los **Servicios Diferenciados** (frecuentemente abreviados como **DiffServ**) son una arquitectura de red (estandarizada en los RFC 2474 y 2475)
+
+A diferencia de los Servicios Integrados (IntServ), que requieren reservas de recursos para cada conexión, DiffServ es mucho más simple de implementar y escalar, ya que las decisiones se toman de forma local en cada enrutador.
+>[!important] Funcionamiento principal
+>- **Basado en clases:** En lugar de gestionar cada llamada o flujo por separado, el tráfico se agrupa en categorías (como "voz", "video" o "datos normales"). Por ejemplo, en telefonía por Internet, todas las llamadas comparten los recursos reservados para la clase de voz.
+>- **Campo de servicios diferenciados:** Se utiliza un campo específico en la cabecera de los paquetes **IPv4 e IPv6** para marcar la clase a la que pertenece el paquete. De los 8 bits disponibles, los 6 superiores se usan para la clase de servicio y los 2 inferiores para la notificación de congestión (ECN).
+>- **Comportamiento por salto (PHB):** Los enrutadores aplican reglas de reenvío basadas únicamente en la marca del paquete que reciben, sin necesidad de conocer la ruta completa o configurar estados de flujo.
+# Modelos de envío dentro de DiffServ
+#### 1. Envío Expedito (Expedited Forwarding - EF)
+
+Es la clase más sencilla y está diseñada para aplicaciones que requieren baja pérdida, bajo retardo y baja fluctuación (_jitter_), como la **VoIP**.
+
+- Los paquetes marcados como "expeditos" se envían con preferencia absoluta sobre el tráfico regular.
+- Simula un "tubo" dedicado donde el tráfico ve la red como si estuviera descargada.
+#### 2. Envío Asegurado (Assured Forwarding - AF)
+
+Es un esquema más elaborado (RFC 2597) que define niveles de prioridad y descarte.
+
+- **12 Clases de servicio:** Se definen **cuatro clases de prioridad** (frecuentemente llamadas Oro, Plata, Bronce y Estándar) y **tres probabilidades de descarte** (baja, media y alta).
+- **Mecanismo técnico:** Un clasificador identifica el tráfico; luego, un regulador (_policer_) marca los paquetes que exceden las ráfagas permitidas con una mayor probabilidad de descarte. Finalmente, el router utiliza algoritmos como **WFQ (Weighted Fair Queueing)** para asignar anchos de banda distintos a cada prioridad.
