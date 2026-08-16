@@ -50,7 +50,13 @@ Es una técnica para suavizar el flujo de datos que entra a la red, regulando la
 
 Cuando un enrutador detecta que la congestión es inminente o ya existe (monitoreando la carga de enlaces o el retardo de colas mediante algoritmos como **EWMA (Media Movil ponderada exponencialmente)**), debe informar a los emisores para que reduzcan su velocidad
 >[!important] Funcionamiento:
->
+>El objetivo de EWMA es **suavizar las fluctuaciones** instantáneas de una métrica para obtener una tendencia más estable. Funciona de manera similar a un **filtro de paso bajo**, descartando el "ruido" o variaciones bruscas y momentáneas en las muestras recolectadas.
+>2. Funcionamiento Matemático
+Para calcular un nuevo valor estimado (dnuevo​), el algoritmo utiliza una muestra actual (s) y el valor estimado anterior (dantiguo​), aplicando una constante de suavizado α:
+$dnuevo​=α⋅dantiguo​+(1−α)⋅s$
+>- **La constante** α**:** Determina la rapidez con la que el enrutador o el host "olvida" la historia reciente.
+>- Si α es alto (cercano a 1), se da más peso al historial y el valor cambia lentamente.
+>- En la práctica de TCP, se suele utilizar un valor de α=7/8 para el cálculo del RTT suavizado.
 
 Existen dos mecanismos principales para entregar esta señal:
 
@@ -72,3 +78,4 @@ Es la solución de "último recurso" cuando todos los demás métodos fallan y e
     - **Vino (lo viejo es mejor):** Se priorizan los paquetes nuevos (útil en streaming de video/audio, donde lo viejo ya no sirve).
     - **Leche (lo nuevo es mejor):** Se priorizan los paquetes viejos (útil en transferencia de archivos, donde perder un paquete inicial obliga a retransmitir todo lo posterior).
 - **RED (Random Early Detection):** Técnica que descarta paquetes al azar cuando la cola promedio sobrepasa un umbral, avisando implícitamente al emisor (vía protocolos de transporte como TCP) que debe bajar la velocidad antes de que la red colapse totalmente.
+[[Calidad de servicio]]
