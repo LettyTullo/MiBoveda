@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt1.md",
+                "file": "5to semestre/Redes II/Capitulo 5/Calidad de servicio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Algoritmos de enrutamiento pt1"
+              "title": "Calidad de servicio"
             }
           }
         ],
@@ -215,10 +215,10 @@
   },
   "active": "4a17abf1d9759224",
   "lastOpenFiles": [
-    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt2.md",
-    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt1.md",
-    "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "5to semestre/Redes II/Capitulo 5/Manejo de trafico de la capa de red.md",
+    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt1.md",
+    "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt2.md",
+    "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "5to semestre/Redes II/Capitulo 5/La capa de red.md",
     "5to semestre/Redes II/Capitulo 5/Calidad de servicio.md",
     "_Imagenes/Pasted image 20260816172639.png",
