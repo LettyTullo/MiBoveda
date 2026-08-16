@@ -56,3 +56,32 @@ A diferencia del anterior, este algoritmo permite un cierto grado de **tráfico 
     - Es la variante más utilizada en arquitecturas de red modernas (como en los Servicios Diferenciados).
     - Permite asignar un **peso (\(W\))** a cada flujo para darle prioridad. Por ejemplo, a una cola de video se le puede dar más peso que a una de transferencia de archivos para que reciba más ancho de banda por cada ronda.
     - Utiliza la fórmula \(F_i = \max(A_i, F_{i-1}) + L_i/W\) para calcular el orden de salida, donde \(F\) es el tiempo de terminación, \(A\) la llegada y \(L\) la longitud del paquete.
+## Control de admision
+El **control de admisión** es una técnica utilizada en la capa de red para mantener a raya la **congestión** y garantizar la **Calidad de Servicio (QoS)**. Su principio fundamental es simple: la red **rechaza nuevas conexiones** o cargas si no tiene capacidad suficiente para transportarlas de forma segura sin comprometer el rendimiento de los flujos ya existentes.
+
+Su funcionamiento se basa en:
+- **Enfoque preventivo:** Se aplica en una escala de tiempo intermedia y es principalmente utilizado en redes de **circuitos virtuales**.
+- **Decisión de entrada:** No se establece un nuevo circuito virtual a menos que la red confirme que puede soportar el tráfico adicional. Si la red está muy cargada, la solicitud de conexión falla, de forma similar a cuando un sistema telefónico no da tono de llamada por sobrecarga.
+- **Combinación con enrutamiento:** Puede combinarse con el **enrutamiento consciente del tráfico** para buscar rutas alternativas que eviten los "puntos calientes" o nodos ya congestionados durante el proceso de configuración de la conexión.
+## Servicios integrados
+Los **Servicios Integrados** (frecuentemente abreviados como **IntServ**) son una arquitectura de red. Su objetivo principal es proporcionar garantías de **Calidad de Servicio (QoS)** específicas para cada flujo de datos individual, manejando tanto tráfico unicast como multicast.
+# Modelo basado en flujos
+
+A diferencia de otros modelos, IntServ se basa en la gestión de **flujos individuales**. Un flujo se define como un conjunto de paquetes que van desde un origen a un destino específico. En este esquema, cada aplicación (como una llamada de telefonía por Internet) obtiene sus propios recursos y garantías reservados de extremo a extremo.
+# El protocolo RSVP (Resource reSerVation Protocol)
+
+El mecanismo central para que los Servicios Integrados funcionen es el protocolo **RSVP**, el cual se encarga de realizar las reservas de recursos en la red. Su proceso operativo sigue estos pasos:
+
+- **Solicitud del receptor:** El receptor del flujo envía un requerimiento de reserva hacia el emisor.
+- **Reserva en cada salto:** Cada enrutador a lo largo de la ruta analiza el requerimiento y reserva los recursos necesarios (ancho de banda, espacio de búfer y ciclos de CPU).
+- **Configuración completa:** Para que la reserva sea efectiva, debe establecerse con éxito en **todo el camino** entre emisor y receptor; de lo contrario, la reserva no se realiza.
+- **Mantenimiento de estado:** Los routers deben mantener información sobre el estado de cada flujo activo en su memoria.
+# Especificación del flujo
+Para que la red pueda decidir si admite un nuevo flujo (control de admisión), el emisor debe proporcionar una **especificación del flujo** basada típicamente en los parámetros de una **cubeta con tokens** (tasa promedio y tamaño de ráfaga).
+# Limitaciones y adopción
+
+A pesar de su diseño robusto, las fuentes señalan que los Servicios Integrados tienen poca implementación práctica debido a varios inconvenientes:
+
+- **Falta de escalabilidad:** Requerir que cada router mantenga el estado de cada flujo individual no escala bien cuando existen millones de flujos simultáneos en el núcleo de Internet.
+- **Complejidad:** Los cambios necesarios en el código de los enrutadores y los intercambios de mensajes para configurar los flujos son muy complejos.
+- **Vulnerabilidad:** Al mantener el estado internamente, el sistema es vulnerable si un enrutador se cae, ya que se pierde la información de las conexiones que pasaban por él.
