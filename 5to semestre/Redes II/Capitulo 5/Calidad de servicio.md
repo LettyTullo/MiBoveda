@@ -10,4 +10,53 @@ Para garantizar la calidad de servicio, la red debe abordar cuatro retos técnic
 1. **Requerimientos de la aplicación:** Identificar qué necesita cada tipo de tráfico (ej. la telefonía es sensible al retardo pero no requiere mucho ancho de banda),.
 2. **Regulación del tráfico (Modelado):** Controlar la tasa promedio y las ráfagas de los flujos que entran a la red mediante algoritmos como la **cubeta con goteo** (_leaky bucket_) o la **cubeta con tokens**,,.
 3. **Reserva de recursos:** Asignar ancho de banda, espacio de búfer y ciclos de CPU en los enrutadores para flujos específicos,.
-4. **Control de admisión:** Decidir si la red puede aceptar de forma segura más tráfico sin comprometer las garantías ya existentes
+4. **Control de admisión:** Decidir si la red puede aceptar de forma segura más tráfico sin comprometer las garantías ya existentes\
+## Modelado de trafico 
+El **modelado de tráfico** (o _traffic shaping_) es una técnica de la capa de red diseñada para regular la tasa promedio y la intensidad de las ráfagas de un flujo de datos que entra a la red. Su funcionamiento se basa en un acuerdo previo entre el cliente y el proveedor sobre el patrón de tráfico que se va a transmitir.
+>[!info] Conceptos clave
+>- **Acuerdo de Nivel de Servicio (SLA):** Es el contrato donde el usuario y la red acuerdan la "forma" o patrón del tráfico. El proveedor se compromete a entregar los paquetes a tiempo siempre que el cliente cumpla con este contrato.
+>- **Vigilancia del Tráfico (Traffic Policing):** Es el proceso mediante el cual el proveedor supervisa el flujo para verificar que el cliente cumple con el SLA. Si el tráfico excede lo pactado, la red puede descartar los paquetes excedentes o reducir su prioridad.
+
+# Algoritmos Principales
+#### 1. Cubeta con Goteo (Leaky Bucket)
+Este algoritmo fuerza una **tasa de salida constante**, independientemente de la velocidad a la que lleguen los datos desde el host.
+
+>[!danger]- **Funcionamiento:**
+> Imagine un cubo con un pequeño agujero en el fondo. El agua (paquetes) puede entrar a ráfagas, pero sale por el agujero a una tasa constante \(R\).
+>- **Capacidad y Descarte:** El cubo tiene una capacidad física \(B\) (un búfer). Si el host envía una ráfaga que llena el cubo, cualquier dato adicional que llegue se "derrama" por los lados y se pierde (se descarta).
+>- **Efecto:** Convierte un tráfico irregular o con ráfagas en un flujo de salida uniforme, eliminando completamente las ráfagas en la red.
+#### 2. Cubeta con Tokens (Token Bucket)
+A diferencia del anterior, este algoritmo permite un cierto grado de **tráfico en ráfagas** mientras mantiene una tasa promedio controlada.
+
+>[!danger] Funcionamiento
+>- **Generación de Tokens:** Un "grifo" llena el cubo con tokens (fichas) a una tasa constante de \(R\) tokens por segundo.
+>- **Transmisión de Paquetes:** Para que un paquete pueda ser transmitido, debe "gastar" o sacar un token del cubo. Si el cubo tiene tokens acumulados, el host puede enviar una ráfaga de datos a la velocidad máxima del enlace hasta que los tokens se agoten.
+>- **Espera:** Si el cubo está vacío, el paquete debe esperar en una cola hasta que se generen nuevos tokens.
+>- **Capacidad de Ráfaga:** El tamaño del cubo \(B\) determina la ráfaga máxima que la red puede aceptar instantáneamente.
+
+## Programacion de paquetes
+ La **programación de paquetes** (o _packet scheduling_) se refiere a los algoritmos que utilizan los enrutadores para decidir qué paquete de su memoria intermedia (búfer) debe enviarse a continuación por una línea de salida. Su objetivo es distribuir de forma controlada los recursos del enrutador tanto entre los paquetes de un mismo flujo como entre diferentes flujos que compiten entre sí para garantizar la **Calidad de Servicio (QoS)**.
+ 
+>[!important] Para ofrecer garantías de rendimiento, estos algoritmos gestionan la reserva de tres recursos críticos:
+>1. **Ancho de banda:** Aseguran que no se asigne más tráfico a una línea de salida del que esta puede transportar.
+>2. **Espacio de búfer:** Reservan memoria para absorber ráfagas de tráfico; si un flujo agota su búfer reservado, los paquetes excedentes se descartan.
+>3. **Ciclos de CPU:** Garantizan que el procesador del enrutador tenga tiempo suficiente para procesar los paquetes de cada flujo.
+
+# Algoritmos principales de programación
+- **FIFO (First-In, First-Out) o FCFS (First-Come, First-Served):**
+    - Es el método más sencillo; los paquetes se envían exactamente en el mismo orden en que llegaron.
+    - **Desventaja:** Un flujo "agresivo" que envíe muchas ráfagas puede acaparar toda la capacidad, causando retardos o pérdida de paquetes en los demás flujos.
+    - Cuando la cola está llena, el enrutador aplica el **descarte trasero** (_tail drop_), desechando cualquier paquete nuevo que llegue.
+    
+- **Encolamiento Justo (_Fair Queueing_):**
+    - El enrutador mantiene colas separadas para cada flujo y las atiende de forma cíclica (**round-robin**).
+    - Para evitar que los flujos con paquetes más grandes tengan ventaja, se utiliza una mejora que simula un servicio **byte por byte** basándose en "tiempos de finalización virtuales". Esto asegura que cada flujo reciba una fracción igual del ancho de banda.\
+    
+- **Encolamiento Justo Ponderado (_Weighted Fair Queueing - WFQ_):**
+    - Es la variante más utilizada en arquitecturas de red modernas (como en los Servicios Diferenciados).
+    - Permite asignar un **peso (\(W\))** a cada flujo para darle prioridad. Por ejemplo, a una cola de video se le puede dar más peso que a una de transferencia de archivos para que reciba más ancho de banda por cada ronda.
+    - Utiliza la fórmula \(F_i = \max(A_i, F_{i-1}) + L_i/W\) para calcular el orden de salida, donde \(F\) es el tiempo de terminación, \(A\) la llegada y \(L\) la longitud del paquete.
+
+### Aplicación en la arquitectura de red
+
+La programación de paquetes no funciona sola. Se combina con el **control de admisión** para decidir si se aceptan nuevos flujos y con el **modelado de tráfico** (como la cubeta con tokens) para asegurar que el tráfico que entra a las colas del enrutador cumpla con el patrón acordado en el **SLA**.

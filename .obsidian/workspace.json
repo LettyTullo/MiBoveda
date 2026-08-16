@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5/Manejo de trafico de la capa de red.md",
+                "file": "5to semestre/Redes II/Capitulo 5/Calidad de servicio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Manejo de trafico de la capa de red"
+              "title": "Calidad de servicio"
             }
           }
         ],
@@ -215,6 +215,7 @@
   },
   "active": "4a17abf1d9759224",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 3/Capa de enlace Parte 1.md",
     "5to semestre/Redes II/Capitulo 5/Calidad de servicio.md",
     "5to semestre/Redes II/Capitulo 5/Manejo de trafico de la capa de red.md",
     "5to semestre/Redes II/Capitulo 5/Algoritmos de enrutamiento pt2.md",
@@ -258,7 +259,6 @@
     "4to semestre/Redes/Capitulo 4/Conmutacion en la capa de enlace.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 2.md",
     "4to semestre/Redes/Capitulo 4/Redes inalambricas parte 1.md",
-    "4to semestre/Redes/Capitulo 4/Ethernet Conmutado, Fast y Gigabit.md",
     "Sin título 2.base",
     "4to semestre/Redes/Capitulo 5",
     "Sin título 1.base",
