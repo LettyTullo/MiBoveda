@@ -56,7 +56,3 @@ A diferencia del anterior, este algoritmo permite un cierto grado de **tráfico 
     - Es la variante más utilizada en arquitecturas de red modernas (como en los Servicios Diferenciados).
     - Permite asignar un **peso (\(W\))** a cada flujo para darle prioridad. Por ejemplo, a una cola de video se le puede dar más peso que a una de transferencia de archivos para que reciba más ancho de banda por cada ronda.
     - Utiliza la fórmula \(F_i = \max(A_i, F_{i-1}) + L_i/W\) para calcular el orden de salida, donde \(F\) es el tiempo de terminación, \(A\) la llegada y \(L\) la longitud del paquete.
-
-### Aplicación en la arquitectura de red
-
-La programación de paquetes no funciona sola. Se combina con el **control de admisión** para decidir si se aceptan nuevos flujos y con el **modelado de tráfico** (como la cubeta con tokens) para asegurar que el tráfico que entra a las colas del enrutador cumpla con el patrón acordado en el **SLA**.
