@@ -46,14 +46,23 @@ Es una técnica para suavizar el flujo de datos que entra a la red, regulando la
 - **Cubeta con Goteo (Leaky Bucket):** Fuerza una tasa de salida constante (R bits/seg). Si el host envía ráfagas, se almacenan en un buffer (B bytes); si el buffer se llena, el exceso de agua (paquetes) se desborda y se pierde.
 - **Cubeta con Tokens (Token Bucket):** Permite ráfagas de hasta un tamaño B, pero a una tasa promedio R. Para enviar un paquete, el host debe "gastar" un token del cubo. Si el cubo está vacío, el host debe esperar a que se generen nuevos tokens.
 - **Vigilancia del tráfico (Traffic Policing):** Es el proceso donde el proveedor de red supervisa el flujo para asegurarse de que el cliente cumple con el acuerdo (SLA); si el tráfico excede lo pactado, los paquetes se descartan o se les baja la prioridad.
-# Gestión de Colas Activas y Retroalimentación
+# Entrega de Retroalimentación
 
-Los routers monitorean sus propios recursos para detectar congestión inminente antes de que los buffers se agoten.
+Cuando un enrutador detecta que la congestión es inminente o ya existe (monitoreando la carga de enlaces o el retardo de colas mediante algoritmos como **EWMA (Media Movil ponderada exponencialmente)**), debe informar a los emisores para que reduzcan su velocidad
+>[!important] Funcionamiento:
+>
 
-- **EWMA (Media Móvil Ponderada Exponencialmente):** Algoritmo para estimar el retardo de cola promedio suavizando las fluctuaciones instantáneas.
-- **Paquetes Reguladores (Choke Packets):** El router selecciona un paquete de un flujo congestionado y envía un mensaje directo (ej. ICMP _Source Quench_) al emisor pidiéndole que reduzca su velocidad (ej. en un 50%).
-- **Notificación Explícita de Congestión (ECN):** En lugar de enviar paquetes nuevos, el router marca un bit en la cabecera de los paquetes que pasan. El receptor nota la marca y se lo comunica al emisor en el siguiente mensaje de respuesta (usado en la Internet moderna).
-- **Contrapresión Salto a Salto (Hop-by-hop backpressure):** El paquete regulador tiene efecto inmediato en cada router del camino, obligando a cada salto previo a reducir el flujo y dedicar más buffers, lo que frena la congestión más rápido que esperar a que la señal llegue a la fuente original.
+Existen dos mecanismos principales para entregar esta señal:
+
+- **Paquetes Reguladores (Choke Packets):** El router selecciona un paquete del flujo congestionado y envía un mensaje directo al host de origen (como el mensaje **ICMP Source Quench**) pidiéndole que reduzca su velocidad, por ejemplo, en un 50%.
+- **Notificación Explícita de Congestión (ECN):** En lugar de generar paquetes nuevos, el enrutador marca un bit específico en la cabecera de los paquetes que pasan a través de él. El receptor nota esta marca y se la comunica al emisor en su siguiente mensaje de respuesta, permitiendo que el host disminuya su tasa de envío de forma preventiva.
+
+# Contrapresión de Salto por Salto (Hop-by-hop backpressure)
+
+Esta técnica se utiliza para resolver la ineficiencia de los paquetes reguladores en redes de alta velocidad o largas distancias, donde la señal de retroalimentación tarda demasiado en llegar al origen mientras se siguen enviando megabits de datos.
+
+- **Funcionamiento:** A diferencia de la señal que solo afecta a la fuente, la contrapresión hace que el paquete regulador tenga un **efecto inmediato en cada salto** por el que pasa.
+- **Mecanismo:** Cuando un enrutador recibe un paquete de estrangulamiento, reduce inmediatamente el flujo hacia el siguiente nodo. Esto obliga al nodo anterior a dedicar más búferes temporalmente, proporcionando un **alivio instantáneo** en el punto crítico de congestión, como un "remedio para el dolor de cabeza". El efecto se propaga hacia atrás, salto a salto, hasta llegar finalmente al host emisor.
 # Desprendimiento de Carga (Load Shedding)
 
 Es la solución de "último recurso" cuando todos los demás métodos fallan y el router ya no puede manejar más paquetes.
