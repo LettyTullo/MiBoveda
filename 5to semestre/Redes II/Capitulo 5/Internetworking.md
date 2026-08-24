@@ -32,12 +32,22 @@ Propuesta por Vint Cerf y Bob Kahn en 1974, esta opción añade una **capa comú
 Para que el tráfico fluya eficazmente entre las diferentes redes de una inter-red se requieren tres mecanismos esenciales: 
 # A. Tunelización (_Tunneling_)
 Se aplica cuando el origen y el destino de la transmisión se encuentran en el mismo tipo de red (por ejemplo, IPv6 en París y Londres), pero la red intermedia es diferente (por ejemplo, una red de tránsito IPv4). En lugar de intentar una traducción de protocolos compleja, el router de origen coloca el paquete original (IPv6) dentro del cuerpo de un paquete compatible con la red intermedia (IPv4). El paquete exterior viaja a través del "túnel" IPv4 como carga útil y, en el extremo opuesto, el router receptor remueve la cabecera externa para entregar el paquete original intacto.
-# B. Enrutamiento en Dos Niveles
+# B. Enrutamiento a traves de multiples redes
 
-Debido a que Internet está compuesta por miles de redes independientes llamadas **Sistemas Autónomos (AS)** gestionados por múltiples operadores, es imposible utilizar un solo algoritmo global que escale. Por ello, se divide el enrutamiento en dos jerarquías:
+Del enrutamiento a través de múltiples redes (también conocido como _internetwork routing_) es el proceso de dirigir paquetes de datos a través de una colección de redes físicamente distintas e independientes que están interconectadas. Estas redes individuales suelen denominarse **Sistemas Autónomos (AS)** o redes autónomas.
 
-1. **Protocolos Intradominio (IGP):** Protocolos internos dentro de cada red individual (ej. OSPF, IS-IS), configurados de forma independiente por el operador de dicha red.
-2. **Protocolo Interdominio (EGP):** Un estándar común obligatorio para comunicar los distintos dominios entre sí; en Internet, el estándar exclusivo es **BGP** (_Border Gateway Protocol_), el cual decide rutas basándose en acuerdos comerciales y políticas de enrutamiento.
+Para resolver las diferencias tecnológicas y comerciales entre estas redes heterogéneas, la arquitectura de Internet utiliza un esquema de **enrutamiento en dos niveles**.
+
+>[!success] Las complicaciones
+Enrutar paquetes cruzando fronteras de redes independientes introduce desafíos complejos que no existen dentro de una sola red homogénea:
+>- **Múltiples algoritmos y métricas incompatibles:** Una red puede utilizar un protocolo de estado de enlace (como OSPF) y otra uno de vector de distancia (como RIP). Además, las métricas de costo no son comparables directamente; un operador puede definir sus pesos según el retardo de transmisión y otro según criterios monetarios.
+>- **Privacidad e información sensible:** Los operadores de red (generalmente competidores comerciales) no desean exponer información interna sobre el estado de sus colas, topología o métricas financieras a otras redes ajenas.
+>- **Escalabilidad:** Los algoritmos de enrutamiento tradicionales no escalan al tamaño masivo de una inter-red global como Internet.
+
+>[!tip] La solución: Enrutamiento en Dos Niveles
+Para abordar estos retos, se divide el trabajo de enrutamiento en dos jerarquías bien definidas:
+>- **Protocolos Intradominio (IGP - Interior Gateway Protocol):** Son los protocolos que se ejecutan **dentro de cada red autónoma** de forma independiente. Cada operador es libre de configurar y optimizar internamente su red con el protocolo que prefiera (como OSPF o IS-IS).
+-> **Protocolos Interdominio (EGP - Exterior Gateway Protocol):** Son los protocolos utilizados para encontrar rutas **entre las distintas redes autónomas** que componen la inter-red. A diferencia de los IGP, aquí todos los operadores están obligados a utilizar el mismo estándar común. En Internet, el estándar exclusivo para esta tarea es el **BGP (Border Gateway Protocol)**.
 
 # C. Fragmentacion de paquetes 
 Cada red física en el camino de un paquete tiene una **Unidad de Transmisión Máxima (MTU)**, que es el tamaño máximo de paquete que puede transportar. 
