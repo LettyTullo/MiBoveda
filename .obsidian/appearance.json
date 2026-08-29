@@ -4,5 +4,6 @@
     "subtitulosrojos",
     "miscolores"
   ],
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "cssTheme": "Material Gruvbox"
 }
