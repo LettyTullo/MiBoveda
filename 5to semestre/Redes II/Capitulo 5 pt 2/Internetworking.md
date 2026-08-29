@@ -52,16 +52,12 @@ Para entenderlo mejor, las fuentes proponen la analogía de una persona que cond
 >- Al llegar al otro extremo en Inglaterra, el coche es descargado (desencapsulado) y continúa circulando de forma autónoma por las carreteras inglesas.
 
 #### Aplicaciones principales del Tunneling
-
 - **Transición tecnológica (ej. IPv6 sobre IPv4):** Permite implementar nuevas características o protocolos de red de forma progresiva sin tener que actualizar simultáneamente todos los routers del núcleo de Internet.
 - **Redes Privadas Virtuales (VPN):** Se utiliza el tunneling para construir redes superpuestas (_overlay_) sobre la infraestructura pública de Internet. Al encapsular y cifrar todo el tráfico entre las oficinas corporativas, se simula una red privada de líneas alquiladas mucho más económica y flexible.
 - **Modo Túnel en IPsec:** Utilizado comúnmente en las VPN de cortafuegos corporativos. En este modo, **todo el paquete IP original (incluyendo su cabecera de red)** se encapsula dentro de un paquete IP completamente nuevo. Al cifrar el paquete interno con protocolos como ESP, un atacante externo no solo es incapaz de leer el contenido, sino que tampoco puede realizar análisis de tráfico para deducir quién se comunica con quién dentro de la organización.
-
 #### Desventajas y limitaciones del Tunneling
-
 - **Aislamiento del tránsito:** Un paquete que viaja en un túnel no puede salir a mitad del camino; es decir, no puede interactuar con ninguno de los hosts de la red de tránsito intermedia por la que viaja encapsulado. Aunque para la seguridad de una VPN esto es una ventaja, limita la flexibilidad de comunicación general.
 - **Sobrecarga (_Overhead_):** El modo túnel requiere añadir una cabecera de red adicional en cada paquete. Esto incrementa sustancialmente el tamaño total de los paquetes, lo que puede provocar que superen la MTU del enlace físico de tránsito y forzar una ineficiente fragmentación de paquetes en los routers intermedios.
-
 # B. Enrutamiento a traves de multiples redes
 
 Del enrutamiento a través de múltiples redes (también conocido como _internetwork routing_) es el proceso de dirigir paquetes de datos a través de una colección de redes físicamente distintas e independientes que están interconectadas. Estas redes individuales suelen denominarse **Sistemas Autónomos (AS)** o redes autónomas.
@@ -78,7 +74,7 @@ Enrutar paquetes cruzando fronteras de redes independientes introduce desafíos 
 Para abordar estos retos, se divide el trabajo de enrutamiento en dos jerarquías bien definidas:
 >- **Protocolos Intradominio (IGP - Interior Gateway Protocol):** Son los protocolos que se ejecutan **dentro de cada red autónoma** de forma independiente. Cada operador es libre de configurar y optimizar internamente su red con el protocolo que prefiera (como OSPF o IS-IS).
 -> **Protocolos Interdominio (EGP - Exterior Gateway Protocol):** Son los protocolos utilizados para encontrar rutas **entre las distintas redes autónomas** que componen la inter-red. A diferencia de los IGP, aquí todos los operadores están obligados a utilizar el mismo estándar común. En Internet, el estándar exclusivo para esta tarea es el **BGP (Border Gateway Protocol)**.
-ly
+
 # C. Fragmentacion de paquetes 
 Cada red física en el camino de un paquete tiene una **Unidad de Transmisión Máxima (MTU)**, que es el tamaño máximo de paquete que puede transportar. 
 
