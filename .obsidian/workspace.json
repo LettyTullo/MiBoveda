@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5 pt 2/Internetworking.md",
+                "file": "5to semestre/Redes II/Capitulo 5 pt 2/IPV6.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Internetworking"
+              "title": "IPV6"
             }
           },
           {
@@ -253,17 +253,18 @@
   },
   "active": "a1a15b18a4a9a16f",
   "lastOpenFiles": [
+    "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
+    "5to semestre/Redes II/Capitulo 5 pt 2/IPV6.md",
+    "5to semestre/Redes II/Capitulo 5 pt 2/Internetworking.md",
     "5to semestre/Redes II/Capitulo 5 pt 2/IPV4.md",
     "5to semestre/Redes II/Capitulo 5 pt 2/SDN (Software Defined Networking).md",
     "Sin título.md",
-    "5to semestre/Redes II/Capitulo 5 pt 2/Internetworking.md",
     "4to semestre/Redes/Capitulo 5/Capa de Red parte 1.md",
     "5to semestre/Redes II/Capitulo 5 pt 1/Calidad de servicio.md",
     "5to semestre/Redes II/Capitulo 5 pt 2",
     "5to semestre/Redes II/Capitulo 5 pt 1/Algoritmos de enrutamiento pt1.md",
     "5to semestre/Redes II/Capitulo 5 pt 1/La capa de red.md",
     "4to semestre/Redes/Capitulo 3/Tipos de Ventanas.md",
-    "4to semestre/Redes/Capitulo 5/Capa de Red parte 2.md",
     "5to semestre/Redes II/Capitulo 5 pt 1/Algoritmos de enrutamiento pt2.md",
     "5to semestre/Redes II/Capitulo 5 pt 1/Manejo de trafico de la capa de red.md",
     "_Imagenes/Pasted image 20260816172639.png",
@@ -295,7 +296,6 @@
     "2026-05-03.md",
     "2026-03-08.md",
     "3. Capa de Red.md",
-    "4to semestre/Redes/Capitulo 1/Modelos de referencia.md",
     "Sin título.canvas",
     "Sin título.base",
     "Sin título 2.base",
