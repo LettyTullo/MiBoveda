@@ -31,7 +31,38 @@ Propuesta por Vint Cerf y Bob Kahn en 1974, esta opción añade una **capa comú
 	
 Para que el tráfico fluya eficazmente entre las diferentes redes de una inter-red se requieren tres mecanismos esenciales: 
 # A. Tunelización (_Tunneling_)
-Se aplica cuando el origen y el destino de la transmisión se encuentran en el mismo tipo de red (por ejemplo, IPv6 en París y Londres), pero la red intermedia es diferente (por ejemplo, una red de tránsito IPv4). En lugar de intentar una traducción de protocolos compleja, el router de origen coloca el paquete original (IPv6) dentro del cuerpo de un paquete compatible con la red intermedia (IPv4). El paquete exterior viaja a través del "túnel" IPv4 como carga útil y, en el extremo opuesto, el router receptor remueve la cabecera externa para entregar el paquete original intacto.
+Es una tecnica que permite enviar paquetes de un protocolo específico a través de una red intermedia que utiliza un protocolo de tránsito diferente o incompatible.
+
+Conceptualmente, consiste en **colocar un paquete completo de una red dentro de la carga útil (cuerpo) de otro paquete compatible con la red de tránsito**. 
+
+#### ¿Cómo funciona la mecánica del Tunneling?
+
+Imagine que un host ubicado en una red de París desea enviar datos a un host de Londres, y ambas oficinas operan con **IPv6**, pero la infraestructura de Internet que las conecta en medio solo soporta **IPv4**. El proceso ocurre de la siguiente manera:
+
+1. **Construcción del paquete original:** El host emisor en París construye un paquete IPv6 dirigido al destino en Londres.
+2. **Encapsulamiento en el borde:** El paquete llega al router multiprotocolo en el borde de la red de París. Este router, en lugar de intentar traducir la dirección IPv6 a IPv4 (lo cual es inviable debido a la diferencia de tamaño de dirección), **encapsula el paquete IPv6 original dentro del campo de datos de un nuevo paquete IPv4**.
+3. **Tránsito por el túnel:** La cabecera IPv4 externa tiene como dirección de origen el router de París y como destino el router de Londres. Para todos los routers intermedios en la Internet IPv4, este es un paquete de datos IPv4 normal y corriente; la cabecera IPv6 interna permanece oculta y no afecta el reenvío.
+4. **Desencapsulamiento:** Cuando el paquete llega al router multiprotocolo en Londres (el extremo del túnel), este remueve la cabecera IPv4 externa, recuperando el paquete IPv6 original intacto.
+5. **Entrega final:** El router de Londres envía el paquete IPv6 directamente al host destino dentro de su red local.
+
+>[!example] La analogía del Chunnel
+Para entenderlo mejor, las fuentes proponen la analogía de una persona que conduce su coche de París a Londres:
+>- Dentro de Francia, el coche se desplaza por sus propios medios.
+>- Al llegar al Canal de la Mancha, el coche no puede circular por el agua ni por las vías del tren directamente, de modo que es **cargado en un vagón de tren de alta velocidad** (encapsulado).
+>- El tren transporta el coche a través del túnel (_Chunnel_) como si fuera simple carga.
+>- Al llegar al otro extremo en Inglaterra, el coche es descargado (desencapsulado) y continúa circulando de forma autónoma por las carreteras inglesas.
+
+#### Aplicaciones principales del Tunneling
+
+- **Transición tecnológica (ej. IPv6 sobre IPv4):** Permite implementar nuevas características o protocolos de red de forma progresiva sin tener que actualizar simultáneamente todos los routers del núcleo de Internet.
+- **Redes Privadas Virtuales (VPN):** Se utiliza el tunneling para construir redes superpuestas (_overlay_) sobre la infraestructura pública de Internet. Al encapsular y cifrar todo el tráfico entre las oficinas corporativas, se simula una red privada de líneas alquiladas mucho más económica y flexible.
+- **Modo Túnel en IPsec:** Utilizado comúnmente en las VPN de cortafuegos corporativos. En este modo, **todo el paquete IP original (incluyendo su cabecera de red)** se encapsula dentro de un paquete IP completamente nuevo. Al cifrar el paquete interno con protocolos como ESP, un atacante externo no solo es incapaz de leer el contenido, sino que tampoco puede realizar análisis de tráfico para deducir quién se comunica con quién dentro de la organización.
+
+#### Desventajas y limitaciones del Tunneling
+
+- **Aislamiento del tránsito:** Un paquete que viaja en un túnel no puede salir a mitad del camino; es decir, no puede interactuar con ninguno de los hosts de la red de tránsito intermedia por la que viaja encapsulado. Aunque para la seguridad de una VPN esto es una ventaja, limita la flexibilidad de comunicación general.
+- **Sobrecarga (_Overhead_):** El modo túnel requiere añadir una cabecera de red adicional en cada paquete. Esto incrementa sustancialmente el tamaño total de los paquetes, lo que puede provocar que superen la MTU del enlace físico de tránsito y forzar una ineficiente fragmentación de paquetes en los routers intermedios.
+
 # B. Enrutamiento a traves de multiples redes
 
 Del enrutamiento a través de múltiples redes (también conocido como _internetwork routing_) es el proceso de dirigir paquetes de datos a través de una colección de redes físicamente distintas e independientes que están interconectadas. Estas redes individuales suelen denominarse **Sistemas Autónomos (AS)** o redes autónomas.
