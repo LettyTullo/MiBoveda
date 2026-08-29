@@ -1,6 +1,6 @@
-Es la práctica de conectar dos o más redes físicas distintas e independientes para formar una sola red unificada y más grande, comúnmente llamada _internetwork_ o simplemente _internet_ (con "i" minúscula).
+Es la práctica de conectar dos o más redes físicas distintas e independientes para formar una sola red unificada y más grande, comúnmente llamada _internetwork_ o simplemente _internet_.
 
-La necesidad de unir redes es fundamentalmente económica. Según la **Ley de Metcalfe**, el valor de una red es proporcional al cuadrado de su número de nodos (\(N^2\)). Esto significa que combinar varias redes pequeñas para formar una inter-red incrementa exponencialmente su valor y su utilidad práctica al permitir la comunicación universal entre ellas.
+La necesidad de unir redes es fundamentalmente económica. Según la **Ley de Metcalfe**, el valor de una red es proporcional al cuadrado de su número de nodos $N^2$. Esto significa que combinar varias redes pequeñas para formar una inter-red incrementa exponencialmente su valor y su utilidad práctica al permitir la comunicación universal entre ellas.
 # Overview de Internetworking (Interconexión de redes)
 Esta sección ofrece una perspectiva de alto nivel sobre cómo conectar múltiples redes físicas e independientes para formar una sola inter-red unificada:
 
