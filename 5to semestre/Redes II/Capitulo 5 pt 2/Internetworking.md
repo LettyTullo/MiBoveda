@@ -34,7 +34,6 @@ Para que el tráfico fluya eficazmente entre las diferentes redes de una inter-r
 Es una tecnica que permite enviar paquetes de un protocolo específico a través de una red intermedia que utiliza un protocolo de tránsito diferente o incompatible.
 
 Conceptualmente, consiste en **colocar un paquete completo de una red dentro de la carga útil (cuerpo) de otro paquete compatible con la red de tránsito**. 
-
 #### ¿Cómo funciona la mecánica del Tunneling?
 
 Imagine que un host ubicado en una red de París desea enviar datos a un host de Londres, y ambas oficinas operan con **IPv6**, pero la infraestructura de Internet que las conecta en medio solo soporta **IPv4**. El proceso ocurre de la siguiente manera:

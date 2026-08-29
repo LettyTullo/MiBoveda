@@ -32,7 +32,6 @@ Para acelerar el procesamiento de paquetes, IPv6 eliminó varios campos de la ca
 - **Eliminación de la Suma de Comprobación (_Checksum_):** Su cálculo dinámico en cada salto reducía drásticamente el rendimiento. Dado que los medios de transmisión actuales son altamente fiables y que las capas superiores (como TCP y UDP) y las inferiores (capa de enlace) ya efectúan sumas de comprobación, se consideró que no valía la pena pagar el costo de rendimiento de otra suma de comprobación adicional.
 - **Eliminación de la fragmentación en ruta:** En IPv6, **los enrutadores intermedios tienen estrictamente prohibido fragmentar paquetes en tránsito**. El tamaño mínimo de paquete que todos los routers de la ruta deben admitir se aumentó a 1280 bytes.
 - **Fragmentación basada en hosts:** Para evitar fragmentar en tránsito, los hosts aplican obligatoriamente el **descubrimiento de la MTU de la ruta (_Path MTU Discovery_)**. Si un paquete es demasiado grande para un enlace intermedio, el router correspondiente lo descarta y devuelve un mensaje de error ICMPv6 notificando el tamaño de MTU admitido, de modo que el host de origen reajuste o fragmente sus paquetes futuros hacia ese destino de forma directa.
-
 ## Cabeceras de Extensión (Opcionales)
 
 Para mantener la eficiencia de la cabecera fija, las características que solo se requieren ocasionalmente se agregaron en cabeceras de extensión opcionales. Estas se colocan directamente después de la cabecera fija en el orden sugerido de transmisión. Existen 6 tipos principales:
@@ -108,3 +107,5 @@ Cuando un dispositivo (cliente) se conecta a la red y no tiene una dirección IP
 4. **DHCP ACK:** El servidor confirma la asignación con un acuse de recibo, indicando que la configuración está lista para ser usada.
 
 _Nota: Si el servidor DHCP no está en la misma red local, los routers pueden configurarse para recibir estas difusiones y retransmitirlas hacia donde se encuentre el servidor._
+
+[[MPLS y OSPF]]
