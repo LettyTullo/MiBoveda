@@ -1,11 +1,8 @@
 La **multidifusión (multicast)** es un modelo de entrega de paquetes donde un único emisor transmite un mensaje de forma simultánea a un **grupo específico de receptores interesados**, en lugar de a un solo destino (_unicast_) o a absolutamente todos los dispositivos de la red (_broadcast_).
 
 Es el método ideal para aplicaciones multimedia en tiempo real, como transmisiones de video en vivo (IPTV), videoconferencias o juegos multijugador, ya que evita que el emisor tenga que duplicar y enviar el mismo archivo miles de veces, ahorrando un inmenso ancho de banda en la red.
-
 Para entender su funcionamiento en Internet de manera sencilla, el proceso se apoya en tres pilares:
-
 #### 1. Las Direcciones de Grupo (Clase D)
-
 Para que los receptores puedan identificarse como miembros de un grupo común, la multidifusión utiliza un rango especial de direcciones IP IPv4 conocidas como **direcciones de Clase D** (que abarcan desde la `224.0.0.0` hasta la `239.255.255.255`).
 
 - **Ámbito local:** El rango `224.0.0.0/24` está reservado exclusivamente para la red local (LAN). Aquí no se requiere enrutamiento; por ejemplo, la IP `224.0.0.1` se usa para enviar un mensaje a todos los hosts de la LAN, y la `224.0.0.2` a todos los routers locales.
