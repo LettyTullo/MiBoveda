@@ -27,6 +27,7 @@ El ecosistema MPLS define dispositivos y clasificaciones específicas para el ma
 # Apilamiento de Etiquetas (_Label Stacking_)
 Gracias al bit **S**, MPLS puede operar a varios niveles de jerarquía de forma simultánea. Si varios flujos que ya tienen etiquetas individuales deben seguir una ruta común a través de la red, el router puede agregar una **segunda etiqueta exterior** en el paquete (creando una pila). El tráfico viaja guiado por la etiqueta externa y, al finalizar el trayecto común, esta etiqueta es retirada, revelando la etiqueta interna original para que continúe su curso individual.
 
+
 >[!tip] Ventajas y Aplicaciones de MPLS
 >- **Independencia de protocolo (Multiprotocolo):** Al no formar parte de la capa de enlace ni de red, MPLS es independiente de ambas. Puede transportar tanto paquetes IP como no IP, o mover paquetes IP sobre infraestructuras físicas que no utilicen direccionamiento IP.
 >- **Ingeniería de Tráfico:** Permite a los operadores calcular y establecer de antemano rutas específicas que eviten los enlaces congestionados, aprovechando la capacidad ociosa de la red de forma dinámica (algo que el enrutamiento IP tradicional por ruta más corta no puede hacer de forma eficiente).
