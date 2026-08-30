@@ -99,9 +99,3 @@ Los operadores utilizan técnicas indirectas para influir en cómo entra y sale 
 
 - **Ingeniería de tráfico saliente:** Se controla fácilmente ajustando de forma directa la _Preferencia Local_ en los routers internos.
 - **Ingeniería de tráfico entrante:** Es más compleja porque no se puede obligar directamente a otra red autónoma a elegir una ruta. Se usan estrategias indirectas como el **AS path prepending** (inflar artificialmente el camino repitiendo varias veces el número de AS propio en los anuncios de ruta para que parezca más largo y menos atractivo) o la **división de prefijos** para aprovechar la coincidencia de prefijo más largo (_longest prefix match_).
-## Multidifusion en internet
-# Protocolo Principal en Internet (PIM)
-Dentro de un Sistema Autónomo (AS), el protocolo exclusivo y estándar para la orquestación de estas rutas es **PIM (Protocol Independent Multicast)**. PIM se adapta a ambos escenarios operativos:
-
-- **PIM en Modo Denso (PIM-DM):** Genera un árbol de reenvío por ruta inversa recortado mediante inundación y poda.
-- **PIM en Modo Disperso (PIM-SM):** Construye árboles de expansión compartidos basados en un núcleo centralizado, óptimo para servicios de distribución a gran escala (como transmisiones de TV digital por IP)
