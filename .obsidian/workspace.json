@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5to semestre/Redes II/Capitulo 5 pt 2/IPV6.md",
+                "file": "5to semestre/Redes II/Capitulo 5 pt 2/MPLS y OSPF.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IPV6"
+              "title": "MPLS y OSPF"
             }
           },
           {
@@ -253,10 +253,10 @@
   },
   "active": "a1a15b18a4a9a16f",
   "lastOpenFiles": [
+    "5to semestre/Redes II/Capitulo 5 pt 2/IPV6.md",
     "_Imagenes/Pasted image 20260830171232.png",
     "_Imagenes/Pasted image 20260830162547.png",
     "5to semestre/Redes II/Capitulo 5 pt 2/IPV4.md",
-    "5to semestre/Redes II/Capitulo 5 pt 2/IPV6.md",
     "5to semestre/Redes II/Capitulo 5 pt 2/MPLS y OSPF.md",
     "5to semestre/Redes II/Capitulo 5 pt 2/SDN (Software Defined Networking).md",
     "5to semestre/Redes II/Capitulo 5 pt 2/Internetworking.md",
@@ -280,7 +280,6 @@
     "_Imagenes/Pasted image 20260815165831.png",
     "_Imagenes/Pasted image 20260815165750.png",
     "_Imagenes/Pasted image 20260815150732.png",
-    "_Imagenes/Screenshot 2026-08-14 125441.png",
     "5to semestre/Redes II/Sin título.md",
     "_Imagenes",
     "5to semestre/Redes II/Capitulo 5 pt 1",
