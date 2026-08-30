@@ -9,6 +9,8 @@ La versión 6 del Protocolo de Internet (**IPv6**) fue diseñada específicament
 
 ## Estructura de la Cabecera Fija (40 bytes)
 
+![[Pasted image 20260830162547.png|458]]
+
 >[!success] La cabecera obligatoria de IPv6 mide exactamente **40 bytes** y consta de los siguientes campos:
 >- **Versión (4 bits):** Contiene el valor **6** para identificar de forma unívoca el protocolo.
 >- **Servicios Diferenciados (8 bits):** Se comporta de la misma forma que en IPv4; utiliza los 6 bits superiores para clasificar el tráfico (QoS basada en clases) y los 2 bits inferiores para la Notificación Explícita de Congestión (ECN).
