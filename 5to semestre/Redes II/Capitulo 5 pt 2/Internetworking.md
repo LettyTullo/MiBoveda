@@ -73,7 +73,7 @@ Enrutar paquetes cruzando fronteras de redes independientes introduce desafíos 
 >[!tip] La solución: Enrutamiento en Dos Niveles
 Para abordar estos retos, se divide el trabajo de enrutamiento en dos jerarquías bien definidas:
 >- **Protocolos Intradominio (IGP - Interior Gateway Protocol):** Son los protocolos que se ejecutan **dentro de cada red autónoma** de forma independiente. Cada operador es libre de configurar y optimizar internamente su red con el protocolo que prefiera (como OSPF o IS-IS).
--> **Protocolos Interdominio (EGP - Exterior Gateway Protocol):** Son los protocolos utilizados para encontrar rutas **entre las distintas redes autónomas** que componen la inter-red. A diferencia de los IGP, aquí todos los operadores están obligados a utilizar el mismo estándar común. En Internet, el estándar exclusivo para esta tarea es el **BGP (Border Gateway Protocol)**.
+ >- **Protocolos Interdominio (EGP - Exterior Gateway Protocol):** Son los protocolos utilizados para encontrar rutas **entre las distintas redes autónomas** que componen la inter-red. A diferencia de los IGP, aquí todos los operadores están obligados a utilizar el mismo estándar común. En Internet, el estándar exclusivo para esta tarea es el **BGP (Border Gateway Protocol)**.
 
 # C. Fragmentacion de paquetes 
 Cada red física en el camino de un paquete tiene una **Unidad de Transmisión Máxima (MTU)**, que es el tamaño máximo de paquete que puede transportar. 
