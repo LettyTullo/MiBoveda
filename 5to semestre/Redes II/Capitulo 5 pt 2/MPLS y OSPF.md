@@ -36,7 +36,6 @@ Gracias al bit **S**, MPLS puede operar a varios niveles de jerarquía de forma 
 ## OSPF
 **OSPF** (siglas de _**Open Shortest Path First**_ o **El camino más corto primero abierto**) es un protocolo de enrutamiento dinámico de tipo **estado de enlace** desarrollado por el IETF que se convirtió en estándar en 1990. Está clasificado como un protocolo de pasarela interior o intradominio (**IGP - Interior Gateway Protocol**), lo que significa que se utiliza para gestionar el enrutamiento de paquetes dentro de una única red independiente o **Sistema Autónomo (AS)**, como la red de una corporación o una universidad.
 
-La letra **"O"** en su nombre hace referencia a que es un estándar publicado de **literatura abierta**, por lo que no es una solución propietaria de ningún fabricante. El protocolo se inspiró originalmente en **IS-IS** (un estándar de la ISO) y adoptó muchas de sus innovaciones para dar soporte a redes robustas y de gran escala.
 # ¿Cómo funciona OSPF? (Mecánica de Estado de Enlace)
 
 A diferencia de los protocolos de vector de distancia (como RIP) que solo intercambian tablas de distancias estimadas con sus vecinos inmediatos, OSPF requiere que los routers sigan un proceso de cinco pasos para calcular rutas basándose en un mapa completo de la red:
