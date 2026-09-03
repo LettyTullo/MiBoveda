@@ -45,12 +45,12 @@ Para trabajar con hilos en GNU/Linux se utiliza la API estándar de **POSIX Thre
 # Mecanismos de Sincronización
 
 La concurrencia trivializa compartir datos pero exige cuidar rigurosamente las **condiciones de carrera** (dos hilos intentando modificar la misma estructura a la vez). 
-#### Que es una condicion de carrrera?
-Una **condición de carrera** (o _race condition_) es un error que ocurre en entornos concurrentes (como programas con múltiples hilos o procesos) cuando dos o más de ellos compiten por acceder y modificar una misma estructura de datos o recurso compartido.
 
-En este escenario, el resultado final de la ejecución es impredecible y depende exclusivamente del orden y de la velocidad con la que el planificador del sistema operativo asigne tiempo de CPU a cada hilo o proceso. El software solo funciona correctamente si un hilo específico se programa antes o con más frecuencia que el otro, lo cual no se puede garantizar de forma nativa.
+>[!info] Que es una condicion de carrrera?
+>Una **condición de carrera** (o _race condition_) es un error que ocurre en entornos concurrentes (como programas con múltiples hilos o procesos) cuando dos o más de ellos compiten por acceder y modificar una misma estructura de datos o recurso compartido.
+>En este escenario, el resultado final de la ejecución es impredecible y depende exclusivamente del orden y de la velocidad con la que el planificador del sistema operativo asigne tiempo de CPU a cada hilo o proceso. El software solo funciona correctamente si un hilo específico se programa antes o con más frecuencia que el otro, lo cual no se puede garantizar de forma nativa.
 
-### Mecanismo de fallo y consecuencias
+# Mecanismo de fallo y consecuencias
 
 Dado que los hilos dentro de un proceso comparten de forma trivial el mismo espacio de direcciones de memoria, los datos globales y los recursos del sistema:
 
@@ -58,26 +58,18 @@ Dado que los hilos dentro de un proceso comparten de forma trivial el mismo espa
 2. El segundo hilo leerá o modificará una información incompleta o inconsistente, provocando fallos imprevisibles o caóticos.
 3. Esto suele derivar en corrupción de datos en memoria, comportamientos anómalos imposibles de reproducir consistentemente en fase de depuración, o terminaciones abruptas del sistema por accesos inválidos, como un **error de segmentación** (_segmentation fault_).
 
-### Un ejemplo clásico: la cola de trabajos (`job_queue`)
-
-Imagina una cola de tareas compartida representada por una lista enlazada, donde múltiples hilos trabajadores consumen trabajos a medida que finalizan. Si queda **un único trabajo** en la cola y dos hilos se liberan casi al mismo tiempo:
-
-- El **Hilo A** comprueba si la cola tiene trabajos y, al ver que no está vacía, guarda el puntero de ese único trabajo.
-- Antes de que el Hilo A pueda desvincular ese trabajo de la lista, el sistema operativo lo interrumpe y cede el control al **Hilo B**.
-- El **Hilo B** evalúa la cola, ve exactamente el mismo trabajo disponible y lo toma.
-- Al reanudarse, ambos hilos intentarán procesar y posteriormente liberar (`free`) el mismo bloque de memoria del trabajo, provocando una inconsistencia y un error de segmentación cuando uno de ellos intente evaluar un puntero que ya apunta a nulo o que fue destruido.
-
-### ¿Cómo se solucionan las condiciones de carrera?
-
+>[!example] Un ejemplo clásico: la cola de trabajos (`job_queue`)
+>Imagina una cola de tareas compartida representada por una lista enlazada, donde múltiples hilos trabajadores consumen trabajos a medida que finalizan. Si queda **un único trabajo** en la cola y dos hilos se liberan casi al mismo tiempo:
+>- El **Hilo A** comprueba si la cola tiene trabajos y, al ver que no está vacía, guarda el puntero de ese único trabajo.
+>- Antes de que el Hilo A pueda desvincular ese trabajo de la lista, el sistema operativo lo interrumpe y cede el control al **Hilo B**.
+>- El **Hilo B** evalúa la cola, ve exactamente el mismo trabajo disponible y lo toma.
+>- Al reanudarse, ambos hilos intentarán procesar y posteriormente liberar (`free`) el mismo bloque de memoria del trabajo, provocando una inconsistencia y un error de segmentación cuando uno de ellos intente evaluar un puntero que ya apunta a nulo o que fue destruido.
+#### ¿Cómo se solucionan las condiciones de carrera?
 Para eliminar estos fallos, es necesario convertir las lecturas y escrituras sobre variables compartidas en **operaciones atómicas** (es decir, secuencias indivisibles e ininterrumpibles). En Linux, se utilizan diversos mecanismos de sincronización:
 
 - **Mutexes (Exclusión mutua):** Actúan como un cerrojo que solo permite que un único hilo a la vez acceda a la sección crítica (la porción de código que accede a los datos compartidos).
 - **Semáforos:** Sincronizan el acceso mediante contadores seguros que bloquean de forma atómica a los hilos cuando un recurso limitado llega a cero.
 - **Variables de condición:** Permiten suspender hilos de forma eficiente hasta que se cumpla una condición específica y otro hilo les envíe una señal de aviso.
-
----
-
-🏃‍♂️ ¿Te gustaría que implementemos el código de la cola de trabajos utilizando un mutex en C para ver cómo se previene de forma práctica esta condición de carrera en tus ejercicios?
 #### A. Mutexes (Exclusión Mutua)
 
 Un mutex actúa como el pestillo de una puerta: solo un hilo puede poseerlo en un momento dado.
